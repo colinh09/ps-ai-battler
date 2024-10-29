@@ -52,7 +52,8 @@ CREATE TABLE pokemon (
     ability1 VARCHAR(255) REFERENCES abilities(ability_name),
     ability2 VARCHAR(255) REFERENCES abilities(ability_name),
     ability3 VARCHAR(255) REFERENCES abilities(ability_name),
-    tier VARCHAR(255),  -- Changed to single tier
+    tier VARCHAR(255),
+    strategy TEXT,
     hp INTEGER NOT NULL,
     atk INTEGER NOT NULL,
     def INTEGER NOT NULL,

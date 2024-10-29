@@ -38,6 +38,16 @@ def get_valid_tier(formats):
             return format
     return None
 
+def get_strategy_text(pokemon_name, descriptions_data):
+    """Get strategy text for a Pokemon, return None if outdated or no content"""
+    if pokemon_name not in descriptions_data:
+        return None
+    
+    text = descriptions_data[pokemon_name]['text']
+    if text.lower() in ['outdated', 'no content']:
+        return None
+    return text
+
 def insert_types(cursor, types_data):
     print("Inserting types...")
     for type_entry in types_data['type_matchups']:
@@ -95,7 +105,7 @@ def insert_moves(cursor, moves_data):
         ) for move in moves_data]
     )
 
-def insert_pokemon(cursor, pokemon_data):
+def insert_pokemon(cursor, pokemon_data, descriptions_data):
     print("Inserting pokemon...")
     for pokemon in pokemon_data:
         # Get valid tier (non-National Dex)
@@ -107,12 +117,15 @@ def insert_pokemon(cursor, pokemon_data):
         if pokemon.get('type2'):  # If type2 exists in the data, override the parsed type2
             _, type2 = parse_types(pokemon['type2'])
         
+        # Get strategy text
+        strategy = get_strategy_text(pokemon['name'], descriptions_data)
+        
         # Insert the main pokemon data
         cursor.execute("""
             INSERT INTO pokemon (
                 pokemon_name, type1, type2, ability1, ability2, ability3,
-                tier, hp, atk, def, spa, spd, spe
-            ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+                tier, hp, atk, def, spa, spd, spe, strategy
+            ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
         """, (
             pokemon['name'],
             type1,
@@ -126,7 +139,8 @@ def insert_pokemon(cursor, pokemon_data):
             clean_stat(pokemon['def']),
             clean_stat(pokemon['spa']),
             clean_stat(pokemon['spd']),
-            clean_stat(pokemon['spe'])
+            clean_stat(pokemon['spe']),
+            strategy
         ))
 
 def main():
@@ -148,7 +162,8 @@ def main():
         'abilities': load_json_file(data_dir / 'smogon_abilities.json'),
         'items': load_json_file(data_dir / 'smogon_items.json'),
         'moves': load_json_file(data_dir / 'smogon_moves.json'),
-        'pokemon': load_json_file(data_dir / 'smogon_pokemon.json')
+        'pokemon': load_json_file(data_dir / 'smogon_pokemon.json'),
+        'descriptions': load_json_file(data_dir / 'pokemon_descriptions.json')
     }
 
     try:
@@ -162,7 +177,7 @@ def main():
         insert_abilities(cursor, files['abilities'])
         insert_items(cursor, files['items'])
         insert_moves(cursor, files['moves'])
-        insert_pokemon(cursor, files['pokemon'])
+        insert_pokemon(cursor, files['pokemon'], files['descriptions'])
 
         # Commit the transaction
         conn.commit()

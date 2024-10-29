@@ -1,0 +1,9 @@
+"""
+llm:
+    api: "sncloud"
+    temperature: 0.0
+    do_sample: false
+    max_tokens_to_generate: 1024
+    coe: true
+    select_expert: "llama3-70b"
+"""
