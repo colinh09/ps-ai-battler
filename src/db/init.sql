@@ -1,25 +1,16 @@
 -- Create types table first since it will be referenced by pokemon
-CREATE TABLE types (
-    type_name VARCHAR(255) PRIMARY KEY,
-    bug_multiplier DECIMAL(3,1) NOT NULL,
-    dark_multiplier DECIMAL(3,1) NOT NULL,
-    dragon_multiplier DECIMAL(3,1) NOT NULL,
-    electric_multiplier DECIMAL(3,1) NOT NULL,
-    fairy_multiplier DECIMAL(3,1) NOT NULL,
-    fighting_multiplier DECIMAL(3,1) NOT NULL,
-    fire_multiplier DECIMAL(3,1) NOT NULL,
-    flying_multiplier DECIMAL(3,1) NOT NULL,
-    ghost_multiplier DECIMAL(3,1) NOT NULL,
-    grass_multiplier DECIMAL(3,1) NOT NULL,
-    ground_multiplier DECIMAL(3,1) NOT NULL,
-    ice_multiplier DECIMAL(3,1) NOT NULL,
-    normal_multiplier DECIMAL(3,1) NOT NULL,
-    poison_multiplier DECIMAL(3,1) NOT NULL,
-    psychic_multiplier DECIMAL(3,1) NOT NULL,
-    rock_multiplier DECIMAL(3,1) NOT NULL,
-    steel_multiplier DECIMAL(3,1) NOT NULL,
-    stellar_multiplier DECIMAL(3,1) NOT NULL,
-    water_multiplier DECIMAL(3,1) NOT NULL
+CREATE TABLE types_attacking (
+    attacking_type VARCHAR(20),
+    defending_type VARCHAR(20),
+    multiplier DECIMAL,
+    PRIMARY KEY (attacking_type, defending_type)
+);
+
+CREATE TABLE types_defending (
+    attacking_type VARCHAR(20),
+    defending_type VARCHAR(20),
+    multiplier DECIMAL,
+    PRIMARY KEY (attacking_type, defending_type)
 );
 
 -- Create abilities table before pokemon since it will be referenced
@@ -37,7 +28,7 @@ CREATE TABLE items (
 -- Create moves table
 CREATE TABLE moves (
     move_name VARCHAR(255) PRIMARY KEY,
-    type VARCHAR(255) NOT NULL REFERENCES types(type_name),
+    type VARCHAR(255),
     power VARCHAR(255),
     accuracy VARCHAR(255),
     pp VARCHAR(255),
@@ -47,8 +38,8 @@ CREATE TABLE moves (
 -- Create pokemon table with single tier
 CREATE TABLE pokemon (
     pokemon_name VARCHAR(255) PRIMARY KEY,
-    type1 VARCHAR(255) NOT NULL REFERENCES types(type_name),
-    type2 VARCHAR(255) REFERENCES types(type_name),
+    type1 VARCHAR(255),
+    type2 VARCHAR(255),
     ability1 VARCHAR(255) REFERENCES abilities(ability_name),
     ability2 VARCHAR(255) REFERENCES abilities(ability_name),
     ability3 VARCHAR(255) REFERENCES abilities(ability_name),

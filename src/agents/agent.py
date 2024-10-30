@@ -2,7 +2,7 @@ import os
 import logging
 from typing import Optional, Dict, Any
 from dotenv import load_dotenv
-from model_wrappers.api_gateway import APIGateway
+from .model_wrappers.api_gateway import APIGateway
 import psycopg2
 from psycopg2.extras import RealDictCursor
 from decimal import Decimal
@@ -25,48 +25,85 @@ class PokemonDBTools:
         self.logger.debug(f"Attempting to connect to database: {self.db_params['dbname']} at {self.db_params['host']}")
         return psycopg2.connect(**self.db_params)
 
-    def calculate_type_matchups(self, type1: str, type2: Optional[str] = None) -> Dict[str, float]:
-        """Calculate defensive type matchups for a Pokemon"""
+    def calculate_type_matchups(self, type1: str, type2: Optional[str] = None) -> Dict[str, Dict[str, float]]:
+        """
+        Calculate both offensive and defensive type matchups for a Pokemon
+        
+        Returns:
+            Dict with both 'attacking' and 'defending' matchups
+        """
         self.logger.info(f"Calculating type matchups for type1={type1}, type2={type2}")
         
         with self.get_connection() as conn:
             with conn.cursor(cursor_factory=RealDictCursor) as cur:
-                # Get multipliers for type1
-                self.logger.debug(f"Fetching multipliers for type1: {type1}")
+                # Calculate defensive matchups (what's super effective against us)
+                self.logger.debug("Calculating defensive matchups")
                 cur.execute("""
-                    SELECT * FROM types WHERE type_name = %s
+                    SELECT attacking_type, multiplier 
+                    FROM types_defending 
+                    WHERE defending_type = %s
                 """, (type1,))
-                type1_data = cur.fetchone()
                 
-                if not type1_data:
-                    self.logger.error(f"No data found for type: {type1}")
-                    return {}
+                defensive_matchups = {row['attacking_type']: float(row['multiplier']) 
+                                    for row in cur.fetchall()}
                 
-                self.logger.debug(f"Type1 data: {type1_data}")
-                
-                # Initialize matchups with type1 multipliers
-                matchups = {k.replace('_multiplier', ''): float(v) 
-                          for k, v in dict(type1_data).items() 
-                          if k.endswith('_multiplier')}
-                
-                # If there's a second type, multiply its effectiveness
+                # If this is a dual-type Pokemon, factor in the second type's defensive matchups
                 if type2:
-                    self.logger.debug(f"Fetching multipliers for type2: {type2}")
                     cur.execute("""
-                        SELECT * FROM types WHERE type_name = %s
+                        SELECT attacking_type, multiplier 
+                        FROM types_defending 
+                        WHERE defending_type = %s
                     """, (type2,))
-                    type2_data = cur.fetchone()
                     
-                    if not type2_data:
-                        self.logger.error(f"No data found for type: {type2}")
-                    else:
-                        self.logger.debug(f"Type2 data: {type2_data}")
-                        for type_name in matchups:
-                            multiplier_key = f"{type_name}_multiplier"
-                            matchups[type_name] *= float(type2_data[multiplier_key])
+                    type2_defensive = {row['attacking_type']: float(row['multiplier']) 
+                                    for row in cur.fetchall()}
+                    
+                    # Combine matchups by multiplying effectiveness
+                    for attack_type, multiplier in type2_defensive.items():
+                        if attack_type in defensive_matchups:
+                            defensive_matchups[attack_type] *= multiplier
+                        else:
+                            defensive_matchups[attack_type] = multiplier
                 
-                self.logger.info(f"Final type matchups: {matchups}")
-                return matchups
+                # Calculate offensive matchups (what we're super effective against)
+                self.logger.debug("Calculating offensive matchups")
+                cur.execute("""
+                    SELECT defending_type, multiplier 
+                    FROM types_attacking 
+                    WHERE attacking_type = %s
+                """, (type1,))
+                
+                offensive_matchups = {row['defending_type']: float(row['multiplier']) 
+                                    for row in cur.fetchall()}
+                
+                # If dual-type, get the second type's offensive matchups
+                if type2:
+                    cur.execute("""
+                        SELECT defending_type, multiplier 
+                        FROM types_attacking 
+                        WHERE attacking_type = %s
+                    """, (type2,))
+                    
+                    type2_offensive = {row['defending_type']: float(row['multiplier']) 
+                                    for row in cur.fetchall()}
+                    
+                    # For offensive matchups, take the best multiplier
+                    for defend_type, multiplier in type2_offensive.items():
+                        if defend_type in offensive_matchups:
+                            offensive_matchups[defend_type] = max(
+                                offensive_matchups[defend_type], 
+                                multiplier
+                            )
+                        else:
+                            offensive_matchups[defend_type] = multiplier
+                
+                self.logger.debug(f"Defensive matchups: {defensive_matchups}")
+                self.logger.debug(f"Offensive matchups: {offensive_matchups}")
+                
+                return {
+                    'defending': defensive_matchups,
+                    'attacking': offensive_matchups
+                }
 
     def get_pokemon_complete_data(self, pokemon_name: str) -> Dict[str, Any]:
         """Get complete information about a Pokemon including stats, abilities, and type matchups"""
@@ -156,19 +193,19 @@ class PSAgent:
         )
     
     def format_pokemon_data(self, pokemon_data: Dict[str, Any]) -> str:
-        """Format Pokemon data for the LLM"""
+        """Format Pokemon data for the LLM with separate offensive and defensive matchups"""
         self.logger.info("Formatting Pokemon data for LLM")
         
         if "error" in pokemon_data:
             self.logger.error(f"Error in Pokemon data: {pokemon_data['error']}")
             return pokemon_data["error"]
-            
-        # Format type matchups into weaknesses and resistances
+        
+        # Format defensive matchups
         weaknesses = []
         resistances = []
         immunities = []
         
-        for type_name, multiplier in pokemon_data['type_matchups'].items():
+        for type_name, multiplier in pokemon_data['type_matchups']['defending'].items():
             if multiplier > 1:
                 weaknesses.append(f"{type_name} ({multiplier}x)")
             elif multiplier < 1 and multiplier > 0:
@@ -176,34 +213,48 @@ class PSAgent:
             elif multiplier == 0:
                 immunities.append(type_name)
         
-        self.logger.debug(f"Formatted weaknesses: {weaknesses}")
-        self.logger.debug(f"Formatted resistances: {resistances}")
-        self.logger.debug(f"Formatted immunities: {immunities}")
+        # Format offensive matchups
+        strong_against = []
+        weak_against = []
+        no_effect = []
+        
+        for type_name, multiplier in pokemon_data['type_matchups']['attacking'].items():
+            if multiplier > 1:
+                strong_against.append(f"{type_name} ({multiplier}x)")
+            elif multiplier < 1 and multiplier > 0:
+                weak_against.append(f"{type_name} ({multiplier}x)")
+            elif multiplier == 0:
+                no_effect.append(type_name)
                 
         formatted_data = f"""Pokemon Information:
-Name: {pokemon_data['pokemon_name']}
-Type: {pokemon_data['type1']}{f"/{pokemon_data['type2']}" if pokemon_data['type2'] else ""}
-Tier: {pokemon_data['tier']}
+    Name: {pokemon_data['pokemon_name']}
+    Type: {pokemon_data['type1']}{f"/{pokemon_data['type2']}" if pokemon_data['type2'] else ""}
+    Tier: {pokemon_data['tier']}
 
-Base Stats:
-HP: {pokemon_data['hp']}
-Attack: {pokemon_data['atk']}
-Defense: {pokemon_data['def']}
-Special Attack: {pokemon_data['spa']}
-Special Defense: {pokemon_data['spd']}
-Speed: {pokemon_data['spe']}
+    Base Stats:
+    HP: {pokemon_data['hp']}
+    Attack: {pokemon_data['atk']}
+    Defense: {pokemon_data['def']}
+    Special Attack: {pokemon_data['spa']}
+    Special Defense: {pokemon_data['spd']}
+    Speed: {pokemon_data['spe']}
 
-Abilities:
-{chr(10).join(f"- {ability['name']}: {ability['description']}" for ability in pokemon_data['abilities'])}
+    Abilities:
+    {chr(10).join(f"- {ability['name']}: {ability['description']}" for ability in pokemon_data['abilities'])}
 
-Type Matchups:
-Weaknesses: {', '.join(weaknesses) if weaknesses else 'None'}
-Resistances: {', '.join(resistances) if resistances else 'None'}
-Immunities: {', '.join(immunities) if immunities else 'None'}
+    Defensive Type Matchups:
+    Takes Super Effective Damage From: {', '.join(weaknesses) if weaknesses else 'None'}
+    Resists Damage From: {', '.join(resistances) if resistances else 'None'}
+    Immune To: {', '.join(immunities) if immunities else 'None'}
 
-Strategy:
-{pokemon_data['strategy'] if pokemon_data['strategy'] else 'No strategy information available.'}
-"""
+    Offensive Type Matchups:
+    Super Effective Against: {', '.join(strong_against) if strong_against else 'None'}
+    Not Very Effective Against: {', '.join(weak_against) if weak_against else 'None'}
+    No Effect Against: {', '.join(no_effect) if no_effect else 'None'}
+
+    Strategy:
+    {pokemon_data['strategy'] if pokemon_data['strategy'] else 'No strategy information available.'}
+    """
         self.logger.debug(f"Final formatted data:\n{formatted_data}")
         return formatted_data
 
@@ -211,41 +262,8 @@ Strategy:
         """Enhanced query-response interaction with Pokemon data integration"""
         self.logger.info(f"Processing query: {query}")
         try:
-            # Check if the query is asking about a specific Pokemon
-            pokemon_name = None
-            query_lower = query.lower()
-            
-            # Look for patterns like "tell me about [pokemon]" or "what is [pokemon]"
-            common_patterns = ["tell me about ", "what is ", "info on ", "information about "]
-            for pattern in common_patterns:
-                if pattern in query_lower:
-                    potential_name = query_lower.split(pattern)[-1].strip().strip('?').title()
-                    self.logger.debug(f"Found potential Pokemon name: {potential_name}")
-                    pokemon_data = self.db_tools.get_pokemon_complete_data(potential_name)
-                    if 'error' not in pokemon_data:
-                        pokemon_name = potential_name
-                        self.logger.info(f"Confirmed valid Pokemon name: {pokemon_name}")
-                        break
-            
-            if pokemon_name:
-                self.logger.info(f"Retrieving data for Pokemon: {pokemon_name}")
-                pokemon_data = self.db_tools.get_pokemon_complete_data(pokemon_name)
-                formatted_data = self.format_pokemon_data(pokemon_data)
-                
-                # Combine the formatted data with the LLM response
-                enhanced_query = f"""Based on the following Pokemon data, please answer this query: {query}
-
-{formatted_data}. The focus is to discuss the pokemon's usage within competitive pokemon. Go into detail about
-how it can be used competitively, its abilities, typing advantages and disadvantages, and stats."""
-                
-                self.logger.debug(f"Enhanced query for LLM:\n{enhanced_query}")
-                response = self.llm.invoke(enhanced_query)
-                self.logger.debug(f"LLM response:\n{response}")
-            else:
-                self.logger.info("No Pokemon name found in query, passing directly to LLM")
-                response = self.llm.invoke(query)
-                self.logger.debug(f"LLM response:\n{response}")
-                
+            response = self.llm.invoke(query)
+            self.logger.debug(f"LLM response:\n{response}")
             return response
             
         except Exception as e:
