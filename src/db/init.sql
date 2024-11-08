@@ -53,7 +53,23 @@ CREATE TABLE pokemon (
     spe INTEGER NOT NULL
 );
 
+-- Create random battles roles table
+CREATE TABLE random_battle_sets (
+    pokemon_name VARCHAR(255) REFERENCES pokemon(pokemon_name),
+    role_name VARCHAR(255),
+    level INTEGER NOT NULL,
+    abilities JSONB,
+    items JSONB,
+    tera_types JSONB,
+    moves JSONB,
+    evs JSONB,
+    ivs JSONB,
+    PRIMARY KEY (pokemon_name, role_name)
+);
+
 -- Create indexes for better query performance
+CREATE INDEX idx_random_battle_sets_pokemon ON random_battle_sets(pokemon_name);
+CREATE INDEX idx_random_battle_sets_role ON random_battle_sets(role_name);
 CREATE INDEX idx_pokemon_type1 ON pokemon(type1);
 CREATE INDEX idx_pokemon_type2 ON pokemon(type2);
 CREATE INDEX idx_moves_type ON moves(type);

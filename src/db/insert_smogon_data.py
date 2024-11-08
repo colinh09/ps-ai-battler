@@ -28,8 +28,7 @@ def get_valid_tier(formats):
     if not formats:
         return None
     for format in formats:
-        if not format.startswith("National Dex"):
-            return format
+        return format  # Returns the first format if it exists
     return None
 
 def get_strategy_text(pokemon_name, descriptions_data):
@@ -45,12 +44,9 @@ def insert_pokemon(cursor, pokemon_data, descriptions_data):
     print(f"Inserting {len(pokemon_data)} pokemon...")
     for pokemon in pokemon_data:
         try:
-            # Get valid tier (non-National Dex)
+            # Get tier if it exists, otherwise None
             tier = get_valid_tier(pokemon.get('formats', []))
-            if not tier:  # Skip pokemon without valid tiers
-                print(f"Skipping {pokemon['name']} - no valid tier")
-                continue
-
+            
             type1, type2 = parse_types(pokemon['type1'])
             if pokemon.get('type2'):  # If type2 exists in the data, override the parsed type2
                 _, type2 = parse_types(pokemon['type2'])
@@ -71,7 +67,7 @@ def insert_pokemon(cursor, pokemon_data, descriptions_data):
                 clean_ability(pokemon.get('ability1')),
                 clean_ability(pokemon.get('ability2')),
                 clean_ability(pokemon.get('ability3')),
-                tier,
+                tier,  # Will be None if no formats exist
                 clean_stat(pokemon['hp']),
                 clean_stat(pokemon['atk']),
                 clean_stat(pokemon['def']),
@@ -83,6 +79,32 @@ def insert_pokemon(cursor, pokemon_data, descriptions_data):
             print(f"Inserted pokemon: {pokemon['name']}")
         except Exception as e:
             print(f"Error inserting pokemon {pokemon['name']}: {e}")
+
+def insert_random_battles(cursor, random_battles_data):
+    print(f"Inserting random battles data...")
+    for pokemon_name, data in random_battles_data.items():
+        try:
+            # Insert each role as a separate entry
+            for role_name, role_data in data.get('roles', {}).items():
+                cursor.execute("""
+                    INSERT INTO random_battle_sets (
+                        pokemon_name, role_name, level, abilities, items, 
+                        tera_types, moves, evs, ivs
+                    ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)
+                """, (
+                    pokemon_name,
+                    role_name,
+                    data.get('level'),
+                    json.dumps(role_data.get('abilities', [])),
+                    json.dumps(role_data.get('items', [])),
+                    json.dumps(role_data.get('teraTypes', [])),
+                    json.dumps(role_data.get('moves', [])),
+                    json.dumps(role_data.get('evs', {})),
+                    json.dumps(role_data.get('ivs', {}))
+                ))
+                print(f"Inserted random battle set for {pokemon_name} - {role_name}")
+        except Exception as e:
+            print(f"Error inserting random battle data for {pokemon_name} - {role_name}: {e}")
 
 def insert_type_matchups(cursor, types_data):
     print("Inserting attacking type matchups...")
@@ -177,7 +199,8 @@ def main():
         'items': load_json_file(data_dir / 'smogon_items.json'),
         'moves': load_json_file(data_dir / 'smogon_moves.json'),
         'pokemon': load_json_file(data_dir / 'smogon_pokemon.json'),
-        'descriptions': load_json_file(data_dir / 'pokemon_descriptions.json')
+        'descriptions': load_json_file(data_dir / 'pokemon_descriptions.json'),
+        'random_battles': load_json_file(data_dir / 'gen9randombattle.json')
     }
 
     try:
@@ -205,6 +228,10 @@ def main():
         insert_pokemon(cursor, files['pokemon'], files['descriptions'])
         conn.commit()
         print("Pokemon inserted successfully")
+
+        insert_random_battles(cursor, files['random_battles'])
+        conn.commit()
+        print("Random battles data inserted successfully")
 
         print("All data inserted successfully!")
 
