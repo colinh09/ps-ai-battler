@@ -24,10 +24,8 @@ class Pokemon:
     })
     tera_type: Optional[str] = None
     revealed: bool = False
-    # New fields
     item: Optional[str] = None
     terastallized: bool = False
-    can_terastallize: bool = False
     stats: Dict[str, int] = field(default_factory=lambda: {
         "atk": 0, "def": 0, "spa": 0, "spd": 0, "spe": 0
     })
@@ -38,6 +36,7 @@ class BattleState:
     team_pokemon: Dict[str, Dict[str, Pokemon]]
     field_conditions: Dict[str, any]
     side_conditions: Dict[str, Dict[str, list]]
+    tera_used: bool = False  # New field to track if tera has been used this battle
     
     @classmethod
     def create_initial_state(cls):
@@ -65,8 +64,10 @@ class BattleState:
                     "hazards": [],
                     "screens": []
                 }
-            }
+            },
+            tera_used=False
         )
+
 
 class ShowdownBot:
     def __init__(self, username: str, password: str, target_username: str):
@@ -110,10 +111,18 @@ class ShowdownBot:
         for player in ["p1", "p2"]:
             if self.battle_state.active_pokemon[player]:
                 poke = self.battle_state.active_pokemon[player]
-                # Convert HP to percentage
-                hp_val = poke.hp.split('/')[0]
-                max_hp = poke.hp.split('/')[1]
-                hp_percent = round((float(hp_val) / float(max_hp)) * 100, 1)
+                # Handle fainted Pokemon
+                if poke.hp == "0" or poke.hp == "0 fnt" or "fnt" in poke.hp:
+                    hp_percent = 0
+                else:
+                    # Convert HP to percentage
+                    try:
+                        hp_val = poke.hp.split('/')[0]
+                        max_hp = poke.hp.split('/')[1]
+                        hp_percent = round((float(hp_val) / float(max_hp)) * 100, 1)
+                    except (IndexError, ValueError):
+                        hp_percent = 0
+                        print(f"Warning: Could not parse HP value: {poke.hp}")
                 
                 print(f"{player}: {poke.name} (HP: {hp_percent}%, Status: {poke.status})")
                 if poke.ability:
@@ -132,17 +141,23 @@ class ShowdownBot:
                     print(f"  Tera Type: {poke.tera_type}")
                     if poke.terastallized:
                         print("  Currently Terastallized")
-                    elif poke.can_terastallize:
-                        print("  Can Terastallize")
 
         print("\nTeam Pokemon:")
         for player in ["p1", "p2"]:
             print(f"\n{player} team:")
             for poke_name, poke in self.battle_state.team_pokemon[player].items():
-                # Convert HP to percentage
-                hp_val = poke.hp.split('/')[0]
-                max_hp = poke.hp.split('/')[1]
-                hp_percent = round((float(hp_val) / float(max_hp)) * 100, 1)
+                # Handle fainted Pokemon
+                if poke.hp == "0" or poke.hp == "0 fnt" or "fnt" in poke.hp:
+                    hp_percent = 0
+                else:
+                    # Convert HP to percentage
+                    try:
+                        hp_val = poke.hp.split('/')[0]
+                        max_hp = poke.hp.split('/')[1]
+                        hp_percent = round((float(hp_val) / float(max_hp)) * 100, 1)
+                    except (IndexError, ValueError):
+                        hp_percent = 0
+                        print(f"Warning: Could not parse HP value: {poke.hp}")
                 
                 status_str = f", Status: {poke.status}" if poke.status else ""
                 ability_str = f", Ability: {poke.ability}" if poke.ability else ""
@@ -216,12 +231,28 @@ class ShowdownBot:
             "atk": 0, "def": 0, "spa": 0, "spd": 0, "spe": 0
         }
 
-    async def make_move(self, move_index: int) -> bool:
-        """Try to make a move with the given index"""
+
+    async def make_move(self, move_index: int, tera: bool = False) -> bool:
+        """
+        Try to make a move with the given index
+        
+        Args:
+            move_index (int): Index of the move to use
+            tera (bool): Whether to terastallize before using the move
+        """
         if not self.current_battle or not self.waiting_for_decision:
             return False
+        
+        # Build the move command
+        if tera:
+            move_cmd = f"{self.current_battle}|/choose move {move_index} terastallize"
+            # Set the tera flags when we use it
+            self.battle_state.tera_used = True
+            if self.battle_state.active_pokemon[self.player_id]:
+                self.battle_state.active_pokemon[self.player_id].terastallized = True
+        else:
+            move_cmd = f"{self.current_battle}|/choose move {move_index}"
             
-        move_cmd = f"{self.current_battle}|/choose move {move_index}"
         await self.ws.send(move_cmd)
         self.waiting_for_decision = False
         return True
@@ -245,7 +276,14 @@ class ShowdownBot:
         if valid_moves:
             print("\nAvailable Moves:")
             for move in valid_moves:
-                print(f"  {move['index']}. {move['move']} (Type: {move['type']}, PP: {move['pp']}/{move['maxpp']})")
+                move_str = f"  {move['index']}. {move['move']} (Type: {move['type']}, PP: {move['pp']}/{move['maxpp']})"
+                if move['can_tera']:
+                    move_str += " [Can Terastallize]"
+                    print(f"{move_str}")
+                    # Add terastallize option for this move
+                    print(f"  {move['index']}t. {move['move']} + Terastallize")
+                else:
+                    print(move_str)
         
         # Print available switches
         valid_switches = self.get_valid_switches()
@@ -257,7 +295,10 @@ class ShowdownBot:
         if not valid_moves and not valid_switches:
             print("\nNo valid moves or switches available!")
         
-        print("\nEnter 'move X' to use a move or 'switch X' to switch Pokemon (e.g., 'move 1' or 'switch 2')")
+        print("\nEnter:")
+        print("'move X' to use a move (e.g., 'move 1')")
+        print("'move Xt' to use a move with terastallize (e.g., 'move 1t')")
+        print("'switch X' to switch Pokemon (e.g., 'switch 2')")
         print("======================")
 
     async def handle_battle_message(self, room_id: str, message: str):
@@ -277,6 +318,11 @@ class ShowdownBot:
                     continue
                     
                 command = parts[1]
+                
+                # Add debug print for each command
+                print(f"Processing command: {command}")
+                if len(parts) > 2:
+                    print(f"Command data: {parts[2:]}")
                 
                 # Handle different message types
                 if command == "player":
@@ -367,8 +413,13 @@ class ShowdownBot:
                 
                 elif command == "faint":
                     player = parts[2][:2]
+                    print(f"\n=== FAINT DEBUG ===")
+                    print(f"Pokemon fainted for player: {player}")
+                    print(f"Current active Pokemon state: {self.battle_state.active_pokemon}")
                     if player in self.battle_state.active_pokemon and self.battle_state.active_pokemon[player]:
+                        print(f"Setting HP to 0 for {self.battle_state.active_pokemon[player].name}")
                         self.battle_state.active_pokemon[player].hp = "0/100"
+                    print("=== END FAINT DEBUG ===\n")
                 
                 elif command == "win":
                     winner = parts[2]
@@ -379,32 +430,58 @@ class ShowdownBot:
                 
                 elif command == "request":
                     if not parts[2]:
+                        print("Empty request data")
                         continue
                     
+                    print("\n=== REQUEST DEBUG ===")
                     request = json.loads(parts[2])
+                    print(f"Full request data: {json.dumps(request, indent=2)}")
                     self.current_request = request
                     
                     # Update Pokemon information from request
                     if "side" in request:
+                        print(f"Processing side data for {len(request['side']['pokemon'])} Pokemon")
                         for pokemon_data in request["side"]["pokemon"]:
                             name = pokemon_data["ident"].split(": ")[1]
-                            if name in self.battle_state.team_pokemon[self.player_id]:
-                                pokemon = self.battle_state.team_pokemon[self.player_id][name]
-                                pokemon.item = pokemon_data.get("item")
-                                pokemon.hp = pokemon_data.get("condition", "100/100")
-                                pokemon.stats = pokemon_data.get("stats", {})
-                                pokemon.tera_type = pokemon_data.get("teraType")
-                                pokemon.terastallized = bool(pokemon_data.get("terastallized"))
+                            print(f"Updating Pokemon: {name}")
+                            
+                            # Create Pokemon if it doesn't exist
+                            if name not in self.battle_state.team_pokemon[self.player_id]:
+                                self.battle_state.team_pokemon[self.player_id][name] = Pokemon(name=name)
+                            
+                            pokemon = self.battle_state.team_pokemon[self.player_id][name]
+                            
+                            # Update all available information
+                            pokemon.item = pokemon_data.get("item")
+                            pokemon.hp = pokemon_data.get("condition", "100/100")
+                            pokemon.stats = pokemon_data.get("stats", {})
+                            pokemon.ability = pokemon_data.get("ability")
+                            pokemon.tera_type = pokemon_data.get("teraType")
+                            pokemon.terastallized = bool(pokemon_data.get("terastallized"))
+                            
+                            # Update moves
+                            if "moves" in pokemon_data:
+                                pokemon.moves = set(move for move in pokemon_data["moves"])
+                            
+                            # Update active status
+                            if pokemon_data.get("active"):
+                                self.battle_state.active_pokemon[self.player_id] = pokemon
                     
-                    # Update terastallize availability for active Pokemon
+                    # Update terastallize availability
                     if "active" in request and request["active"]:
-                        active_data = request["active"][0]
-                        active_pokemon = self.battle_state.active_pokemon[self.player_id]
-                        if active_pokemon:
-                            active_pokemon.can_terastallize = "canTerastallize" in active_data
+                        print("Active Pokemon data exists")
+                        try:
+                            active_data = request["active"][0]
+                            active_pokemon = self.battle_state.active_pokemon[self.player_id]
+                            print(f"Active Pokemon: {active_pokemon.name if active_pokemon else 'None'}")
+                        except IndexError:
+                            print("WARNING: Could not access active[0] - active list is empty")
+                        except Exception as e:
+                            print(f"ERROR processing active Pokemon: {str(e)}")
+                    
+                    print("=== END REQUEST DEBUG ===\n")
                     
                     self.print_battle_state()
-                    # Add a small delay to let all state updates complete
                     await asyncio.sleep(0.1)
                     
                     if "forceSwitch" in request and request["forceSwitch"][0]:
@@ -412,7 +489,7 @@ class ShowdownBot:
                         print("\nForce switch required!")
                         self.print_available_options()
                         
-                    elif "active" in request and request["active"]:
+                    elif "active" in request and request["active"] and len(request["active"]) > 0:
                         self.waiting_for_decision = True
                         print("\nMove required!")
                         self.print_available_options()
@@ -424,13 +501,15 @@ class ShowdownBot:
         except Exception as e:
             print(f"Error in handle_battle_message: {str(e)}")
             print(f"Message was: {message}")
+            print("Full error details:", str(e.__class__.__name__), str(e))
+            import traceback
+            print("Traceback:", traceback.format_exc())
 
     async def receive_messages(self):
         """Main message handling loop"""
         try:
             while True:
                 message = await self.ws.recv()
-                print(f"Received: {message}")
                 
                 if "|challstr|" in message:
                     challstr = message.split("|challstr|")[1]
@@ -512,15 +591,23 @@ class ShowdownBot:
             return []
             
         valid_moves = []
+        active_pokemon = self.battle_state.active_pokemon[self.player_id]
+        # Can tera if we haven't used it this battle and current Pokemon isn't already terastallized
+        can_tera = (not self.battle_state.tera_used and 
+                    active_pokemon and 
+                    not active_pokemon.terastallized)
+        
         for i, move in enumerate(active["moves"], 1):
             if not move.get("disabled", False):
-                valid_moves.append({
+                move_data = {
                     "index": i,
                     "move": move["move"],
                     "type": move.get("type"),
                     "pp": move.get("pp", 0),
-                    "maxpp": move.get("maxpp", 0)
-                })
+                    "maxpp": move.get("maxpp", 0),
+                    "can_tera": can_tera 
+                }
+                valid_moves.append(move_data)
         return valid_moves
 
     def get_valid_switches(self) -> List[Dict]:
@@ -558,30 +645,41 @@ class ShowdownBot:
             },
             "waiting_for_decision": self.waiting_for_decision,
             "valid_moves": self.get_valid_moves(),
-            "valid_switches": self.get_valid_switches()
+            "valid_switches": self.get_valid_switches(),
+            "tera_used": self.battle_state.tera_used
         }
         
         # Add active Pokemon info
         if self.battle_state.active_pokemon[self.player_id]:
+            pokemon = self.battle_state.active_pokemon[self.player_id]
             state["active"]["self"] = {
-                "name": self.battle_state.active_pokemon[self.player_id].name,
-                "hp": self.battle_state.active_pokemon[self.player_id].hp,
-                "status": self.battle_state.active_pokemon[self.player_id].status,
-                "ability": self.battle_state.active_pokemon[self.player_id].ability,
-                "moves": list(self.battle_state.active_pokemon[self.player_id].moves),
-                "boosts": self.battle_state.active_pokemon[self.player_id].boosts,
-                "volatile_status": self.battle_state.active_pokemon[self.player_id].volatile_status
+                "name": pokemon.name,
+                "hp": pokemon.hp,
+                "status": pokemon.status,
+                "ability": pokemon.ability,
+                "moves": list(pokemon.moves),
+                "boosts": pokemon.boosts,
+                "volatile_status": pokemon.volatile_status,
+                "item": pokemon.item,
+                "tera_type": pokemon.tera_type,
+                "terastallized": pokemon.terastallized,
+                "stats": pokemon.stats
             }
             
         if self.battle_state.active_pokemon[self.get_opponent_id()]:
+            pokemon = self.battle_state.active_pokemon[self.get_opponent_id()]
             state["active"]["opponent"] = {
-                "name": self.battle_state.active_pokemon[self.get_opponent_id()].name,
-                "hp": self.battle_state.active_pokemon[self.get_opponent_id()].hp,
-                "status": self.battle_state.active_pokemon[self.get_opponent_id()].status,
-                "ability": self.battle_state.active_pokemon[self.get_opponent_id()].ability,
-                "moves": list(self.battle_state.active_pokemon[self.get_opponent_id()].moves),
-                "boosts": self.battle_state.active_pokemon[self.get_opponent_id()].boosts,
-                "volatile_status": self.battle_state.active_pokemon[self.get_opponent_id()].volatile_status
+                "name": pokemon.name,
+                "hp": pokemon.hp,
+                "status": pokemon.status,
+                "ability": pokemon.ability,
+                "moves": list(pokemon.moves),
+                "boosts": pokemon.boosts,
+                "volatile_status": pokemon.volatile_status,
+                "item": pokemon.item,
+                "tera_type": pokemon.tera_type,
+                "terastallized": pokemon.terastallized,
+                "stats": pokemon.stats
             }
             
         # Add team Pokemon info
@@ -590,7 +688,11 @@ class ShowdownBot:
                 "hp": pokemon.hp,
                 "status": pokemon.status,
                 "ability": pokemon.ability,
-                "moves": list(pokemon.moves)
+                "moves": list(pokemon.moves),
+                "item": pokemon.item,
+                "tera_type": pokemon.tera_type,
+                "terastallized": pokemon.terastallized,
+                "stats": pokemon.stats
             }
             
         for name, pokemon in self.battle_state.team_pokemon[self.get_opponent_id()].items():
@@ -599,7 +701,11 @@ class ShowdownBot:
                     "hp": pokemon.hp,
                     "status": pokemon.status,
                     "ability": pokemon.ability,
-                    "moves": list(pokemon.moves)
+                    "moves": list(pokemon.moves),
+                    "item": pokemon.item,
+                    "tera_type": pokemon.tera_type,
+                    "terastallized": pokemon.terastallized,
+                    "stats": pokemon.stats
                 }
                 
         return state
@@ -624,10 +730,30 @@ class ShowdownBot:
         
         if action_type == "move":
             try:
-                move_index = int(parts[1])
+                # Check if it's a terastallize move
+                move_str = parts[1]
+                tera = move_str.endswith('t')
+                
+                # Remove 't' if present and convert to integer
+                move_index = int(move_str.rstrip('t'))
+                
                 valid_moves = self.get_valid_moves()
                 if any(move["index"] == move_index for move in valid_moves):
-                    success = await self.make_move(move_index)
+                    # If trying to terastallize, verify it's allowed
+                    active_pokemon = self.battle_state.active_pokemon[self.player_id]
+                    if tera:
+                        if active_pokemon and active_pokemon.terastallized:
+                            return {
+                                "success": False,
+                                "error": "Pokemon is already terastallized"
+                            }
+                        if self.battle_state.tera_used:
+                            return {
+                                "success": False,
+                                "error": "Already used terastallize this battle"
+                            }
+                            
+                    success = await self.make_move(move_index, tera)
                     if success:
                         return {"success": True}
                 return {
@@ -637,9 +763,9 @@ class ShowdownBot:
             except (IndexError, ValueError):
                 return {
                     "success": False,
-                    "error": "Move instruction must be in format: move <index>"
+                    "error": "Move instruction must be in format: move <index> or move <index>t for terastallize"
                 }
-                
+                    
         elif action_type == "switch":
             try:
                 switch_index = int(parts[1])
@@ -657,11 +783,11 @@ class ShowdownBot:
                     "success": False,
                     "error": "Switch instruction must be in format: switch <index>"
                 }
-                
+                    
         else:
             return {
                 "success": False,
-                "error": "Unknown instruction type. Use 'move <index>' or 'switch <index>'"
+                "error": "Unknown instruction type. Use 'move <index>', 'move <index>t' for terastallize, or 'switch <index>'"
             }
 
 async def main():

@@ -255,7 +255,7 @@ class PSAgent:
     Strategy:
     {pokemon_data['strategy'] if pokemon_data['strategy'] else 'No strategy information available.'}
     """
-        self.logger.debug(f"Final formatted data:\n{formatted_data}")
+        self.logger.info(f"Final formatted data:\n{formatted_data}")
         return formatted_data
 
     def run(self, query: str):

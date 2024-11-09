@@ -117,8 +117,16 @@ class BattleManager:
         output.append("YOUR ACTIVE POKEMON:")
         if state["active"]["self"]:
             pokemon = state["active"]["self"]
-            hp_val, max_hp = pokemon["hp"].split('/')
-            hp_percent = round((float(hp_val) / float(max_hp)) * 100, 1)
+            # Handle fainted Pokemon case
+            if pokemon["hp"] == "0" or pokemon["hp"] == "0 fnt" or "fnt" in pokemon["hp"]:
+                hp_percent = 0
+            else:
+                try:
+                    hp_val, max_hp = pokemon["hp"].split('/')
+                    hp_percent = round((float(hp_val) / float(max_hp)) * 100, 1)
+                except (ValueError, IndexError):
+                    hp_percent = 0
+                    print(f"Warning: Could not parse HP value: {pokemon['hp']}")
             
             output.append(f"- {pokemon['name']} (HP: {hp_percent}%)")
             if pokemon["status"]:
@@ -127,15 +135,37 @@ class BattleManager:
                 output.append(f"  Ability: {pokemon['ability']}")
             if pokemon["moves"]:
                 output.append(f"  Known moves: {', '.join(pokemon['moves'])}")
+            if pokemon.get("item"):
+                output.append(f"  Item: {pokemon['item']}")
+            if pokemon.get("tera_type"):
+                output.append(f"  Tera Type: {pokemon['tera_type']}")
+                if pokemon.get("terastallized"):
+                    output.append("  Currently Terastallized")
+                elif not state.get("tera_used", False):  # Only show if tera hasn't been used
+                    output.append("  Can Terastallize")
+            if pokemon.get("volatile_status"):
+                output.append(f"  Volatile Status: {', '.join(pokemon['volatile_status'])}")
             boosts = [f"{stat.upper()}: {val:+d}" for stat, val in pokemon["boosts"].items() if val != 0]
             if boosts:
                 output.append(f"  Boosts: {', '.join(boosts)}")
+            if pokemon.get("stats"):
+                stats = [f"{stat.upper()}: {val}" for stat, val in pokemon["stats"].items() if val != 0]
+                if stats:
+                    output.append(f"  Stats: {', '.join(stats)}")
         
         output.append("\nOPPONENT'S ACTIVE POKEMON:")
         if state["active"]["opponent"]:
             pokemon = state["active"]["opponent"]
-            hp_val, max_hp = pokemon["hp"].split('/')
-            hp_percent = round((float(hp_val) / float(max_hp)) * 100, 1)
+            # Handle fainted Pokemon case
+            if pokemon["hp"] == "0" or pokemon["hp"] == "0 fnt" or "fnt" in pokemon["hp"]:
+                hp_percent = 0
+            else:
+                try:
+                    hp_val, max_hp = pokemon["hp"].split('/')
+                    hp_percent = round((float(hp_val) / float(max_hp)) * 100, 1)
+                except (ValueError, IndexError):
+                    hp_percent = 0
+                    print(f"Warning: Could not parse HP value: {pokemon['hp']}")
             
             output.append(f"- {pokemon['name']} (HP: {hp_percent}%)")
             if pokemon["status"]:
@@ -144,30 +174,78 @@ class BattleManager:
                 output.append(f"  Ability: {pokemon['ability']}")
             if pokemon["moves"]:
                 output.append(f"  Known moves: {', '.join(pokemon['moves'])}")
+            if pokemon.get("item"):
+                output.append(f"  Item: {pokemon['item']}")
+            if pokemon.get("tera_type"):
+                output.append(f"  Tera Type: {pokemon['tera_type']}")
+                if pokemon.get("terastallized"):
+                    output.append("  Currently Terastallized")
+            if pokemon.get("volatile_status"):
+                output.append(f"  Volatile Status: {', '.join(pokemon['volatile_status'])}")
             boosts = [f"{stat.upper()}: {val:+d}" for stat, val in pokemon["boosts"].items() if val != 0]
             if boosts:
                 output.append(f"  Boosts: {', '.join(boosts)}")
+            if pokemon.get("stats"):
+                stats = [f"{stat.upper()}: {val}" for stat, val in pokemon["stats"].items() if val != 0]
+                if stats:
+                    output.append(f"  Stats: {', '.join(stats)}")
         
         # Team Section
         output.append("\nYOUR TEAM:")
         for name, pokemon in state["team"]["self"].items():
-            hp_val, max_hp = pokemon["hp"].split('/')
-            hp_percent = round((float(hp_val) / float(max_hp)) * 100, 1)
+            # Handle fainted Pokemon case
+            if pokemon["hp"] == "0" or pokemon["hp"] == "0 fnt" or "fnt" in pokemon["hp"]:
+                hp_percent = 0
+            else:
+                try:
+                    hp_val, max_hp = pokemon["hp"].split('/')
+                    hp_percent = round((float(hp_val) / float(max_hp)) * 100, 1)
+                except (ValueError, IndexError):
+                    hp_percent = 0
+                    print(f"Warning: Could not parse HP value: {pokemon['hp']}")
+            
             status_str = f", Status: {pokemon['status']}" if pokemon["status"] else ""
             ability_str = f", Ability: {pokemon['ability']}" if pokemon["ability"] else ""
-            output.append(f"- {name} (HP: {hp_percent}%{status_str}{ability_str})")
+            item_str = f", Item: {pokemon['item']}" if pokemon.get("item") else ""
+            output.append(f"- {name} (HP: {hp_percent}%{status_str}{ability_str}{item_str})")
             if pokemon["moves"]:
                 output.append(f"  Known moves: {', '.join(pokemon['moves'])}")
+            if pokemon.get("stats"):
+                stats = [f"{stat.upper()}: {val}" for stat, val in pokemon["stats"].items() if val != 0]
+                if stats:
+                    output.append(f"  Stats: {', '.join(stats)}")
+            if pokemon.get("tera_type"):
+                output.append(f"  Tera Type: {pokemon['tera_type']}")
+                if pokemon.get("terastallized"):
+                    output.append("  Currently Terastallized")
         
         output.append("\nREVEALED OPPONENT POKEMON:")
         for name, pokemon in state["team"]["opponent"].items():
-            hp_val, max_hp = pokemon["hp"].split('/')
-            hp_percent = round((float(hp_val) / float(max_hp)) * 100, 1)
+            # Handle fainted Pokemon case
+            if pokemon["hp"] == "0" or pokemon["hp"] == "0 fnt" or "fnt" in pokemon["hp"]:
+                hp_percent = 0
+            else:
+                try:
+                    hp_val, max_hp = pokemon["hp"].split('/')
+                    hp_percent = round((float(hp_val) / float(max_hp)) * 100, 1)
+                except (ValueError, IndexError):
+                    hp_percent = 0
+                    print(f"Warning: Could not parse HP value: {pokemon['hp']}")
+            
             status_str = f", Status: {pokemon['status']}" if pokemon["status"] else ""
             ability_str = f", Ability: {pokemon['ability']}" if pokemon["ability"] else ""
-            output.append(f"- {name} (HP: {hp_percent}%{status_str}{ability_str})")
+            item_str = f", Item: {pokemon['item']}" if pokemon.get("item") else ""
+            output.append(f"- {name} (HP: {hp_percent}%{status_str}{ability_str}{item_str})")
             if pokemon["moves"]:
                 output.append(f"  Known moves: {', '.join(pokemon['moves'])}")
+            if pokemon.get("stats"):
+                stats = [f"{stat.upper()}: {val}" for stat, val in pokemon["stats"].items() if val != 0]
+                if stats:
+                    output.append(f"  Stats: {', '.join(stats)}")
+            if pokemon.get("tera_type"):
+                output.append(f"  Tera Type: {pokemon['tera_type']}")
+                if pokemon.get("terastallized"):
+                    output.append("  Currently Terastallized")
         
         # Field Conditions
         output.append("\nFIELD CONDITIONS:")
@@ -202,7 +280,10 @@ class BattleManager:
             if state["valid_moves"]:
                 output.append("Available moves:")
                 for move in state["valid_moves"]:
-                    output.append(f"- Move {move['index']}: {move['move']} (PP: {move['pp']}/{move['maxpp']})")
+                    move_str = f"- Move {move['index']}: {move['move']} (Type: {move['type']}, PP: {move['pp']}/{move['maxpp']})"
+                    if move.get('can_tera') and not state.get("tera_used", False):
+                        move_str += " [Can Terastallize with 'move Xt']"
+                    output.append(move_str)
             
             if state["valid_switches"]:
                 output.append("\nAvailable switches:")
@@ -210,7 +291,6 @@ class BattleManager:
                     output.append(f"- Switch {switch['index']}: {switch['pokemon']} ({switch['condition']})")
         
         output.append("\n=== END BATTLE SITUATION ===")
-        
         return "\n".join(output)
 
     async def start(self):
@@ -245,51 +325,61 @@ class BattleManager:
         Returns:
             tuple[str, Optional[str]]: (reasoning, move_command) where move_command is in format 'move X' or 'switch X'
         """
-        # Format the battle state with Pokemon context
-        formatted_state = self.parse_battle_state(state)
-        
-        # Create the query for the agent with explicit formatting instructions
-        query = f"""Based on the following battle situation, what would be the best move to make? Consider all available moves and switches.
-
-        {formatted_state}
-
-        Analyze the situation and explain your reasoning. Then, provide your chosen move in a separate line starting with "CHOSEN MOVE:".
-        For example:
-        - If choosing a move, write "CHOSEN MOVE: move X" (e.g., "CHOSEN MOVE: move 1")
-        - If choosing to switch, write "CHOSEN MOVE: switch X" (e.g., "CHOSEN MOVE: switch 3")
-
-        Make sure to separate your analysis from your move choice with a blank line."""
-
-        # Get the agent's response
-        response = self.agent.run(query)
-        
-        # Parse the response to separate reasoning from move command
         try:
-            # Split on "CHOSEN MOVE:" and handle potential formatting issues
-            parts = response.split("CHOSEN MOVE:")
+            # Format the battle state with Pokemon context
+            formatted_state = self.parse_battle_state(state)
             
-            if len(parts) != 2:
-                print("Warning: Agent response not properly formatted. Showing analysis only.")
-                return response, None
+            # Create the query for the agent with explicit formatting instructions
+            query = f"""Based on the following battle situation, what would be the best move to make? Consider all available moves and switches.
+
+            {formatted_state}
+
+            Analyze the situation and explain your reasoning. Then, provide your chosen move in a separate line starting with "CHOSEN MOVE:".
+            For example:
+            - If choosing a regular move, write "CHOSEN MOVE: move X" (e.g., "CHOSEN MOVE: move 1")
+            - If choosing to terastallize with a move, write "CHOSEN MOVE: move Xt" (e.g., "CHOSEN MOVE: move 1t")
+            - If choosing to switch, write "CHOSEN MOVE: switch X" (e.g., "CHOSEN MOVE: switch 3")
+
+            Make sure to consider terastallizing when it would be advantageous and available.
+            Make sure to separate your analysis from your move choice with a blank line."""
+
+            # Get the agent's response
+            response = self.agent.run(query)
+            if not response:
+                print("Warning: Received empty response from agent")
+                return "No analysis provided.", None
+            
+            # Parse the response to separate reasoning from move command
+            try:
+                # Split on "CHOSEN MOVE:" and handle potential formatting issues
+                parts = response.split("CHOSEN MOVE:")
                 
-            reasoning = parts[0].strip()
-            move_command = parts[1].strip()
-            
-            # Validate move command format
-            if not (move_command.startswith("move ") or move_command.startswith("switch ")):
-                print(f"Warning: Invalid move command format: {move_command}")
-                return reasoning, None
+                if len(parts) != 2:
+                    print(f"Warning: Agent response not properly formatted: {response}")
+                    return response, None
+                    
+                reasoning = parts[0].strip()
+                move_command = parts[1].strip().lower()
                 
-            print("\nAgent's analysis:")
-            print(reasoning)
-            print(f"\nChosen move: {move_command}")
-            
-            return reasoning, move_command
-            
+                # Validate move command format
+                if not (move_command.startswith("move ") or move_command.startswith("switch ")):
+                    print(f"Warning: Invalid move command format: {move_command}")
+                    return reasoning, None
+                    
+                print("\nAgent's analysis:")
+                print(reasoning)
+                print(f"\nChosen move: {move_command}")
+                
+                return reasoning, move_command
+                
+            except Exception as e:
+                print(f"Error parsing agent response: {str(e)}")
+                print("Raw response:", response)
+                return str(response), None
+                
         except Exception as e:
-            print(f"Error parsing agent response: {str(e)}")
-            print("Raw response:", response)
-            return response, None
+            print(f"Error in get_agent_decision: {str(e)}")
+            return f"Error occurred: {str(e)}", None
 
     async def run_battle_loop(self):
         """Main loop that monitors the battle state and handles moves"""
