@@ -3,6 +3,42 @@ import asyncio
 from ps_bot.ps_client import ShowdownBot
 from agents.agent import PSAgent
 
+"""
+Pokemon Showdown Battle Bot System
+================================
+
+This system consists of three main components working together to play Pokemon Showdown battles:
+
+1. ShowdownBot (ps_client.py):
+   - Handles direct communication with Pokemon Showdown servers
+   - Manages battle state, moves, and Pokemon data
+   - Executes commands in the actual battle
+
+2. BattleManager (battle_manager.py):
+   - Coordinates between ShowdownBot and AI agent
+   - Formats battle data for AI consumption
+   - Manages the battle loop and decision execution
+
+3. PSAgent (ps_agent.py):
+   - Makes battle decisions using LLM (AI)
+   - Accesses Pokemon database for detailed information
+   - Provides strategic analysis and move choices
+
+Basic Flow:
+-----------
+1. System connects to Pokemon Showdown
+2. Bot receives battle state updates
+3. Manager formats battle state for AI
+4. AI analyzes situation and chooses move
+5. Manager sends agent response (move to make + reasoning) to the bot
+6. Bot executes move in battle
+7. Wait for next game state and repeat from step 1
+
+The system runs asynchronously, continuously monitoring the battle state
+and making decisions when required.
+"""
+
+
 class BattleManager:
     """
     Manages the interaction between the Pokemon Showdown client (ShowdownBot) 
@@ -215,14 +251,14 @@ class BattleManager:
         # Create the query for the agent with explicit formatting instructions
         query = f"""Based on the following battle situation, what would be the best move to make? Consider all available moves and switches.
 
-    {formatted_state}
+        {formatted_state}
 
-    Analyze the situation and explain your reasoning. Then, provide your chosen move in a separate line starting with "CHOSEN MOVE:".
-    For example:
-    - If choosing a move, write "CHOSEN MOVE: move X" (e.g., "CHOSEN MOVE: move 1")
-    - If choosing to switch, write "CHOSEN MOVE: switch X" (e.g., "CHOSEN MOVE: switch 3")
+        Analyze the situation and explain your reasoning. Then, provide your chosen move in a separate line starting with "CHOSEN MOVE:".
+        For example:
+        - If choosing a move, write "CHOSEN MOVE: move X" (e.g., "CHOSEN MOVE: move 1")
+        - If choosing to switch, write "CHOSEN MOVE: switch X" (e.g., "CHOSEN MOVE: switch 3")
 
-    Make sure to separate your analysis from your move choice with a blank line."""
+        Make sure to separate your analysis from your move choice with a blank line."""
 
         # Get the agent's response
         response = self.agent.run(query)

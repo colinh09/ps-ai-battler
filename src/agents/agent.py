@@ -269,20 +269,3 @@ class PSAgent:
         except Exception as e:
             self.logger.error(f"Error processing query: {str(e)}", exc_info=True)
             return f"Error: {str(e)}"
-
-# Usage example
-if __name__ == "__main__":
-    db_params = {
-        'dbname': 'pokemon',
-        'user': 'postgres',
-        'password': 'password',
-        'host': 'localhost',
-        'port': '5432'
-    }
-    
-    # Initialize the agent
-    agent = PSAgent(db_params=db_params)
-    
-    # Run a query
-    response = agent.run("Tell me about Alomomola")
-    print(response)

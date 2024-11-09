@@ -24,6 +24,13 @@ class Pokemon:
     })
     tera_type: Optional[str] = None
     revealed: bool = False
+    # New fields
+    item: Optional[str] = None
+    terastallized: bool = False
+    can_terastallize: bool = False
+    stats: Dict[str, int] = field(default_factory=lambda: {
+        "atk": 0, "def": 0, "spa": 0, "spd": 0, "spe": 0
+    })
 
 @dataclass
 class BattleState:
@@ -111,12 +118,22 @@ class ShowdownBot:
                 print(f"{player}: {poke.name} (HP: {hp_percent}%, Status: {poke.status})")
                 if poke.ability:
                     print(f"  Ability: {poke.ability}")
+                if poke.item:
+                    print(f"  Item: {poke.item}")
                 if poke.moves:
                     print(f"  Known moves: {', '.join(poke.moves)}")
                 if poke.boosts:
                     boosts = [f"{stat}: {val:+d}" for stat, val in poke.boosts.items() if val != 0]
                     if boosts:
                         print(f"  Boosts: {', '.join(boosts)}")
+                if poke.stats:
+                    print(f"  Stats: {', '.join(f'{stat}: {val}' for stat, val in poke.stats.items())}")
+                if poke.tera_type:
+                    print(f"  Tera Type: {poke.tera_type}")
+                    if poke.terastallized:
+                        print("  Currently Terastallized")
+                    elif poke.can_terastallize:
+                        print("  Can Terastallize")
 
         print("\nTeam Pokemon:")
         for player in ["p1", "p2"]:
@@ -129,9 +146,16 @@ class ShowdownBot:
                 
                 status_str = f", Status: {poke.status}" if poke.status else ""
                 ability_str = f", Ability: {poke.ability}" if poke.ability else ""
-                print(f"  {poke_name} (HP: {hp_percent}%{status_str}{ability_str})")
+                item_str = f", Item: {poke.item}" if poke.item else ""
+                print(f"  {poke_name} (HP: {hp_percent}%{status_str}{ability_str}{item_str})")
                 if poke.moves:
                     print(f"    Known moves: {', '.join(poke.moves)}")
+                if poke.stats:
+                    print(f"    Stats: {', '.join(f'{stat}: {val}' for stat, val in poke.stats.items())}")
+                if poke.tera_type:
+                    print(f"    Tera Type: {poke.tera_type}")
+                    if poke.terastallized:
+                        print("    Currently Terastallized")
 
         print("\nField Conditions:")
         weather = self.battle_state.field_conditions["weather"]
@@ -360,18 +384,36 @@ class ShowdownBot:
                     request = json.loads(parts[2])
                     self.current_request = request
                     
+                    # Update Pokemon information from request
+                    if "side" in request:
+                        for pokemon_data in request["side"]["pokemon"]:
+                            name = pokemon_data["ident"].split(": ")[1]
+                            if name in self.battle_state.team_pokemon[self.player_id]:
+                                pokemon = self.battle_state.team_pokemon[self.player_id][name]
+                                pokemon.item = pokemon_data.get("item")
+                                pokemon.hp = pokemon_data.get("condition", "100/100")
+                                pokemon.stats = pokemon_data.get("stats", {})
+                                pokemon.tera_type = pokemon_data.get("teraType")
+                                pokemon.terastallized = bool(pokemon_data.get("terastallized"))
+                    
+                    # Update terastallize availability for active Pokemon
+                    if "active" in request and request["active"]:
+                        active_data = request["active"][0]
+                        active_pokemon = self.battle_state.active_pokemon[self.player_id]
+                        if active_pokemon:
+                            active_pokemon.can_terastallize = "canTerastallize" in active_data
+                    
+                    self.print_battle_state()
                     # Add a small delay to let all state updates complete
                     await asyncio.sleep(0.1)
                     
                     if "forceSwitch" in request and request["forceSwitch"][0]:
                         self.waiting_for_decision = True
-                        #self.print_battle_state()
                         print("\nForce switch required!")
                         self.print_available_options()
                         
                     elif "active" in request and request["active"]:
                         self.waiting_for_decision = True
-                        #self.print_battle_state()
                         print("\nMove required!")
                         self.print_available_options()
                 
