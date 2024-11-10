@@ -77,12 +77,22 @@ class BattleManager:
         
         # Get database information for both Pokemon
         if self_pokemon:
-            self_data = self.agent.db_tools.get_pokemon_complete_data(self_pokemon)
+            # Prepare known data for agent's Pokemon
+            known_data = {}
+            if state["active"]["self"].get("ability"):
+                known_data["ability"] = state["active"]["self"]["ability"]
+            if state["active"]["self"].get("item"):
+                known_data["item"] = state["active"]["self"]["item"]
+            if state["active"]["self"].get("moves"):
+                known_data["moves"] = state["active"]["self"]["moves"]
+            
+            self_data = self.agent.db_tools.get_pokemon_complete_data(self_pokemon, known_data)
             if "error" not in self_data:
                 context_parts.append("YOUR ACTIVE POKEMON INFORMATION:")
                 context_parts.append(self.agent.format_pokemon_data(self_data))
         
         if opponent_pokemon:
+            # For opponent Pokemon, we don't pass known_data so it merges all possible sets
             opponent_data = self.agent.db_tools.get_pokemon_complete_data(opponent_pokemon)
             if "error" not in opponent_data:
                 context_parts.append("\nOPPONENT'S ACTIVE POKEMON INFORMATION:")
@@ -104,19 +114,30 @@ class BattleManager:
             return "No active battle state."
             
         output = []
+        output.append("=== CURRENT BATTLE SITUATION ===\n")
         
-        # Get Pokemon database context first
-        pokemon_context = self.get_pokemon_context(state)
-        if pokemon_context:
-            output.append(pokemon_context)
-            output.append("\n=== CURRENT BATTLE SITUATION ===\n")
-        else:
-            output.append("=== CURRENT BATTLE SITUATION ===\n")
+        # Get Pokemon database context for both active Pokemon
+        self_pokemon = state["active"]["self"]["name"] if state["active"]["self"] else None
+        opponent_pokemon = state["active"]["opponent"]["name"] if state["active"]["opponent"] else None
         
-        # Active Pokemon Section
-        output.append("YOUR ACTIVE POKEMON:")
-        if state["active"]["self"]:
+        if self_pokemon:
+            # Get known data for our Pokemon
+            known_data = {}
+            if state["active"]["self"].get("ability"):
+                known_data["ability"] = state["active"]["self"]["ability"]
+            if state["active"]["self"].get("item"):
+                known_data["item"] = state["active"]["self"]["item"]
+            if state["active"]["self"].get("moves"):
+                known_data["moves"] = state["active"]["self"]["moves"]
+                
+            # Get Pokemon data including role
+            pokemon_data = self.agent.db_tools.get_pokemon_complete_data(self_pokemon, known_data)
+            role = pokemon_data.get('random_battle_data', {}).get('roles', ['Unknown'])[0]
+            
+            # Output active Pokemon section with role
+            output.append("YOUR ACTIVE POKEMON:")
             pokemon = state["active"]["self"]
+            
             # Handle fainted Pokemon case
             if pokemon["hp"] == "0" or pokemon["hp"] == "0 fnt" or "fnt" in pokemon["hp"]:
                 hp_percent = 0
@@ -129,8 +150,7 @@ class BattleManager:
                     print(f"Warning: Could not parse HP value: {pokemon['hp']}")
             
             output.append(f"- {pokemon['name']} (HP: {hp_percent}%)")
-            if pokemon["status"]:
-                output.append(f"  Status: {pokemon['status']}")
+            output.append(f"  Role: {role}")
             if pokemon["ability"]:
                 output.append(f"  Ability: {pokemon['ability']}")
             if pokemon["moves"]:
@@ -141,21 +161,27 @@ class BattleManager:
                 output.append(f"  Tera Type: {pokemon['tera_type']}")
                 if pokemon.get("terastallized"):
                     output.append("  Currently Terastallized")
-                elif not state.get("tera_used", False):  # Only show if tera hasn't been used
+                elif not state.get("tera_used", False):
                     output.append("  Can Terastallize")
             if pokemon.get("volatile_status"):
                 output.append(f"  Volatile Status: {', '.join(pokemon['volatile_status'])}")
-            boosts = [f"{stat.upper()}: {val:+d}" for stat, val in pokemon["boosts"].items() if val != 0]
-            if boosts:
-                output.append(f"  Boosts: {', '.join(boosts)}")
+            if pokemon["boosts"]:
+                boosts = [f"{stat.upper()}: {val:+d}" for stat, val in pokemon["boosts"].items() if val != 0]
+                if boosts:
+                    output.append(f"  Boosts: {', '.join(boosts)}")
             if pokemon.get("stats"):
                 stats = [f"{stat.upper()}: {val}" for stat, val in pokemon["stats"].items() if val != 0]
                 if stats:
                     output.append(f"  Stats: {', '.join(stats)}")
         
-        output.append("\nOPPONENT'S ACTIVE POKEMON:")
-        if state["active"]["opponent"]:
+        if opponent_pokemon:
+            # Get Pokemon data with all possible sets
+            opponent_data = self.agent.db_tools.get_pokemon_complete_data(opponent_pokemon)
+            random_battle_data = opponent_data.get('random_battle_data', {})
+            
+            output.append("\nOPPONENT'S ACTIVE POKEMON:")
             pokemon = state["active"]["opponent"]
+            
             # Handle fainted Pokemon case
             if pokemon["hp"] == "0" or pokemon["hp"] == "0 fnt" or "fnt" in pokemon["hp"]:
                 hp_percent = 0
@@ -168,28 +194,45 @@ class BattleManager:
                     print(f"Warning: Could not parse HP value: {pokemon['hp']}")
             
             output.append(f"- {pokemon['name']} (HP: {hp_percent}%)")
+            
+            # Add all possibilities from random battle data
+            if random_battle_data.get('roles'):
+                output.append(f"  Possible Roles: {', '.join(random_battle_data['roles'])}")
+            if random_battle_data.get('level'):
+                output.append(f"  Level: {random_battle_data['level']}")
+            if random_battle_data.get('abilities'):
+                output.append(f"  Possible Abilities: {', '.join(random_battle_data['abilities'])}")
+            if random_battle_data.get('items'):
+                output.append(f"  Possible Items: {', '.join(random_battle_data['items'])}")
+            if random_battle_data.get('moves'):
+                output.append(f"  Possible Moves: {', '.join(random_battle_data['moves'])}")
+            if random_battle_data.get('tera_types'):
+                output.append(f"  Possible Tera Types: {', '.join(random_battle_data['tera_types'])}")
+            
+            # Add any known information
             if pokemon["status"]:
                 output.append(f"  Status: {pokemon['status']}")
             if pokemon["ability"]:
-                output.append(f"  Ability: {pokemon['ability']}")
+                output.append(f"  Known Ability: {pokemon['ability']}")
             if pokemon["moves"]:
-                output.append(f"  Known moves: {', '.join(pokemon['moves'])}")
+                output.append(f"  Revealed Moves: {', '.join(pokemon['moves'])}")
             if pokemon.get("item"):
-                output.append(f"  Item: {pokemon['item']}")
+                output.append(f"  Known Item: {pokemon['item']}")
             if pokemon.get("tera_type"):
-                output.append(f"  Tera Type: {pokemon['tera_type']}")
+                output.append(f"  Known Tera Type: {pokemon['tera_type']}")
                 if pokemon.get("terastallized"):
                     output.append("  Currently Terastallized")
             if pokemon.get("volatile_status"):
                 output.append(f"  Volatile Status: {', '.join(pokemon['volatile_status'])}")
-            boosts = [f"{stat.upper()}: {val:+d}" for stat, val in pokemon["boosts"].items() if val != 0]
-            if boosts:
-                output.append(f"  Boosts: {', '.join(boosts)}")
+            if pokemon["boosts"]:
+                boosts = [f"{stat.upper()}: {val:+d}" for stat, val in pokemon["boosts"].items() if val != 0]
+                if boosts:
+                    output.append(f"  Boosts: {', '.join(boosts)}")
             if pokemon.get("stats"):
                 stats = [f"{stat.upper()}: {val}" for stat, val in pokemon["stats"].items() if val != 0]
                 if stats:
                     output.append(f"  Stats: {', '.join(stats)}")
-        
+            
         # Team Section
         output.append("\nYOUR TEAM:")
         for name, pokemon in state["team"]["self"].items():
@@ -281,7 +324,7 @@ class BattleManager:
                 output.append("Available moves:")
                 for move in state["valid_moves"]:
                     move_str = f"- Move {move['index']}: {move['move']} (Type: {move['type']}, PP: {move['pp']}/{move['maxpp']})"
-                    if move.get('can_tera') and not state.get("tera_used", False):
+                    if move.get('can_tera'):
                         move_str += " [Can Terastallize with 'move Xt']"
                     output.append(move_str)
             

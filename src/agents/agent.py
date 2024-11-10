@@ -1,6 +1,7 @@
 import os
 import logging
-from typing import Optional, Dict, Any
+import json
+from typing import Dict, Any, List, Optional, Set
 from dotenv import load_dotenv
 from .model_wrappers.api_gateway import APIGateway
 import psycopg2
@@ -14,6 +15,12 @@ logging.basicConfig(
 )
 logger = logging.getLogger('PSAgent')
 
+import psycopg2
+from psycopg2.extras import RealDictCursor
+import json
+from typing import Dict, Any, List, Optional, Set
+import logging
+
 class PokemonDBTools:
     def __init__(self, db_params: Dict[str, str]):
         """Initialize database connection"""
@@ -24,6 +31,124 @@ class PokemonDBTools:
         """Create and return a database connection"""
         self.logger.debug(f"Attempting to connect to database: {self.db_params['dbname']} at {self.db_params['host']}")
         return psycopg2.connect(**self.db_params)
+
+    def merge_random_battle_sets(self, sets: List[Dict]) -> Dict:
+        """
+        Merge multiple random battle sets into a single combined set.
+        
+        Args:
+            sets: List of random battle set dictionaries from the database
+            
+        Returns:
+            Dict containing merged unique values for each field
+        """
+        if not sets:
+            return {}
+            
+        # Initialize merged set with first set's values
+        merged = {
+            'pokemon_name': sets[0]['pokemon_name'],
+            'level': sets[0]['level'],  # All sets should have same level
+            'roles': set([sets[0]['role_name']]),  # Track all possible roles
+            'abilities': set(),
+            'items': set(),
+            'tera_types': set(),
+            'moves': set(),
+            'evs': sets[0]['evs'],  # Keep first set's EVs if they exist
+            'ivs': sets[0]['ivs']   # Keep first set's IVs if they exist
+        }
+        
+        # Process first set's JSONB data (already Python lists from psycopg2)
+        merged['abilities'].update(sets[0]['abilities'])
+        merged['items'].update(sets[0]['items'])
+        merged['tera_types'].update(sets[0]['tera_types'])
+        merged['moves'].update(sets[0]['moves'])
+        
+        # Merge remaining sets
+        for set_data in sets[1:]:
+            merged['roles'].add(set_data['role_name'])
+            merged['abilities'].update(set_data['abilities'])
+            merged['items'].update(set_data['items'])
+            merged['tera_types'].update(set_data['tera_types'])
+            merged['moves'].update(set_data['moves'])
+            
+            # If current set has EVs/IVs and merged doesn't, use these
+            if not merged['evs'] and set_data['evs']:
+                merged['evs'] = set_data['evs']
+            if not merged['ivs'] and set_data['ivs']:
+                merged['ivs'] = set_data['ivs']
+        
+        # Convert sets back to sorted lists for consistency
+        merged['abilities'] = sorted(list(merged['abilities']))
+        merged['items'] = sorted(list(merged['items']))
+        merged['tera_types'] = sorted(list(merged['tera_types']))
+        merged['moves'] = sorted(list(merged['moves']))
+        merged['roles'] = sorted(list(merged['roles']))
+        
+        return merged
+
+    def get_best_random_battle_set(
+        self, 
+        pokemon_name: str, 
+        known_data: Optional[Dict[str, Any]] = None
+    ) -> Dict[str, Any]:
+        """
+        Get the best matching random battle set for a Pokemon.
+        For opponent Pokemon (known_data=None), merges all possible sets.
+        For agent Pokemon, finds best matching set based on known data.
+        
+        Args:
+            pokemon_name: Name of the Pokemon
+            known_data: Dict containing known ability, item, and moves (for agent's Pokemon)
+            
+        Returns:
+            Dict containing the best matching or merged set data
+        """
+        with self.get_connection() as conn:
+            with conn.cursor(cursor_factory=RealDictCursor) as cur:
+                # Get all sets for this Pokemon
+                cur.execute("""
+                    SELECT * FROM random_battle_sets 
+                    WHERE pokemon_name = %s
+                """, (pokemon_name,))
+                sets = cur.fetchall()
+                
+                if not sets:
+                    return {}
+                
+                # For opponent Pokemon or if no known data, merge all sets
+                if not known_data:
+                    return self.merge_random_battle_sets(sets)
+                
+                # For agent Pokemon, find best matching set
+                matching_sets = []
+                
+                for set_data in sets:
+                    matches = True
+                    
+                    # Check ability match if known
+                    if known_data.get('ability'):
+                        if known_data['ability'] not in set_data['abilities']:
+                            continue
+                    
+                    # Check item match if known
+                    if known_data.get('item'):
+                        if known_data['item'] not in set_data['items']:
+                            continue
+                    
+                    # Check if known moves are subset of possible moves
+                    if known_data.get('moves'):
+                        if not set(known_data['moves']).issubset(set(set_data['moves'])):
+                            continue
+                    
+                    matching_sets.append(set_data)
+                
+                # If we found matching sets, merge them
+                if matching_sets:
+                    return self.merge_random_battle_sets(matching_sets)
+                
+                # If no matches found, merge all sets as fallback
+                return self.merge_random_battle_sets(sets)
 
     def calculate_type_matchups(self, type1: str, type2: Optional[str] = None) -> Dict[str, Dict[str, float]]:
         """
@@ -105,13 +230,25 @@ class PokemonDBTools:
                     'attacking': offensive_matchups
                 }
 
-    def get_pokemon_complete_data(self, pokemon_name: str) -> Dict[str, Any]:
-        """Get complete information about a Pokemon including stats, abilities, and type matchups"""
+    def get_pokemon_complete_data(self, pokemon_name: str, known_data: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
+        """
+        Get complete information about a Pokemon including random battle set data.
+        
+        Args:
+            pokemon_name: Name of the Pokemon
+            known_data: Dict containing known ability, item, and moves (for agent's Pokemon)
+            
+        Returns:
+            Dict containing complete Pokemon data including matched/merged set data
+        """
         self.logger.info(f"Fetching complete data for Pokemon: {pokemon_name}")
         
         with self.get_connection() as conn:
             with conn.cursor(cursor_factory=RealDictCursor) as cur:
-                # Get basic Pokemon data
+                # First get the random battle set data
+                random_battle_data = self.get_best_random_battle_set(pokemon_name, known_data)
+                
+                # Then get basic Pokemon data
                 self.logger.debug(f"Executing Pokemon query for: {pokemon_name}")
                 cur.execute("""
                     SELECT * FROM pokemon WHERE pokemon_name = %s
@@ -124,6 +261,10 @@ class PokemonDBTools:
                 
                 self.logger.debug(f"Found Pokemon data: {pokemon_data}")
                 result = dict(pokemon_data)
+                
+                # Add the known_data flag to differentiate own vs opponent Pokemon
+                if known_data:
+                    result['known_data'] = known_data
                 
                 # Get ability descriptions
                 abilities = []
@@ -152,8 +293,12 @@ class PokemonDBTools:
                     result['type2']
                 )
                 
+                # Add random battle set data
+                result['random_battle_data'] = random_battle_data
+                
                 self.logger.info(f"Complete Pokemon data assembled: {result}")
                 return result
+    
 
 class PSAgent:
     def __init__(self, api_key: Optional[str] = None, db_params: Dict[str, str] = None):
@@ -193,7 +338,7 @@ class PSAgent:
         )
     
     def format_pokemon_data(self, pokemon_data: Dict[str, Any]) -> str:
-        """Format Pokemon data for the LLM with separate offensive and defensive matchups"""
+        """Format Pokemon data for the LLM with set role for own Pokemon and all possibilities for opponent"""
         self.logger.info("Formatting Pokemon data for LLM")
         
         if "error" in pokemon_data:
@@ -225,36 +370,62 @@ class PSAgent:
                 weak_against.append(f"{type_name} ({multiplier}x)")
             elif multiplier == 0:
                 no_effect.append(type_name)
-                
+        
+        # Format role information differently for own vs opponent Pokemon
+        role_info = []
+        rbd = pokemon_data.get('random_battle_data', {})
+        is_own_pokemon = 'known_data' in pokemon_data  # Flag added by get_pokemon_complete_data
+        
+        if is_own_pokemon:
+            # For own Pokemon, just show the role and actual stats/moves
+            if rbd.get('roles'):
+                role_info.append(f"Role: {', '.join(rbd['roles'])}")
+            if rbd.get('level'):
+                role_info.append(f"Level: {rbd['level']}")
+        else:
+            # For opponent Pokemon, show all possibilities
+            if rbd.get('roles'):
+                role_info.append(f"Possible Roles: {', '.join(rbd['roles'])}")
+            if rbd.get('level'):
+                role_info.append(f"Level: {rbd['level']}")
+            if rbd.get('abilities'):
+                role_info.append(f"Possible Abilities: {', '.join(rbd['abilities'])}")
+            if rbd.get('items'):
+                role_info.append(f"Possible Items: {', '.join(rbd['items'])}")
+            if rbd.get('moves'):
+                role_info.append(f"Possible Moves: {', '.join(rbd['moves'])}")
+            if rbd.get('tera_types'):
+                role_info.append(f"Possible Tera Types: {', '.join(rbd['tera_types'])}")
+        
         formatted_data = f"""Pokemon Information:
-    Name: {pokemon_data['pokemon_name']}
-    Type: {pokemon_data['type1']}{f"/{pokemon_data['type2']}" if pokemon_data['type2'] else ""}
-    Tier: {pokemon_data['tier']}
+        Name: {pokemon_data['pokemon_name']}
+        Type: {pokemon_data['type1']}{f"/{pokemon_data['type2']}" if pokemon_data['type2'] else ""}
+        Tier: {pokemon_data['tier']}
 
-    Base Stats:
-    HP: {pokemon_data['hp']}
-    Attack: {pokemon_data['atk']}
-    Defense: {pokemon_data['def']}
-    Special Attack: {pokemon_data['spa']}
-    Special Defense: {pokemon_data['spd']}
-    Speed: {pokemon_data['spe']}
+        Base Stats:
+        HP: {pokemon_data['hp']}
+        Attack: {pokemon_data['atk']}
+        Defense: {pokemon_data['def']}
+        Special Attack: {pokemon_data['spa']}
+        Special Defense: {pokemon_data['spd']}
+        Speed: {pokemon_data['spe']}
 
-    Abilities:
-    {chr(10).join(f"- {ability['name']}: {ability['description']}" for ability in pokemon_data['abilities'])}
+        Battle Information:
+        {chr(10).join(f"    {info}" for info in role_info)}
 
-    Defensive Type Matchups:
-    Takes Super Effective Damage From: {', '.join(weaknesses) if weaknesses else 'None'}
-    Resists Damage From: {', '.join(resistances) if resistances else 'None'}
-    Immune To: {', '.join(immunities) if immunities else 'None'}
+        Defensive Type Matchups:
+        Takes Super Effective Damage From: {', '.join(weaknesses) if weaknesses else 'None'}
+        Resists Damage From: {', '.join(resistances) if resistances else 'None'}
+        Immune To: {', '.join(immunities) if immunities else 'None'}
 
-    Offensive Type Matchups:
-    Super Effective Against: {', '.join(strong_against) if strong_against else 'None'}
-    Not Very Effective Against: {', '.join(weak_against) if weak_against else 'None'}
-    No Effect Against: {', '.join(no_effect) if no_effect else 'None'}
+        Offensive Type Matchups:
+        Super Effective Against: {', '.join(strong_against) if strong_against else 'None'}
+        Not Very Effective Against: {', '.join(weak_against) if weak_against else 'None'}
+        No Effect Against: {', '.join(no_effect) if no_effect else 'None'}
 
-    Strategy:
-    {pokemon_data['strategy'] if pokemon_data['strategy'] else 'No strategy information available.'}
-    """
+        Strategy:
+        {pokemon_data['strategy'] if pokemon_data['strategy'] else 'No strategy information available.'}
+        """
         self.logger.info(f"Final formatted data:\n{formatted_data}")
         return formatted_data
 
