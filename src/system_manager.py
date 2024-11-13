@@ -93,7 +93,7 @@ class SystemManager:
         print("\nShutting down system...")
         if self.battle_manager:
             self.battle_manager.is_running = False
-            await asyncio.sleep(1)  # Give time for cleanup
+            await asyncio.sleep(1)
             self.battle_manager = None
         self.is_running = False
 

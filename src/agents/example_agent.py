@@ -1,17 +1,10 @@
-# agent.py
 import os
 from typing import Optional
 from dotenv import load_dotenv
 from model_wrappers.api_gateway import APIGateway
 
-class SimpleAgent:
+class PokemonTrainerAgent:
     def __init__(self, api_key: Optional[str] = None):
-        """
-        Initialize the agent with .env support
-        
-        Args:
-            api_key: Optional API key to override .env file
-        """
         # Load environment variables from .env file
         load_dotenv()
         
@@ -20,34 +13,34 @@ class SimpleAgent:
         if not self.api_key:
             raise ValueError("SAMBANOVA_API_KEY must be set in .env file or passed to constructor")
         
-        # Initialize the LLM
-        self.llm = self._init_llm()
+        # System prompt that defines the agent's personality
+        self.system_prompt = """You are a friendly and knowledgeable Pokemon trainer..."""
         
+        # Initialize the Chat LLM
+        self.llm = self._init_llm()
+    
     def _init_llm(self):
-        """Initialize the SambaNova LLM"""
-        return APIGateway.load_llm(
+        """Initialize the SambaNova Chat LLM"""
+        return APIGateway.load_chat(
             type="sncloud",
+            model="llama3-70b",  # or whatever model you're using
             temperature=0.7,
-            max_tokens_to_generate=1024,
-            select_expert="llama3-70b",
-            coe=True,
-            do_sample=False,
-            sambanova_api_key=self.api_key
+            max_tokens=1024,
+            streaming=False
         )
     
-    def run(self, query: str):
-        """Simple query-response interaction"""
+    def run(self, query: str) -> str:
+        """Process user input and generate appropriate response"""
         try:
-            response = self.llm.invoke(query)
-            return response
+            # Create message list with system and user messages
+            messages = [
+                {"role": "system", "content": self.system_prompt},
+                {"role": "user", "content": query}
+            ]
+            
+            # Get response from LLM
+            response = self.llm.invoke(messages)
+            return response.content  # Chat models usually return a message object
+            
         except Exception as e:
             return f"Error: {str(e)}"
-
-# Usage example
-if __name__ == "__main__":
-    # Initialize the agent
-    agent = SimpleAgent()
-    
-    # Run a query
-    response = agent.run("Tell me a joke!")
-    print(response)
