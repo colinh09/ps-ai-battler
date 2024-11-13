@@ -10,6 +10,7 @@ import os
 import random
 from typing import Dict, List, Optional, Set
 from dataclasses import dataclass, field
+import logging
 
 @dataclass
 class Pokemon:
@@ -71,6 +72,14 @@ class BattleState:
 
 class ShowdownBot:
     def __init__(self, username: str, password: str, target_username: str):
+        """
+        Initialize the ShowdownBot with login credentials.
+        
+        Args:
+            username (str): Pokemon Showdown username
+            password (str): Pokemon Showdown password
+            target_username (str): Username to challenge
+        """
         self.ws = None
         self.username = username
         self.password = password
@@ -80,9 +89,11 @@ class ShowdownBot:
         self.battle_state = BattleState.create_initial_state()
         self.waiting_for_decision = False
         self.is_team_preview = False
-        self.player_id = None  # Will be set to "p1" or "p2" during battle
-        self.current_request = None  # Store the current request for move validation
-        
+        self.player_id = None
+        self.current_request = None
+        self.on_battle_end = None
+        self.logger = logging.getLogger('ShowdownBot')
+    
     def get_opponent_id(self):
         return "p2" if self.player_id == "p1" else "p1"
 
@@ -302,16 +313,14 @@ class ShowdownBot:
         print("======================")
 
     async def handle_battle_message(self, room_id: str, message: str):
-        """Handle messages from a battle room with improved hazard tracking"""
+        """Handle messages from a battle room"""
         try:
-            # Handle battle initialization
             if "|init|battle" in message:
                 self.current_battle = room_id.strip('>')
                 self.battle_state = BattleState.create_initial_state()
                 print(f"Joined battle room: {self.current_battle}")
                 await self.ws.send(f"|/join {self.current_battle}")
             
-            # Parse each line of the message
             for line in message.split('\n'):
                 parts = line.strip().split('|')
                 if len(parts) < 2:
@@ -319,12 +328,10 @@ class ShowdownBot:
                     
                 command = parts[1]
                 
-                # Add debug print for each command
                 print(f"Processing command: {command}")
                 if len(parts) > 2:
                     print(f"Command data: {parts[2:]}")
                 
-                # Handle different message types
                 if command == "player":
                     if parts[2] == "p1" and parts[3] == self.username:
                         self.player_id = "p1"
@@ -392,10 +399,8 @@ class ShowdownBot:
                     player = parts[2][:2]
                     condition = parts[3]
                     
-                    # Handle hazards
                     if any(hazard in condition.lower() for hazard in ["spikes", "stealth rock", "toxic spikes", "sticky web"]):
                         self.battle_state.side_conditions[player]["hazards"].append(condition)
-                    # Handle screens
                     elif any(screen in condition.lower() for screen in ["reflect", "light screen", "aurora veil"]):
                         self.battle_state.side_conditions[player]["screens"].append(condition)
                     
@@ -403,7 +408,6 @@ class ShowdownBot:
                     player = parts[2][:2]
                     condition = parts[3]
                     
-                    # Remove ended conditions
                     if any(hazard in condition.lower() for hazard in ["spikes", "stealth rock", "toxic spikes", "sticky web"]):
                         if condition in self.battle_state.side_conditions[player]["hazards"]:
                             self.battle_state.side_conditions[player]["hazards"].remove(condition)
@@ -425,8 +429,8 @@ class ShowdownBot:
                     winner = parts[2]
                     print(f"Battle ended! Winner: {winner}")
                     self.current_battle = None
-                    await asyncio.sleep(2)
-                    await self.challenge_player()
+                    if self.on_battle_end:
+                        self.on_battle_end()
                 
                 elif command == "request":
                     if not parts[2]:
@@ -438,20 +442,17 @@ class ShowdownBot:
                     print(f"Full request data: {json.dumps(request, indent=2)}")
                     self.current_request = request
                     
-                    # Update Pokemon information from request
                     if "side" in request:
                         print(f"Processing side data for {len(request['side']['pokemon'])} Pokemon")
                         for pokemon_data in request["side"]["pokemon"]:
                             name = pokemon_data["ident"].split(": ")[1]
                             print(f"Updating Pokemon: {name}")
                             
-                            # Create Pokemon if it doesn't exist
                             if name not in self.battle_state.team_pokemon[self.player_id]:
                                 self.battle_state.team_pokemon[self.player_id][name] = Pokemon(name=name)
                             
                             pokemon = self.battle_state.team_pokemon[self.player_id][name]
                             
-                            # Update all available information
                             pokemon.item = pokemon_data.get("item")
                             pokemon.hp = pokemon_data.get("condition", "100/100")
                             pokemon.stats = pokemon_data.get("stats", {})
@@ -459,15 +460,12 @@ class ShowdownBot:
                             pokemon.tera_type = pokemon_data.get("teraType")
                             pokemon.terastallized = bool(pokemon_data.get("terastallized"))
                             
-                            # Update moves
                             if "moves" in pokemon_data:
                                 pokemon.moves = set(move for move in pokemon_data["moves"])
                             
-                            # Update active status
                             if pokemon_data.get("active"):
                                 self.battle_state.active_pokemon[self.player_id] = pokemon
                     
-                    # Update terastallize availability
                     if "active" in request and request["active"]:
                         print("Active Pokemon data exists")
                         try:
@@ -481,7 +479,6 @@ class ShowdownBot:
                     
                     print("=== END REQUEST DEBUG ===\n")
                     
-                    self.print_battle_state()
                     await asyncio.sleep(0.1)
                     
                     if "forceSwitch" in request and request["forceSwitch"][0]:
@@ -504,6 +501,13 @@ class ShowdownBot:
             print("Full error details:", str(e.__class__.__name__), str(e))
             import traceback
             print("Traceback:", traceback.format_exc())
+        
+        except Exception as e:
+            print(f"Error in handle_battle_message: {str(e)}")
+            print(f"Message was: {message}")
+            print("Full error details:", str(e.__class__.__name__), str(e))
+            import traceback
+            print("Traceback:", traceback.format_exc())
 
     async def receive_messages(self):
         """Main message handling loop"""
@@ -515,7 +519,8 @@ class ShowdownBot:
                     challstr = message.split("|challstr|")[1]
                     await self.login(challstr)
                     await asyncio.sleep(2)
-                    await self.challenge_player()
+                    challenge_cmd = f"|/challenge {self.target_username}, gen9randombattle"
+                    await self.ws.send(challenge_cmd)
                 
                 elif message.startswith(">battle-"):
                     room_id = message.split("\n")[0]
@@ -525,11 +530,11 @@ class ShowdownBot:
                     print(f"Received error: {message}")
                 
         except websockets.exceptions.ConnectionClosed:
-            print("Connection closed unexpectedly")
-            sys.exit(1)
+            self.logger.error("Connection closed unexpectedly")
+            raise
         except Exception as e:
-            print(f"Error receiving messages: {str(e)}")
-            sys.exit(1)
+            self.logger.error(f"Error receiving messages: {str(e)}")
+            raise
 
     async def challenge_player(self):
         """Send a Random Battle challenge to the target player"""

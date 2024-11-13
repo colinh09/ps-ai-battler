@@ -2,7 +2,7 @@ from typing import Dict, List, Optional
 import asyncio
 from ps_bot.ps_client import ShowdownBot
 from agents.agent import PSAgent
-
+import logging
 """
 Pokemon Showdown Battle Bot System
 ================================
@@ -40,10 +40,6 @@ and making decisions when required.
 
 
 class BattleManager:
-    """
-    Manages the interaction between the Pokemon Showdown client (ShowdownBot) 
-    and the AI agent.
-    """
     def __init__(self, username: str, password: str, target_username: str, db_params: Dict[str, str]):
         """
         Initialize the battle manager with credentials and database connection.
@@ -57,6 +53,17 @@ class BattleManager:
         self.bot = ShowdownBot(username, password, target_username)
         self.agent = PSAgent(db_params=db_params)
         self.current_state = None
+        self.is_running = False
+        self.logger = logging.getLogger('BattleManager')
+        self.initial_connection_made = False
+        self.battle_concluded = False
+        
+        self.bot.on_battle_end = self.handle_battle_end
+
+    def handle_battle_end(self):
+        """Handler for battle end events"""
+        self.logger.info("Battle has concluded")
+        self.battle_concluded = True
         self.is_running = False
 
     def get_pokemon_context(self, state: Dict) -> str:
@@ -338,9 +345,37 @@ class BattleManager:
 
     async def start(self):
         """Start the battle manager and establish connection to Pokemon Showdown"""
-        self.is_running = True
-        await self.bot.connect()
-        await self.run_battle_loop()
+        try:
+            self.logger.info("Starting battle manager")
+            self.is_running = True
+            self.battle_concluded = False
+            await self.bot.connect()
+            
+            receive_task = asyncio.create_task(self.bot.receive_messages())
+            battle_task = asyncio.create_task(self.run_battle_loop())
+            
+            try:
+                done, pending = await asyncio.wait(
+                    [receive_task, battle_task],
+                    return_when=asyncio.FIRST_COMPLETED
+                )
+                
+                for task in pending:
+                    task.cancel()
+                    try:
+                        await task
+                    except asyncio.CancelledError:
+                        pass
+                
+            except Exception as e:
+                self.logger.error(f"Error in tasks: {str(e)}")
+                raise
+            finally:
+                self.logger.info("Battle manager stopping, returning control to system manager")
+                
+        except Exception as e:
+            self.logger.error(f"Error in battle manager: {str(e)}", exc_info=True)
+            raise
 
     def get_current_state(self) -> Optional[Dict]:
         """Get the current battle state from the ShowdownBot"""
@@ -427,52 +462,50 @@ class BattleManager:
     async def run_battle_loop(self):
         """Main loop that monitors the battle state and handles moves"""
         try:
-            while self.is_running:
-                receive_task = asyncio.create_task(self.bot.receive_messages())
-                
-                last_state_hash = None  # Use this to track actual state changes
-                
-                while self.is_running:
-                    new_state = self.get_current_state()
-                    
-                    # Create a simple hash of relevant state parts to detect actual changes
-                    if new_state:
-                        current_hash = (
-                            str(new_state.get('active')),
-                            str(new_state.get('field_conditions')),
-                            str(new_state.get('side_conditions')),
-                            new_state.get('waiting_for_decision'),
-                            str(new_state.get('valid_moves')),
-                            str(new_state.get('valid_switches'))
-                        )
-                    else:
-                        current_hash = None
-                    
-                    # Only update and print if there's an actual state change
-                    if current_hash != last_state_hash:
-                        self.current_state = new_state
-                        last_state_hash = current_hash
-                        
-                        if new_state and new_state["waiting_for_decision"]:
-                            formatted_state = self.parse_battle_state(new_state)
-                            print("\n" + formatted_state)
-                            
-                            # Get agent's analysis and move choice
-                            reasoning, move_command = await self.get_agent_decision(new_state)
-                            
-                            if move_command:
-                                # Execute the move
-                                result = await self.make_move(move_command)
-                                if not result["success"]:
-                                    print(f"Move execution failed: {result['error']}")
-                        
-                    await asyncio.sleep(0.5)  # Increased sleep time to reduce polling
-                
-                receive_task.cancel()
+            self.logger.info("Starting battle loop")
             
+            last_state_hash = None
+            
+            while self.is_running:
+                new_state = self.get_current_state()
+                
+                # Create a simple hash of relevant state parts to detect actual changes
+                if new_state:
+                    current_hash = (
+                        str(new_state.get('active')),
+                        str(new_state.get('field_conditions')),
+                        str(new_state.get('side_conditions')),
+                        new_state.get('waiting_for_decision'),
+                        str(new_state.get('valid_moves')),
+                        str(new_state.get('valid_switches'))
+                    )
+                else:
+                    current_hash = None
+                
+                if current_hash != last_state_hash:
+                    self.current_state = new_state
+                    last_state_hash = current_hash
+                    
+                    if new_state and new_state["waiting_for_decision"]:
+                        formatted_state = self.parse_battle_state(new_state)
+                        print("\n" + formatted_state)
+                        
+                        # Get agent's analysis and move choice
+                        reasoning, move_command = await self.get_agent_decision(new_state)
+                        
+                        if move_command:
+                            # Execute the move
+                            result = await self.make_move(move_command)
+                            if not result["success"]:
+                                print(f"Move execution failed: {result['error']}")
+                    
+                await asyncio.sleep(0.5)
+                
         except Exception as e:
-            print(f"Error in battle loop: {str(e)}")
+            self.logger.error(f"Error in battle loop: {str(e)}", exc_info=True)
             self.is_running = False
+            raise
+
 
 async def main():
     """Example usage of the BattleManager"""
