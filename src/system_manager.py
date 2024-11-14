@@ -2,6 +2,7 @@ import os
 import asyncio
 from dotenv import load_dotenv
 from battle_manager import BattleManager
+from agents.converse_agent import PokemonTrainerAgent
 import logging
 
 # Set up logging
@@ -23,30 +24,35 @@ class SystemManager:
         self.current_battle = None
         self.is_running = False
         self.logger = logging.getLogger('SystemManager.Main')
+        
+        # Initialize the conversational agent
+        self.agent = PokemonTrainerAgent()
 
     async def start(self):
         """Start the system and begin processing user commands"""
         self.is_running = True
         self.logger.info("Starting system manager")
         
+        print("\nHello! I'm your Pokemon battle partner. You can chat with me about Pokemon or challenge me to a battle!")
+        
         while self.is_running:
-            # Display menu
-            print("\n=== Pokemon Showdown Bot ===")
-            print("1. Start Battle")
-            print("2. Quit")
-            
             try:
-                choice = input("\nEnter your choice (1-2): ")
+                # Get user input
+                user_input = input("\nYou: ")
                 
-                if choice == "1":
-                    # Get opponent username
-                    opponent = input("Enter opponent's username: ")
-                    await self.start_battle(opponent)
-                elif choice == "2":
-                    await self.quit()
-                else:
-                    print("Invalid choice. Please try again.")
+                # Get agent's response
+                response = self.agent.run(user_input)
+                conversation, tool = self.agent.extract_tool_call(response)
+                
+                # Print the conversational response
+                print(f"\nAssistant: {conversation}")
+                
+                # Handle tool calls
+                if tool == "BATTLE_MANAGER":
+                    await self.start_battle("rightnow3day")
                     
+            except KeyboardInterrupt:
+                await self.quit()
             except Exception as e:
                 self.logger.error(f"Error in main loop: {str(e)}", exc_info=True)
                 print(f"Error: {str(e)}")
@@ -68,9 +74,12 @@ class SystemManager:
                 print(f"\nStarting battle with {opponent_username}...")
                 await self.battle_manager.start()
                 
-                print("\n=== Battle Concluded ===")
-                print("1. Challenge again")
-                print("2. Return to main menu")
+                # After battle concludes, get agent's response
+                post_battle_response = self.agent.run("The battle has concluded. What are your thoughts?")
+                print(f"\nAssistant: {post_battle_response}")
+                
+                print("\n1. Challenge again")
+                print("2. Return to chat")
                 
                 choice = input("\nEnter your choice (1-2): ")
                 
@@ -78,7 +87,7 @@ class SystemManager:
                     print("Initiating new battle...")
                     continue
                 else:
-                    print("Returning to main menu...")
+                    print("Returning to chat...")
                     break
                     
         except Exception as e:
