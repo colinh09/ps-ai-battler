@@ -61,40 +61,58 @@ class SystemManager:
     async def start_battle(self, opponent_username: str):
         """Initialize and start a battle with specified opponent"""
         try:
-            while self.is_running:
-                self.logger.info(f"Starting battle with {opponent_username}")
-                
+            self.logger.info(f"Starting battle with {opponent_username}")
+            
+            # Create battle manager if it doesn't exist or create new one if needed
+            if not self.battle_manager or not self.battle_manager.is_running:
                 self.battle_manager = BattleManager(
                     username=self.username,
                     password=self.password,
                     target_username=opponent_username,
                     db_params=self.get_db_params()
                 )
+                self.battle_manager.system_manager = self
                 
-                print(f"\nStarting battle with {opponent_username}...")
-                await self.battle_manager.start()
+            # Connect and start battle manager directly
+            print(f"\nConnecting to Pokemon Showdown...")
+            try:
+                await self.battle_manager.bot.connect()
+                print("Connected successfully!")
                 
-                # After battle concludes, get agent's response
-                post_battle_response = self.agent.run("The battle has concluded. What are your thoughts?")
-                print(f"\nAssistant: {post_battle_response}")
+                # Initialize battle loop
+                self.battle_manager.is_running = True
+                self.battle_manager.battle_concluded = False
                 
-                print("\n1. Challenge again")
-                print("2. Return to chat")
+                # Start the message receiving task
+                receive_task = asyncio.create_task(self.battle_manager.bot.receive_messages())
+                battle_task = asyncio.create_task(self.battle_manager.run_battle_loop())
                 
-                choice = input("\nEnter your choice (1-2): ")
+                # Wait for either task to complete
+                print("Starting battle tasks...")
+                done, pending = await asyncio.wait(
+                    [receive_task, battle_task],
+                    return_when=asyncio.FIRST_COMPLETED
+                )
                 
-                if choice == "1":
-                    print("Initiating new battle...")
-                    continue
-                else:
-                    print("Returning to chat...")
-                    break
-                    
+                # Cancel remaining tasks
+                for task in pending:
+                    task.cancel()
+                    try:
+                        await task
+                    except asyncio.CancelledError:
+                        pass
+                        
+            except Exception as e:
+                print(f"Error in battle setup: {str(e)}")
+                self.logger.error(f"Battle setup failed: {str(e)}", exc_info=True)
+                raise
+                
         except Exception as e:
             self.logger.error(f"Failed to start battle: {str(e)}", exc_info=True)
             print(f"Failed to start battle: {str(e)}")
             if self.battle_manager:
                 self.battle_manager.is_running = False
+            raise
 
     async def quit(self):
         """Cleanup and exit the system"""

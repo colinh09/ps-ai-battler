@@ -2,6 +2,7 @@ from typing import Dict, List, Optional
 import asyncio
 from ps_bot.ps_client import ShowdownBot
 from agents.agent import PSAgent
+from datetime import datetime
 import logging
 """
 Pokemon Showdown Battle Bot System
@@ -427,9 +428,7 @@ class BattleManager:
                 print("Warning: Received empty response from agent")
                 return "No analysis provided.", None
             
-            # Parse the response to separate reasoning from move command
             try:
-                # Split on "CHOSEN MOVE:" and handle potential formatting issues
                 parts = response.split("CHOSEN MOVE:")
                 
                 if len(parts) != 2:
@@ -448,6 +447,26 @@ class BattleManager:
                 print(reasoning)
                 print(f"\nChosen move: {move_command}")
                 
+                # Add turn update to chat history if available
+                if hasattr(self, 'system_manager') and self.system_manager and self.battle_id:
+                    # Format the turn message more clearly
+                    turn_message = (
+                        f"Analysis:\n"
+                        f"{reasoning}\n\n"
+                        f"Chosen Move: {move_command}"
+                    )
+                    
+                    turn_data = {
+                        'analysis': reasoning,
+                        'move': move_command
+                    }
+                    
+                    self.system_manager.chat_history.add_battle_turn(
+                        self.battle_id,
+                        turn_data,
+                        turn_message
+                    )
+                
                 return reasoning, move_command
                 
             except Exception as e:
@@ -463,6 +482,7 @@ class BattleManager:
         """Main loop that monitors the battle state and handles moves"""
         try:
             self.logger.info("Starting battle loop")
+            self.battle_id = datetime.now().strftime("%Y%m%d%H%M%S")
             
             last_state_hash = None
             
@@ -498,6 +518,12 @@ class BattleManager:
                             result = await self.make_move(move_command)
                             if not result["success"]:
                                 print(f"Move execution failed: {result['error']}")
+                                if hasattr(self, 'system_manager') and self.system_manager:
+                                    self.system_manager.chat_history.add_battle_turn(
+                                        self.battle_id,
+                                        {'error': result['error']},
+                                        f"Move execution failed: {result['error']}"
+                                    )
                     
                 await asyncio.sleep(0.5)
                 

@@ -1,4 +1,3 @@
-<!-- frontend/templates/chat.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,16 +6,6 @@
     <title>Pokemon Companion</title>
     <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
-    <style>
-        /* Optional: Hide scrollbar but keep functionality */
-        .no-scrollbar::-webkit-scrollbar {
-            display: none;
-        }
-        .no-scrollbar {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-        }
-    </style>
 </head>
 <body class="bg-white">
     <!-- Navbar -->
@@ -26,7 +15,9 @@
                 <i data-lucide="menu" class="w-6 h-6"></i>
             </button>
             <h1 class="text-2xl font-bold">Pokemon Companion</h1>
-            <div class="w-10"></div>
+            <button id="clear-history" class="p-2 text-sm text-red-600 hover:bg-red-50 rounded-lg">
+                Clear History
+            </button>
         </div>
     </nav>
 
@@ -34,7 +25,6 @@
     <div id="sidebar" class="fixed top-16 left-0 h-full w-64 bg-white border-r border-gray-200 transform -translate-x-full transition-transform duration-200 ease-in-out z-20">
         <div class="p-4 space-y-4">
             <h2 class="text-lg font-semibold mb-4">Settings</h2>
-            
             <div class="space-y-2">
                 <label for="ps-username" class="block text-sm font-medium text-gray-700">
                     Pokemon Showdown Username
@@ -65,24 +55,15 @@
         </div>
     </div>
 
-    <!-- Main chat layout -->
-    <div class="min-h-screen pt-16"> <!-- Changed to min-h-screen -->
+    <div class="min-h-screen pt-16">
         <div class="flex justify-center">
             <div class="w-[40%]">
-                <!-- Messages area - now part of page flow -->
-                <div id="messages" class="p-4 space-y-4">
-                    <!-- Initial message -->
-                    <div class="flex items-start gap-2.5">
-                        <div class="flex flex-col gap-1">
-                            <div class="inline-block px-4 py-2 bg-gray-100 rounded-e-xl rounded-es-xl">
-                                <p class="text-sm text-gray-900">Hello! I'm your battle partner. You can chat with me about strategy or challenge me to a battle!</p>
-                            </div>
-                        </div>
-                    </div>
+                <div id="messages" class="p-4 space-y-8">
+                    <!-- Messages will be dynamically inserted here -->
                 </div>
 
-                <!-- Input area fixed at bottom -->
-                <div class="fixed bottom-0 w-[40%] bg-white border-t border-gray-200 p-4">
+                <div class="fixed bottom-0 w-[40%] bg-white p-4">
+                    <!-- Chat Form -->
                     <form id="chat-form" class="flex gap-2">
                         <input 
                             type="text" 
@@ -91,32 +72,53 @@
                             placeholder="Type a message...">
                         <button 
                             type="submit"
+                            id="send-button"
                             class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5">
                             Send
                         </button>
                     </form>
+
+                    <!-- Battle Controls (hidden by default) -->
+                    <div id="battle-controls" class="hidden">
+                        <button 
+                            id="forfeit-button"
+                            class="w-full text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5">
+                            Forfeit Battle
+                        </button>
+                    </div>
                 </div>
-                <!-- Spacer for fixed input -->
                 <div class="h-24"></div>
             </div>
         </div>
     </div>
 
     <script>
-        // Initialize Lucide icons
         lucide.createIcons();
 
-        // Sidebar functionality
+        // State management
+        let isBattleMode = false;
+        let battleUpdateInterval = null;
+
+        // DOM Elements
         const sidebar = document.getElementById('sidebar');
         const sidebarToggle = document.getElementById('sidebar-toggle');
         const psUsername = document.getElementById('ps-username');
         const apiKey = document.getElementById('api-key');
         const saveSettings = document.getElementById('save-settings');
+        const messageInput = document.getElementById('message-input');
+        const chatForm = document.getElementById('chat-form');
+        const messagesContainer = document.getElementById('messages');
+        const clearHistoryBtn = document.getElementById('clear-history');
+        const battleControls = document.getElementById('battle-controls');
+        const sendButton = document.getElementById('send-button');
+        const forfeitButton = document.getElementById('forfeit-button');
 
+        // Sidebar Toggle
         sidebarToggle.addEventListener('click', () => {
             sidebar.classList.toggle('-translate-x-full');
         });
 
+        // Settings Management
         psUsername.value = localStorage.getItem('ps-username') || '';
         apiKey.value = localStorage.getItem('api-key') || '';
 
@@ -126,33 +128,140 @@
             alert('Settings saved!');
         });
 
-        // Chat functionality
-        const messageInput = document.getElementById('message-input');
-        const chatForm = document.getElementById('chat-form');
-        const messagesContainer = document.getElementById('messages');
+        function setBattleMode(enabled) {
+            isBattleMode = enabled;
+            messageInput.disabled = enabled;
+            chatForm.classList.toggle('hidden', enabled);
+            battleControls.classList.toggle('hidden', !enabled);
 
-        function addMessage(content, isUser = false) {
+            if (enabled) {
+                // Start polling for battle updates
+                battleUpdateInterval = setInterval(checkBattleUpdates, 1000);
+            } else {
+                // Stop polling when battle ends
+                if (battleUpdateInterval) {
+                    clearInterval(battleUpdateInterval);
+                    battleUpdateInterval = null;
+                }
+            }
+        }
+
+        function addMessage(content, isUser = false, battleLog = null) {
             const messageDiv = document.createElement('div');
             messageDiv.className = 'flex items-start gap-2.5';
             
-            const html = isUser ? `
-                <div class="flex flex-col gap-1 ml-auto">
-                    <div class="inline-block px-4 py-2 bg-blue-600 rounded-s-xl rounded-ee-xl">
-                        <p class="text-sm text-white">${content}</p>
+            let html;
+            
+            if (battleLog) {
+                // Battle message with turn-by-turn updates
+                html = `
+                    <div class="flex flex-col gap-1 w-full">
+                        <div class="bg-gray-100 rounded-lg p-4 w-full">
+                            <div class="flex justify-between items-center mb-2">
+                                <h3 class="font-bold text-lg">Battle Started</h3>
+                                <button class="toggle-battle-log text-blue-600 hover:text-blue-800">
+                                    Show Details
+                                </button>
+                            </div>
+                            <div class="battle-content">${content}</div>
+                            <div class="battle-log hidden mt-4 border-t pt-4">
+                                ${formatBattleLog(battleLog)}
+                            </div>
+                        </div>
                     </div>
-                </div>
-            ` : `
-                <div class="flex flex-col gap-1">
-                    <div class="inline-block px-4 py-2 bg-gray-100 rounded-e-xl rounded-es-xl">
-                        <p class="text-sm text-gray-900">${content}</p>
+                `;
+            } else {
+                // Regular chat message
+                html = isUser ? `
+                    <div class="flex flex-col gap-1 ml-auto">
+                        <div class="inline-block px-4 py-2 bg-blue-600 rounded-s-xl rounded-ee-xl">
+                            <p class="text-sm text-white">${content}</p>
+                        </div>
                     </div>
-                </div>
-            `;
+                ` : `
+                    <div class="flex flex-col gap-1">
+                        <div class="inline-block px-4 py-2 bg-gray-100 rounded-e-xl rounded-es-xl">
+                            <p class="text-sm text-gray-900">${content}</p>
+                        </div>
+                    </div>
+                `;
+            }
             
             messageDiv.innerHTML = html;
             messagesContainer.appendChild(messageDiv);
             
-            // Scroll to bottom of page
+            // Add toggle functionality if it's a battle message
+            if (battleLog) {
+                const toggleBtn = messageDiv.querySelector('.toggle-battle-log');
+                const battleLogDiv = messageDiv.querySelector('.battle-log');
+                toggleBtn.addEventListener('click', () => {
+                    battleLogDiv.classList.toggle('hidden');
+                    toggleBtn.textContent = battleLogDiv.classList.contains('hidden') ? 
+                        'Show Details' : 'Hide Details';
+                });
+            }
+            
+            scrollToBottom();
+        }
+
+        function formatBattleLog(battleLog) {
+            if (!battleLog || !battleLog.turns) return '';
+            
+            return battleLog.turns.map((turn) => `
+                <div class="mb-4">
+                    <h4 class="font-semibold mb-2">Turn ${turn.number}</h4>
+                    <div class="text-sm text-gray-700 whitespace-pre-wrap">${turn.description}</div>
+                </div>
+            `).join('');
+        }
+
+        async function checkBattleUpdates() {
+            if (!isBattleMode) return;
+            
+            try {
+                const response = await fetch('/get_battle_updates', {
+                    method: 'GET',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Cache-Control': 'no-cache'
+                    }
+                });
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                const data = await response.json();
+                
+                if (data.has_updates && data.battle) {
+                    updateBattleMessage(data.battle);
+                }
+                
+                if (data.battle && data.battle.is_complete) {
+                    setBattleMode(false);
+                }
+            } catch (error) {
+                console.error('Error checking battle updates:', error);
+                // Don't disable battle mode on first few errors
+                if (error.message.includes('ECONNREFUSED')) {
+                    // Connection refused errors might be temporary during battle initialization
+                    return;
+                }
+            }
+        }
+
+        function updateBattleMessage(battle) {
+            const battleMessage = document.querySelector('.battle-content');
+            const battleLog = document.querySelector('.battle-log');
+            if (battleMessage && battleLog) {
+                if (battle.current_turn_description) {
+                    battleMessage.innerHTML = battle.current_turn_description;
+                }
+                battleLog.innerHTML = formatBattleLog(battle);
+            }
+        }
+
+        function scrollToBottom() {
             window.scrollTo({
                 top: document.body.scrollHeight,
                 behavior: 'smooth'
@@ -179,18 +288,36 @@
 
                 const data = await response.json();
                 if (data.error) {
-                    addMessage('Error: ' + data.error);
+                    console.error('Server error:', data.error);
+                    addMessage('Error: ' + data.error, false);
                 } else {
-                    addMessage(data.response);
+                    if (data.battle_started) {
+                        console.log('Battle starting...');
+                        setBattleMode(true);
+                        addMessage(data.response, false, { turns: [] });
+                    } else {
+                        addMessage(data.response, false);
+                    }
                 }
             } catch (error) {
-                addMessage('Error: Could not send message');
+                console.error('Frontend error:', error);
+                addMessage('Error: Could not send message. Check console for details.', false);
             } finally {
                 messageInput.disabled = false;
                 messageInput.focus();
             }
         }
 
+        // Clear History Functionality
+        clearHistoryBtn.addEventListener('click', () => {
+            if (confirm('Are you sure you want to clear the chat history?')) {
+                localStorage.removeItem('chatHistory');
+                messagesContainer.innerHTML = '';
+                location.reload();
+            }
+        });
+
+        // Event Listeners
         chatForm.addEventListener('submit', sendMessage);
         messageInput.addEventListener('keypress', (e) => {
             if (e.key === 'Enter' && !e.shiftKey) {
@@ -198,6 +325,27 @@
                 chatForm.dispatchEvent(new Event('submit'));
             }
         });
+
+        forfeitButton.addEventListener('click', async () => {
+            if (confirm('Are you sure you want to forfeit the battle?')) {
+                try {
+                    const response = await fetch('/forfeit_battle');
+                    const data = await response.json();
+                    if (data.error) {
+                        addMessage('Error: ' + data.error, false);
+                    } else {
+                        setBattleMode(false);
+                        addMessage('Battle forfeited.', false);
+                    }
+                } catch (error) {
+                    console.error('Error forfeiting battle:', error);
+                    addMessage('Error: Could not forfeit battle.', false);
+                }
+            }
+        });
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', loadChatHistory);
     </script>
 </body>
 </html>
