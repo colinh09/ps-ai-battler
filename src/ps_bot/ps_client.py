@@ -636,14 +636,28 @@ class ShowdownBot:
             
         valid_switches = []
         for i, pokemon in enumerate(self.current_request["side"]["pokemon"], 1):
-            if (not pokemon.get("active", False) and  # Can't switch to active Pokemon
-                not pokemon.get("fainted", False)):   # Can't switch to fainted Pokemon
+            # Check for actively battling Pokemon - can't switch to active Pokemon
+            if pokemon.get("active", False):
+                continue
+                
+            # Parse the condition to check for fainted status
+            condition = pokemon.get("condition", "")
+            is_fainted = (
+                pokemon.get("fainted", False) or  # Check explicit fainted flag
+                condition == "0 fnt" or           # Check string condition
+                condition == "0" or               # Check just 0 HP
+                "/0" in condition or             # Check ratio with 0 HP
+                "fnt" in condition               # Check for faint in condition
+            )
+            
+            if not is_fainted:
                 valid_switches.append({
                     "index": i,
                     "pokemon": pokemon["ident"].split(": ")[1],
                     "details": pokemon.get("details", ""),
                     "condition": pokemon.get("condition", "")
                 })
+                
         return valid_switches
 
     def get_game_state(self) -> Dict:
