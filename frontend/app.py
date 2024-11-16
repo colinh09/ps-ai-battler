@@ -161,8 +161,25 @@ def forfeit_battle():
         
     try:
         battle_id = system.chat_history.current_battle['id']
-        system.chat_history.end_battle(battle_id, "Battle forfeited by user.")
-        # TODO: Add actual battle forfeit logic in system_manager
+        
+        # Call the forfeit function asynchronously using our helper function
+        future = run_coroutine_threadsafe(system.forfeit_battle())
+        
+        # Add callback to handle forfeit result
+        def handle_forfeit_result(fut):
+            try:
+                result = fut.result()
+                if result:
+                    system.chat_history.end_battle(battle_id, "Battle forfeited.")
+                    print(f"Battle {battle_id} forfeited successfully")
+                else:
+                    print(f"Failed to forfeit battle {battle_id}")
+            except Exception as e:
+                print(f"Error in forfeit: {str(e)}")
+                system.chat_history.end_battle(battle_id, f"Error forfeiting battle: {str(e)}")
+        
+        future.add_done_callback(handle_forfeit_result)
+        
         return jsonify({'success': True})
     except Exception as e:
         return jsonify({'error': str(e)}), 500

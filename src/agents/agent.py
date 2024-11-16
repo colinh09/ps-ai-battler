@@ -298,6 +298,35 @@ class PokemonDBTools:
                 
                 self.logger.info(f"Complete Pokemon data assembled: {result}")
                 return result
+    def get_move_data(self, move_name: str) -> Optional[Dict[str, Any]]:
+        """Get complete data for a move from the database"""
+        with self.get_connection() as conn:
+            with conn.cursor(cursor_factory=RealDictCursor) as cur:
+                cur.execute("""
+                    SELECT * FROM moves WHERE move_name = %s
+                """, (move_name,))
+                move_data = cur.fetchone()
+                return dict(move_data) if move_data else None
+
+    def get_ability_data(self, ability_name: str) -> Optional[Dict[str, Any]]:
+        """Get complete data for an ability from the database"""
+        with self.get_connection() as conn:
+            with conn.cursor(cursor_factory=RealDictCursor) as cur:
+                cur.execute("""
+                    SELECT * FROM abilities WHERE ability_name = %s
+                """, (ability_name,))
+                ability_data = cur.fetchone()
+                return dict(ability_data) if ability_data else None
+
+    def get_item_data(self, item_name: str) -> Optional[Dict[str, Any]]:
+        """Get complete data for an item from the database"""
+        with self.get_connection() as conn:
+            with conn.cursor(cursor_factory=RealDictCursor) as cur:
+                cur.execute("""
+                    SELECT * FROM items WHERE item_name = %s
+                """, (item_name,))
+                item_data = cur.fetchone()
+                return dict(item_data) if item_data else None
     
 
 class PSAgent:

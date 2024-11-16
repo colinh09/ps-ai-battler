@@ -114,6 +114,20 @@ class ShowdownBot:
         except Exception as e:
             print(f"Failed to connect: {str(e)}")
             sys.exit(1)
+    
+    async def forfeit_battle(self) -> bool:
+        """Forfeit the current battle"""
+        if not self.current_battle:
+            return False
+
+        forfeit_cmd = f"{self.current_battle}|/forfeit"
+        try:
+            await self.ws.send(forfeit_cmd)
+            print("\nForfeiting battle...")
+            return True
+        except Exception as e:
+            print(f"Error forfeiting battle: {str(e)}")
+            return False
 
     def print_battle_state(self):
         """Print current battle state for debugging with improved HP display"""
