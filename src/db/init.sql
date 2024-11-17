@@ -16,18 +16,21 @@ CREATE TABLE types_defending (
 -- Create abilities table before pokemon since it will be referenced
 CREATE TABLE abilities (
     ability_name VARCHAR(255) PRIMARY KEY,
+    key VARCHAR(255) UNIQUE NOT NULL,
     description TEXT NOT NULL
 );
 
 -- Create items table
 CREATE TABLE items (
     item_name VARCHAR(255) PRIMARY KEY,
+    key VARCHAR(255) UNIQUE NOT NULL,
     description TEXT NOT NULL
 );
 
 -- Create moves table
 CREATE TABLE moves (
     move_name VARCHAR(255) PRIMARY KEY,
+    key VARCHAR(255) UNIQUE NOT NULL,
     type VARCHAR(255),
     power VARCHAR(255),
     accuracy VARCHAR(255),
@@ -38,6 +41,7 @@ CREATE TABLE moves (
 -- Create pokemon table with single tier
 CREATE TABLE pokemon (
     pokemon_name VARCHAR(255) PRIMARY KEY,
+    key VARCHAR(255) UNIQUE NOT NULL,
     type1 VARCHAR(255),
     type2 VARCHAR(255),
     ability1 VARCHAR(255) REFERENCES abilities(ability_name),
@@ -74,3 +78,7 @@ CREATE INDEX idx_pokemon_type1 ON pokemon(type1);
 CREATE INDEX idx_pokemon_type2 ON pokemon(type2);
 CREATE INDEX idx_moves_type ON moves(type);
 CREATE INDEX idx_pokemon_tier ON pokemon(tier);
+CREATE INDEX idx_pokemon_key ON pokemon(key);
+CREATE INDEX idx_abilities_key ON abilities(key);
+CREATE INDEX idx_items_key ON items(key);
+CREATE INDEX idx_moves_key ON moves(key);

@@ -1,6 +1,15 @@
 import json
 import psycopg2
 from pathlib import Path
+import re
+
+def generate_key(name):
+    """Convert a name to the Pokemon Showdown format (lowercase, no spaces or special characters)"""
+    if not name:
+        return None
+    # Remove spaces and special characters, convert to lowercase
+    key = re.sub(r'[^a-zA-Z0-9]', '', name.lower())
+    return key
 
 def load_json_file(filename):
     with open(filename, 'r', encoding='utf-8') as f:
@@ -40,34 +49,130 @@ def get_strategy_text(pokemon_name, descriptions_data):
         return None
     return text
 
+def create_tables(cursor):
+    print("Creating tables...")
+    cursor.execute("""
+        DROP TABLE IF EXISTS random_battle_sets CASCADE;
+        DROP TABLE IF EXISTS pokemon CASCADE;
+        DROP TABLE IF EXISTS moves CASCADE;
+        DROP TABLE IF EXISTS items CASCADE;
+        DROP TABLE IF EXISTS abilities CASCADE;
+        DROP TABLE IF EXISTS types_defending CASCADE;
+        DROP TABLE IF EXISTS types_attacking CASCADE;
+
+        -- Create types table first since it will be referenced by pokemon
+        CREATE TABLE types_attacking (
+            attacking_type VARCHAR(20),
+            defending_type VARCHAR(20),
+            multiplier DECIMAL,
+            PRIMARY KEY (attacking_type, defending_type)
+        );
+
+        CREATE TABLE types_defending (
+            attacking_type VARCHAR(20),
+            defending_type VARCHAR(20),
+            multiplier DECIMAL,
+            PRIMARY KEY (attacking_type, defending_type)
+        );
+
+        -- Create abilities table before pokemon since it will be referenced
+        CREATE TABLE abilities (
+            ability_name VARCHAR(255) PRIMARY KEY,
+            key VARCHAR(255) UNIQUE NOT NULL,
+            description TEXT NOT NULL
+        );
+
+        -- Create items table
+        CREATE TABLE items (
+            item_name VARCHAR(255) PRIMARY KEY,
+            key VARCHAR(255) UNIQUE NOT NULL,
+            description TEXT NOT NULL
+        );
+
+        -- Create moves table
+        CREATE TABLE moves (
+            move_name VARCHAR(255) PRIMARY KEY,
+            key VARCHAR(255) UNIQUE NOT NULL,
+            type VARCHAR(255),
+            power VARCHAR(255),
+            accuracy VARCHAR(255),
+            pp VARCHAR(255),
+            description TEXT
+        );
+
+        -- Create pokemon table with single tier
+        CREATE TABLE pokemon (
+            pokemon_name VARCHAR(255) PRIMARY KEY,
+            key VARCHAR(255) UNIQUE NOT NULL,
+            type1 VARCHAR(255),
+            type2 VARCHAR(255),
+            ability1 VARCHAR(255) REFERENCES abilities(ability_name),
+            ability2 VARCHAR(255) REFERENCES abilities(ability_name),
+            ability3 VARCHAR(255) REFERENCES abilities(ability_name),
+            tier VARCHAR(255),
+            strategy TEXT,
+            hp INTEGER NOT NULL,
+            atk INTEGER NOT NULL,
+            def INTEGER NOT NULL,
+            spa INTEGER NOT NULL,
+            spd INTEGER NOT NULL,
+            spe INTEGER NOT NULL
+        );
+
+        -- Create random battles roles table
+        CREATE TABLE random_battle_sets (
+            pokemon_name VARCHAR(255) REFERENCES pokemon(pokemon_name),
+            role_name VARCHAR(255),
+            level INTEGER NOT NULL,
+            abilities JSONB,
+            items JSONB,
+            tera_types JSONB,
+            moves JSONB,
+            evs JSONB,
+            ivs JSONB,
+            PRIMARY KEY (pokemon_name, role_name)
+        );
+
+        -- Create indexes for better query performance
+        CREATE INDEX idx_random_battle_sets_pokemon ON random_battle_sets(pokemon_name);
+        CREATE INDEX idx_random_battle_sets_role ON random_battle_sets(role_name);
+        CREATE INDEX idx_pokemon_type1 ON pokemon(type1);
+        CREATE INDEX idx_pokemon_type2 ON pokemon(type2);
+        CREATE INDEX idx_moves_type ON moves(type);
+        CREATE INDEX idx_pokemon_tier ON pokemon(tier);
+        CREATE INDEX idx_pokemon_key ON pokemon(key);
+        CREATE INDEX idx_abilities_key ON abilities(key);
+        CREATE INDEX idx_items_key ON items(key);
+        CREATE INDEX idx_moves_key ON moves(key);
+    """)
+    print("Tables created successfully!")
+
 def insert_pokemon(cursor, pokemon_data, descriptions_data):
     print(f"Inserting {len(pokemon_data)} pokemon...")
     for pokemon in pokemon_data:
         try:
-            # Get tier if it exists, otherwise None
             tier = get_valid_tier(pokemon.get('formats', []))
             
             type1, type2 = parse_types(pokemon['type1'])
-            if pokemon.get('type2'):  # If type2 exists in the data, override the parsed type2
+            if pokemon.get('type2'):
                 _, type2 = parse_types(pokemon['type2'])
             
-            # Get strategy text
             strategy = get_strategy_text(pokemon['name'], descriptions_data)
             
-            # Insert the main pokemon data
             cursor.execute("""
                 INSERT INTO pokemon (
-                    pokemon_name, type1, type2, ability1, ability2, ability3,
+                    pokemon_name, key, type1, type2, ability1, ability2, ability3,
                     tier, hp, atk, def, spa, spd, spe, strategy
-                ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+                ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
             """, (
                 pokemon['name'],
+                generate_key(pokemon['name']),
                 type1,
                 type2,
                 clean_ability(pokemon.get('ability1')),
                 clean_ability(pokemon.get('ability2')),
                 clean_ability(pokemon.get('ability3')),
-                tier,  # Will be None if no formats exist
+                tier,
                 clean_stat(pokemon['hp']),
                 clean_stat(pokemon['atk']),
                 clean_stat(pokemon['def']),
@@ -104,7 +209,7 @@ def insert_random_battles(cursor, random_battles_data):
                 ))
                 print(f"Inserted random battle set for {pokemon_name} - {role_name}")
         except Exception as e:
-            print(f"Error inserting random battle data for {pokemon_name} - {role_name}: {e}")
+            print(f"Error inserting random battle data for {pokemon_name}: {e}")
 
 def insert_type_matchups(cursor, types_data):
     print("Inserting attacking type matchups...")
@@ -144,9 +249,10 @@ def insert_abilities(cursor, abilities_data):
     for ability in abilities_data:
         try:
             cursor.execute(
-                "INSERT INTO abilities (ability_name, description) VALUES (%s, %s)",
-                (ability['name'], ability['description'])
+                "INSERT INTO abilities (ability_name, key, description) VALUES (%s, %s, %s)",
+                (ability['name'], generate_key(ability['name']), ability['description'])
             )
+            print(f"Inserted ability: {ability['name']}")
         except Exception as e:
             print(f"Error inserting ability {ability['name']}: {e}")
 
@@ -155,9 +261,10 @@ def insert_items(cursor, items_data):
     for item in items_data:
         try:
             cursor.execute(
-                "INSERT INTO items (item_name, description) VALUES (%s, %s)",
-                (item['name'], item['description'])
+                "INSERT INTO items (item_name, key, description) VALUES (%s, %s, %s)",
+                (item['name'], generate_key(item['name']), item['description'])
             )
+            print(f"Inserted item: {item['name']}")
         except Exception as e:
             print(f"Error inserting item {item['name']}: {e}")
 
@@ -167,11 +274,12 @@ def insert_moves(cursor, moves_data):
         try:
             cursor.execute(
                 """
-                INSERT INTO moves (move_name, type, power, accuracy, pp, description)
-                VALUES (%s, %s, %s, %s, %s, %s)
+                INSERT INTO moves (move_name, key, type, power, accuracy, pp, description)
+                VALUES (%s, %s, %s, %s, %s, %s, %s)
                 """,
                 (
                     move['name'],
+                    generate_key(move['name']),
                     move['type'],
                     move.get('power', None),
                     move.get('accuracy', None),
@@ -179,6 +287,7 @@ def insert_moves(cursor, moves_data):
                     move.get('description', None)
                 )
             )
+            print(f"Inserted move: {move['name']}")
         except Exception as e:
             print(f"Error inserting move {move['name']}: {e}")
 
@@ -193,6 +302,8 @@ def main():
 
     data_dir = Path('../scrapers/data')
     
+    # Load all JSON files
+    print("Loading JSON files...")
     files = {
         'types': load_json_file(data_dir / 'smogon_types.json'),
         'abilities': load_json_file(data_dir / 'smogon_abilities.json'),
@@ -202,13 +313,19 @@ def main():
         'descriptions': load_json_file(data_dir / 'pokemon_descriptions.json'),
         'random_battles': load_json_file(data_dir / 'gen9randombattle.json')
     }
+    print("JSON files loaded successfully!")
 
     try:
         print("Connecting to database...")
         conn = psycopg2.connect(**db_params)
         cursor = conn.cursor()
 
-        # Insert data
+        # Create all tables
+        create_tables(cursor)
+        conn.commit()
+        print("Tables created successfully!")
+
+        # Insert all data
         insert_type_matchups(cursor, files['types'])
         conn.commit()
         print("Types inserted successfully")
@@ -239,8 +356,10 @@ def main():
         print(f"An error occurred: {e}")
         conn.rollback()
     finally:
-        cursor.close()
-        conn.close()
+        if cursor:
+            cursor.close()
+        if conn:
+            conn.close()
 
 if __name__ == "__main__":
     main()

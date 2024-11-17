@@ -140,29 +140,15 @@ class BattleManager:
             return "No active battle state."
             
         output = []
-        output.append("=== CURRENT BATTLE SITUATION ===\n")
         
-        # Get Pokemon database context for both active Pokemon
-        self_pokemon = state["active"]["self"]["name"] if state["active"]["self"] else None
-        opponent_pokemon = state["active"]["opponent"]["name"] if state["active"]["opponent"] else None
-        
-        if self_pokemon:
-            # Get known data for our Pokemon
-            known_data = {}
-            if state["active"]["self"].get("ability"):
-                known_data["ability"] = state["active"]["self"]["ability"]
-            if state["active"]["self"].get("item"):
-                known_data["item"] = state["active"]["self"]["item"]
-            if state["active"]["self"].get("moves"):
-                known_data["moves"] = state["active"]["self"]["moves"]
-                
-            # Get complete Pokemon data including type matchups
-            pokemon_data = self.agent.db_tools.get_pokemon_complete_data(self_pokemon, known_data)
-            
-            output.append("YOUR ACTIVE POKEMON:")
+        # YOUR ACTIVE POKEMON section
+        if state["active"]["self"]:
             pokemon = state["active"]["self"]
             
-            # Handle fainted Pokemon case
+            # Get base stats and other data from database
+            pokemon_data = self.agent.db_tools.get_pokemon_complete_data(pokemon['name'])
+            
+            # Calculate HP percentage
             if pokemon["hp"] == "0" or pokemon["hp"] == "0 fnt" or "fnt" in pokemon["hp"]:
                 hp_percent = 0
             else:
@@ -171,14 +157,14 @@ class BattleManager:
                     hp_percent = round((float(hp_val) / float(max_hp)) * 100, 1)
                 except (ValueError, IndexError):
                     hp_percent = 0
-                    print(f"Warning: Could not parse HP value: {pokemon['hp']}")
             
+            output.append("YOUR ACTIVE POKEMON:")
             output.append(f"- {pokemon['name']} (HP: {hp_percent}%)")
             
-            # Add Role from random battle data
+            # Add Role
             if 'random_battle_data' in pokemon_data and pokemon_data['random_battle_data'].get('roles'):
                 output.append(f"  Role: {', '.join(pokemon_data['random_battle_data']['roles'])}")
-                
+            
             # Add type matchups
             if 'type_matchups' in pokemon_data:
                 output.append("  Type Matchups:")
@@ -200,15 +186,19 @@ class BattleManager:
                     output.append(f"  Ability: {ability_data['ability_name']}")
                     output.append(f"    Description: {ability_data['description']}")
             
-            # Add moves with details
+            # Add moves (without duplication)
             if pokemon["moves"]:
                 output.append("  Known moves:")
+                # Use a set to prevent duplicate moves
+                seen_moves = set()
                 for move_name in pokemon["moves"]:
-                    move_data = self.agent.db_tools.get_move_data(move_name)
-                    if move_data:
-                        output.append(f"    - {move_data['move_name']} (Type: {move_data['type']}, "
-                                    f"Power: {move_data['power']}, Accuracy: {move_data['accuracy']})")
-                        output.append(f"      Description: {move_data['description']}")
+                    if move_name not in seen_moves:
+                        seen_moves.add(move_name)
+                        move_data = self.agent.db_tools.get_move_data(move_name)
+                        if move_data:
+                            output.append(f"    - {move_data['move_name']} (Type: {move_data['type']}, "
+                                        f"Power: {move_data['power']}, Accuracy: {move_data['accuracy']})")
+                            output.append(f"      Description: {move_data['description']}")
             
             # Add item info
             if pokemon.get("item"):
@@ -216,6 +206,16 @@ class BattleManager:
                 if item_data:
                     output.append(f"  Item: {item_data['item_name']}")
                     output.append(f"    Description: {item_data['description']}")
+            
+            # Add base stats from pokemon_data
+            if pokemon_data:
+                output.append("  Base Stats:")
+                output.append(f"    HP: {pokemon_data['hp']}")
+                output.append(f"    Attack: {pokemon_data['atk']}")
+                output.append(f"    Defense: {pokemon_data['def']}")
+                output.append(f"    Sp. Attack: {pokemon_data['spa']}")
+                output.append(f"    Sp. Defense: {pokemon_data['spd']}")
+                output.append(f"    Speed: {pokemon_data['spe']}")
             
             # Add Tera Type info
             if pokemon.get("tera_type"):
@@ -225,31 +225,21 @@ class BattleManager:
                 elif not state.get("tera_used", False):
                     output.append("  Can Terastallize")
             
-            # Add volatile status
-            if pokemon.get("volatile_status"):
-                output.append(f"  Volatile Status: {', '.join(pokemon['volatile_status'])}")
-            
-            # Add stat boosts
-            if pokemon["boosts"]:
-                boosts = [f"{stat.upper()}: {val:+d}" for stat, val in pokemon["boosts"].items() if val != 0]
-                if boosts:
-                    output.append(f"  Boosts: {', '.join(boosts)}")
-            
-            # Add stats
+            # Add current stats
             if pokemon.get("stats"):
+                output.append("  Current Stats:")
                 stats = [f"{stat.upper()}: {val}" for stat, val in pokemon["stats"].items() if val != 0]
                 if stats:
-                    output.append(f"  Stats: {', '.join(stats)}")
-        
-        if opponent_pokemon:
-            # Get opponent Pokemon data
-            opponent_data = self.agent.db_tools.get_pokemon_complete_data(opponent_pokemon)
-            random_battle_data = opponent_data.get('random_battle_data', {})
+                    output.append(f"    {', '.join(stats)}")
+
+        # OPPONENT'S ACTIVE POKEMON section
+        if state["active"]["opponent"]:
+            pokemon = state["active"]["opponent"]
+            pokemon_data = self.agent.db_tools.get_pokemon_complete_data(pokemon['name'])
             
             output.append("\nOPPONENT'S ACTIVE POKEMON:")
-            pokemon = state["active"]["opponent"]
             
-            # Handle fainted Pokemon case
+            # Calculate HP percentage
             if pokemon["hp"] == "0" or pokemon["hp"] == "0 fnt" or "fnt" in pokemon["hp"]:
                 hp_percent = 0
             else:
@@ -258,16 +248,15 @@ class BattleManager:
                     hp_percent = round((float(hp_val) / float(max_hp)) * 100, 1)
                 except (ValueError, IndexError):
                     hp_percent = 0
-                    print(f"Warning: Could not parse HP value: {pokemon['hp']}")
             
             output.append(f"- {pokemon['name']} (HP: {hp_percent}%)")
             
             # Add type matchups
-            if 'type_matchups' in opponent_data:
+            if 'type_matchups' in pokemon_data:
                 output.append("  Type Matchups:")
-                weaknesses = [f"{t} ({m}x)" for t, m in opponent_data['type_matchups']['defending'].items() if m > 1]
-                resistances = [f"{t} ({m}x)" for t, m in opponent_data['type_matchups']['defending'].items() if m < 1 and m > 0]
-                immunities = [t for t, m in opponent_data['type_matchups']['defending'].items() if m == 0]
+                weaknesses = [f"{t} ({m}x)" for t, m in pokemon_data['type_matchups']['defending'].items() if m > 1]
+                resistances = [f"{t} ({m}x)" for t, m in pokemon_data['type_matchups']['defending'].items() if m < 1 and m > 0]
+                immunities = [t for t, m in pokemon_data['type_matchups']['defending'].items() if m == 0]
                 
                 if weaknesses:
                     output.append(f"    Weak to: {', '.join(weaknesses)}")
@@ -276,20 +265,30 @@ class BattleManager:
                 if immunities:
                     output.append(f"    Immune to: {', '.join(immunities)}")
             
-            # Add all possibilities from random battle data
-            if random_battle_data.get('roles'):
-                output.append(f"  Possible Roles: {', '.join(random_battle_data['roles'])}")
-            if random_battle_data.get('level'):
-                output.append(f"  Level: {random_battle_data['level']}")
-            if random_battle_data.get('abilities'):
-                output.append(f"  Possible Abilities: {', '.join(random_battle_data['abilities'])}")
-            if random_battle_data.get('items'):
-                output.append(f"  Possible Items: {', '.join(random_battle_data['items'])}")
-            if random_battle_data.get('moves'):
-                output.append(f"  Possible Moves: {', '.join(random_battle_data['moves'])}")
-            if random_battle_data.get('tera_types'):
-                output.append(f"  Possible Tera Types: {', '.join(random_battle_data['tera_types'])}")
+            # Add base stats from pokemon_data
+            if pokemon_data:
+                output.append("  Base Stats:") 
+                output.append(f"    HP: {pokemon_data.get('hp', 'Unknown')}")
+                output.append(f"    Attack: {pokemon_data.get('atk', 'Unknown')}")
+                output.append(f"    Defense: {pokemon_data.get('def', 'Unknown')}")
+                output.append(f"    Sp. Attack: {pokemon_data.get('spa', 'Unknown')}")
+                output.append(f"    Sp. Defense: {pokemon_data.get('spd', 'Unknown')}")
+                output.append(f"    Speed: {pokemon_data.get('spe', 'Unknown')}")
             
+            # Add possibilities from random battle data
+            rbd = pokemon_data.get('random_battle_data', {})
+            if rbd.get('roles'):
+                output.append(f"  Possible Roles: {', '.join(rbd['roles'])}")
+            if rbd.get('level'):
+                output.append(f"  Level: {rbd['level']}")
+            if rbd.get('abilities'):
+                output.append(f"  Possible Abilities: {', '.join(rbd['abilities'])}")
+            if rbd.get('items'):
+                output.append(f"  Possible Items: {', '.join(rbd['items'])}")
+            if rbd.get('moves'):
+                output.append(f"  Possible Moves: {', '.join(rbd['moves'])}")
+            if rbd.get('tera_types'):
+                output.append(f"  Possible Tera Types: {', '.join(rbd['tera_types'])}")
             # Add known information
             if pokemon["status"]:
                 output.append(f"  Status: {pokemon['status']}")
@@ -333,7 +332,6 @@ class BattleManager:
                 if stats:
                     output.append(f"  Stats: {', '.join(stats)}")
         
-        # Team Section
         output.append("\nYOUR TEAM:")
         for name, pokemon in state["team"]["self"].items():
             # Get complete data for team member
@@ -348,24 +346,29 @@ class BattleManager:
                     hp_percent = round((float(hp_val) / float(max_hp)) * 100, 1)
                 except (ValueError, IndexError):
                     hp_percent = 0
-                    print(f"Warning: Could not parse HP value: {pokemon['hp']}")
             
-            status_str = f", Status: {pokemon['status']}" if pokemon["status"] else ""
-            ability_str = ""
-            if pokemon["ability"]:
+            # Add basic info
+            output.append(f"- {name} (HP: {hp_percent}%)")
+            
+            # Add Role from random_battle_data
+            if 'random_battle_data' in pokemon_data and pokemon_data['random_battle_data'].get('roles'):
+                output.append(f"  Role: {', '.join(pokemon_data['random_battle_data']['roles'])}")
+            
+            # Add ability info with description
+            if pokemon.get("ability"):
                 ability_data = self.agent.db_tools.get_ability_data(pokemon["ability"])
                 if ability_data:
-                    ability_str = f", Ability: {ability_data['ability_name']}"
+                    output.append(f"  Ability: {ability_data['ability_name']}")
+                    output.append(f"    Description: {ability_data['description']}")
             
-            item_str = ""
+            # Add item info with description
             if pokemon.get("item"):
                 item_data = self.agent.db_tools.get_item_data(pokemon["item"])
                 if item_data:
-                    item_str = f", Item: {item_data['item_name']}"
+                    output.append(f"  Item: {item_data['item_name']}")
+                    output.append(f"    Description: {item_data['description']}")
             
-            output.append(f"- {name} (HP: {hp_percent}%{status_str}{ability_str}{item_str})")
-            
-            # Add type matchups for team member
+            # Add type matchups
             if 'type_matchups' in pokemon_data:
                 output.append("  Type Matchups:")
                 weaknesses = [f"{t} ({m}x)" for t, m in pokemon_data['type_matchups']['defending'].items() if m > 1]
@@ -379,26 +382,34 @@ class BattleManager:
                 if immunities:
                     output.append(f"    Immune to: {', '.join(immunities)}")
             
-            # Add moves with details for team member
+            # Add moves with details
             if pokemon["moves"]:
                 output.append("  Known moves:")
+                seen_moves = set()
                 for move_name in pokemon["moves"]:
-                    move_data = self.agent.db_tools.get_move_data(move_name)
-                    if move_data:
-                        output.append(f"    - {move_data['move_name']} (Type: {move_data['type']}, "
-                                    f"Power: {move_data['power']}, Accuracy: {move_data['accuracy']})")
-                        output.append(f"      Description: {move_data['description']}")
+                    if move_name not in seen_moves:
+                        seen_moves.add(move_name)
+                        move_data = self.agent.db_tools.get_move_data(move_name)
+                        if move_data:
+                            output.append(f"    - {move_data['move_name']} (Type: {move_data['type']}, "
+                                        f"Power: {move_data['power']}, Accuracy: {move_data['accuracy']})")
+                            output.append(f"      Description: {move_data['description']}")
             
-            if pokemon.get("stats"):
-                stats = [f"{stat.upper()}: {val}" for stat, val in pokemon["stats"].items() if val != 0]
-                if stats:
-                    output.append(f"  Stats: {', '.join(stats)}")
+            # Add base stats
+            if pokemon_data:
+                output.append("  Base Stats:")
+                output.append(f"    HP: {pokemon_data['hp']}")
+                output.append(f"    Attack: {pokemon_data['atk']}")
+                output.append(f"    Defense: {pokemon_data['def']}")
+                output.append(f"    Sp. Attack: {pokemon_data['spa']}")
+                output.append(f"    Sp. Defense: {pokemon_data['spd']}")
+                output.append(f"    Speed: {pokemon_data['spe']}")
             
             if pokemon.get("tera_type"):
                 output.append(f"  Tera Type: {pokemon['tera_type']}")
                 if pokemon.get("terastallized"):
                     output.append("  Currently Terastallized")
-        
+
         output.append("\nREVEALED OPPONENT POKEMON:")
         for name, pokemon in state["team"]["opponent"].items():
             # Get complete data for opponent's revealed Pokemon
@@ -413,28 +424,30 @@ class BattleManager:
                     hp_percent = round((float(hp_val) / float(max_hp)) * 100, 1)
                 except (ValueError, IndexError):
                     hp_percent = 0
-                    print(f"Warning: Could not parse HP value: {pokemon['hp']}")
             
+            # Add basic info
             status_str = f", Status: {pokemon['status']}" if pokemon["status"] else ""
-            ability_str = ""
-            if pokemon["ability"]:
-                ability_data = self.agent.db_tools.get_ability_data(pokemon["ability"])
-                if ability_data:
-                    ability_str = ""
-            if pokemon["ability"]:
-                ability_data = self.agent.db_tools.get_ability_data(pokemon["ability"])
-                if ability_data:
-                    ability_str = f", Ability: {ability_data['ability_name']}"
+            output.append(f"- {name} (HP: {hp_percent}%{status_str})")
             
-            item_str = ""
+            # Add Role from random_battle_data
+            if 'random_battle_data' in pokemon_data and pokemon_data['random_battle_data'].get('roles'):
+                output.append(f"  Role: {', '.join(pokemon_data['random_battle_data']['roles'])}")
+            
+            # Add ability info with description
+            if pokemon["ability"]:
+                ability_data = self.agent.db_tools.get_ability_data(pokemon["ability"])
+                if ability_data:
+                    output.append(f"  Ability: {ability_data['ability_name']}")
+                    output.append(f"    Description: {ability_data['description']}")
+            
+            # Add item info with description
             if pokemon.get("item"):
                 item_data = self.agent.db_tools.get_item_data(pokemon["item"])
                 if item_data:
-                    item_str = f", Item: {item_data['item_name']}"
+                    output.append(f"  Item: {item_data['item_name']}")
+                    output.append(f"    Description: {item_data['description']}")
             
-            output.append(f"- {name} (HP: {hp_percent}%{status_str}{ability_str}{item_str})")
-            
-            # Add type matchups for revealed opponent Pokemon
+            # Add type matchups
             if 'type_matchups' in pokemon_data:
                 output.append("  Type Matchups:")
                 weaknesses = [f"{t} ({m}x)" for t, m in pokemon_data['type_matchups']['defending'].items() if m > 1]
@@ -448,7 +461,7 @@ class BattleManager:
                 if immunities:
                     output.append(f"    Immune to: {', '.join(immunities)}")
             
-            # Add moves with details for revealed opponent Pokemon
+            # Add moves with details
             if pokemon["moves"]:
                 output.append("  Known moves:")
                 for move_name in pokemon["moves"]:
@@ -458,15 +471,20 @@ class BattleManager:
                                     f"Power: {move_data['power']}, Accuracy: {move_data['accuracy']})")
                         output.append(f"      Description: {move_data['description']}")
             
-            if pokemon.get("stats"):
-                stats = [f"{stat.upper()}: {val}" for stat, val in pokemon["stats"].items() if val != 0]
-                if stats:
-                    output.append(f"  Stats: {', '.join(stats)}")
+            # Add base stats
+            if pokemon_data:
+                output.append("  Base Stats:")
+                output.append(f"    HP: {pokemon_data['hp']}")
+                output.append(f"    Attack: {pokemon_data['atk']}")
+                output.append(f"    Defense: {pokemon_data['def']}")
+                output.append(f"    Sp. Attack: {pokemon_data['spa']}")
+                output.append(f"    Sp. Defense: {pokemon_data['spd']}")
+                output.append(f"    Speed: {pokemon_data['spe']}")
             
             if pokemon.get("tera_type"):
                 output.append(f"  Tera Type: {pokemon['tera_type']}")
                 if pokemon.get("terastallized"):
-                    output.append("  Currently Terastallized")
+                    output.append("  Currently Terastallized")   
         
         # Field Conditions
         output.append("\nFIELD CONDITIONS:")
@@ -590,38 +608,47 @@ class BattleManager:
         """
         return await self.bot.handle_instruction(move_instruction)
 
-    async def get_agent_decision(self, state: Dict) -> tuple[str, Optional[str]]:
+    async def get_agent_decision(self, state: Dict, previous_error: Optional[str] = None, exclude_switches: bool = False) -> tuple[str, Optional[str]]:
         """
         Get the agent's decision based on the current battle state.
         
         Args:
             state (Dict): Current battle state
+            previous_error (str, optional): Error message from previous attempt
+            exclude_switches (bool): Whether to exclude switch options from prompt
             
         Returns:
-            tuple[str, Optional[str]]: (reasoning, move_command) where move_command is in format 'move X' or 'switch X'
+            tuple[str, Optional[str]]: (reasoning, move_command)
         """
         try:
-            # Format the battle state with Pokemon context
             formatted_state = self.parse_battle_state(state)
             
-            # Create the query for the agent with explicit formatting instructions
-            query = f"""Based on the following battle situation, what would be the best move to make? Consider all available moves and switches.
+            # Build the query with error context if present
+            error_context = ""
+            if previous_error:
+                error_context = f"\nPrevious attempt failed because: {previous_error}\n"
 
+            # Base query
+            query = f"""Based on the following battle situation, what would be the best move to make? Consider {"only moves, no switching allowed" if exclude_switches else "all available moves and switches"}.
+            {error_context}
             {formatted_state}
 
             Analyze the situation and explain your reasoning. Then, provide your chosen move in a separate line starting with "CHOSEN MOVE:".
             For example:
             - If choosing a regular move, write "CHOSEN MOVE: move X" (e.g., "CHOSEN MOVE: move 1")
-            - If choosing to terastallize with a move, write "CHOSEN MOVE: move Xt" (e.g., "CHOSEN MOVE: move 1t")
-            - If choosing to switch, write "CHOSEN MOVE: switch X" (e.g., "CHOSEN MOVE: switch 3")
+            - If choosing to terastallize with a move, write "CHOSEN MOVE: move Xt" (e.g., "CHOSEN MOVE: move 1t")"""
 
-            Make sure to consider terastallizing when it would be advantageous and available.
-            Make sure to separate your analysis from your move choice with a blank line."""
+            # Only add switch example if switches aren't excluded
+            if not exclude_switches:
+                query += '\n        - If choosing to switch, write "CHOSEN MOVE: switch X" (e.g., "CHOSEN MOVE: switch 3")'
 
-            # Get the agent's response
+            query += "\n\nMake sure to consider terastallizing when it would be advantageous and available."
+            query += "\nMake sure to separate your analysis from your move choice with a blank line."
+            query += "\nOnly choose from the explicitly listed available moves and switches above."
+
+            # Get and parse response
             response = self.agent.run(query)
             if not response:
-                print("Warning: Received empty response from agent")
                 return "No analysis provided.", None
             
             try:
@@ -635,39 +662,18 @@ class BattleManager:
                 move_command = parts[1].strip().lower()
                 
                 # Validate move command format
-                if not (move_command.startswith("move ") or move_command.startswith("switch ")):
+                if exclude_switches and move_command.startswith("switch"):
+                    # If we excluded switches but got a switch command, retry without switches
+                    return await self.get_agent_decision(state, "Switching is not allowed at this time.", True)
+                
+                if not (move_command.startswith("move ") or (not exclude_switches and move_command.startswith("switch "))):
                     print(f"Warning: Invalid move command format: {move_command}")
-                    return reasoning, None
+                    return await self.get_agent_decision(state, "Invalid move format. Please use the exact format shown.", exclude_switches)
                     
-                print("\nAgent's analysis:")
-                print(reasoning)
-                print(f"\nChosen move: {move_command}")
-                
-                # Add turn update to chat history if available
-                if hasattr(self, 'system_manager') and self.system_manager and self.battle_id:
-                    # Format the turn message more clearly
-                    turn_message = (
-                        f"Analysis:\n"
-                        f"{reasoning}\n\n"
-                        f"Chosen Move: {move_command}"
-                    )
-                    
-                    turn_data = {
-                        'analysis': reasoning,
-                        'move': move_command
-                    }
-                    
-                    self.system_manager.chat_history.add_battle_turn(
-                        self.battle_id,
-                        turn_data,
-                        turn_message
-                    )
-                
                 return reasoning, move_command
                 
             except Exception as e:
                 print(f"Error parsing agent response: {str(e)}")
-                print("Raw response:", response)
                 return str(response), None
                 
         except Exception as e:
@@ -709,25 +715,95 @@ class BattleManager:
                         # Get agent's analysis and move choice
                         reasoning, move_command = await self.get_agent_decision(new_state)
                         
-                        if move_command:
-                            # Execute the move
+                        # Store the initial analysis
+                        if hasattr(self, 'system_manager') and self.system_manager and self.battle_id:
+                            turn_data = {
+                                'analysis': reasoning,
+                                'move': move_command
+                            }
+                            turn_message = (
+                                f"Analysis:\n"
+                                f"{reasoning}\n\n"
+                                f"Chosen Move: {move_command}"
+                            )
+                            self.system_manager.chat_history.add_battle_turn(
+                                self.battle_id,
+                                turn_data,
+                                turn_message
+                            )
+                        
+                        max_retries = 3
+                        retry_count = 0
+                        
+                        while move_command and retry_count < max_retries:
                             result = await self.make_move(move_command)
-                            if not result["success"]:
-                                print(f"Move execution failed: {result['error']}")
-                                if hasattr(self, 'system_manager') and self.system_manager:
-                                    self.system_manager.chat_history.add_battle_turn(
-                                        self.battle_id,
-                                        {'error': result['error']},
-                                        f"Move execution failed: {result['error']}"
-                                    )
-                    
+                            if result["success"]:
+                                break
+                            
+                            # If move failed, retry with error context
+                            print(f"Move execution failed: {result['error']}")
+                            
+                            # Log the failed attempt
+                            if hasattr(self, 'system_manager') and self.system_manager:
+                                error_data = {
+                                    'error': result['error'],
+                                    'failed_move': move_command
+                                }
+                                self.system_manager.chat_history.add_battle_turn(
+                                    self.battle_id,
+                                    error_data,
+                                    f"Move execution failed: {result['error']}"
+                                )
+                            
+                            # Decide whether to exclude switches based on error
+                            exclude_switches = (
+                                'trapped' in result['error'].lower() or 
+                                'switch' in result['error'].lower()
+                            )
+                            
+                            # Get new analysis and move
+                            reasoning, move_command = await self.get_agent_decision(
+                                new_state,
+                                result['error'],
+                                exclude_switches=exclude_switches
+                            )
+                            
+                            # Log the retry attempt
+                            if hasattr(self, 'system_manager') and self.system_manager:
+                                retry_data = {
+                                    'analysis': reasoning,
+                                    'move': move_command,
+                                    'retry_number': retry_count + 1
+                                }
+                                retry_message = (
+                                    f"Retry #{retry_count + 1}:\n"
+                                    f"Analysis:\n"
+                                    f"{reasoning}\n\n"
+                                    f"New Chosen Move: {move_command}"
+                                )
+                                self.system_manager.chat_history.add_battle_turn(
+                                    self.battle_id,
+                                    retry_data,
+                                    retry_message
+                                )
+                            
+                            retry_count += 1
+                        
+                        if retry_count >= max_retries:
+                            print("Failed to get valid move after maximum retries")
+                            if hasattr(self, 'system_manager') and self.system_manager:
+                                self.system_manager.chat_history.add_battle_turn(
+                                    self.battle_id,
+                                    {'error': 'Failed to get valid move after maximum retries'},
+                                    'Failed to get valid move after maximum retries'
+                                )
+                
                 await asyncio.sleep(0.5)
                 
         except Exception as e:
             self.logger.error(f"Error in battle loop: {str(e)}", exc_info=True)
             self.is_running = False
             raise
-
 
 async def main():
     """Example usage of the BattleManager"""

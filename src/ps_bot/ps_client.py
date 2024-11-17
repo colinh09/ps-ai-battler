@@ -385,6 +385,11 @@ class ShowdownBot:
                     player = parts[2][:2]
                     if player in self.battle_state.active_pokemon and self.battle_state.active_pokemon[player]:
                         self.battle_state.active_pokemon[player].ability = parts[3]
+                        
+                        # Also update the team Pokemon's ability
+                        active_name = self.battle_state.active_pokemon[player].name
+                        if active_name in self.battle_state.team_pokemon[player]:
+                            self.battle_state.team_pokemon[player][active_name].ability = parts[3]
                 
                 elif command in ["-boost", "-unboost"]:
                     player = parts[2][:2]
@@ -437,6 +442,10 @@ class ShowdownBot:
                     if player in self.battle_state.active_pokemon and self.battle_state.active_pokemon[player]:
                         print(f"Setting HP to 0 for {self.battle_state.active_pokemon[player].name}")
                         self.battle_state.active_pokemon[player].hp = "0/100"
+                        # Also update the team Pokemon's HP
+                        active_name = self.battle_state.active_pokemon[player].name
+                        if active_name in self.battle_state.team_pokemon[player]:
+                            self.battle_state.team_pokemon[player][active_name].hp = "0/100"
                     print("=== END FAINT DEBUG ===\n")
                 
                 elif command == "win":
@@ -467,25 +476,62 @@ class ShowdownBot:
                             
                             pokemon = self.battle_state.team_pokemon[self.player_id][name]
                             
+                            # Update item
                             pokemon.item = pokemon_data.get("item")
+                            
+                            # Update HP condition
                             pokemon.hp = pokemon_data.get("condition", "100/100")
-                            pokemon.stats = pokemon_data.get("stats", {})
-                            pokemon.ability = pokemon_data.get("ability")
+                            
+                            # Update stats
+                            if "stats" in pokemon_data:
+                                pokemon.stats = pokemon_data["stats"]
+                            
+                            # Update ability - prioritize current ability over base ability
+                            new_ability = pokemon_data.get("ability") or pokemon_data.get("baseAbility")
+                            if new_ability:
+                                pokemon.ability = new_ability
+                            
+                            # Update Tera type and status
                             pokemon.tera_type = pokemon_data.get("teraType")
                             pokemon.terastallized = bool(pokemon_data.get("terastallized"))
                             
+                            # Update moves - merge with existing moves 
                             if "moves" in pokemon_data:
-                                pokemon.moves = set(move for move in pokemon_data["moves"])
+                                # For active Pokemon, replace the complete moveset
+                                if pokemon_data.get("active"):
+                                    pokemon.moves = set(move for move in pokemon_data["moves"])
+                                else:
+                                    # For inactive Pokemon, add to existing moves
+                                    pokemon.moves.update(move for move in pokemon_data["moves"])
                             
+                            # If this is the active Pokemon, update it in active_pokemon
                             if pokemon_data.get("active"):
                                 self.battle_state.active_pokemon[self.player_id] = pokemon
                     
-                    if "active" in request and request["active"]:
-                        print("Active Pokemon data exists")
+                    # Additional handling for active Pokemon's available moves
+                    if "active" in request and request["active"] and len(request["active"]) > 0:
                         try:
                             active_data = request["active"][0]
                             active_pokemon = self.battle_state.active_pokemon[self.player_id]
                             print(f"Active Pokemon: {active_pokemon.name if active_pokemon else 'None'}")
+                            
+                            # Update moves for active Pokemon from the moves array
+                            if active_pokemon and "moves" in active_data:
+                                # Create a set of all available moves
+                                available_moves = set()
+                                for move in active_data["moves"]:
+                                    if isinstance(move, dict) and "move" in move:
+                                        available_moves.add(move["move"])
+                                    elif isinstance(move, str):
+                                        available_moves.add(move)
+                                
+                                # Update the Pokemon's moves
+                                active_pokemon.moves.update(available_moves)
+                                
+                                # Also update the team Pokemon's moves
+                                if active_pokemon.name in self.battle_state.team_pokemon[self.player_id]:
+                                    self.battle_state.team_pokemon[self.player_id][active_pokemon.name].moves.update(available_moves)
+                                
                         except IndexError:
                             print("WARNING: Could not access active[0] - active list is empty")
                         except Exception as e:
@@ -508,13 +554,6 @@ class ShowdownBot:
                 elif command == "error":
                     print(f"Received error: {line}")
                     self.waiting_for_decision = True
-        
-        except Exception as e:
-            print(f"Error in handle_battle_message: {str(e)}")
-            print(f"Message was: {message}")
-            print("Full error details:", str(e.__class__.__name__), str(e))
-            import traceback
-            print("Traceback:", traceback.format_exc())
         
         except Exception as e:
             print(f"Error in handle_battle_message: {str(e)}")
@@ -604,20 +643,21 @@ class ShowdownBot:
         """Get list of valid moves from the current request"""
         if not self.current_request or "active" not in self.current_request or not self.current_request["active"]:
             return []
-            
+                
         active = self.current_request["active"][0]
         if "moves" not in active:
             return []
-            
+                
         valid_moves = []
         active_pokemon = self.battle_state.active_pokemon[self.player_id]
-        # Can tera if we haven't used it this battle and current Pokemon isn't already terastallized
+        # Can tera if we haven't used it this battle and current Pokemon isn't already terastallized 
         can_tera = (not self.battle_state.tera_used and 
                     active_pokemon and 
                     not active_pokemon.terastallized)
         
+        # Only include non-disabled moves
         for i, move in enumerate(active["moves"], 1):
-            if not move.get("disabled", False):
+            if not move.get("disabled", False):  # Explicitly check disabled flag
                 move_data = {
                     "index": i,
                     "move": move["move"],

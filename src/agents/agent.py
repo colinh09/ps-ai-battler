@@ -233,27 +233,34 @@ class PokemonDBTools:
     def get_pokemon_complete_data(self, pokemon_name: str, known_data: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
         """
         Get complete information about a Pokemon including random battle set data.
-        
-        Args:
-            pokemon_name: Name of the Pokemon
-            known_data: Dict containing known ability, item, and moves (for agent's Pokemon)
-            
-        Returns:
-            Dict containing complete Pokemon data including matched/merged set data
+        For agent's Pokemon with known_data, uses keys to look up associated data.
+        For opponent Pokemon, uses regular names.
         """
-        self.logger.info(f"Fetching complete data for Pokemon: {pokemon_name}")
-        
         with self.get_connection() as conn:
             with conn.cursor(cursor_factory=RealDictCursor) as cur:
                 # First get the random battle set data
                 random_battle_data = self.get_best_random_battle_set(pokemon_name, known_data)
                 
-                # Then get basic Pokemon data
-                self.logger.debug(f"Executing Pokemon query for: {pokemon_name}")
-                cur.execute("""
-                    SELECT * FROM pokemon WHERE pokemon_name = %s
-                """, (pokemon_name,))
-                pokemon_data = cur.fetchone()
+                # Get Pokemon data - for agent Pokemon, try by key first
+                if known_data:
+                    pokemon_key = pokemon_name.lower().replace(' ', '')
+                    cur.execute("""
+                        SELECT * FROM pokemon WHERE key = %s
+                    """, (pokemon_key,))
+                    pokemon_data = cur.fetchone()
+                    
+                    if not pokemon_data:
+                        # Fallback to name lookup
+                        cur.execute("""
+                            SELECT * FROM pokemon WHERE pokemon_name = %s
+                        """, (pokemon_name,))
+                        pokemon_data = cur.fetchone()
+                else:
+                    # For opponent Pokemon, lookup by name directly
+                    cur.execute("""
+                        SELECT * FROM pokemon WHERE pokemon_name = %s
+                    """, (pokemon_name,))
+                    pokemon_data = cur.fetchone()
                 
                 if not pokemon_data:
                     self.logger.error(f"Pokemon not found: {pokemon_name}")
@@ -271,12 +278,8 @@ class PokemonDBTools:
                 for ability_key in ['ability1', 'ability2', 'ability3']:
                     if result[ability_key]:
                         self.logger.debug(f"Fetching ability data for: {result[ability_key]}")
-                        cur.execute("""
-                            SELECT * FROM abilities WHERE ability_name = %s
-                        """, (result[ability_key],))
-                        ability_data = cur.fetchone()
+                        ability_data = self.get_ability_data(result[ability_key])
                         if ability_data:
-                            self.logger.debug(f"Found ability data: {ability_data}")
                             abilities.append({
                                 'name': ability_data['ability_name'],
                                 'description': ability_data['description']
@@ -295,37 +298,78 @@ class PokemonDBTools:
                 
                 # Add random battle set data
                 result['random_battle_data'] = random_battle_data
-                
-                self.logger.info(f"Complete Pokemon data assembled: {result}")
                 return result
+    
     def get_move_data(self, move_name: str) -> Optional[Dict[str, Any]]:
-        """Get complete data for a move from the database"""
+        """
+        Get complete data for a move from the database.
+        For agent's Pokemon, uses the key (lowercase no spaces) to look up moves.
+        For opponent Pokemon, uses the regular move name.
+        """
         with self.get_connection() as conn:
             with conn.cursor(cursor_factory=RealDictCursor) as cur:
+                # Try lookup by key first (for agent's Pokemon)
+                move_key = move_name.lower().replace(' ', '')
                 cur.execute("""
-                    SELECT * FROM moves WHERE move_name = %s
-                """, (move_name,))
+                    SELECT * FROM moves WHERE key = %s
+                """, (move_key,))
                 move_data = cur.fetchone()
+                
+                if not move_data:
+                    # If not found by key, try by name (for opponent Pokemon)
+                    cur.execute("""
+                        SELECT * FROM moves WHERE move_name = %s
+                    """, (move_name,))
+                    move_data = cur.fetchone()
+                
                 return dict(move_data) if move_data else None
 
     def get_ability_data(self, ability_name: str) -> Optional[Dict[str, Any]]:
-        """Get complete data for an ability from the database"""
+        """
+        Get complete data for an ability from the database.
+        For agent's Pokemon, uses the key (lowercase no spaces) to look up abilities.
+        For opponent Pokemon, uses the regular ability name.
+        """
         with self.get_connection() as conn:
             with conn.cursor(cursor_factory=RealDictCursor) as cur:
+                # Try lookup by key first (for agent's Pokemon)
+                ability_key = ability_name.lower().replace(' ', '')
                 cur.execute("""
-                    SELECT * FROM abilities WHERE ability_name = %s
-                """, (ability_name,))
+                    SELECT * FROM abilities WHERE key = %s
+                """, (ability_key,))
                 ability_data = cur.fetchone()
+                
+                if not ability_data:
+                    # If not found by key, try by name (for opponent Pokemon)
+                    cur.execute("""
+                        SELECT * FROM abilities WHERE ability_name = %s
+                    """, (ability_name,))
+                    ability_data = cur.fetchone()
+                
                 return dict(ability_data) if ability_data else None
 
     def get_item_data(self, item_name: str) -> Optional[Dict[str, Any]]:
-        """Get complete data for an item from the database"""
+        """
+        Get complete data for an item from the database.
+        For agent's Pokemon, uses the key (lowercase no spaces) to look up items.
+        For opponent Pokemon, uses the regular item name.
+        """
         with self.get_connection() as conn:
             with conn.cursor(cursor_factory=RealDictCursor) as cur:
+                # Try lookup by key first (for agent's Pokemon)
+                item_key = item_name.lower().replace(' ', '')
                 cur.execute("""
-                    SELECT * FROM items WHERE item_name = %s
-                """, (item_name,))
+                    SELECT * FROM items WHERE key = %s
+                """, (item_key,))
                 item_data = cur.fetchone()
+                
+                if not item_data:
+                    # If not found by key, try by name (for opponent Pokemon)
+                    cur.execute("""
+                        SELECT * FROM items WHERE item_name = %s
+                    """, (item_name,))
+                    item_data = cur.fetchone()
+                
                 return dict(item_data) if item_data else None
     
 
