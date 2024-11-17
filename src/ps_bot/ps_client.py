@@ -93,6 +93,8 @@ class ShowdownBot:
         self.current_request = None
         self.on_battle_end = None
         self.logger = logging.getLogger('ShowdownBot')
+        self.challenge_status = None
+        self.pending_battle_room = None
     
     def get_opponent_id(self):
         return "p2" if self.player_id == "p1" else "p1"
@@ -562,8 +564,39 @@ class ShowdownBot:
             import traceback
             print("Traceback:", traceback.format_exc())
 
+
+    async def handle_challenge_updates(self, message_data: str):
+        """Handle updates to challenge status"""
+        try:
+            data = json.loads(message_data)
+            print(f"DEBUG - Challenge update data: {data}")  # Let's see the full data
+            
+            # Track if we're challenging someone
+            if data.get('challengeTo'):
+                challenge = data['challengeTo']
+                if challenge:
+                    print(f"Waiting for {challenge['to']} to accept challenge...")
+                    self.challenge_status = 'pending'
+                else:
+                    # If challengeTo is null and we previously had a pending challenge,
+                    # it means the challenge was either accepted or rejected
+                    if self.challenge_status == 'pending':
+                        if data.get('games'):
+                            room_id = next(iter(data['games']))
+                            print(f"DEBUG - Got room ID from games: {room_id}")
+                            self.pending_battle_room = room_id
+                            self.challenge_status = 'accepted'
+                        else:
+                            print("Challenge was rejected or cancelled")
+                            self.challenge_status = 'rejected'
+                    self.challenge_status = None
+
+        except json.JSONDecodeError:
+            print(f"Error parsing challenge update data: {message_data}")
+        except Exception as e:
+            print(f"Error handling challenge updates: {str(e)}")
+
     async def receive_messages(self):
-        """Main message handling loop"""
         try:
             while True:
                 message = await self.ws.recv()
@@ -572,26 +605,37 @@ class ShowdownBot:
                     challstr = message.split("|challstr|")[1]
                     await self.login(challstr)
                     await asyncio.sleep(2)
-                    challenge_cmd = f"|/challenge {self.target_username}, gen9randombattle"
-                    await self.ws.send(challenge_cmd)
+                    # Send challenge
+                    await self.ws.send("|/utm null")
+                    await self.ws.send(f"|/challenge {self.target_username}, gen9randombattle")
+                
+                elif "|updatechallenges|" in message:
+                    data = json.loads(message.split("|updatechallenges|")[1])
+                    print(f"Challenge update received: {data}")
+                    # If there's a game, that means challenge was accepted
+                    if data.get('games'):
+                        room_id = next(iter(data['games']))
+                        print(f"Challenge accepted! Battle room: {room_id}")
+                        self.current_battle = room_id
                 
                 elif message.startswith(">battle-"):
                     room_id = message.split("\n")[0]
+                    if "|init|battle" in message and room_id.strip('>') == self.current_battle:
+                        print(f"Joining battle room: {self.current_battle}")
+                        await self.ws.send(f"|/join {self.current_battle}")
                     await self.handle_battle_message(room_id, message)
-                    
-                elif "|error|" in message:
-                    print(f"Received error: {message}")
-                
         except websockets.exceptions.ConnectionClosed:
-            self.logger.error("Connection closed unexpectedly")
+            print("Connection closed unexpectedly")
             raise
         except Exception as e:
-            self.logger.error(f"Error receiving messages: {str(e)}")
+            print(f"Error in receive_messages: {str(e)}")
             raise
 
     async def challenge_player(self):
         """Send a Random Battle challenge to the target player"""
         print(f"Challenging {self.target_username} to a Random Battle...")
+        # Since Random Battle doesn't require a team, we can send null
+        await self.ws.send("|/utm null")
         challenge_cmd = f"|/challenge {self.target_username}, gen9randombattle"
         await self.ws.send(challenge_cmd)
                 
