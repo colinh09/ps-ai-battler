@@ -129,23 +129,30 @@
         });
 
         function setBattleMode(enabled) {
+            console.log("Setting battle mode:", enabled);
             isBattleMode = enabled;
-            messageInput.disabled = enabled;
-            chatForm.classList.toggle('hidden', enabled);
-            battleControls.classList.toggle('hidden', !enabled);
-
+            
+            // Get UI elements
+            const chatForm = document.getElementById('chat-form');
+            const battleControls = document.getElementById('battle-controls');
+            
             if (enabled) {
-                // Start polling for battle updates
+                // Enter battle mode
+                messageInput.disabled = true;
+                chatForm.classList.add('hidden');
+                battleControls.classList.remove('hidden');
                 battleUpdateInterval = setInterval(checkBattleUpdates, 1000);
             } else {
-                // Stop polling when battle ends
+                // Exit battle mode
+                messageInput.disabled = false;
+                chatForm.classList.remove('hidden');
+                battleControls.classList.add('hidden');
                 if (battleUpdateInterval) {
                     clearInterval(battleUpdateInterval);
                     battleUpdateInterval = null;
                 }
             }
         }
-
         function addMessage(content, isUser = false, battleLog = null) {
             const messageDiv = document.createElement('div');
             messageDiv.className = 'flex items-start gap-2.5';
@@ -233,19 +240,29 @@
                 
                 const data = await response.json();
                 
-                if (data.has_updates && data.battle) {
-                    updateBattleMessage(data.battle);
+                // Check if we no longer have battle updates (battle ended)
+                if (!data.has_updates) {
+                    console.log("Battle has ended, exiting battle mode");
+                    setBattleMode(false);
+                    return;
                 }
                 
-                if (data.battle && data.battle.is_complete) {
-                    setBattleMode(false);
+                if (data.has_updates && data.battle) {
+                    updateBattleMessage(data.battle);
+                    
+                    // Also check if battle is marked as complete
+                    if (data.battle.is_complete) {
+                        console.log("Battle marked as complete, exiting battle mode");
+                        setBattleMode(false);
+                        return;
+                    }
                 }
             } catch (error) {
                 console.error('Error checking battle updates:', error);
-                // Don't disable battle mode on first few errors
-                if (error.message.includes('ECONNREFUSED')) {
-                    // Connection refused errors might be temporary during battle initialization
-                    return;
+                // Only keep checking for updates if it's a connection refused error
+                if (!error.message.includes('ECONNREFUSED')) {
+                    console.log("Exiting battle mode due to error:", error);
+                    setBattleMode(false);
                 }
             }
         }

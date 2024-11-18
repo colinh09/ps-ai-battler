@@ -66,6 +66,8 @@ class BattleManager:
         self.logger.info("Battle has concluded")
         self.battle_concluded = True
         self.is_running = False
+        if hasattr(self, 'system_manager') and self.system_manager:
+            self.system_manager.chat_history.current_battle = None
 
     async def forfeit(self) -> bool:
         """Forfeit the current battle"""
@@ -83,48 +85,6 @@ class BattleManager:
         except Exception as e:
             self.logger.error(f"Error in forfeit: {str(e)}")
             return False
-
-
-    def get_pokemon_context(self, state: Dict) -> str:
-        """
-        Get detailed information about the active Pokemon from the database.
-        
-        Args:
-            state (Dict): Current battle state
-            
-        Returns:
-            str: Formatted context about both active Pokemon
-        """
-        context_parts = []
-        
-        # Get active Pokemon names
-        self_pokemon = state["active"]["self"]["name"] if state["active"]["self"] else None
-        opponent_pokemon = state["active"]["opponent"]["name"] if state["active"]["opponent"] else None
-        
-        # Get database information for both Pokemon
-        if self_pokemon:
-            # Prepare known data for agent's Pokemon
-            known_data = {}
-            if state["active"]["self"].get("ability"):
-                known_data["ability"] = state["active"]["self"]["ability"]
-            if state["active"]["self"].get("item"):
-                known_data["item"] = state["active"]["self"]["item"]
-            if state["active"]["self"].get("moves"):
-                known_data["moves"] = state["active"]["self"]["moves"]
-            
-            self_data = self.agent.db_tools.get_pokemon_complete_data(self_pokemon, known_data)
-            if "error" not in self_data:
-                context_parts.append("YOUR ACTIVE POKEMON INFORMATION:")
-                context_parts.append(self.agent.format_pokemon_data(self_data))
-        
-        if opponent_pokemon:
-            # For opponent Pokemon, we don't pass known_data so it merges all possible sets
-            opponent_data = self.agent.db_tools.get_pokemon_complete_data(opponent_pokemon)
-            if "error" not in opponent_data:
-                context_parts.append("\nOPPONENT'S ACTIVE POKEMON INFORMATION:")
-                context_parts.append(self.agent.format_pokemon_data(opponent_data))
-        
-        return "\n".join(context_parts)
 
     def parse_battle_state(self, state: Dict) -> str:
         """

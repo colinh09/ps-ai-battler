@@ -131,99 +131,6 @@ class ShowdownBot:
             print(f"Error forfeiting battle: {str(e)}")
             return False
 
-    def print_battle_state(self):
-        """Print current battle state for debugging with improved HP display"""
-        print("\n=== Current Battle State ===")
-        print("\nActive Pokemon:")
-        for player in ["p1", "p2"]:
-            if self.battle_state.active_pokemon[player]:
-                poke = self.battle_state.active_pokemon[player]
-                # Handle fainted Pokemon
-                if poke.hp == "0" or poke.hp == "0 fnt" or "fnt" in poke.hp:
-                    hp_percent = 0
-                else:
-                    # Convert HP to percentage
-                    try:
-                        hp_val = poke.hp.split('/')[0]
-                        max_hp = poke.hp.split('/')[1]
-                        hp_percent = round((float(hp_val) / float(max_hp)) * 100, 1)
-                    except (IndexError, ValueError):
-                        hp_percent = 0
-                        print(f"Warning: Could not parse HP value: {poke.hp}")
-                
-                print(f"{player}: {poke.name} (HP: {hp_percent}%, Status: {poke.status})")
-                if poke.ability:
-                    print(f"  Ability: {poke.ability}")
-                if poke.item:
-                    print(f"  Item: {poke.item}")
-                if poke.moves:
-                    print(f"  Known moves: {', '.join(poke.moves)}")
-                if poke.boosts:
-                    boosts = [f"{stat}: {val:+d}" for stat, val in poke.boosts.items() if val != 0]
-                    if boosts:
-                        print(f"  Boosts: {', '.join(boosts)}")
-                if poke.stats:
-                    print(f"  Stats: {', '.join(f'{stat}: {val}' for stat, val in poke.stats.items())}")
-                if poke.tera_type:
-                    print(f"  Tera Type: {poke.tera_type}")
-                    if poke.terastallized:
-                        print("  Currently Terastallized")
-
-        print("\nTeam Pokemon:")
-        for player in ["p1", "p2"]:
-            print(f"\n{player} team:")
-            for poke_name, poke in self.battle_state.team_pokemon[player].items():
-                # Handle fainted Pokemon
-                if poke.hp == "0" or poke.hp == "0 fnt" or "fnt" in poke.hp:
-                    hp_percent = 0
-                else:
-                    # Convert HP to percentage
-                    try:
-                        hp_val = poke.hp.split('/')[0]
-                        max_hp = poke.hp.split('/')[1]
-                        hp_percent = round((float(hp_val) / float(max_hp)) * 100, 1)
-                    except (IndexError, ValueError):
-                        hp_percent = 0
-                        print(f"Warning: Could not parse HP value: {poke.hp}")
-                
-                status_str = f", Status: {poke.status}" if poke.status else ""
-                ability_str = f", Ability: {poke.ability}" if poke.ability else ""
-                item_str = f", Item: {poke.item}" if poke.item else ""
-                print(f"  {poke_name} (HP: {hp_percent}%{status_str}{ability_str}{item_str})")
-                if poke.moves:
-                    print(f"    Known moves: {', '.join(poke.moves)}")
-                if poke.stats:
-                    print(f"    Stats: {', '.join(f'{stat}: {val}' for stat, val in poke.stats.items())}")
-                if poke.tera_type:
-                    print(f"    Tera Type: {poke.tera_type}")
-                    if poke.terastallized:
-                        print("    Currently Terastallized")
-
-        print("\nField Conditions:")
-        weather = self.battle_state.field_conditions["weather"]
-        terrain = self.battle_state.field_conditions["terrain"]
-        trick_room = self.battle_state.field_conditions["trick_room"]
-        
-        if weather:
-            print(f"  Weather: {weather}")
-        if terrain:
-            print(f"  Terrain: {terrain}")
-        if trick_room:
-            print(f"  Trick Room is active")
-        if not weather and not terrain and not trick_room:
-            print("  None")
-
-        print("\nSide Conditions:")
-        for player in ["p1", "p2"]:
-            conditions = self.battle_state.side_conditions[player]
-            if conditions["hazards"] or conditions["screens"]:
-                print(f"  {player}:")
-                if conditions["hazards"]:
-                    print(f"    Hazards: {', '.join(conditions['hazards'])}")
-                if conditions["screens"]:
-                    print(f"    Screens: {', '.join(conditions['screens'])}")
-        print("\n=========================\n")
-
     def update_pokemon_info(self, player: str, details: str, condition: str) -> None:
         """Update Pokemon information from battle messages"""
         name = details.split(',')[0]
@@ -293,40 +200,6 @@ class ShowdownBot:
         await self.ws.send(switch_cmd)
         self.waiting_for_decision = False
         return True
-
-    def print_available_options(self):
-        """Print available moves and switches in a clear format"""
-        print("\n=== Available Options ===")
-        
-        # Print available moves
-        valid_moves = self.get_valid_moves()
-        if valid_moves:
-            print("\nAvailable Moves:")
-            for move in valid_moves:
-                move_str = f"  {move['index']}. {move['move']} (Type: {move['type']}, PP: {move['pp']}/{move['maxpp']})"
-                if move['can_tera']:
-                    move_str += " [Can Terastallize]"
-                    print(f"{move_str}")
-                    # Add terastallize option for this move
-                    print(f"  {move['index']}t. {move['move']} + Terastallize")
-                else:
-                    print(move_str)
-        
-        # Print available switches
-        valid_switches = self.get_valid_switches()
-        if valid_switches:
-            print("\nAvailable Switches:")
-            for switch in valid_switches:
-                print(f"  {switch['index']}. {switch['pokemon']} ({switch['condition']})")
-        
-        if not valid_moves and not valid_switches:
-            print("\nNo valid moves or switches available!")
-        
-        print("\nEnter:")
-        print("'move X' to use a move (e.g., 'move 1')")
-        print("'move Xt' to use a move with terastallize (e.g., 'move 1t')")
-        print("'switch X' to switch Pokemon (e.g., 'switch 2')")
-        print("======================")
 
     async def handle_battle_message(self, room_id: str, message: str):
         """Handle messages from a battle room"""
@@ -438,9 +311,6 @@ class ShowdownBot:
                 
                 elif command == "faint":
                     player = parts[2][:2]
-                    print(f"\n=== FAINT DEBUG ===")
-                    print(f"Pokemon fainted for player: {player}")
-                    print(f"Current active Pokemon state: {self.battle_state.active_pokemon}")
                     if player in self.battle_state.active_pokemon and self.battle_state.active_pokemon[player]:
                         print(f"Setting HP to 0 for {self.battle_state.active_pokemon[player].name}")
                         self.battle_state.active_pokemon[player].hp = "0/100"
@@ -448,31 +318,28 @@ class ShowdownBot:
                         active_name = self.battle_state.active_pokemon[player].name
                         if active_name in self.battle_state.team_pokemon[player]:
                             self.battle_state.team_pokemon[player][active_name].hp = "0/100"
-                    print("=== END FAINT DEBUG ===\n")
-                
+
                 elif command == "win":
                     winner = parts[2]
-                    print(f"Battle ended! Winner: {winner}")
+                    self.current_battle = None
+                    if self.on_battle_end:
+                        self.on_battle_end()
+
+                elif command == "-message" and len(parts) > 2 and "forfeited" in parts[2].lower():
                     self.current_battle = None
                     if self.on_battle_end:
                         self.on_battle_end()
                 
                 elif command == "request":
                     if not parts[2]:
-                        print("Empty request data")
                         continue
                     
-                    print("\n=== REQUEST DEBUG ===")
                     request = json.loads(parts[2])
-                    print(f"Full request data: {json.dumps(request, indent=2)}")
                     self.current_request = request
                     
                     if "side" in request:
-                        print(f"Processing side data for {len(request['side']['pokemon'])} Pokemon")
                         for pokemon_data in request["side"]["pokemon"]:
                             name = pokemon_data["ident"].split(": ")[1]
-                            print(f"Updating Pokemon: {name}")
-                            
                             if name not in self.battle_state.team_pokemon[self.player_id]:
                                 self.battle_state.team_pokemon[self.player_id][name] = Pokemon(name=name)
                             
@@ -515,7 +382,6 @@ class ShowdownBot:
                         try:
                             active_data = request["active"][0]
                             active_pokemon = self.battle_state.active_pokemon[self.player_id]
-                            print(f"Active Pokemon: {active_pokemon.name if active_pokemon else 'None'}")
                             
                             # Update moves for active Pokemon from the moves array
                             if active_pokemon and "moves" in active_data:
@@ -539,22 +405,16 @@ class ShowdownBot:
                         except Exception as e:
                             print(f"ERROR processing active Pokemon: {str(e)}")
                     
-                    print("=== END REQUEST DEBUG ===\n")
                     
                     await asyncio.sleep(0.1)
                     
                     if "forceSwitch" in request and request["forceSwitch"][0]:
                         self.waiting_for_decision = True
-                        print("\nForce switch required!")
-                        self.print_available_options()
                         
                     elif "active" in request and request["active"] and len(request["active"]) > 0:
                         self.waiting_for_decision = True
-                        print("\nMove required!")
-                        self.print_available_options()
                 
                 elif command == "error":
-                    print(f"Received error: {line}")
                     self.waiting_for_decision = True
         
         except Exception as e:
@@ -563,38 +423,6 @@ class ShowdownBot:
             print("Full error details:", str(e.__class__.__name__), str(e))
             import traceback
             print("Traceback:", traceback.format_exc())
-
-
-    async def handle_challenge_updates(self, message_data: str):
-        """Handle updates to challenge status"""
-        try:
-            data = json.loads(message_data)
-            print(f"DEBUG - Challenge update data: {data}")  # Let's see the full data
-            
-            # Track if we're challenging someone
-            if data.get('challengeTo'):
-                challenge = data['challengeTo']
-                if challenge:
-                    print(f"Waiting for {challenge['to']} to accept challenge...")
-                    self.challenge_status = 'pending'
-                else:
-                    # If challengeTo is null and we previously had a pending challenge,
-                    # it means the challenge was either accepted or rejected
-                    if self.challenge_status == 'pending':
-                        if data.get('games'):
-                            room_id = next(iter(data['games']))
-                            print(f"DEBUG - Got room ID from games: {room_id}")
-                            self.pending_battle_room = room_id
-                            self.challenge_status = 'accepted'
-                        else:
-                            print("Challenge was rejected or cancelled")
-                            self.challenge_status = 'rejected'
-                    self.challenge_status = None
-
-        except json.JSONDecodeError:
-            print(f"Error parsing challenge update data: {message_data}")
-        except Exception as e:
-            print(f"Error handling challenge updates: {str(e)}")
 
     async def receive_messages(self):
         try:
@@ -611,7 +439,6 @@ class ShowdownBot:
                 
                 elif "|updatechallenges|" in message:
                     data = json.loads(message.split("|updatechallenges|")[1])
-                    print(f"Challenge update received: {data}")
                     # If there's a game, that means challenge was accepted
                     if data.get('games'):
                         room_id = next(iter(data['games']))
@@ -906,58 +733,3 @@ class ShowdownBot:
                 "success": False,
                 "error": "Unknown instruction type. Use 'move <index>', 'move <index>t' for terastallize, or 'switch <index>'"
             }
-
-async def main():
-    """Main entry point with manual instruction testing"""
-    load_dotenv()
-    USERNAME = os.getenv('PS_USERNAME')
-    PASSWORD = os.getenv('PS_PASSWORD')
-    TARGET_USERNAME = os.getenv('PS_TARGET_USERNAME', 'blueudon')
-    
-    if not USERNAME or not PASSWORD:
-        print("Error: Please set PS_USERNAME and PS_PASSWORD environment variables")
-        sys.exit(1)
-    
-    print(f"Starting bot with username: {USERNAME}")
-    print(f"Will challenge: {TARGET_USERNAME}")
-    
-    bot = ShowdownBot(USERNAME, PASSWORD, TARGET_USERNAME)
-    
-    # Create an input handler coroutine
-    async def handle_input():
-        while True:
-            try:
-                if bot.waiting_for_decision:
-                    bot.print_available_options()
-                    # Wait for user input
-                    instruction = await asyncio.get_event_loop().run_in_executor(
-                        None, input, "\nEnter your choice: "
-                    )
-                    
-                    if instruction.lower() == 'quit':
-                        print("Shutting down...")
-                        sys.exit(0)
-                    
-                    # Handle the instruction
-                    result = await bot.handle_instruction(instruction)
-                    if not result["success"]:
-                        print(f"Error: {result['error']}")
-                
-            except Exception as e:
-                print(f"Error handling input: {str(e)}")
-            
-            await asyncio.sleep(0.1)  # Small delay to prevent CPU hogging
-    
-    # Run both the bot and input handler
-    await asyncio.gather(
-        bot.start(),
-        handle_input()
-    )
-
-if __name__ == "__main__":
-    try:
-        asyncio.run(main())
-    except KeyboardInterrupt:
-        print("\nBot stopped by user")
-    except Exception as e:
-        print(f"Unexpected error: {str(e)}")
