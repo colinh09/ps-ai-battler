@@ -131,6 +131,74 @@ class ShowdownBot:
             print(f"Error forfeiting battle: {str(e)}")
             return False
 
+    async def send_battle_message(self, message: str) -> None:
+        """Send a message to the current battle room chat.
+        
+        Args:
+            message (str): The message to send to the battle room
+        """
+        if not self.current_battle:
+            return
+            
+        try:
+            MAX_LENGTH = 255
+            messages = []
+            current_text = ""
+            
+            # First split by newlines to preserve intentional line breaks
+            paragraphs = message.split('\n')
+            
+            for paragraph in paragraphs:
+                if len(paragraph.strip()) == 0:
+                    continue
+                    
+                # If paragraph fits entirely within limit, and current_text is empty
+                if len(paragraph) <= MAX_LENGTH and len(current_text) == 0:
+                    messages.append(paragraph)
+                    continue
+                    
+                # Split paragraph into sentences
+                # Handle multiple sentence endings (.!?)
+                sentences = re.split(r'([.!?]+(?:\s+|$))', paragraph)
+                
+                # Recombine sentences with their punctuation
+                complete_sentences = []
+                for i in range(0, len(sentences)-1, 2):
+                    if i+1 < len(sentences):
+                        complete_sentences.append(sentences[i] + sentences[i+1])
+                if len(sentences) % 2 == 1:
+                    complete_sentences.append(sentences[-1])
+                
+                for sentence in complete_sentences:
+                    sentence = sentence.strip()
+                    if not sentence:
+                        continue
+                        
+                    # If adding this sentence would exceed limit
+                    if len(current_text + " " + sentence if current_text else sentence) > MAX_LENGTH:
+                        # Save current text if we have any
+                        if current_text:
+                            messages.append(current_text.strip())
+                        current_text = sentence
+                    else:
+                        # Add to current text with space if needed
+                        current_text = (current_text + " " + sentence if current_text else sentence)
+                
+            # Add any remaining text
+            if current_text:
+                messages.append(current_text.strip())
+                
+            # Send all messages with a small delay between them
+            for msg in messages:
+                if msg.strip():  # Only send non-empty messages
+                    formatted_message = f"{self.current_battle}|{msg.strip()}"
+                    print(f"Sending battle message: {formatted_message}")  # Debug print
+                    await self.ws.send(formatted_message)
+                    await asyncio.sleep(0.3)  # Small delay between messages
+                    
+        except Exception as e:
+            print(f"Error sending battle message: {str(e)}")
+
     def update_pokemon_info(self, player: str, details: str, condition: str) -> None:
         """Update Pokemon information from battle messages"""
         name = details.split(',')[0]

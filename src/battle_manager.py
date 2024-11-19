@@ -66,8 +66,6 @@ class BattleManager:
         self.logger.info("Battle has concluded")
         self.battle_concluded = True
         self.is_running = False
-        if hasattr(self, 'system_manager') and self.system_manager:
-            self.system_manager.chat_history.current_battle = None
 
     async def forfeit(self) -> bool:
         """Forfeit the current battle"""
@@ -675,88 +673,46 @@ class BattleManager:
                         # Get agent's analysis and move choice
                         reasoning, move_command = await self.get_agent_decision(new_state)
                         
-                        # Store the initial analysis
-                        if hasattr(self, 'system_manager') and self.system_manager and self.battle_id:
-                            turn_data = {
-                                'analysis': reasoning,
-                                'move': move_command
-                            }
-                            turn_message = (
-                                f"Analysis:\n"
-                                f"{reasoning}\n\n"
-                                f"Chosen Move: {move_command}"
-                            )
-                            self.system_manager.chat_history.add_battle_turn(
-                                self.battle_id,
-                                turn_data,
-                                turn_message
-                            )
-                        
+                        # Send the reasoning to the battle chat
+                        if reasoning:
+                            await self.bot.send_battle_message(reasoning)
+
                         max_retries = 3
                         retry_count = 0
                         
                         while move_command and retry_count < max_retries:
                             result = await self.make_move(move_command)
+                            
                             if result["success"]:
-                                break
-                            
-                            # If move failed, retry with error context
-                            print(f"Move execution failed: {result['error']}")
-                            
-                            # Log the failed attempt
-                            if hasattr(self, 'system_manager') and self.system_manager:
-                                error_data = {
-                                    'error': result['error'],
-                                    'failed_move': move_command
-                                }
-                                self.system_manager.chat_history.add_battle_turn(
-                                    self.battle_id,
-                                    error_data,
-                                    f"Move execution failed: {result['error']}"
+                                await self.bot.send_battle_message(f"Making move: {move_command}")
+                                break  # Exit retry loop on success
+                            else:
+                                print(f"Move execution failed: {result['error']}")
+                                await self.bot.send_battle_message(f"Move failed: {result['error']}")
+                                
+                                # Decide whether to exclude switches based on error
+                                exclude_switches = (
+                                    'trapped' in result['error'].lower() or 
+                                    'switch' in result['error'].lower()
                                 )
-                            
-                            # Decide whether to exclude switches based on error
-                            exclude_switches = (
-                                'trapped' in result['error'].lower() or 
-                                'switch' in result['error'].lower()
-                            )
-                            
-                            # Get new analysis and move
-                            reasoning, move_command = await self.get_agent_decision(
-                                new_state,
-                                result['error'],
-                                exclude_switches=exclude_switches
-                            )
-                            
-                            # Log the retry attempt
-                            if hasattr(self, 'system_manager') and self.system_manager:
-                                retry_data = {
-                                    'analysis': reasoning,
-                                    'move': move_command,
-                                    'retry_number': retry_count + 1
-                                }
-                                retry_message = (
-                                    f"Retry #{retry_count + 1}:\n"
-                                    f"Analysis:\n"
-                                    f"{reasoning}\n\n"
-                                    f"New Chosen Move: {move_command}"
+                                
+                                # Get new analysis and move
+                                reasoning, move_command = await self.get_agent_decision(
+                                    new_state,
+                                    result['error'],
+                                    exclude_switches=exclude_switches
                                 )
-                                self.system_manager.chat_history.add_battle_turn(
-                                    self.battle_id,
-                                    retry_data,
-                                    retry_message
-                                )
-                            
-                            retry_count += 1
+                                
+                                # Send the new reasoning to chat
+                                if reasoning:
+                                    await self.bot.send_battle_message(reasoning)
+                                
+                                retry_count += 1
                         
                         if retry_count >= max_retries:
-                            print("Failed to get valid move after maximum retries")
-                            if hasattr(self, 'system_manager') and self.system_manager:
-                                self.system_manager.chat_history.add_battle_turn(
-                                    self.battle_id,
-                                    {'error': 'Failed to get valid move after maximum retries'},
-                                    'Failed to get valid move after maximum retries'
-                                )
+                            error_msg = "Failed to get valid move after maximum retries"
+                            print(error_msg)
+                            await self.bot.send_battle_message(error_msg)
                 
                 await asyncio.sleep(0.5)
                 

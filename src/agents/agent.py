@@ -23,10 +23,16 @@ import logging
 
 class PokemonDBTools:
     def __init__(self, db_params: Dict[str, str]):
-        """Initialize database connection"""
+        """Initialize database connection and ensure pg_trgm extension is enabled"""
         self.db_params = db_params
         self.logger = logging.getLogger('PSAgent.DBTools')
         
+        # Enable pg_trgm extension if not already enabled
+        with self.get_connection() as conn:
+            with conn.cursor() as cur:
+                cur.execute("CREATE EXTENSION IF NOT EXISTS pg_trgm;")
+                conn.commit()
+    
     def get_connection(self):
         """Create and return a database connection"""
         self.logger.debug(f"Attempting to connect to database: {self.db_params['dbname']} at {self.db_params['host']}")
@@ -71,7 +77,7 @@ class PokemonDBTools:
             merged['items'].update(set_data['items'])
             merged['tera_types'].update(set_data['tera_types'])
             merged['moves'].update(set_data['moves'])
-            
+        
             # If current set has EVs/IVs and merged doesn't, use these
             if not merged['evs'] and set_data['evs']:
                 merged['evs'] = set_data['evs']
@@ -233,70 +239,90 @@ class PokemonDBTools:
     def get_pokemon_complete_data(self, pokemon_name: str, known_data: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
         """
         Get complete information about a Pokemon including random battle set data.
-        For agent's Pokemon with known_data, uses keys to look up associated data.
-        For opponent Pokemon, uses regular names.
+        Uses PostgreSQL fuzzy matching to find similar Pokemon names.
         """
         with self.get_connection() as conn:
             with conn.cursor(cursor_factory=RealDictCursor) as cur:
-                # First get the random battle set data
-                random_battle_data = self.get_best_random_battle_set(pokemon_name, known_data)
-                
-                # Get Pokemon data - for agent Pokemon, try by key first
+                # For agent Pokemon with known_data, try exact key first
                 if known_data:
                     pokemon_key = pokemon_name.lower().replace(' ', '')
                     cur.execute("""
-                        SELECT * FROM pokemon WHERE key = %s
-                    """, (pokemon_key,))
+                        SELECT *, similarity(pokemon_name, %s) as match_score 
+                        FROM pokemon 
+                        WHERE key = %s
+                    """, (pokemon_name, pokemon_key))
                     pokemon_data = cur.fetchone()
                     
-                    if not pokemon_data:
-                        # Fallback to name lookup
+                    if pokemon_data:
+                        self.logger.debug(f"Found exact match by key for {pokemon_name}")
+                    else:
+                        # If no exact match, try fuzzy match
                         cur.execute("""
-                            SELECT * FROM pokemon WHERE pokemon_name = %s
-                        """, (pokemon_name,))
+                            SELECT *, similarity(pokemon_name, %s) as match_score
+                            FROM pokemon
+                            WHERE similarity(pokemon_name, %s) > 0.3
+                            ORDER BY similarity(pokemon_name, %s) DESC
+                            LIMIT 1
+                        """, (pokemon_name, pokemon_name, pokemon_name))
                         pokemon_data = cur.fetchone()
                 else:
-                    # For opponent Pokemon, lookup by name directly
+                    # For opponent Pokemon, go straight to fuzzy matching
                     cur.execute("""
-                        SELECT * FROM pokemon WHERE pokemon_name = %s
-                    """, (pokemon_name,))
+                        SELECT *, similarity(pokemon_name, %s) as match_score
+                        FROM pokemon
+                        WHERE similarity(pokemon_name, %s) > 0.3
+                        ORDER BY similarity(pokemon_name, %s) DESC
+                        LIMIT 1
+                    """, (pokemon_name, pokemon_name, pokemon_name))
                     pokemon_data = cur.fetchone()
-                
+
                 if not pokemon_data:
-                    self.logger.error(f"Pokemon not found: {pokemon_name}")
-                    return {"error": f"Pokemon {pokemon_name} not found"}
+                    self.logger.error(f"No Pokemon found (even with fuzzy match) for: {pokemon_name}")
+                    return {
+                        'pokemon_name': pokemon_name,
+                        'type1': 'Unknown',
+                        'type2': None,
+                        'tier': 'Unknown',
+                        'hp': 100,
+                        'atk': 100,
+                        'def': 100,
+                        'spa': 100,
+                        'spd': 100,
+                        'spe': 100,
+                        'abilities': [],
+                        'type_matchups': {
+                            'defending': {},
+                            'attacking': {}
+                        },
+                        'random_battle_data': {},
+                        'strategy': 'No strategy information available.'
+                    }
+
+                self.logger.info(f"Matched '{pokemon_name}' to '{pokemon_data['pokemon_name']}' with score {pokemon_data['match_score']}")
                 
-                self.logger.debug(f"Found Pokemon data: {pokemon_data}")
+                # Get random battle data using the matched name
+                random_battle_data = self.get_best_random_battle_set(pokemon_data['pokemon_name'], known_data)
+                
                 result = dict(pokemon_data)
-                
-                # Add the known_data flag to differentiate own vs opponent Pokemon
                 if known_data:
                     result['known_data'] = known_data
-                
+
                 # Get ability descriptions
                 abilities = []
                 for ability_key in ['ability1', 'ability2', 'ability3']:
                     if result[ability_key]:
-                        self.logger.debug(f"Fetching ability data for: {result[ability_key]}")
                         ability_data = self.get_ability_data(result[ability_key])
                         if ability_data:
                             abilities.append({
                                 'name': ability_data['ability_name'],
                                 'description': ability_data['description']
                             })
-                        else:
-                            self.logger.warning(f"No ability data found for: {result[ability_key]}")
                 
                 result['abilities'] = abilities
-                
-                # Calculate type matchups
-                self.logger.debug("Calculating type matchups")
                 result['type_matchups'] = self.calculate_type_matchups(
                     result['type1'],
                     result['type2']
                 )
-                
-                # Add random battle set data
                 result['random_battle_data'] = random_battle_data
                 return result
     
