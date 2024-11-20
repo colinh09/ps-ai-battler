@@ -61,11 +61,58 @@ class BattleManager:
         
         self.bot.on_battle_end = self.handle_battle_end
 
-    def handle_battle_end(self):
-        """Handler for battle end events"""
-        self.logger.info("Battle has concluded")
+    async def handle_battle_end(self, final_state: Dict, battle_history: str):
+        """Handle battle end and trigger analysis"""
+        # Add a flag to prevent duplicate handling
+        if self.battle_concluded:
+            return
+            
+        self.logger.info("Battle has concluded, preparing analysis")
         self.battle_concluded = True
         self.is_running = False
+        
+        try:
+            # Send immediate "analyzing" message
+            await self.bot.send_pm(
+                self.bot.target_username,
+                "Analyzing battle results..."
+            )
+            
+            # Generate analysis using the provided state and history
+            if final_state and battle_history:
+                analysis = await self.get_battle_analysis(final_state, battle_history)
+                
+                if analysis:
+                    await self.bot.send_pm(self.bot.target_username, analysis)
+        except Exception as e:
+            self.logger.error(f"Error in battle end analysis: {str(e)}")
+            print(f"Error generating battle analysis: {str(e)}")
+
+    async def get_battle_analysis(self, final_state: Dict, battle_history: str) -> str:
+        """Get agent's analysis of the completed battle"""
+        query = f"""Analyze this completed Pokemon battle. Review the battle history and final state to provide insights.
+
+        Battle History:
+        {battle_history}
+
+        Final Battle State:
+        {self.parse_battle_state(final_state)}
+
+        Please provide:
+        1. An overview of how the battle progressed
+        2. Key turning points or critical moments
+        3. Effective strategies that were used
+        4. Areas for improvement
+        5. Notable matchups and how they influenced the battle
+        
+        Focus on constructive analysis that could help improve future battles.
+        Provide the analysis in paragraph format. Do not include headers.
+        """
+
+        # Make sure agent.run is awaited properly
+        analysis = self.agent.run(query)
+        return analysis
+
 
     async def forfeit(self) -> bool:
         """Forfeit the current battle"""
@@ -684,6 +731,7 @@ class BattleManager:
                         
                         # Get agent's analysis and move choice
                         reasoning, move_command = await self.get_agent_decision(new_state)
+                        print("MOVE COMMAND: ", move_command)
                         
                         # Send the reasoning to the battle chat
                         if reasoning:

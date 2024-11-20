@@ -590,19 +590,34 @@ class ShowdownBot:
                             self.battle_state.side_conditions[player]["screens"].remove(condition)
                 
                 elif command == "win" or (command == "-message" and len(parts) > 2 and "forfeited" in parts[2].lower()):
-                    # Save the final turn's events before ending
+                    # Avoid duplicate processing
+                    if not self.current_battle:
+                        return
+                        
+                    # Save the final turn's events
                     if self.current_turn_events:
                         self.battle_history.append({
                             'turn': self.current_turn,
                             'events': self.current_turn_events.copy()
                         })
+                    
+                    # Capture final state and history BEFORE clearing anything
+                    final_state = self.get_game_state()
+                    final_history = self.get_battle_history_text()
+                    
                     self.logger.info("Battle has concluded")
+                    
+                    # Clear battle data before analysis to prevent duplicate triggers
+                    current_battle = self.current_battle
                     self.current_battle = None
                     self.waiting_for_decision = False
+                    
+                    # Call battle_end handler with final data
                     if self.on_battle_end:
-                        self.on_battle_end()
+                        await self.on_battle_end(final_state, final_history)
+                    
                     return
-                
+                    
                 elif command == "request":
                     if not parts[2]:
                         continue
@@ -704,6 +719,27 @@ class ShowdownBot:
         if self.current_turn_events:  # Add current turn's events
             history_text.extend(self.current_turn_events)
         return '\n'.join(history_text)
+
+    async def handle_battle_end(self, winner: Optional[str] = None):
+        """Handle end of battle and store final state"""
+        # Save the final turn's events before ending
+        if self.current_turn_events:
+            self.battle_history.append({
+                'turn': self.current_turn,
+                'events': self.current_turn_events.copy()
+            })
+        
+        # Store the winner if provided
+        self.battle_winner = winner
+        
+        # Store final battle state
+        self.final_battle_state = self.get_game_state()
+        
+        self.logger.info("Battle has concluded")
+        self.current_battle = None
+        self.waiting_for_decision = False
+        if self.on_battle_end:
+            await self.on_battle_end()
 
     async def receive_messages(self):
         try:

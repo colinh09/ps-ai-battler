@@ -113,21 +113,47 @@ class SystemManager:
                 receive_task = asyncio.create_task(self.battle_manager.bot.receive_messages())
                 battle_task = asyncio.create_task(self.battle_manager.run_battle_loop())
                 
-                # Wait for either task to complete
+                # Wait for both tasks to complete
                 print("Starting battle tasks...")
-                done, pending = await asyncio.wait(
-                    [receive_task, battle_task],
-                    return_when=asyncio.FIRST_COMPLETED
+                try:
+                    await asyncio.gather(receive_task, battle_task)
+                except asyncio.CancelledError:
+                    pass
+                
+                # After battle ends, send analysis
+                await self.battle_manager.bot.send_pm(
+                    opponent_username, 
+                    "Analyzing battle results..."
                 )
                 
-                # Cancel remaining tasks
-                for task in pending:
-                    task.cancel()
-                    try:
-                        await task
-                    except asyncio.CancelledError:
-                        pass
+                # Get final state and history
+                final_state = self.battle_manager.current_state
+                battle_history = self.battle_manager.bot.get_battle_history_text()
+                
+                # Generate and send analysis
+                if final_state and battle_history:
+                    analysis = await self.battle_manager.agent.run(
+                        f"""Analyze this completed Pokemon battle. Review the battle history and final state to provide insights.
+
+                        Battle History:
+                        {battle_history}
+
+                        Final Battle State:
+                        {self.battle_manager.parse_battle_state(final_state)}
+
+                        Please provide:
+                        1. An overview of how the battle progressed
+                        2. Key turning points or critical moments
+                        3. Effective strategies that were used
+                        4. Areas for improvement
+                        5. Notable matchups and how they influenced the battle
                         
+                        Focus on constructive analysis that could help improve future battles."""
+                    )
+                    
+                    if analysis:
+                        await self.battle_manager.bot.send_pm(opponent_username, analysis)
+                    
             except Exception as e:
                 print(f"Error in battle setup: {str(e)}")
                 self.logger.error(f"Battle setup failed: {str(e)}", exc_info=True)
