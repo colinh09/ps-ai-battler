@@ -78,7 +78,7 @@ class ShowdownBot:
         Args:
             username (str): Pokemon Showdown username
             password (str): Pokemon Showdown password
-            target_username (str): Username to challenge
+            target_username (str): Username to interact with
         """
         self.ws = None
         self.username = username
@@ -100,6 +100,7 @@ class ShowdownBot:
         return "p2" if self.player_id == "p1" else "p1"
 
     async def connect(self):
+        """Connect to Pokemon Showdown websocket"""
         try:
             print(f"Connecting to {self.websocket_url}...")
             ssl_context = ssl.create_default_context()
@@ -115,7 +116,7 @@ class ShowdownBot:
             print("Connected successfully!")
         except Exception as e:
             print(f"Failed to connect: {str(e)}")
-            sys.exit(1)
+            raise
     
     async def forfeit_battle(self) -> bool:
         """Forfeit the current battle"""
@@ -130,6 +131,62 @@ class ShowdownBot:
         except Exception as e:
             print(f"Error forfeiting battle: {str(e)}")
             return False
+
+    async def send_pm(self, user: str, message: str):
+        """Send a private message to a user
+        
+        Args:
+            user (str): Username to send message to
+            message (str): Message content
+        """
+        try:
+            MAX_LENGTH = 255
+            messages = []
+            current_text = ""
+            
+            paragraphs = message.split('\n')
+            
+            for paragraph in paragraphs:
+                if len(paragraph.strip()) == 0:
+                    continue
+                    
+                if len(paragraph) <= MAX_LENGTH and len(current_text) == 0:
+                    messages.append(paragraph)
+                    continue
+                    
+                sentences = re.split(r'([.!?]+(?:\s+|$))', paragraph)
+                
+                complete_sentences = []
+                for i in range(0, len(sentences)-1, 2):
+                    if i+1 < len(sentences):
+                        complete_sentences.append(sentences[i] + sentences[i+1])
+                if len(sentences) % 2 == 1:
+                    complete_sentences.append(sentences[-1])
+                
+                for sentence in complete_sentences:
+                    sentence = sentence.strip()
+                    if not sentence:
+                        continue
+                        
+                    if len(current_text + " " + sentence if current_text else sentence) > MAX_LENGTH:
+                        if current_text:
+                            messages.append(current_text.strip())
+                        current_text = sentence
+                    else:
+                        current_text = (current_text + " " + sentence if current_text else sentence)
+                
+            if current_text:
+                messages.append(current_text.strip())
+                
+            for msg in messages:
+                if msg.strip():
+                    pm_command = f"|/pm {user}, {msg.strip()}"
+                    print(f"Sending PM: {pm_command}")
+                    await self.ws.send(pm_command)
+                    await asyncio.sleep(0.3)
+                    
+        except Exception as e:
+            print(f"Error sending PM: {str(e)}")
 
     async def send_battle_message(self, message: str) -> None:
         """Send a message to the current battle room chat.
@@ -387,16 +444,13 @@ class ShowdownBot:
                         if active_name in self.battle_state.team_pokemon[player]:
                             self.battle_state.team_pokemon[player][active_name].hp = "0/100"
 
-                elif command == "win":
-                    winner = parts[2]
+                elif command == "win" or (command == "-message" and len(parts) > 2 and "forfeited" in parts[2].lower()):
+                    self.logger.info("Battle has concluded")
                     self.current_battle = None
+                    self.waiting_for_decision = False  # Stop waiting for moves
                     if self.on_battle_end:
                         self.on_battle_end()
-
-                elif command == "-message" and len(parts) > 2 and "forfeited" in parts[2].lower():
-                    self.current_battle = None
-                    if self.on_battle_end:
-                        self.on_battle_end()
+                    return 
                 
                 elif command == "request":
                     if not parts[2]:
@@ -494,16 +548,19 @@ class ShowdownBot:
 
     async def receive_messages(self):
         try:
+            initial_challenge_sent = False  # Add this flag
             while True:
                 message = await self.ws.recv()
                 
                 if "|challstr|" in message:
                     challstr = message.split("|challstr|")[1]
-                    await self.login(challstr)
+                    await self.login(challstr, False)
                     await asyncio.sleep(2)
-                    # Send challenge
-                    await self.ws.send("|/utm null")
-                    await self.ws.send(f"|/challenge {self.target_username}, gen9randombattle")
+                    # Only send challenge the first time
+                    if not initial_challenge_sent:
+                        await self.ws.send("|/utm null")
+                        await self.ws.send(f"|/challenge {self.target_username}, gen9randombattle")
+                        initial_challenge_sent = True
                 
                 elif "|updatechallenges|" in message:
                     data = json.loads(message.split("|updatechallenges|")[1])
@@ -519,6 +576,7 @@ class ShowdownBot:
                         print(f"Joining battle room: {self.current_battle}")
                         await self.ws.send(f"|/join {self.current_battle}")
                     await self.handle_battle_message(room_id, message)
+
         except websockets.exceptions.ConnectionClosed:
             print("Connection closed unexpectedly")
             raise
@@ -526,15 +584,22 @@ class ShowdownBot:
             print(f"Error in receive_messages: {str(e)}")
             raise
 
-    async def challenge_player(self):
-        """Send a Random Battle challenge to the target player"""
-        print(f"Challenging {self.target_username} to a Random Battle...")
-        # Since Random Battle doesn't require a team, we can send null
-        await self.ws.send("|/utm null")
-        challenge_cmd = f"|/challenge {self.target_username}, gen9randombattle"
-        await self.ws.send(challenge_cmd)
-                
-    async def login(self, challstr):
+    async def challenge_player(self, username: str):
+        """Send a Random Battle challenge to a specific player
+        
+        Args:
+            username (str): Player to challenge
+        """
+        try:
+            print(f"Challenging {username} to a Random Battle...")
+            # For Random Battle, we don't need a team
+            await self.ws.send("|/utm null")
+            await self.ws.send(f"|/challenge {username}, gen9randombattle")
+        except Exception as e:
+            print(f"Error sending challenge: {str(e)}")
+            raise
+
+    async def login(self, challstr, first_msg):
         """Login to Pokemon Showdown"""
         try:
             print("Attempting to login with registered account...")
@@ -565,6 +630,11 @@ class ShowdownBot:
             await self.ws.send(login_cmd)
             print(f"Logged in as {self.username}")
             await self.ws.send(f"|/avatar 225")
+            
+            # Send initial greeting after successful login
+            if first_msg:
+                greeting = "Hi! I'm your Pokemon battle companion. I can help you with Pokemon battles and discuss strategies. You can ask me to start a battle, or we can chat about Pokemon strategies. What would you like to do?"
+                await self.send_pm(self.target_username, greeting)
             
         except requests.exceptions.RequestException as e:
             print(f"Error during login request: {str(e)}")

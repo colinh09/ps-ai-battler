@@ -522,7 +522,6 @@ class BattleManager:
             self.logger.info("Starting battle manager")
             self.is_running = True
             self.battle_concluded = False
-            await self.bot.connect()
             
             receive_task = asyncio.create_task(self.bot.receive_messages())
             battle_task = asyncio.create_task(self.run_battle_loop())
@@ -647,7 +646,16 @@ class BattleManager:
             last_state_hash = None
             
             while self.is_running:
+                if self.battle_concluded:
+                    self.logger.info("Battle has ended, exiting battle loop")
+                    self.is_running = False
+                    return  # Exit immediately
+                    
                 new_state = self.get_current_state()
+                if not new_state:  # If no state, battle might have ended
+                    await asyncio.sleep(0.5)
+                    continue
+                    new_state = self.get_current_state()
                 
                 # Create a simple hash of relevant state parts to detect actual changes
                 if new_state:
