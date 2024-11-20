@@ -473,7 +473,7 @@ class BattleManager:
         
         # Available Actions with enhanced move information
         if state["waiting_for_decision"]:
-            output.append("\nAVAILABLE ACTIONS:")
+            output.append("\nAVAILABLE ACTIONS (You MUST choose ONLY from these actions):")
             if state["valid_moves"]:
                 output.append("Available moves:")
                 for move in state["valid_moves"]:
@@ -579,7 +579,7 @@ class BattleManager:
         """
         try:
             formatted_state = self.parse_battle_state(state)
-            
+            battle_history = self.bot.get_battle_history_text() if hasattr(self.bot, 'get_battle_history_text') else ""
             # Build the query with error context if present
             error_context = ""
             if previous_error:
@@ -587,6 +587,10 @@ class BattleManager:
 
             # Base query
             query = f"""Based on the following battle situation, what would be the best move to make? Consider {"only moves, no switching allowed" if exclude_switches else "all available moves and switches"}.
+            
+            Battle History:
+            {battle_history}
+            
             {error_context}
             {formatted_state}
 
@@ -688,13 +692,23 @@ class BattleManager:
                         max_retries = 3
                         retry_count = 0
                         
-                        while move_command and retry_count < max_retries:
+                        while move_command and retry_count < max_retries and not self.battle_concluded:
+                            # Check if battle has ended before making move
+                            if self.battle_concluded:
+                                self.logger.info("Battle ended during move attempts, stopping retries")
+                                break
+                                
                             result = await self.make_move(move_command)
                             
                             if result["success"]:
                                 await self.bot.send_battle_message(f"Making move: {move_command}")
                                 break  # Exit retry loop on success
                             else:
+                                # Check again if battle ended after failed move
+                                if self.battle_concluded:
+                                    self.logger.info("Battle ended after move attempt, stopping retries")
+                                    break
+                                    
                                 print(f"Move execution failed: {result['error']}")
                                 await self.bot.send_battle_message(f"Move failed: {result['error']}")
                                 
@@ -712,12 +726,15 @@ class BattleManager:
                                 )
                                 
                                 # Send the new reasoning to chat
-                                if reasoning:
+                                if reasoning and not self.battle_concluded:
                                     await self.bot.send_battle_message(reasoning)
                                 
                                 retry_count += 1
+                            
+                            # Add small delay between retries
+                            await asyncio.sleep(0.5)
                         
-                        if retry_count >= max_retries:
+                        if retry_count >= max_retries and not self.battle_concluded:
                             error_msg = "Failed to get valid move after maximum retries"
                             print(error_msg)
                             await self.bot.send_battle_message(error_msg)

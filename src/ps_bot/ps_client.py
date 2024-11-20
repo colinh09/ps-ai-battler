@@ -95,6 +95,9 @@ class ShowdownBot:
         self.logger = logging.getLogger('ShowdownBot')
         self.challenge_status = None
         self.pending_battle_room = None
+        self.battle_history = []
+        self.current_turn_events = []
+        self.current_turn = 0
     
     def get_opponent_id(self):
         return "p2" if self.player_id == "p1" else "p1"
@@ -326,12 +329,32 @@ class ShowdownBot:
         self.waiting_for_decision = False
         return True
 
+    def format_pokemon_name(self, pokemon_id: str) -> str:
+        """Format a Pokemon ID into a readable name with ownership."""
+        if not pokemon_id:
+            return "Unknown Pokemon"
+        
+        parts = pokemon_id.split(': ')
+        if len(parts) != 2:
+            return pokemon_id
+            
+        player, name = parts
+        is_opponent = (player == "p1" and self.player_id == "p2") or (player == "p2" and self.player_id == "p1")
+        return f"The opposing {name}" if is_opponent else name
+
+    def add_battle_event(self, event: str):
+        """Add an event to the current turn's history."""
+        self.current_turn_events.append(event)
+
     async def handle_battle_message(self, room_id: str, message: str):
         """Handle messages from a battle room"""
         try:
             if "|init|battle" in message:
                 self.current_battle = room_id.strip('>')
                 self.battle_state = BattleState.create_initial_state()
+                self.battle_history = []  # Reset battle history for new battle
+                self.current_turn_events = []
+                self.current_turn = 0
                 print(f"Joined battle room: {self.current_battle}")
                 await self.ws.send(f"|/join {self.current_battle}")
             
@@ -346,7 +369,172 @@ class ShowdownBot:
                 if len(parts) > 2:
                     print(f"Command data: {parts[2:]}")
                 
-                if command == "player":
+                # Track turn numbers
+                if command == "turn":
+                    if self.current_turn_events:
+                        self.battle_history.append({
+                            'turn': self.current_turn,
+                            'events': self.current_turn_events.copy()
+                        })
+                    self.current_turn = int(parts[2])
+                    self.current_turn_events = [f"Turn {self.current_turn}:"]
+                
+                # Track major battle events
+                elif command == "move":
+                    pokemon = self.format_pokemon_name(parts[2])
+                    move = parts[3]
+                    self.add_battle_event(f"{pokemon} used {move}!")
+                    
+                    # Update battle state for moves
+                    player = parts[2][:2]
+                    move = parts[3]
+                    if player in self.battle_state.active_pokemon and self.battle_state.active_pokemon[player]:
+                        self.battle_state.active_pokemon[player].moves.add(move)
+                
+                elif command == "switch" or command == "drag":
+                    pokemon = self.format_pokemon_name(parts[2])
+                    switched_to = parts[3].split(',')[0]
+                    self.add_battle_event(f"{pokemon} switched to {switched_to}!")
+                    
+                    # Update battle state for switches
+                    player = parts[2][:2]
+                    await self.handle_switch(player, parts[3], parts[4])
+                
+                elif command == "-damage":
+                    pokemon = self.format_pokemon_name(parts[2])
+                    # Calculate damage percentage
+                    try:
+                        current_hp, max_hp = parts[3].split('/')
+                        if max_hp.endswith(')'):  # Remove status condition if present
+                            max_hp = max_hp.split()[0]
+                        current_hp = float(current_hp)
+                        max_hp = float(max_hp)
+                        damage_percent = round((1 - current_hp/max_hp) * 100, 1)
+                        self.add_battle_event(f"{pokemon} lost {damage_percent}% of its health!")
+                    except (ValueError, IndexError):
+                        self.add_battle_event(f"{pokemon} took damage!")
+                        
+                    # Update battle state for damage
+                    player = parts[2][:2]
+                    if player in self.battle_state.active_pokemon and self.battle_state.active_pokemon[player]:
+                        self.battle_state.active_pokemon[player].hp = parts[3].split()[0]
+                        if len(parts[3].split()) > 1:
+                            self.battle_state.active_pokemon[player].status = parts[3].split()[1]
+                
+                elif command == "-heal":
+                    pokemon = self.format_pokemon_name(parts[2])
+                    try:
+                        current_hp, max_hp = parts[3].split('/')
+                        if max_hp.endswith(')'):
+                            max_hp = max_hp.split()[0]
+                        current_hp = float(current_hp)
+                        max_hp = float(max_hp)
+                        heal_percent = round((current_hp/max_hp) * 100, 1)
+                        self.add_battle_event(f"{pokemon} restored health! ({heal_percent}% remaining)")
+                    except (ValueError, IndexError):
+                        self.add_battle_event(f"{pokemon} restored health!")
+                
+                elif command == "-supereffective":
+                    self.add_battle_event("It's super effective!")
+                
+                elif command == "-resisted":
+                    self.add_battle_event("It's not very effective...")
+                
+                elif command == "-crit":
+                    self.add_battle_event("A critical hit!")
+                
+                elif command == "-status":
+                    pokemon = self.format_pokemon_name(parts[2])
+                    status = parts[3]
+                    status_map = {
+                        'brn': 'burned',
+                        'par': 'paralyzed',
+                        'psn': 'poisoned',
+                        'tox': 'badly poisoned',
+                        'frz': 'frozen',
+                        'slp': 'put to sleep'
+                    }
+                    status_text = status_map.get(status, status)
+                    self.add_battle_event(f"{pokemon} was {status_text}!")
+                    
+                    # Update battle state for status
+                    player = parts[2][:2]
+                    if player in self.battle_state.active_pokemon and self.battle_state.active_pokemon[player]:
+                        self.battle_state.active_pokemon[player].status = parts[3]
+                
+                elif command == "faint":
+                    pokemon = self.format_pokemon_name(parts[2])
+                    self.add_battle_event(f"{pokemon} fainted!")
+                    
+                    # Update battle state for faint
+                    player = parts[2][:2]
+                    if player in self.battle_state.active_pokemon and self.battle_state.active_pokemon[player]:
+                        print(f"Setting HP to 0 for {self.battle_state.active_pokemon[player].name}")
+                        self.battle_state.active_pokemon[player].hp = "0/100"
+                        # Also update the team Pokemon's HP
+                        active_name = self.battle_state.active_pokemon[player].name
+                        if active_name in self.battle_state.team_pokemon[player]:
+                            self.battle_state.team_pokemon[player][active_name].hp = "0/100"
+                
+                elif command == "-boost":
+                    pokemon = self.format_pokemon_name(parts[2])
+                    stat = parts[3]
+                    stat_map = {
+                        'atk': 'Attack',
+                        'def': 'Defense',
+                        'spa': 'Special Attack',
+                        'spd': 'Special Defense',
+                        'spe': 'Speed',
+                        'accuracy': 'accuracy',
+                        'evasion': 'evasiveness'
+                    }
+                    stat_name = stat_map.get(stat, stat)
+                    self.add_battle_event(f"{pokemon}'s {stat_name} rose!")
+                    
+                    # Update battle state for boosts
+                    player = parts[2][:2]
+                    amount = int(parts[4])
+                    if player in self.battle_state.active_pokemon and self.battle_state.active_pokemon[player]:
+                        self.battle_state.active_pokemon[player].boosts[stat] += amount
+                
+                elif command == "-unboost":
+                    pokemon = self.format_pokemon_name(parts[2])
+                    stat = parts[3]
+                    stat_map = {
+                        'atk': 'Attack',
+                        'def': 'Defense',
+                        'spa': 'Special Attack',
+                        'spd': 'Special Defense',
+                        'spe': 'Speed',
+                        'accuracy': 'accuracy',
+                        'evasion': 'evasiveness'
+                    }
+                    stat_name = stat_map.get(stat, stat)
+                    self.add_battle_event(f"{pokemon}'s {stat_name} fell!")
+                    
+                    # Update battle state for unboosts
+                    player = parts[2][:2]
+                    amount = -int(parts[4])
+                    if player in self.battle_state.active_pokemon and self.battle_state.active_pokemon[player]:
+                        self.battle_state.active_pokemon[player].boosts[stat] += amount
+                
+                elif command == "-weather":
+                    weather = parts[2]
+                    weather_map = {
+                        'RainDance': 'Rain started falling!',
+                        'Sandstorm': 'A sandstorm kicked up!',
+                        'SunnyDay': 'The sunlight turned harsh!',
+                        'Hail': 'It started to hail!',
+                        'none': 'The weather cleared up!'
+                    }
+                    weather_text = weather_map.get(weather, f"The weather became {weather}!")
+                    self.add_battle_event(weather_text)
+                    
+                    # Update battle state for weather
+                    weather = parts[2] if parts[2] != "none" else None
+                    self.battle_state.field_conditions["weather"] = weather
+                
+                elif command == "player":
                     if parts[2] == "p1" and parts[3] == self.username:
                         self.player_id = "p1"
                     elif parts[2] == "p2" and parts[3] == self.username:
@@ -359,28 +547,6 @@ class ShowdownBot:
                     if name not in self.battle_state.team_pokemon[player]:
                         self.battle_state.team_pokemon[player][name] = Pokemon(name=name)
                 
-                elif command == "switch" or command == "drag":
-                    player = parts[2][:2]
-                    await self.handle_switch(player, parts[3], parts[4])
-                
-                elif command == "move":
-                    player = parts[2][:2]
-                    move = parts[3]
-                    if player in self.battle_state.active_pokemon and self.battle_state.active_pokemon[player]:
-                        self.battle_state.active_pokemon[player].moves.add(move)
-                
-                elif command == "-damage" or command == "-heal":
-                    player = parts[2][:2]
-                    if player in self.battle_state.active_pokemon and self.battle_state.active_pokemon[player]:
-                        self.battle_state.active_pokemon[player].hp = parts[3].split()[0]
-                        if len(parts[3].split()) > 1:
-                            self.battle_state.active_pokemon[player].status = parts[3].split()[1]
-                
-                elif command == "-status":
-                    player = parts[2][:2]
-                    if player in self.battle_state.active_pokemon and self.battle_state.active_pokemon[player]:
-                        self.battle_state.active_pokemon[player].status = parts[3]
-                
                 elif command == "-ability":
                     player = parts[2][:2]
                     if player in self.battle_state.active_pokemon and self.battle_state.active_pokemon[player]:
@@ -391,17 +557,6 @@ class ShowdownBot:
                         if active_name in self.battle_state.team_pokemon[player]:
                             self.battle_state.team_pokemon[player][active_name].ability = parts[3]
                 
-                elif command in ["-boost", "-unboost"]:
-                    player = parts[2][:2]
-                    stat = parts[3]
-                    amount = int(parts[4]) * (1 if command == "-boost" else -1)
-                    if player in self.battle_state.active_pokemon and self.battle_state.active_pokemon[player]:
-                        self.battle_state.active_pokemon[player].boosts[stat] += amount
-                
-                elif command == "-weather":
-                    weather = parts[2] if parts[2] != "none" else None
-                    self.battle_state.field_conditions["weather"] = weather
-
                 elif command == "-fieldstart":
                     if "trick room" in parts[3].lower():
                         self.battle_state.field_conditions["trick_room"] = True
@@ -434,23 +589,19 @@ class ShowdownBot:
                         if condition in self.battle_state.side_conditions[player]["screens"]:
                             self.battle_state.side_conditions[player]["screens"].remove(condition)
                 
-                elif command == "faint":
-                    player = parts[2][:2]
-                    if player in self.battle_state.active_pokemon and self.battle_state.active_pokemon[player]:
-                        print(f"Setting HP to 0 for {self.battle_state.active_pokemon[player].name}")
-                        self.battle_state.active_pokemon[player].hp = "0/100"
-                        # Also update the team Pokemon's HP
-                        active_name = self.battle_state.active_pokemon[player].name
-                        if active_name in self.battle_state.team_pokemon[player]:
-                            self.battle_state.team_pokemon[player][active_name].hp = "0/100"
-
                 elif command == "win" or (command == "-message" and len(parts) > 2 and "forfeited" in parts[2].lower()):
+                    # Save the final turn's events before ending
+                    if self.current_turn_events:
+                        self.battle_history.append({
+                            'turn': self.current_turn,
+                            'events': self.current_turn_events.copy()
+                        })
                     self.logger.info("Battle has concluded")
                     self.current_battle = None
-                    self.waiting_for_decision = False  # Stop waiting for moves
+                    self.waiting_for_decision = False
                     if self.on_battle_end:
                         self.on_battle_end()
-                    return 
+                    return
                 
                 elif command == "request":
                     if not parts[2]:
@@ -527,7 +678,6 @@ class ShowdownBot:
                         except Exception as e:
                             print(f"ERROR processing active Pokemon: {str(e)}")
                     
-                    
                     await asyncio.sleep(0.1)
                     
                     if "forceSwitch" in request and request["forceSwitch"][0]:
@@ -545,6 +695,15 @@ class ShowdownBot:
             print("Full error details:", str(e.__class__.__name__), str(e))
             import traceback
             print("Traceback:", traceback.format_exc())
+
+    def get_battle_history_text(self) -> str:
+        """Get a formatted string of the battle history."""
+        history_text = []
+        for turn in self.battle_history:
+            history_text.extend(turn['events'])
+        if self.current_turn_events:  # Add current turn's events
+            history_text.extend(self.current_turn_events)
+        return '\n'.join(history_text)
 
     async def receive_messages(self):
         try:
