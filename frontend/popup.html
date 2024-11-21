@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Pokemon Showdown Bot Manager</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Pokemon Showdown Bot Settings</h1>
+    
+    <form id="settingsForm">
+      <div class="form-group">
+        <label for="apiKey">API Key:</label>
+        <input type="text" id="apiKey" placeholder="Using default API key">
+        <button type="button" id="useDefaultApi" class="default-btn">Use Default</button>
+      </div>
+
+      <div class="form-group">
+        <label for="agentUsername">Agent Username:</label>
+        <input type="text" id="agentUsername" placeholder="Using default username">
+        <button type="button" id="useDefaultUsername" class="default-btn">Use Default</button>
+      </div>
+
+      <div class="form-group">
+        <label for="agentPassword">Agent Password:</label>
+        <input type="password" id="agentPassword" placeholder="Using default password">
+        <button type="button" id="useDefaultPassword" class="default-btn">Use Default</button>
+      </div>
+
+      <div class="form-group">
+        <label for="userUsername">Your Username (required):</label>
+        <input type="text" id="userUsername" required>
+      </div>
+
+      <div class="form-group">
+        <label for="personality">Agent Personality:</label>
+        <select id="personality">
+          <option value="npc">NPC (Default)</option>
+          <option value="professor">Professor</option>
+          <option value="arrogant_rival">Arrogant Rival</option>
+          <option value="supportive_rival">Supportive Rival</option>
+        </select>
+      </div>
+
+      <div class="status" id="status"></div>
+
+      <div class="button-group">
+        <button type="submit" id="startButton">Start Bot</button>
+        <button type="button" id="stopButton" disabled>Stop Bot</button>
+      </div>
+    </form>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

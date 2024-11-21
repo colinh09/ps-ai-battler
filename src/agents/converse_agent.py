@@ -25,11 +25,19 @@ class PokemonTrainerAgent:
         base_prompt = self._load_personality_prompt(personality)
         tool_rules = """
         
-    Tool Usage Rules:
+Tool Usage Rules:
     - Always provide your character response before any tool calls
-    - When battling is mentioned or challenged, end your response with "TOOL: BATTLE_MANAGER"
     - Tool calls must come after your complete response, never in the middle
     - Maintain your personality even when calling tools
+    - Only make tool calls when explicitly relevant to the user's request
+    - If unsure about tool use, prompt the user to confirm their intentions
+
+    Battle Manager:
+    - When battling is mentioned or challenged, end response with "TOOL: BATTLE_MANAGER"
+    - Only call if user clearly intends to battle
+    - If battle intentions are unclear, ask user to confirm
+    - The tool call will challenge the player to a random battle format on pokemon showdown. The response prior to this tool call must acknowledge this
+    and let the user know that they will be challenged to a random battle.
     """
         self.system_prompt = base_prompt + tool_rules
         

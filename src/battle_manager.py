@@ -793,38 +793,3 @@ class BattleManager:
             self.logger.error(f"Error in battle loop: {str(e)}", exc_info=True)
             self.is_running = False
             raise
-
-async def main():
-    """Example usage of the BattleManager"""
-    import os
-    from dotenv import load_dotenv
-    
-    load_dotenv()
-    USERNAME = os.getenv('PS_USERNAME')
-    PASSWORD = os.getenv('PS_PASSWORD')
-    TARGET_USERNAME = os.getenv('PS_TARGET_USERNAME', 'blueudon')
-    
-    # Database connection parameters
-    db_params = {
-        'dbname': 'pokemon',
-        'user': 'postgres',
-        'password': 'password',
-        'host': 'localhost',
-        'port': '5432'
-    }
-    
-    if not USERNAME or not PASSWORD:
-        print("Error: Please set PS_USERNAME and PS_PASSWORD environment variables")
-        return
-    
-    manager = BattleManager(USERNAME, PASSWORD, TARGET_USERNAME, db_params)
-    
-    try:
-        await manager.start()
-    except KeyboardInterrupt:
-        print("\nBattle manager stopped by user")
-    except Exception as e:
-        print(f"Unexpected error: {str(e)}")
-
-if __name__ == "__main__":
-    asyncio.run(main())

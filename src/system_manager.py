@@ -219,7 +219,7 @@ async def main():
         print("Error: Please set PS_USERNAME, PS_PASSWORD, and PS_TARGET_USERNAME environment variables")
         return
     
-    system = SystemManager(USERNAME, PASSWORD, TARGET_USERNAME, personality="arrogant_rival")
+    system = SystemManager(USERNAME, PASSWORD, TARGET_USERNAME, personality="professor")
     
     try:
         await system.start()
