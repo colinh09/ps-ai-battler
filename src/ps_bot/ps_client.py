@@ -104,23 +104,33 @@ class ShowdownBot:
         return "p2" if self.player_id == "p1" else "p1"
 
     async def connect(self):
-        """Connect to Pokemon Showdown websocket"""
-        try:
-            print(f"Connecting to {self.websocket_url}...")
-            ssl_context = ssl.create_default_context()
-            ssl_context.check_hostname = False
-            ssl_context.verify_mode = ssl.CERT_NONE
-            
-            self.ws = await websockets.connect(
-                self.websocket_url,
-                ping_interval=None,
-                close_timeout=10,
-                ssl=ssl_context
-            )
-            print("Connected successfully!")
-        except Exception as e:
-            print(f"Failed to connect: {str(e)}")
-            raise
+            """Connect to Pokemon Showdown websocket"""
+            try:
+                print(f"Connecting to {self.websocket_url}...")
+                
+                # Create SSL context that's more permissive
+                ssl_context = ssl.create_default_context()
+                ssl_context.check_hostname = False
+                ssl_context.verify_mode = ssl.CERT_NONE
+                ssl_context.set_ciphers('DEFAULT')  # Add this line
+                
+                self.ws = await websockets.connect(
+                    self.websocket_url,
+                    ping_interval=None,
+                    close_timeout=10,
+                    ssl=ssl_context,
+                    extra_headers={
+                        'User-Agent': 'Mozilla/5.0',
+                        'Origin': 'https://play.pokemonshowdown.com',
+                        'Connection': 'Keep-Alive'
+                    }
+                )
+                print("Connected successfully!")
+                return True
+                
+            except Exception as e:
+                print(f"Failed to connect: {str(e)}")
+                raise
     
     async def forfeit_battle(self) -> bool:
         """Forfeit the current battle"""
