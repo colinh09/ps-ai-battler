@@ -11,6 +11,8 @@ import random
 from typing import Dict, List, Optional, Set
 from dataclasses import dataclass, field
 import logging
+import socketio
+import ssl
 
 @dataclass
 class Pokemon:
@@ -104,37 +106,53 @@ class ShowdownBot:
         return "p2" if self.player_id == "p1" else "p1"
 
     async def connect(self):
-            """Connect to Pokemon Showdown websocket"""
-            try:
-                print(f"Connecting to {self.websocket_url}...")
-                
-                # Create SSL context that's more permissive
-                ssl_context = ssl.create_default_context()
-                ssl_context.check_hostname = False
-                ssl_context.verify_mode = ssl.CERT_NONE
-                ssl_context.set_ciphers('DEFAULT')  # Add this line
-                
-                self.ws = await websockets.connect(
-                    self.websocket_url,
-                    ping_interval=20,        # Keep connection alive with regular pings
-                    ping_timeout=60,         # Longer timeout for pings
-                    close_timeout=60,        # Longer timeout before closing
-                    max_size=2**23,         # Increased message size limit
-                    ssl=ssl_context,
-                    extra_headers={
-                        'User-Agent': 'Mozilla/5.0',
-                        'Origin': 'https://play.pokemonshowdown.com',
-                        'Connection': 'keep-alive',
-                        'Pragma': 'no-cache',
-                        'Cache-Control': 'no-cache'
-                    }
-                )
+        """Connect to Pokemon Showdown websocket"""
+        try:
+            print(f"Connecting to {self.websocket_url}...")
+            
+            # Initialize socket.io client
+            self.sio = socketio.AsyncClient(
+                ssl_verify=False,
+                reconnection=True,
+                reconnection_attempts=5,
+                reconnection_delay=1,
+                reconnection_delay_max=5
+            )
+            
+            # Setup SSL context
+            ssl_context = ssl.create_default_context()
+            ssl_context.check_hostname = False
+            ssl_context.verify_mode = ssl.CERT_NONE
+            
+            # Register event handlers
+            @self.sio.event
+            async def connect():
                 print("Connected successfully!")
-                return True
                 
-            except Exception as e:
-                print(f"Failed to connect: {str(e)}")
-                raise
+            @self.sio.event
+            async def disconnect():
+                print("Disconnected from server")
+                
+            @self.sio.event
+            async def message(data):
+                await self.handle_message(data)
+                
+            # Connect to server
+            await self.sio.connect(
+                self.websocket_url,
+                ssl=ssl_context,
+                headers={
+                    'User-Agent': 'Mozilla/5.0',
+                    'Origin': 'https://play.pokemonshowdown.com',
+                    'Connection': 'keep-alive'
+                },
+                transports=['websocket']
+            )
+            
+            return True
+        except Exception as e:
+            print(f"Failed to connect: {str(e)}")
+            raise
     
     async def forfeit_battle(self) -> bool:
         """Forfeit the current battle"""
@@ -760,40 +778,41 @@ class ShowdownBot:
 
     async def receive_messages(self):
         try:
-            initial_challenge_sent = False 
-            while True:
+            initial_challenge_sent = False
+            
+            @self.sio.on('message')
+            async def on_message(data):
                 if self.battle_concluded:
-                    break
-                message = await self.ws.recv()
-                
-                if "|challstr|" in message:
-                    challstr = message.split("|challstr|")[1]
+                    return
+                    
+                if "|challstr|" in data:
+                    challstr = data.split("|challstr|")[1]
                     await self.login(challstr, False)
                     await asyncio.sleep(2)
-                    # Only send challenge the first time
+                    
                     if not initial_challenge_sent:
-                        await self.ws.send("|/utm null")
-                        await self.ws.send(f"|/challenge {self.target_username}, gen9randombattle")
+                        await self.sio.emit('message', "|/utm null")
+                        await self.sio.emit('message', f"|/challenge {self.target_username}, gen9randombattle")
                         initial_challenge_sent = True
-                
-                elif "|updatechallenges|" in message:
-                    data = json.loads(message.split("|updatechallenges|")[1])
-                    # If there's a game, that means challenge was accepted
-                    if data.get('games'):
-                        room_id = next(iter(data['games']))
+                        
+                elif "|updatechallenges|" in data:
+                    challenge_data = json.loads(data.split("|updatechallenges|")[1])
+                    if challenge_data.get('games'):
+                        room_id = next(iter(challenge_data['games']))
                         print(f"Challenge accepted! Battle room: {room_id}")
                         self.current_battle = room_id
-                
-                elif message.startswith(">battle-"):
-                    room_id = message.split("\n")[0]
-                    if "|init|battle" in message and room_id.strip('>') == self.current_battle:
+                        
+                elif data.startswith(">battle-"):
+                    room_id = data.split("\n")[0]
+                    if "|init|battle" in data and room_id.strip('>') == self.current_battle:
                         print(f"Joining battle room: {self.current_battle}")
-                        await self.ws.send(f"|/join {self.current_battle}")
-                    await self.handle_battle_message(room_id, message)
-
-        except websockets.exceptions.ConnectionClosed:
-            print("Connection closed unexpectedly")
-            raise
+                        await self.sio.emit('message', f"|/join {self.current_battle}")
+                        await self.handle_battle_message(room_id, data)
+                        
+            # Keep connection alive
+            while not self.battle_concluded:
+                await asyncio.sleep(1)
+                
         except Exception as e:
             print(f"Error in receive_messages: {str(e)}")
             raise
