@@ -116,9 +116,10 @@ class ShowdownBot:
                 
                 self.ws = await websockets.connect(
                     self.websocket_url,
-                    ping_interval=15,           # Send ping every 15 seconds
-                    ping_timeout=10,            # Wait 10 seconds for pong
-                    close_timeout=60,           # Wait 60 seconds before closing
+                    ping_interval=20,        # Keep connection alive with regular pings
+                    ping_timeout=60,         # Longer timeout for pings
+                    close_timeout=60,        # Longer timeout before closing
+                    max_size=2**23,         # Increased message size limit
                     ssl=ssl_context,
                     extra_headers={
                         'User-Agent': 'Mozilla/5.0',
