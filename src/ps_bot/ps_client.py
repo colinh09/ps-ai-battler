@@ -116,13 +116,16 @@ class ShowdownBot:
                 
                 self.ws = await websockets.connect(
                     self.websocket_url,
-                    ping_interval=None,
-                    close_timeout=10,
+                    ping_interval=15,           # Send ping every 15 seconds
+                    ping_timeout=10,            # Wait 10 seconds for pong
+                    close_timeout=60,           # Wait 60 seconds before closing
                     ssl=ssl_context,
                     extra_headers={
                         'User-Agent': 'Mozilla/5.0',
                         'Origin': 'https://play.pokemonshowdown.com',
-                        'Connection': 'Keep-Alive'
+                        'Connection': 'keep-alive',
+                        'Pragma': 'no-cache',
+                        'Cache-Control': 'no-cache'
                     }
                 )
                 print("Connected successfully!")
