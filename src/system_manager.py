@@ -18,7 +18,7 @@ class SystemManager:
     High-level manager for Pokemon Showdown bot system.
     Handles user interactions and delegates to appropriate subsystems.
     """
-    def __init__(self, username: str, password: str, target_username: str):
+    def __init__(self, username: str, password: str, target_username: str, personality: str = "npc"):
         self.username = username
         self.password = password
         self.target_username = target_username
@@ -29,7 +29,8 @@ class SystemManager:
         self.bot = ShowdownBot(username, password, target_username)
         
         # Initialize the conversational agent
-        self.agent = PokemonTrainerAgent()
+        self.agent = PokemonTrainerAgent(personality=personality)
+        self.personality = personality
         
         # Battle manager will be created only when needed
         self.battle_manager = None
@@ -95,7 +96,8 @@ class SystemManager:
                     username=self.username,
                     password=self.password,
                     target_username=opponent_username,
-                    db_params=self.get_db_params()
+                    db_params=self.get_db_params(),
+                    personality=self.personality
                 )
                 self.battle_manager.system_manager = self
                 
@@ -132,7 +134,7 @@ class SystemManager:
                 
                 # Generate and send analysis
                 if final_state and battle_history:
-                    analysis = await self.battle_manager.agent.run(
+                    analysis = self.battle_manager.agent.run(
                         f"""Analyze this completed Pokemon battle. Review the battle history and final state to provide insights.
 
                         Battle History:
@@ -148,7 +150,7 @@ class SystemManager:
                         4. Areas for improvement
                         5. Notable matchups and how they influenced the battle
                         
-                        Focus on constructive analysis that could help improve future battles."""
+                        Focus on constructive analysis that could help improve future battles. Use paragraphs with no headers."""
                     )
                     
                     if analysis:
@@ -217,7 +219,7 @@ async def main():
         print("Error: Please set PS_USERNAME, PS_PASSWORD, and PS_TARGET_USERNAME environment variables")
         return
     
-    system = SystemManager(USERNAME, PASSWORD, TARGET_USERNAME)
+    system = SystemManager(USERNAME, PASSWORD, TARGET_USERNAME, personality="arrogant_rival")
     
     try:
         await system.start()

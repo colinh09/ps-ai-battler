@@ -3,45 +3,53 @@ from typing import Optional, List, Dict
 from dotenv import load_dotenv
 from model_wrappers.api_gateway import APIGateway
 
+import os
+import yaml
+from typing import Optional, List, Dict
+from pathlib import Path
+from dotenv import load_dotenv
+from model_wrappers.api_gateway import APIGateway
+
 class PokemonTrainerAgent:
-    def __init__(self, api_key: Optional[str] = None, max_history: int = 10):
-        """
-        Initialize the Pokemon Trainer agent
-        
-        Args:
-            api_key: Optional API key to override .env file
-            max_history: Maximum number of messages to keep in history (excluding system prompt)
-        """
-        # Load environment variables from .env file
+    def __init__(self, api_key: Optional[str] = None, max_history: int = 10, personality: str = "npc"):
         load_dotenv()
         
-        # Use provided API key or get from environment
         self.api_key = api_key or os.getenv("SAMBANOVA_API_KEY")
         if not self.api_key:
             raise ValueError("SAMBANOVA_API_KEY must be set in .env file or passed to constructor")
-        
+
         self.max_history = max_history
         self.chat_history: List[Dict[str, str]] = []
         
-        # System prompt that defines the agent's personality
-        self.system_prompt = """You are a friendly and knowledgeable Pokemon trainer who enjoys both battling and discussing Pokemon strategy. You have extensive experience in competitive Pokemon battles and enjoy sharing your knowledge with other trainers.
-
-Your personality traits:
-- Enthusiastic about Pokemon battles and strategy
-- Supportive and encouraging of other trainers
-- Knowledgeable but humble
-- Always ready for a friendly battle
-- Uses Pokemon-related expressions naturally (but not excessively)
-
-When interacting with users:
-1. Maintain a conversational, friendly tone
-2. Draw from competitive Pokemon knowledge to give advice
-3. Focus on Random Battle format when discussing strategy
-4. If the user wants to battle, respond enthusiastically and end with "TOOL: BATTLE_MANAGER"
-"""
+        # Load personality prompt and append tool usage rules
+        base_prompt = self._load_personality_prompt(personality)
+        tool_rules = """
         
-        # Initialize the Chat LLM
+    Tool Usage Rules:
+    - Always provide your character response before any tool calls
+    - When battling is mentioned or challenged, end your response with "TOOL: BATTLE_MANAGER"
+    - Tool calls must come after your complete response, never in the middle
+    - Maintain your personality even when calling tools
+    """
+        self.system_prompt = base_prompt + tool_rules
+        
         self.llm = self._init_llm()
+
+    
+    def _load_personality_prompt(self, personality: str) -> str:
+        current_dir = Path(__file__).parent
+        prompts_dir = current_dir.parent / "prompts"
+        prompt_path = prompts_dir / f"{personality}.yaml"
+        
+        try:
+            with open(prompt_path, "r") as f:
+                prompt_data = yaml.safe_load(f)
+                return prompt_data["system_prompt"]
+        except FileNotFoundError:
+            raise ValueError(f"Personality file not found: {prompt_path}")
+        except KeyError:
+            raise ValueError(f"Invalid personality file format: {prompt_path}")
+
     
     def _init_llm(self):
         """Initialize the SambaNova Chat LLM"""
@@ -86,8 +94,8 @@ When interacting with users:
         self.chat_history.append({"role": role, "content": content})
         
         # Trim history if it exceeds max length
-        if len(self.chat_history) > self.max_history:
-            self.chat_history = self.chat_history[-self.max_history:]
+        # if len(self.chat_history) > self.max_history:
+        #     self.chat_history = self.chat_history[-self.max_history:]
     
     def run(self, query: str) -> str:
         """

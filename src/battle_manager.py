@@ -41,7 +41,7 @@ and making decisions when required.
 
 
 class BattleManager:
-    def __init__(self, username: str, password: str, target_username: str, db_params: Dict[str, str]):
+    def __init__(self, username: str, password: str, target_username: str, db_params: Dict[str, str], personality: str = "npc"):
         """
         Initialize the battle manager with credentials and database connection.
         
@@ -52,7 +52,7 @@ class BattleManager:
             db_params (dict): Database connection parameters
         """
         self.bot = ShowdownBot(username, password, target_username)
-        self.agent = PSAgent(db_params=db_params)
+        self.agent = PSAgent(db_params=db_params, personality=personality)
         self.current_state = None
         self.is_running = False
         self.logger = logging.getLogger('BattleManager')
@@ -71,22 +71,22 @@ class BattleManager:
         self.battle_concluded = True
         self.is_running = False
         
-        try:
-            # Send immediate "analyzing" message
-            await self.bot.send_pm(
-                self.bot.target_username,
-                "Analyzing battle results..."
-            )
+        # try:
+        #     # Send immediate "analyzing" message
+        #     await self.bot.send_pm(
+        #         self.bot.target_username,
+        #         "Analyzing battle results..."
+        #     )
             
-            # Generate analysis using the provided state and history
-            if final_state and battle_history:
-                analysis = await self.get_battle_analysis(final_state, battle_history)
+        #     # Generate analysis using the provided state and history
+        #     if final_state and battle_history:
+        #         analysis = await self.get_battle_analysis(final_state, battle_history)
                 
-                if analysis:
-                    await self.bot.send_pm(self.bot.target_username, analysis)
-        except Exception as e:
-            self.logger.error(f"Error in battle end analysis: {str(e)}")
-            print(f"Error generating battle analysis: {str(e)}")
+        #         if analysis:
+        #             await self.bot.send_pm(self.bot.target_username, analysis)
+        # except Exception as e:
+        #     self.logger.error(f"Error in battle end analysis: {str(e)}")
+        #     print(f"Error generating battle analysis: {str(e)}")
 
     async def get_battle_analysis(self, final_state: Dict, battle_history: str) -> str:
         """Get agent's analysis of the completed battle"""

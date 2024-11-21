@@ -98,6 +98,7 @@ class ShowdownBot:
         self.battle_history = []
         self.current_turn_events = []
         self.current_turn = 0
+        self.battle_concluded = False
     
     def get_opponent_id(self):
         return "p2" if self.player_id == "p1" else "p1"
@@ -355,6 +356,7 @@ class ShowdownBot:
                 self.battle_history = []  # Reset battle history for new battle
                 self.current_turn_events = []
                 self.current_turn = 0
+                self.battle_concluded = False 
                 print(f"Joined battle room: {self.current_battle}")
                 await self.ws.send(f"|/join {self.current_battle}")
             
@@ -591,6 +593,7 @@ class ShowdownBot:
                 
                 elif command == "win" or (command == "-message" and len(parts) > 2 and "forfeited" in parts[2].lower()):
                     # Avoid duplicate processing
+                    self.battle_concluded = True
                     if not self.current_battle:
                         return
                         
@@ -743,8 +746,10 @@ class ShowdownBot:
 
     async def receive_messages(self):
         try:
-            initial_challenge_sent = False  # Add this flag
+            initial_challenge_sent = False 
             while True:
+                if self.battle_concluded:
+                    break
                 message = await self.ws.recv()
                 
                 if "|challstr|" in message:

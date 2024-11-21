@@ -7,6 +7,8 @@ from .model_wrappers.api_gateway import APIGateway
 import psycopg2
 from psycopg2.extras import RealDictCursor
 from decimal import Decimal
+from pathlib import Path
+import yaml
 
 # Set up logging
 logging.basicConfig(
@@ -400,9 +402,14 @@ class PokemonDBTools:
     
 
 class PSAgent:
-    def __init__(self, api_key: Optional[str] = None, db_params: Dict[str, str] = None):
+    def __init__(self, api_key: Optional[str] = None, db_params: Dict[str, str] = None, personality: str = "npc"):
         """
         Initialize the Pokemon Showdown agent with database support
+        
+        Args:
+            api_key: Optional API key to override .env file
+            db_params: Database connection parameters
+            personality: Personality type to load from prompts directory (default: npc)
         """
         self.logger = logging.getLogger('PSAgent.Main')
         
@@ -414,6 +421,9 @@ class PSAgent:
         if not self.api_key:
             self.logger.error("No API key provided")
             raise ValueError("SAMBANOVA_API_KEY must be set in .env file or passed to constructor")
+            
+        # Load personality prompt
+        self.personality_prompt = self._load_personality_prompt(personality)
         
         # Initialize the LLM
         self.logger.info("Initializing LLM")
@@ -422,6 +432,21 @@ class PSAgent:
         # Initialize DB tools
         self.logger.info("Initializing DB tools")
         self.db_tools = PokemonDBTools(db_params)
+
+    def _load_personality_prompt(self, personality: str) -> str:
+        """Load personality prompt from YAML file"""
+        current_dir = Path(__file__).parent
+        prompts_dir = current_dir.parent / "prompts"
+        prompt_path = prompts_dir / f"{personality}.yaml"
+        
+        try:
+            with open(prompt_path, "r") as f:
+                prompt_data = yaml.safe_load(f)
+                return prompt_data["system_prompt"]
+        except FileNotFoundError:
+            raise ValueError(f"Personality file not found: {prompt_path}")
+        except KeyError:
+            raise ValueError(f"Invalid personality file format: {prompt_path}")
     
     def _init_llm(self):
         """Initialize the SambaNova LLM"""
@@ -531,11 +556,13 @@ class PSAgent:
     def run(self, query: str):
         """Enhanced query-response interaction with Pokemon data integration"""
         self.logger.info(f"Processing query: {query}")
+        
         try:
-            response = self.llm.invoke(query)
+            # Prepend personality prompt to query
+            full_query = f"{self.personality_prompt}\n\n{query}"
+            response = self.llm.invoke(full_query)
             self.logger.debug(f"LLM response:\n{response}")
             return response
-            
         except Exception as e:
             self.logger.error(f"Error processing query: {str(e)}", exc_info=True)
             return f"Error: {str(e)}"
