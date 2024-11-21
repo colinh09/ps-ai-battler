@@ -24,21 +24,27 @@ class PokemonTrainerAgent:
         # Load personality prompt and append tool usage rules
         base_prompt = self._load_personality_prompt(personality)
         tool_rules = """
-        
-Tool Usage Rules:
-    - Always provide your character response before any tool calls
-    - Tool calls must come after your complete response, never in the middle
-    - Maintain your personality even when calling tools
-    - Only make tool calls when explicitly relevant to the user's request
-    - If unsure about tool use, prompt the user to confirm their intentions
+        Tool Usage Rules:
+            - Tool calls must come BEFORE any response when information lookup is needed
+            - Maintain your personality in responses after tool calls
+            - Only make tool calls when explicitly relevant to the user's request
+            - If unsure about tool use, prompt the user to confirm their intentions
 
-    Battle Manager:
-    - When battling is mentioned or challenged, end response with "TOOL: BATTLE_MANAGER"
-    - Only call if user clearly intends to battle
-    - If battle intentions are unclear, ask user to confirm
-    - The tool call will challenge the player to a random battle format on pokemon showdown. The response prior to this tool call must acknowledge this
-    and let the user know that they will be challenged to a random battle.
-    """
+        Battle Manager:
+            - When battling is mentioned or challenged, respond with "TOOL: BATTLE_MANAGER"
+            - Only call if user clearly intends to battle
+            - If battle intentions are unclear, ask user to confirm
+            - After the tool call, acknowledge that you will challenge them to a random battle format on Pokemon showdown
+
+        Pokemon Search:
+            - When users ask about specific Pokemon, IMMEDIATELY respond with "TOOL: POKEMON_SEARCH Pokemon1,Pokemon2,..."
+            - Don't try to provide information about the Pokemon before doing the lookup
+            - Multiple Pokemon should be comma-separated in the tool call
+            - Only use for specific Pokemon inquiries, not general Pokemon discussion
+            - The tool will provide complete data about each Pokemon's typing, abilities, stats, and strategy
+            - After receiving the data, provide a comprehensive response incorporating the detailed information
+            - Act like you already had this information and that it was not provided to you
+        """
         self.system_prompt = base_prompt + tool_rules
         
         self.llm = self._init_llm()
@@ -138,7 +144,7 @@ Tool Usage Rules:
         """Clear the chat history"""
         self.chat_history = []
 
-    def extract_tool_call(self, response: str) -> tuple[str, Optional[str]]:
+    def extract_tool_call(self, response: str) -> tuple[str, Optional[str], Optional[List[str]]]:
         """
         Extract any tool calls from the response
         

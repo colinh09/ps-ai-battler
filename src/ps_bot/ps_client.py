@@ -764,6 +764,11 @@ class ShowdownBot:
                 if self.battle_concluded:
                     break
                 message = await self.ws.recv()
+                if "|pm|" in message and "rejected the challenge" in message:
+                    print("Challenge was rejected")
+                    self.battle_concluded = True
+                    if self.on_battle_end:
+                        await self.on_battle_end()
                 
                 if "|challstr|" in message:
                     challstr = message.split("|challstr|")[1]

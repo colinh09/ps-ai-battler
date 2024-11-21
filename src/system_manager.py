@@ -167,24 +167,6 @@ class SystemManager:
             if self.battle_manager:
                 self.battle_manager.is_running = False
             raise
-                
-    async def forfeit_battle(self) -> bool:
-        """Forfeit the current battle if one is active"""
-        try:
-            if not self.battle_manager or not self.battle_manager.is_running:
-                print("No active battle to forfeit")
-                return False
-                
-            success = await self.battle_manager.forfeit()
-            if success:
-                print("Successfully forfeited the battle")
-            else:
-                print("Failed to forfeit the battle")
-            return success
-        except Exception as e:
-            self.logger.error(f"Error in forfeit_battle: {str(e)}")
-            print(f"Error forfeiting battle: {str(e)}")
-            return False
 
     async def quit(self):
         """Cleanup and exit the system"""
