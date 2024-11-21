@@ -190,11 +190,19 @@ class SystemManager:
         """Cleanup and exit the system"""
         self.logger.info("Shutting down system")
         print("\nShutting down system...")
+        
+        # Force stop everything
+        self.is_running = False
         if self.battle_manager:
             self.battle_manager.is_running = False
-            await asyncio.sleep(1)
+            if self.battle_manager.bot and self.battle_manager.bot.ws:
+                await self.battle_manager.bot.ws.close()
             self.battle_manager = None
-        self.is_running = False
+        
+        # Force close main bot websocket
+        if self.bot and self.bot.ws:
+            await self.bot.ws.close()
+        self.bot = None
 
     def get_db_params(self) -> dict:
         """Get database connection parameters"""
