@@ -1,0 +1,59 @@
+Dragapult @ Choice Scarf
+Ability: Infiltrator
+Tera Type: Dragon
+EVs: 252 Atk / 252 Spe / 4 SpD
+Adamant Nature
+- Outrage
+- Dracometeor
+- Draco Meteor
+- Dragon Dance
+
+Great Tusk @ Leftovers
+Ability: Thick Fat
+Tera Type: Rock
+EVs: 252 HP / 252 Def / 4 SpD
+Impish Nature
+- Earthquake
+- Stone Edge
+- Body Press
+- Protect
+
+Gholdengo @ Leftovers
+Ability: Good as Gold
+Tera Type: Steel
+EVs: 252 HP / 252 SpD / 4 Spe
+Calm Nature
+- Iron Head
+- Flash Cannon
+- Shadow Ball
+- Protect
+
+Iron Valiant @ Assault Vest
+Ability: Quark Drive
+Tera Type: Fighting
+EVs: 252 Atk / 252 Spe / 4 SpD
+Adamant Nature
+- Iron Head
+- Body Press
+- Earthquake
+- Protect
+
+Slowking-Galar @ Choice Specs
+Ability: Unaware
+Tera Type: Psychic
+EVs: 252 SpA / 252 Spe / 4 SpD
+Modest Nature
+- Psychic
+- Aura Sphere
+- Future Sight
+- Protect
+
+Roaring Moon @ Assault Vest
+Ability: Aegis
+Tera Type: Fighting
+EVs: 252 Atk / 252 Spe / 4 SpD
+Adamant Nature
+- Moongeist Beam
+- Close Combat
+- Stone Edge
+- Protect

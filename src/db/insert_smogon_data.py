@@ -300,7 +300,7 @@ def main():
         'port': '5432'
     }
 
-    data_dir = Path('../scrapers/data')
+    data_dir = Path('data')
     
     # Load all JSON files
     print("Loading JSON files...")

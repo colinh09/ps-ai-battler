@@ -145,7 +145,14 @@ async def handle_message(message: str, username: str, password: str, target_user
                         tier = params[-1] if len(params) == 2 else "ou"
                         team_sets = await build_team(st.session_state.bot, st.session_state.agent, sender, generation, tier)
                         if team_sets:
-                            st.session_state.current_team = "\n\n".join(team_sets)
+                            team_text = "\n\n".join(team_sets)
+                            st.session_state.current_team = team_text
+                            
+                            # Write team to file
+                            with open('team.txt', 'w') as f:
+                                f.write(team_text)
+                            
+                            await st.session_state.bot.send_pm(sender, "Team has been saved to team.txt!")
 
     elif "|challstr|" in message:
         challstr = message.split("|challstr|")[1]
