@@ -5,7 +5,6 @@ import json
 import re
 import sys
 import ssl
-from dotenv import load_dotenv
 import os
 import random
 from typing import Dict, List, Optional, Set
@@ -116,9 +115,6 @@ class ShowdownBot:
                 
                 self.ws = await websockets.connect(
                     self.websocket_url,
-                    ping_interval=15,           # Send ping every 15 seconds
-                    ping_timeout=10,            # Wait 10 seconds for pong
-                    close_timeout=60,           # Wait 60 seconds before closing
                     ssl=ssl_context,
                     extra_headers={
                         'User-Agent': 'Mozilla/5.0',

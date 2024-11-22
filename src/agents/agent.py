@@ -2,7 +2,6 @@ import os
 import logging
 import json
 from typing import Dict, Any, List, Optional, Set
-from dotenv import load_dotenv
 from .model_wrappers.api_gateway import APIGateway
 import psycopg2
 from psycopg2.extras import RealDictCursor
@@ -30,15 +29,7 @@ class PSAgent:
             personality: Personality type to load from prompts directory (default: npc)
         """
         self.logger = logging.getLogger('PSAgent.Main')
-        
-        # Load environment variables from .env file
-        load_dotenv()
-        
-        # Use provided API key or get from environment
-        self.api_key = api_key or os.getenv("SAMBANOVA_API_KEY")
-        if not self.api_key:
-            self.logger.error("No API key provided")
-            raise ValueError("SAMBANOVA_API_KEY must be set in .env file or passed to constructor")
+        self.api_key = api_key
             
         # Load personality prompt
         self.personality_prompt = self._load_personality_prompt(personality)

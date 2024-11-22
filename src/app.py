@@ -7,6 +7,7 @@ import logging
 from typing import Optional, List
 import nest_asyncio
 from pokemon_db_tools import PokemonDBTools
+from team_builder import build_team
 
 # Enable nested asyncio for Streamlit
 nest_asyncio.apply()
@@ -24,6 +25,10 @@ if 'event_loop' not in st.session_state:
     st.session_state.event_loop = None
 if 'db_tools' not in st.session_state:
     st.session_state.db_tools = None
+if 'current_team' not in st.session_state:
+    st.session_state.current_team = None
+if 'start_pressed' not in st.session_state:
+    st.session_state.start_pressed = False
 
 def get_db_params() -> dict:
     """Get database connection parameters"""
@@ -76,7 +81,34 @@ async def lookup_pokemon(pokemon_names: List[str], sender: str, original_query: 
             "I apologize, but I encountered an error looking up that Pokemon information."
         )
 
-async def handle_message(message: str, username: str, password: str, target_username: str, personality: str):
+def display_team_section():
+    """Display the team section UI"""
+    with st.container():
+        st.header("Team Display")
+        col1, col2 = st.columns([1, 4])
+        
+        with col1:
+            if st.session_state.current_team:
+                st.download_button(
+                    label="Download Team",
+                    data=st.session_state.current_team.encode(),
+                    file_name="pokemon_team.txt",
+                    mime="text/plain"
+                )
+        
+        with st.expander("View Team", expanded=True):
+            if st.session_state.current_team:
+                st.text_area(
+                    "Team Sets",
+                    value=st.session_state.current_team,
+                    height=400,
+                    key=f"team_display_{hash(str(st.session_state.current_team))}"
+                )
+                st.caption("Click to expand/collapse. You can copy the text directly from the text area.")
+            else:
+                st.info("No team has been generated yet.")
+
+async def handle_message(message: str, username: str, password: str, target_username: str, personality: str, api_key: str):
     """Handle incoming messages from Pokemon Showdown"""
     if "|pm|" in message:
         parts = message.split("|")
@@ -92,6 +124,9 @@ async def handle_message(message: str, username: str, password: str, target_user
                 # Get agent's response
                 response = st.session_state.agent.run(content)
                 conversation, tool = st.session_state.agent.extract_tool_call(response)
+                print(response)
+                print(conversation)
+                print(tool)
                 
                 # Always send the conversation response first
                 if conversation:
@@ -100,50 +135,30 @@ async def handle_message(message: str, username: str, password: str, target_user
                 # Then handle any tool calls
                 if tool:
                     if tool == "BATTLE_MANAGER":
-                        await start_battle(username, password, sender, personality)
+                        await start_battle(username, password, sender, personality, api_key)
                     elif tool.startswith("POKEMON_SEARCH"):
                         pokemon_names = tool.replace("POKEMON_SEARCH", "").strip().split(",")
                         await lookup_pokemon(pokemon_names, sender, content)
-                else:
-                    # No tool call, just send conversation response
-                    if conversation:
-                        await st.session_state.bot.send_pm(sender, conversation)
-    
+                    elif tool.startswith("TEAM_BUILDER"):
+                        params = tool.replace("TEAM_BUILDER", "").strip().split()
+                        generation = params[0] if len(params) == 2 else "gen9"
+                        tier = params[-1] if len(params) == 2 else "ou"
+                        team_sets = await build_team(st.session_state.bot, st.session_state.agent, sender, generation, tier)
+                        if team_sets:
+                            st.session_state.current_team = "\n\n".join(team_sets)
+
     elif "|challstr|" in message:
         challstr = message.split("|challstr|")[1]
         await st.session_state.bot.login(challstr, True)
 
-async def start_pokemon_system(username: str, password: str, target_username: str, personality: str):
-    """Start the Pokemon battle system"""
-    try:
-        formatted_personality = format_personality(personality)
-        
-        # Initialize bot and agent
-        st.session_state.bot = ShowdownBot(username, password, target_username)
-        st.session_state.agent = PokemonTrainerAgent(personality=formatted_personality)
-        
-        # Connect to Pokemon Showdown
-        await st.session_state.bot.connect()
-        st.success("Connected to Pokemon Showdown!")
-        
-        while st.session_state.battle_running:
-            try:
-                message = await st.session_state.bot.ws.recv()
-                await handle_message(message, username, password, target_username, formatted_personality)
-                    
-            except Exception as e:
-                continue
-                
-    except Exception as e:
-        reset_system()
-
-async def start_battle(username: str, password: str, opponent_username: str, personality: str):
+async def start_battle(username: str, password: str, opponent_username: str, personality: str, api_key: str):
     """Start a battle with the specified opponent"""
     try:
         st.info(f"Starting battle with {opponent_username}")
         
-        # Create new battle manager
+        # Create new battle manager with api_key
         st.session_state.battle_manager = BattleManager(
+            api_key=api_key,
             username=username,
             password=password,
             target_username=opponent_username,
@@ -153,7 +168,6 @@ async def start_battle(username: str, password: str, opponent_username: str, per
         
         # Connect battle manager's bot
         await st.session_state.battle_manager.bot.connect()
-        st.success("Battle connection established!")
         
         # Initialize battle loop
         st.session_state.battle_manager.is_running = True
@@ -214,6 +228,7 @@ def reset_system():
     st.session_state.battle_manager = None
     st.session_state.agent = None
     st.session_state.db_tools = None
+    st.session_state.current_team = None
     
     if st.session_state.event_loop:
         try:
@@ -225,77 +240,95 @@ def reset_system():
     
     st.success("System reset successfully!")
 
+def download_team():
+    """Generate a downloadable text file of the current team"""
+    if st.session_state.current_team:
+        return st.session_state.current_team.encode()
+    return b""
+
+async def start_pokemon_system(username: str, password: str, target_username: str, personality: str, api_key: str):
+    """Start the Pokemon battle system"""
+    try:
+        formatted_personality = format_personality(personality)
+        
+        # Initialize bot and agent with api_key
+        st.session_state.bot = ShowdownBot(username, password, target_username)
+        st.session_state.agent = PokemonTrainerAgent(api_key=api_key, personality=formatted_personality)
+        # Connect to Pokemon Showdown
+        await st.session_state.bot.connect()
+        
+        while st.session_state.battle_running:
+            try:
+                message = await st.session_state.bot.ws.recv()
+                await handle_message(message, username, password, target_username, formatted_personality, api_key)
+                    
+            except Exception as e:
+                continue
+                
+    except Exception as e:
+        reset_system()
+
 def main():
     st.title("Pokemon Battle Bot")
     st.write("Configure and control your Pokemon battle bot")
     
-    # Configuration section
-    st.header("Configuration")
-    
-    # API Key input with default from secrets
-    api_key = st.text_input(
-        "Samba Nova API Key", 
-        value=st.secrets.get('SAMBA_NOVA_API_KEY', ''),
-        type="password"
-    )
-    
-    # Pokemon Showdown credentials with defaults from secrets
-    col1, col2 = st.columns(2)
-    with col1:
-        username = st.text_input(
-            "Pokemon Showdown Username",
-            value=st.secrets.get('PS_USERNAME', '')
-        )
-    with col2:
-        password = st.text_input(
-            "Pokemon Showdown Password",
-            value=st.secrets.get('PS_PASSWORD', ''),
+    with st.expander("Bot Configuration", expanded=True):
+        api_key = st.text_input(
+            "Samba Nova API Key", 
+            value=st.secrets.get('SAMBA_NOVA_API_KEY', ''),
             type="password"
         )
-    
-    # Target username with default from secrets
-    target_username = st.text_input(
-        "Target Username",
-        value=st.secrets.get('PS_TARGET_USERNAME', '')
-    )
-    
-    # Personality selector with display names and default from secrets
-    personality_options = {
-        "arrogant rival": "Arrogant Rival",
-        "supportive rival": "Supportive Rival",
-        "professor": "Professor",
-        "npc": "NPC"
-    }
-    default_personality = st.secrets.get('DEFAULT_PERSONALITY', 'professor')
-    default_index = list(personality_options.keys()).index(default_personality) if default_personality in personality_options else 0
-    
-    personality = st.selectbox(
-        "Select Personality",
-        list(personality_options.keys()),
-        index=default_index,
-        format_func=lambda x: personality_options[x]
-    )
-    
-    # Single button that changes from Start to Reset Session
-    if st.button("Start" if not st.session_state.battle_running else "Reset Session"):
-        if not st.session_state.battle_running:
-            # Validate inputs
+        
+        col1, col2 = st.columns(2)
+        with col1:
+            username = st.text_input(
+                "Pokemon Showdown Username",
+                value=st.secrets.get('PS_USERNAME', '')
+            )
+        with col2:
+            password = st.text_input(
+                "Pokemon Showdown Password",
+                value=st.secrets.get('PS_PASSWORD', ''),
+                type="password"
+            )
+        
+        target_username = st.text_input(
+            "Target Username",
+            value=st.secrets.get('PS_TARGET_USERNAME', '')
+        )
+        
+        personality_options = {
+            "arrogant rival": "Arrogant Rival",
+            "supportive rival": "Supportive Rival",
+            "professor": "Professor",
+            "npc": "NPC"
+        }
+        default_personality = st.secrets.get('DEFAULT_PERSONALITY', 'professor')
+        default_index = list(personality_options.keys()).index(default_personality) if default_personality in personality_options else 0
+        
+        personality = st.selectbox(
+            "Select Personality",
+            list(personality_options.keys()),
+            index=default_index,
+            format_func=lambda x: personality_options[x]
+        )
+
+        if st.button("Start"):
             if not all([api_key, username, password, target_username]):
                 st.error("Please fill in all required fields!")
                 return
             
-            # Start the system
+            if st.session_state.battle_running:
+                reset_system()
+            
             st.session_state.battle_running = True
-            asyncio.run(start_pokemon_system(username, password, target_username, personality))
-        else:
-            # Reset the system
-            reset_system()
-    
-    # Status indicator
-    if st.session_state.battle_running:
-        st.success("System is running")
-    else:
-        st.warning("System is stopped")
+            asyncio.run(start_pokemon_system(username, password, target_username, personality, api_key))
+
+        if st.session_state.battle_running:
+            st.success("Bot is running! Press 'Start' again to restart with current settings.")
+
+    display_team_section()
+
 
 if __name__ == "__main__":
     main()

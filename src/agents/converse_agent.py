@@ -1,22 +1,17 @@
 import os
 from typing import Optional, List, Dict
-from dotenv import load_dotenv
 from model_wrappers.api_gateway import APIGateway
 
 import os
 import yaml
 from typing import Optional, List, Dict
 from pathlib import Path
-from dotenv import load_dotenv
 from model_wrappers.api_gateway import APIGateway
 
 class PokemonTrainerAgent:
     def __init__(self, api_key: Optional[str] = None, max_history: int = 10, personality: str = "npc"):
-        load_dotenv()
-        
-        self.api_key = api_key or os.getenv("SAMBANOVA_API_KEY")
-        if not self.api_key:
-            raise ValueError("SAMBANOVA_API_KEY must be set in .env file or passed to constructor")
+        print(api_key)
+        self.api_key = api_key
 
         self.max_history = max_history
         self.chat_history: List[Dict[str, str]] = []
@@ -37,13 +32,22 @@ class PokemonTrainerAgent:
             - After the tool call, acknowledge that you will challenge them to a random battle format on Pokemon showdown
 
         Pokemon Search:
-            - When users ask about specific Pokemon, IMMEDIATELY respond with "TOOL: POKEMON_SEARCH Pokemon1,Pokemon2,..."
-            - Don't try to provide information about the Pokemon before doing the lookup
+            - When users ask about specific Pokemon, you MUST ONLY respond with "TOOL: POKEMON_SEARCH Pokemon1,Pokemon2,..."
+            - NO preliminary text or information about the Pokemon is allowed before or during the tool call
             - Multiple Pokemon should be comma-separated in the tool call
-            - Only use for specific Pokemon inquiries, not general Pokemon discussion
-            - The tool will provide complete data about each Pokemon's typing, abilities, stats, and strategy
-            - After receiving the data, provide a comprehensive response incorporating the detailed information
+            - Wait for the tool response before providing ANY information about the Pokemon
+            - Your response must follow this exact format:
+              1. First line: "TOOL: POKEMON_SEARCH PokemonName"
+              2. No other text until tool data is received
+            - After receiving the data, provide your comprehensive response
             - Act like you already had this information and that it was not provided to you
+
+        Team Builder:
+            - When users request team building help, your FIRST line MUST be "TOOL: TEAM_BUILDER <generation> <tier>"
+            - NO text is allowed before the TOOL call
+            - If either generation or tier is missing, first ask the user to specify it
+            - Example format: "TOOL: TEAM_BUILDER gen9 ou"
+            - Make no other response before the tool call besides asking for missing information
         """
         self.system_prompt = base_prompt + tool_rules
         
@@ -68,11 +72,12 @@ class PokemonTrainerAgent:
     def _init_llm(self):
         """Initialize the SambaNova Chat LLM"""
         return APIGateway.load_chat(
-            type="sncloud",
+            type="sncloud", 
             model="llama3-70b",
             temperature=0.7,
             max_tokens=1024,
-            streaming=False
+            streaming=False,
+            sambanova_api_key=self.api_key
         )
     
     def get_messages_with_history(self, new_message: str) -> List[Dict[str, str]]:
@@ -159,8 +164,15 @@ class PokemonTrainerAgent:
         if len(parts) == 1:
             return response.strip(), None
             
-        conversation = parts[0].strip()
-        tool = parts[1].strip()
+        # For responses starting with "TOOL:", parts[0] will be empty
+        # Everything after "TOOL:" needs to be split into tool name and conversation
+        tool_and_conversation = parts[1].strip().split("\n", 1)
+        
+        if len(tool_and_conversation) == 1:
+            return "", tool_and_conversation[0].strip()
+        
+        tool = tool_and_conversation[0].strip()
+        conversation = tool_and_conversation[1].strip()
         
         return conversation, tool
 
