@@ -31,8 +31,8 @@ async def fetch_data(url: str) -> str:
             else:
                 raise Exception(f"Failed to fetch data from {url}")
 
-def parse_usage_stats(usage_data: str) -> Dict[str, float]:
-    """Parse usage stats data to get Pokemon rankings and percentages"""
+def parse_usage_stats(usage_data: str, limit: int = 20) -> Dict[str, float]:
+    """Parse usage stats data to get Pokemon rankings and percentages, limited to top N Pokemon"""
     pokemon_stats = {}
     lines = usage_data.split('\n')
     
@@ -43,7 +43,11 @@ def parse_usage_stats(usage_data: str) -> Dict[str, float]:
             break
     
     # Parse Pokemon data
+    count = 0
     for line in lines[start_index:]:
+        if count >= limit:  # Stop after reaching limit
+            break
+            
         if '|' not in line or '---' in line:
             break
             
@@ -52,6 +56,7 @@ def parse_usage_stats(usage_data: str) -> Dict[str, float]:
             pokemon_name = parts[2].strip()
             usage_percent = float(parts[3].strip().replace('%', ''))
             pokemon_stats[pokemon_name] = usage_percent
+            count += 1
     
     return pokemon_stats
 
@@ -142,7 +147,7 @@ async def build_team(bot, agent, target_username, generation, tier) -> List[str]
         moveset_data = await fetch_data(moveset_url)
         
         # Parse usage stats
-        usage_stats = parse_usage_stats(usage_data)
+        usage_stats = parse_usage_stats(usage_data, limit=20)
         
         # Initialize team building
         team_sets = []

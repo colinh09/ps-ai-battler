@@ -334,7 +334,7 @@ def main():
         if st.session_state.battle_running:
             st.success("Bot is running! Press 'Start' again to restart with current settings.")
 
-    display_team_section()
+    # display_team_section()
 
 
 if __name__ == "__main__":
