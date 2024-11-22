@@ -1,0 +1,10526 @@
+name,type1,type2,ability1,ability2,ability3,formats,hp,atk,def,spa,spd,spe
+Ababo,Fairy,,Pixilate,Own Tempo,Rattled,[],"HP
+42","Atk
+35","Def
+27","SpA
+35","SpD
+35","Spe
+38"
+Abomasnow,"Grass
+Ice",,Snow Warning,Soundproof,,['ZU'],"HP
+90","Atk
+92","Def
+75","SpA
+92","SpD
+85","Spe
+60"
+Abomasnow-Mega,"Grass
+Ice",,Snow Warning,,,['National Dex'],"HP
+90","Atk
+132","Def
+105","SpA
+132","SpD
+105","Spe
+30"
+Abra,Psychic,,Synchronize,Magic Guard,Inner Focus,['National Dex'],"HP
+25","Atk
+20","Def
+15","SpA
+105","SpD
+55","Spe
+90"
+Absol,Dark,,Pressure,Justified,Super Luck,['National Dex'],"HP
+65","Atk
+130","Def
+60","SpA
+75","SpD
+60","Spe
+75"
+Absol-Mega,Dark,,Magic Bounce,,,['National Dex'],"HP
+65","Atk
+150","Def
+60","SpA
+115","SpD
+60","Spe
+115"
+Accelgor,Bug,,Hydration,Unburden,Sticky Hold,['National Dex'],"HP
+80","Atk
+70","Def
+40","SpA
+100","SpD
+60","Spe
+145"
+Aegislash,"Steel
+Ghost",,Stance Change,,,['National Dex'],"HP
+60","Atk
+50","Def
+140","SpA
+50","SpD
+140","Spe
+60"
+Aegislash-Blade,"Steel
+Ghost",,Stance Change,,,['National Dex'],"HP
+60","Atk
+140","Def
+50","SpA
+140","SpD
+50","Spe
+60"
+Aerodactyl,"Rock
+Flying",,Rock Head,Unnerve,Pressure,['National Dex'],"HP
+80","Atk
+105","Def
+65","SpA
+60","SpD
+75","Spe
+130"
+Aerodactyl-Mega,"Rock
+Flying",,Tough Claws,,,['National Dex'],"HP
+80","Atk
+135","Def
+85","SpA
+70","SpD
+95","Spe
+150"
+Aggron,"Steel
+Rock",,Sturdy,Heavy Metal,Rock Head,['National Dex'],"HP
+70","Atk
+110","Def
+180","SpA
+60","SpD
+60","Spe
+50"
+Aggron-Mega,Steel,,Filter,,,['National Dex'],"HP
+70","Atk
+140","Def
+230","SpA
+60","SpD
+80","Spe
+50"
+Aipom,Normal,,Run Away,Skill Link,Pickup,['NFE'],"HP
+55","Atk
+70","Def
+55","SpA
+40","SpD
+55","Spe
+85"
+Alakazam,Psychic,,Synchronize,Magic Guard,Inner Focus,['National Dex'],"HP
+55","Atk
+50","Def
+45","SpA
+135","SpD
+95","Spe
+120"
+Alakazam-Mega,Psychic,,Trace,,,['National Dex'],"HP
+55","Atk
+50","Def
+65","SpA
+175","SpD
+105","Spe
+150"
+Alcremie,Fairy,,Sweet Veil,Aroma Veil,,['ZUBL'],"HP
+65","Atk
+60","Def
+75","SpA
+110","SpD
+121","Spe
+64"
+Alcremie-Gmax,Fairy,,Sweet Veil,Aroma Veil,,['National Dex'],"HP
+65","Atk
+60","Def
+75","SpA
+110","SpD
+121","Spe
+64"
+Alomomola,Water,,Healer,Regenerator,Hydration,['OU'],"HP
+165","Atk
+75","Def
+80","SpA
+40","SpD
+45","Spe
+65"
+Altaria,"Dragon
+Flying",,Natural Cure,Cloud Nine,,['PU'],"HP
+75","Atk
+70","Def
+90","SpA
+70","SpD
+105","Spe
+80"
+Altaria-Mega,"Dragon
+Fairy",,Pixilate,,,['National Dex'],"HP
+75","Atk
+110","Def
+110","SpA
+110","SpD
+105","Spe
+80"
+Amaura,"Rock
+Ice",,Refrigerate,Snow Warning,,['National Dex'],"HP
+77","Atk
+59","Def
+50","SpA
+67","SpD
+63","Spe
+46"
+Ambipom,Normal,,Technician,Skill Link,Pickup,['PU'],"HP
+75","Atk
+100","Def
+66","SpA
+60","SpD
+66","Spe
+115"
+Amoonguss,"Grass
+Poison",,Effect Spore,Regenerator,,['RU'],"HP
+114","Atk
+85","Def
+70","SpA
+85","SpD
+80","Spe
+30"
+Ampharos,Electric,,Static,Plus,,['ZU'],"HP
+90","Atk
+75","Def
+85","SpA
+115","SpD
+90","Spe
+55"
+Ampharos-Mega,"Electric
+Dragon",,Mold Breaker,,,['National Dex'],"HP
+90","Atk
+95","Def
+105","SpA
+165","SpD
+110","Spe
+45"
+Annihilape,"Fighting
+Ghost",,Vital Spirit,Defiant,Inner Focus,['Uber'],"HP
+110","Atk
+115","Def
+80","SpA
+50","SpD
+90","Spe
+90"
+Anorith,"Rock
+Bug",,Battle Armor,Swift Swim,,['National Dex'],"HP
+45","Atk
+95","Def
+50","SpA
+40","SpD
+50","Spe
+75"
+Appletun,"Grass
+Dragon",,Ripen,Thick Fat,Gluttony,['ZU'],"HP
+110","Atk
+85","Def
+80","SpA
+100","SpD
+80","Spe
+30"
+Appletun-Gmax,"Grass
+Dragon",,Ripen,Thick Fat,Gluttony,['National Dex'],"HP
+110","Atk
+85","Def
+80","SpA
+100","SpD
+80","Spe
+30"
+Applin,"Grass
+Dragon",,Ripen,Bulletproof,Gluttony,['LC'],"HP
+40","Atk
+40","Def
+80","SpA
+40","SpD
+40","Spe
+20"
+Araquanid,"Water
+Bug",,Water Bubble,Water Absorb,,['NU'],"HP
+68","Atk
+70","Def
+92","SpA
+50","SpD
+132","Spe
+42"
+Araquanid-Totem,"Water
+Bug",,Water Bubble,,,['National Dex'],"HP
+68","Atk
+70","Def
+92","SpA
+50","SpD
+132","Spe
+42"
+Arbok,Poison,,Intimidate,Unnerve,Shed Skin,['ZU'],"HP
+60","Atk
+95","Def
+69","SpA
+65","SpD
+79","Spe
+80"
+Arboliva,"Grass
+Normal",,Seed Sower,Harvest,,['ZU'],"HP
+78","Atk
+69","Def
+90","SpA
+125","SpD
+109","Spe
+39"
+Arcanine,Fire,,Intimidate,Justified,Flash Fire,['PU'],"HP
+90","Atk
+110","Def
+80","SpA
+100","SpD
+80","Spe
+95"
+Arcanine-Hisui,"Fire
+Rock",,Intimidate,Rock Head,Flash Fire,['UU'],"HP
+95","Atk
+115","Def
+80","SpA
+95","SpD
+80","Spe
+90"
+Arceus,Normal,,Multitype,,,['Uber'],"HP
+120","Atk
+120","Def
+120","SpA
+120","SpD
+120","Spe
+120"
+Arceus-Bug,Bug,,Multitype,,,['Uber'],"HP
+120","Atk
+120","Def
+120","SpA
+120","SpD
+120","Spe
+120"
+Arceus-Dark,Dark,,Multitype,,,['Uber'],"HP
+120","Atk
+120","Def
+120","SpA
+120","SpD
+120","Spe
+120"
+Arceus-Dragon,Dragon,,Multitype,,,['Uber'],"HP
+120","Atk
+120","Def
+120","SpA
+120","SpD
+120","Spe
+120"
+Arceus-Electric,Electric,,Multitype,,,['Uber'],"HP
+120","Atk
+120","Def
+120","SpA
+120","SpD
+120","Spe
+120"
+Arceus-Fairy,Fairy,,Multitype,,,['Uber'],"HP
+120","Atk
+120","Def
+120","SpA
+120","SpD
+120","Spe
+120"
+Arceus-Fighting,Fighting,,Multitype,,,['Uber'],"HP
+120","Atk
+120","Def
+120","SpA
+120","SpD
+120","Spe
+120"
+Arceus-Fire,Fire,,Multitype,,,['Uber'],"HP
+120","Atk
+120","Def
+120","SpA
+120","SpD
+120","Spe
+120"
+Arceus-Flying,Flying,,Multitype,,,['Uber'],"HP
+120","Atk
+120","Def
+120","SpA
+120","SpD
+120","Spe
+120"
+Arceus-Ghost,Ghost,,Multitype,,,['Uber'],"HP
+120","Atk
+120","Def
+120","SpA
+120","SpD
+120","Spe
+120"
+Arceus-Grass,Grass,,Multitype,,,['Uber'],"HP
+120","Atk
+120","Def
+120","SpA
+120","SpD
+120","Spe
+120"
+Arceus-Ground,Ground,,Multitype,,,['Uber'],"HP
+120","Atk
+120","Def
+120","SpA
+120","SpD
+120","Spe
+120"
+Arceus-Ice,Ice,,Multitype,,,['Uber'],"HP
+120","Atk
+120","Def
+120","SpA
+120","SpD
+120","Spe
+120"
+Arceus-Poison,Poison,,Multitype,,,['Uber'],"HP
+120","Atk
+120","Def
+120","SpA
+120","SpD
+120","Spe
+120"
+Arceus-Psychic,Psychic,,Multitype,,,['Uber'],"HP
+120","Atk
+120","Def
+120","SpA
+120","SpD
+120","Spe
+120"
+Arceus-Rock,Rock,,Multitype,,,['Uber'],"HP
+120","Atk
+120","Def
+120","SpA
+120","SpD
+120","Spe
+120"
+Arceus-Steel,Steel,,Multitype,,,['Uber'],"HP
+120","Atk
+120","Def
+120","SpA
+120","SpD
+120","Spe
+120"
+Arceus-Water,Water,,Multitype,,,['Uber'],"HP
+120","Atk
+120","Def
+120","SpA
+120","SpD
+120","Spe
+120"
+Archaludon,"Steel
+Dragon",,Stamina,Stalwart,Sturdy,['Uber'],"HP
+90","Atk
+105","Def
+130","SpA
+125","SpD
+65","Spe
+85"
+Archen,"Rock
+Flying",,Defeatist,,,['National Dex'],"HP
+55","Atk
+112","Def
+45","SpA
+74","SpD
+45","Spe
+70"
+Archeops,"Rock
+Flying",,Defeatist,,,['National Dex'],"HP
+75","Atk
+140","Def
+65","SpA
+112","SpD
+65","Spe
+110"
+Arctibax,"Dragon
+Ice",,Thermal Exchange,Ice Body,,['NFE'],"HP
+90","Atk
+95","Def
+66","SpA
+45","SpD
+65","Spe
+62"
+Arctovish,"Water
+Ice",,Water Absorb,Slush Rush,Ice Body,['National Dex'],"HP
+90","Atk
+90","Def
+100","SpA
+80","SpD
+90","Spe
+55"
+Arctozolt,"Electric
+Ice",,Volt Absorb,Slush Rush,Static,['National Dex'],"HP
+90","Atk
+100","Def
+90","SpA
+90","SpD
+80","Spe
+55"
+Argalis,"Bug
+Psychic",,Shed Skin,Overcoat,Compound Eyes,[],"HP
+60","Atk
+90","Def
+89","SpA
+87","SpD
+40","Spe
+54"
+Arghonaut,"Water
+Fighting",,Unaware,Technician,,['CAP'],"HP
+105","Atk
+110","Def
+95","SpA
+70","SpD
+100","Spe
+75"
+Ariados,"Bug
+Poison",,Swarm,Sniper,Insomnia,['ZU'],"HP
+70","Atk
+90","Def
+70","SpA
+60","SpD
+70","Spe
+40"
+Armaldo,"Rock
+Bug",,Battle Armor,Swift Swim,,['National Dex'],"HP
+75","Atk
+125","Def
+100","SpA
+70","SpD
+80","Spe
+45"
+Armarouge,"Fire
+Psychic",,Flash Fire,Weak Armor,,['RU'],"HP
+85","Atk
+60","Def
+100","SpA
+125","SpD
+80","Spe
+75"
+Aromatisse,Fairy,,Healer,Aroma Veil,,['National Dex'],"HP
+101","Atk
+72","Def
+72","SpA
+99","SpD
+89","Spe
+29"
+Aron,"Steel
+Rock",,Sturdy,Heavy Metal,Rock Head,['National Dex'],"HP
+50","Atk
+70","Def
+100","SpA
+40","SpD
+40","Spe
+30"
+Arrokuda,Water,,Swift Swim,Propeller Tail,,['LC'],"HP
+41","Atk
+63","Def
+40","SpA
+40","SpD
+30","Spe
+66"
+Articuno,"Ice
+Flying",,Pressure,Snow Cloak,,['ZU'],"HP
+90","Atk
+85","Def
+100","SpA
+95","SpD
+125","Spe
+85"
+Articuno-Galar,"Psychic
+Flying",,Competitive,,,['ZUBL'],"HP
+90","Atk
+85","Def
+85","SpA
+125","SpD
+100","Spe
+95"
+Astrolotl,"Fire
+Dragon",,Regenerator,Magician,Vital Spirit,['CAP'],"HP
+108","Atk
+108","Def
+74","SpA
+92","SpD
+64","Spe
+114"
+Audino,Normal,,Healer,Klutz,Regenerator,['National Dex'],"HP
+103","Atk
+60","Def
+86","SpA
+60","SpD
+86","Spe
+50"
+Audino-Mega,"Normal
+Fairy",,Healer,,,['National Dex'],"HP
+103","Atk
+60","Def
+126","SpA
+80","SpD
+126","Spe
+50"
+Aurorus,"Rock
+Ice",,Refrigerate,Snow Warning,,['National Dex'],"HP
+123","Atk
+77","Def
+72","SpA
+99","SpD
+92","Spe
+58"
+Aurumoth,"Bug
+Psychic",,Weak Armor,Light Metal,No Guard,['CAP'],"HP
+110","Atk
+120","Def
+99","SpA
+117","SpD
+60","Spe
+94"
+Avalugg,Ice,,Own Tempo,Sturdy,Ice Body,['NU'],"HP
+95","Atk
+117","Def
+184","SpA
+44","SpD
+46","Spe
+28"
+Avalugg-Hisui,"Ice
+Rock",,Strong Jaw,Sturdy,Ice Body,['ZU'],"HP
+95","Atk
+127","Def
+184","SpA
+34","SpD
+36","Spe
+38"
+Axew,Dragon,,Rivalry,Unnerve,Mold Breaker,['LC'],"HP
+46","Atk
+87","Def
+60","SpA
+30","SpD
+40","Spe
+57"
+Azelf,Psychic,,Levitate,,,['RU'],"HP
+75","Atk
+125","Def
+70","SpA
+125","SpD
+70","Spe
+115"
+Azumarill,"Water
+Fairy",,Thick Fat,Sap Sipper,Huge Power,['UU'],"HP
+100","Atk
+50","Def
+80","SpA
+60","SpD
+80","Spe
+50"
+Azurill,"Normal
+Fairy",,Thick Fat,Sap Sipper,Huge Power,['LC'],"HP
+50","Atk
+20","Def
+40","SpA
+20","SpD
+40","Spe
+20"
+Bagon,Dragon,,Rock Head,Sheer Force,,['LC'],"HP
+45","Atk
+75","Def
+60","SpA
+40","SpD
+30","Spe
+50"
+Baltoy,"Ground
+Psychic",,Levitate,,,['National Dex'],"HP
+40","Atk
+40","Def
+55","SpA
+40","SpD
+70","Spe
+55"
+Banette,Ghost,,Insomnia,Cursed Body,Frisk,['ZU'],"HP
+64","Atk
+115","Def
+65","SpA
+83","SpD
+63","Spe
+65"
+Banette-Mega,Ghost,,Prankster,,,['National Dex'],"HP
+64","Atk
+165","Def
+75","SpA
+93","SpD
+83","Spe
+75"
+Barbaracle,"Rock
+Water",,Tough Claws,Pickpocket,Sniper,['National Dex'],"HP
+72","Atk
+105","Def
+115","SpA
+54","SpD
+86","Spe
+68"
+Barboach,"Water
+Ground",,Oblivious,Hydration,Anticipation,['LC'],"HP
+50","Atk
+48","Def
+43","SpA
+46","SpD
+41","Spe
+60"
+Barraskewda,Water,,Swift Swim,Propeller Tail,,['RU'],"HP
+61","Atk
+123","Def
+60","SpA
+60","SpD
+50","Spe
+136"
+Basculegion,"Water
+Ghost",,Swift Swim,Mold Breaker,Adaptability,['NU'],"HP
+120","Atk
+112","Def
+65","SpA
+80","SpD
+75","Spe
+78"
+Basculegion-F,"Water
+Ghost",,Swift Swim,Mold Breaker,Adaptability,['RU'],"HP
+120","Atk
+92","Def
+65","SpA
+100","SpD
+75","Spe
+78"
+Basculin,Water,,Reckless,Mold Breaker,Adaptability,['ZU'],"HP
+70","Atk
+92","Def
+65","SpA
+80","SpD
+55","Spe
+98"
+Basculin-Blue-Striped,Water,,Rock Head,Mold Breaker,Adaptability,['ZU'],"HP
+70","Atk
+92","Def
+65","SpA
+80","SpD
+55","Spe
+98"
+Basculin-White-Striped,Water,,Rattled,Mold Breaker,Adaptability,['ZU'],"HP
+70","Atk
+92","Def
+65","SpA
+80","SpD
+55","Spe
+98"
+Bastiodon,"Rock
+Steel",,Sturdy,Soundproof,,['ZU'],"HP
+60","Atk
+52","Def
+168","SpA
+47","SpD
+138","Spe
+30"
+Baxcalibur,"Dragon
+Ice",,Thermal Exchange,Ice Body,,['Uber'],"HP
+115","Atk
+145","Def
+92","SpA
+75","SpD
+86","Spe
+87"
+Bayleef,Grass,,Overgrow,Leaf Guard,,['NFE'],"HP
+60","Atk
+62","Def
+80","SpA
+63","SpD
+80","Spe
+60"
+Beartic,Ice,,Snow Cloak,Swift Swim,Slush Rush,['ZU'],"HP
+95","Atk
+130","Def
+80","SpA
+70","SpD
+80","Spe
+50"
+Beautifly,"Bug
+Flying",,Swarm,Rivalry,,['National Dex'],"HP
+60","Atk
+70","Def
+50","SpA
+100","SpD
+50","Spe
+65"
+Beedrill,"Bug
+Poison",,Swarm,Sniper,,['National Dex'],"HP
+65","Atk
+90","Def
+40","SpA
+45","SpD
+80","Spe
+75"
+Beedrill-Mega,"Bug
+Poison",,Adaptability,,,['National Dex'],"HP
+65","Atk
+150","Def
+40","SpA
+15","SpD
+80","Spe
+145"
+Beheeyem,Psychic,,Telepathy,Analytic,Synchronize,['National Dex'],"HP
+75","Atk
+75","Def
+75","SpA
+125","SpD
+95","Spe
+40"
+Beldum,"Steel
+Psychic",,Clear Body,Light Metal,,['LC'],"HP
+40","Atk
+55","Def
+80","SpA
+35","SpD
+60","Spe
+30"
+Bellibolt,Electric,,Electromorphosis,Damp,Static,['PU'],"HP
+109","Atk
+64","Def
+91","SpA
+103","SpD
+83","Spe
+45"
+Bellossom,Grass,,Chlorophyll,Healer,,['ZU'],"HP
+75","Atk
+80","Def
+95","SpA
+90","SpD
+100","Spe
+50"
+Bellsprout,"Grass
+Poison",,Chlorophyll,Gluttony,,['LC'],"HP
+50","Atk
+75","Def
+35","SpA
+70","SpD
+30","Spe
+40"
+Bergmite,Ice,,Own Tempo,Sturdy,Ice Body,['LC'],"HP
+55","Atk
+69","Def
+85","SpA
+32","SpD
+35","Spe
+28"
+Bewear,"Normal
+Fighting",,Fluffy,Unnerve,Klutz,['National Dex'],"HP
+120","Atk
+125","Def
+80","SpA
+55","SpD
+60","Spe
+60"
+Bibarel,"Normal
+Water",,Simple,Moody,Unaware,['National Dex'],"HP
+79","Atk
+85","Def
+60","SpA
+55","SpD
+60","Spe
+71"
+Bidoof,Normal,,Simple,Moody,Unaware,['National Dex'],"HP
+59","Atk
+45","Def
+40","SpA
+35","SpD
+40","Spe
+31"
+Binacle,"Rock
+Water",,Tough Claws,Pickpocket,Sniper,['National Dex'],"HP
+42","Atk
+52","Def
+67","SpA
+39","SpD
+56","Spe
+50"
+Bisharp,"Dark
+Steel",,Defiant,Pressure,Inner Focus,['RU'],"HP
+65","Atk
+125","Def
+100","SpA
+60","SpD
+70","Spe
+70"
+Blacephalon,"Fire
+Ghost",,Beast Boost,,,['National Dex'],"HP
+53","Atk
+127","Def
+53","SpA
+151","SpD
+79","Spe
+107"
+Blastoise,Water,,Torrent,Rain Dish,,['RUBL'],"HP
+79","Atk
+83","Def
+100","SpA
+85","SpD
+105","Spe
+78"
+Blastoise-Gmax,Water,,Torrent,Rain Dish,,['National Dex'],"HP
+79","Atk
+83","Def
+100","SpA
+85","SpD
+105","Spe
+78"
+Blastoise-Mega,Water,,Mega Launcher,,,['National Dex'],"HP
+79","Atk
+103","Def
+120","SpA
+135","SpD
+115","Spe
+78"
+Blaziken,"Fire
+Fighting",,Blaze,Speed Boost,,['UUBL'],"HP
+80","Atk
+120","Def
+70","SpA
+110","SpD
+70","Spe
+80"
+Blaziken-Mega,"Fire
+Fighting",,Speed Boost,,,['National Dex'],"HP
+80","Atk
+160","Def
+80","SpA
+130","SpD
+80","Spe
+100"
+Blipbug,Bug,,Swarm,Telepathy,Compound Eyes,['National Dex'],"HP
+25","Atk
+20","Def
+20","SpA
+25","SpD
+45","Spe
+45"
+Blissey,Normal,,Natural Cure,Healer,Serene Grace,['UU'],"HP
+255","Atk
+10","Def
+10","SpA
+75","SpD
+135","Spe
+55"
+Blitzle,Electric,,Lightning Rod,Sap Sipper,Motor Drive,['LC'],"HP
+45","Atk
+60","Def
+32","SpA
+50","SpD
+32","Spe
+76"
+Boldore,Rock,,Sturdy,Sand Force,Weak Armor,['National Dex'],"HP
+70","Atk
+105","Def
+105","SpA
+50","SpD
+40","Spe
+20"
+Boltund,Electric,,Strong Jaw,Competitive,,['National Dex'],"HP
+69","Atk
+90","Def
+60","SpA
+90","SpD
+60","Spe
+121"
+Bombirdier,"Flying
+Dark",,Big Pecks,Rocky Payload,Keen Eye,['PU'],"HP
+70","Atk
+103","Def
+85","SpA
+60","SpD
+85","Spe
+82"
+Bonsly,Rock,,Sturdy,Rattled,Rock Head,['LC'],"HP
+50","Atk
+80","Def
+95","SpA
+10","SpD
+45","Spe
+10"
+Bouffalant,Normal,,Reckless,Soundproof,Sap Sipper,['National Dex'],"HP
+95","Atk
+110","Def
+95","SpA
+40","SpD
+95","Spe
+55"
+Bounsweet,Grass,,Leaf Guard,Sweet Veil,Oblivious,['LC'],"HP
+42","Atk
+30","Def
+38","SpA
+30","SpD
+38","Spe
+32"
+Braixen,Fire,,Blaze,Magician,,['NFE'],"HP
+59","Atk
+59","Def
+58","SpA
+90","SpD
+70","Spe
+73"
+Brambleghast,"Grass
+Ghost",,Wind Rider,Infiltrator,,['NU'],"HP
+55","Atk
+115","Def
+70","SpA
+80","SpD
+70","Spe
+90"
+Bramblin,"Grass
+Ghost",,Wind Rider,Infiltrator,,['LC'],"HP
+40","Atk
+65","Def
+30","SpA
+45","SpD
+35","Spe
+60"
+Brattler,"Dark
+Grass",,Harvest,Rattled,Infiltrator,[],"HP
+80","Atk
+70","Def
+40","SpA
+20","SpD
+90","Spe
+30"
+Braviary,"Normal
+Flying",,Keen Eye,Defiant,Sheer Force,['ZU'],"HP
+100","Atk
+123","Def
+75","SpA
+57","SpD
+75","Spe
+80"
+Braviary-Hisui,"Psychic
+Flying",,Keen Eye,Tinted Lens,Sheer Force,['PU'],"HP
+110","Atk
+83","Def
+70","SpA
+112","SpD
+70","Spe
+65"
+Breezi,"Poison
+Flying",,Unburden,Frisk,Own Tempo,[],"HP
+50","Atk
+46","Def
+69","SpA
+60","SpD
+50","Spe
+75"
+Breloom,"Grass
+Fighting",,Effect Spore,Technician,Poison Heal,['NU'],"HP
+60","Atk
+130","Def
+80","SpA
+60","SpD
+60","Spe
+70"
+Brionne,Water,,Torrent,Liquid Voice,,['NFE'],"HP
+60","Atk
+69","Def
+69","SpA
+91","SpD
+81","Spe
+50"
+Bronzong,"Steel
+Psychic",,Levitate,Heavy Metal,Heatproof,['NU'],"HP
+67","Atk
+89","Def
+116","SpA
+79","SpD
+116","Spe
+33"
+Bronzor,"Steel
+Psychic",,Levitate,Heavy Metal,Heatproof,['LC'],"HP
+57","Atk
+24","Def
+86","SpA
+24","SpD
+86","Spe
+23"
+Brute Bonnet,"Grass
+Dark",,Protosynthesis,,,['ZU'],"HP
+111","Atk
+127","Def
+99","SpA
+79","SpD
+99","Spe
+55"
+Bruxish,"Water
+Psychic",,Dazzling,Wonder Skin,Strong Jaw,['ZUBL'],"HP
+68","Atk
+105","Def
+70","SpA
+70","SpD
+70","Spe
+92"
+Budew,"Grass
+Poison",,Natural Cure,Leaf Guard,Poison Point,['National Dex'],"HP
+40","Atk
+30","Def
+35","SpA
+50","SpD
+70","Spe
+55"
+Buizel,Water,,Swift Swim,Water Veil,,['LC'],"HP
+55","Atk
+65","Def
+35","SpA
+60","SpD
+30","Spe
+85"
+Bulbasaur,"Grass
+Poison",,Overgrow,Chlorophyll,,['LC'],"HP
+45","Atk
+49","Def
+49","SpA
+65","SpD
+65","Spe
+45"
+Buneary,Normal,,Run Away,Limber,Klutz,['National Dex'],"HP
+55","Atk
+66","Def
+44","SpA
+44","SpD
+56","Spe
+85"
+Bunnelby,Normal,,Pickup,Huge Power,Cheek Pouch,['National Dex'],"HP
+38","Atk
+36","Def
+38","SpA
+32","SpD
+36","Spe
+57"
+Burmy,Bug,,Shed Skin,Overcoat,,['National Dex'],"HP
+40","Atk
+29","Def
+45","SpA
+29","SpD
+45","Spe
+36"
+Butterfree,"Bug
+Flying",,Compound Eyes,Tinted Lens,,['National Dex'],"HP
+60","Atk
+45","Def
+50","SpA
+90","SpD
+80","Spe
+70"
+Butterfree-Gmax,"Bug
+Flying",,Compound Eyes,Tinted Lens,,['National Dex'],"HP
+60","Atk
+45","Def
+50","SpA
+90","SpD
+80","Spe
+70"
+Buzzwole,"Bug
+Fighting",,Beast Boost,,,['National Dex'],"HP
+107","Atk
+139","Def
+139","SpA
+53","SpD
+53","Spe
+79"
+Cacnea,Grass,,Sand Veil,Water Absorb,,['LC'],"HP
+50","Atk
+85","Def
+40","SpA
+85","SpD
+40","Spe
+35"
+Cacturne,"Grass
+Dark",,Sand Veil,Water Absorb,,['ZU'],"HP
+70","Atk
+115","Def
+60","SpA
+115","SpD
+60","Spe
+55"
+Caimanoe,"Water
+Steel",,Water Veil,Light Metal,Heatproof,[],"HP
+73","Atk
+85","Def
+65","SpA
+80","SpD
+40","Spe
+87"
+Calyrex,"Psychic
+Grass",,Unnerve,,,['ZU'],"HP
+100","Atk
+80","Def
+80","SpA
+80","SpD
+80","Spe
+80"
+Calyrex-Ice,"Psychic
+Ice",,As One (Glastrier),,,['Uber'],"HP
+100","Atk
+165","Def
+150","SpA
+85","SpD
+130","Spe
+50"
+Calyrex-Shadow,"Psychic
+Ghost",,As One (Spectrier),,,['AG'],"HP
+100","Atk
+85","Def
+80","SpA
+165","SpD
+100","Spe
+150"
+Camerupt,"Fire
+Ground",,Magma Armor,Anger Point,Solid Rock,['ZU'],"HP
+70","Atk
+100","Def
+70","SpA
+105","SpD
+75","Spe
+40"
+Camerupt-Mega,"Fire
+Ground",,Sheer Force,,,['National Dex'],"HP
+70","Atk
+120","Def
+100","SpA
+145","SpD
+105","Spe
+20"
+Capsakid,Grass,,Chlorophyll,Klutz,Insomnia,['LC'],"HP
+50","Atk
+62","Def
+40","SpA
+62","SpD
+40","Spe
+50"
+Carbink,"Rock
+Fairy",,Clear Body,Sturdy,,['ZU'],"HP
+50","Atk
+50","Def
+150","SpA
+50","SpD
+150","Spe
+50"
+Caribolt,"Grass
+Electric",,Overgrow,Galvanize,,['CAP'],"HP
+84","Atk
+106","Def
+82","SpA
+77","SpD
+80","Spe
+106"
+Carkol,"Rock
+Fire",,Steam Engine,Flash Fire,Flame Body,['NFE'],"HP
+80","Atk
+60","Def
+90","SpA
+60","SpD
+70","Spe
+50"
+Carnivine,Grass,,Levitate,,,['National Dex'],"HP
+74","Atk
+100","Def
+72","SpA
+90","SpD
+72","Spe
+46"
+Carracosta,"Water
+Rock",,Solid Rock,Swift Swim,Sturdy,['National Dex'],"HP
+74","Atk
+108","Def
+133","SpA
+83","SpD
+65","Spe
+32"
+Carvanha,"Water
+Dark",,Rough Skin,Speed Boost,,['National Dex'],"HP
+45","Atk
+90","Def
+20","SpA
+65","SpD
+20","Spe
+65"
+Cascoon,Bug,,Shed Skin,,,['National Dex'],"HP
+50","Atk
+35","Def
+55","SpA
+25","SpD
+25","Spe
+15"
+Castform,Normal,,Forecast,,,['National Dex'],"HP
+70","Atk
+70","Def
+70","SpA
+70","SpD
+70","Spe
+70"
+Castform-Rainy,Water,,Forecast,,,['National Dex'],"HP
+70","Atk
+70","Def
+70","SpA
+70","SpD
+70","Spe
+70"
+Castform-Snowy,Ice,,Forecast,,,['National Dex'],"HP
+70","Atk
+70","Def
+70","SpA
+70","SpD
+70","Spe
+70"
+Castform-Sunny,Fire,,Forecast,,,['National Dex'],"HP
+70","Atk
+70","Def
+70","SpA
+70","SpD
+70","Spe
+70"
+Caterpie,Bug,,Shield Dust,Run Away,,['National Dex'],"HP
+45","Atk
+30","Def
+35","SpA
+20","SpD
+20","Spe
+45"
+Cawdet,"Steel
+Flying",,Keen Eye,Big Pecks,Volt Absorb,[],"HP
+35","Atk
+72","Def
+85","SpA
+40","SpD
+55","Spe
+88"
+Cawmodore,"Steel
+Flying",,Intimidate,Big Pecks,Volt Absorb,['CAP'],"HP
+50","Atk
+92","Def
+130","SpA
+65","SpD
+75","Spe
+118"
+Celebi,"Psychic
+Grass",,Natural Cure,,,['National Dex'],"HP
+100","Atk
+100","Def
+100","SpA
+100","SpD
+100","Spe
+100"
+Celesteela,"Steel
+Flying",,Beast Boost,,,['National Dex'],"HP
+97","Atk
+101","Def
+103","SpA
+107","SpD
+101","Spe
+61"
+Centiskorch,"Fire
+Bug",,Flash Fire,Flame Body,White Smoke,['National Dex'],"HP
+100","Atk
+115","Def
+65","SpA
+90","SpD
+90","Spe
+65"
+Centiskorch-Gmax,"Fire
+Bug",,Flash Fire,Flame Body,White Smoke,['National Dex'],"HP
+100","Atk
+115","Def
+65","SpA
+90","SpD
+90","Spe
+65"
+Ceruledge,"Fire
+Ghost",,Flash Fire,Weak Armor,,['UUBL'],"HP
+75","Atk
+125","Def
+80","SpA
+60","SpD
+100","Spe
+85"
+Cetitan,Ice,,Thick Fat,Sheer Force,Slush Rush,['PUBL'],"HP
+170","Atk
+113","Def
+65","SpA
+45","SpD
+55","Spe
+73"
+Cetoddle,Ice,,Thick Fat,Sheer Force,Snow Cloak,['LC'],"HP
+108","Atk
+68","Def
+45","SpA
+30","SpD
+40","Spe
+43"
+Chandelure,"Ghost
+Fire",,Flash Fire,Infiltrator,Flame Body,['NU'],"HP
+60","Atk
+55","Def
+90","SpA
+145","SpD
+90","Spe
+80"
+Chansey,Normal,,Natural Cure,Healer,Serene Grace,['RU'],"HP
+250","Atk
+5","Def
+5","SpA
+35","SpD
+105","Spe
+50"
+Charcadet,Fire,,Flash Fire,Flame Body,,['LC'],"HP
+40","Atk
+50","Def
+40","SpA
+50","SpD
+40","Spe
+35"
+Charizard,"Fire
+Flying",,Blaze,Solar Power,,['ZU'],"HP
+78","Atk
+84","Def
+78","SpA
+109","SpD
+85","Spe
+100"
+Charizard-Gmax,"Fire
+Flying",,Blaze,Solar Power,,['National Dex'],"HP
+78","Atk
+84","Def
+78","SpA
+109","SpD
+85","Spe
+100"
+Charizard-Mega-X,"Fire
+Dragon",,Tough Claws,,,['National Dex'],"HP
+78","Atk
+130","Def
+111","SpA
+130","SpD
+85","Spe
+100"
+Charizard-Mega-Y,"Fire
+Flying",,Drought,,,['National Dex'],"HP
+78","Atk
+104","Def
+78","SpA
+159","SpD
+115","Spe
+100"
+Charjabug,"Bug
+Electric",,Battery,,,['NFE'],"HP
+57","Atk
+82","Def
+95","SpA
+55","SpD
+75","Spe
+36"
+Charmander,Fire,,Blaze,Solar Power,,['LC'],"HP
+39","Atk
+52","Def
+43","SpA
+60","SpD
+50","Spe
+65"
+Charmeleon,Fire,,Blaze,Solar Power,,['NFE'],"HP
+58","Atk
+64","Def
+58","SpA
+80","SpD
+65","Spe
+80"
+Chatot,"Normal
+Flying",,Keen Eye,Big Pecks,Tangled Feet,['National Dex'],"HP
+76","Atk
+65","Def
+45","SpA
+92","SpD
+42","Spe
+91"
+Cherrim,Grass,,Flower Gift,,,['National Dex'],"HP
+70","Atk
+60","Def
+70","SpA
+87","SpD
+78","Spe
+85"
+Cherrim-Sunshine,Grass,,Flower Gift,,,['National Dex'],"HP
+70","Atk
+60","Def
+70","SpA
+87","SpD
+78","Spe
+85"
+Cherubi,Grass,,Chlorophyll,,,['National Dex'],"HP
+45","Atk
+35","Def
+45","SpA
+62","SpD
+53","Spe
+35"
+Chesnaught,"Grass
+Fighting",,Overgrow,Bulletproof,,['RU'],"HP
+88","Atk
+107","Def
+122","SpA
+74","SpD
+75","Spe
+64"
+Chespin,Grass,,Overgrow,Bulletproof,,['LC'],"HP
+56","Atk
+61","Def
+65","SpA
+48","SpD
+45","Spe
+38"
+Chewtle,Water,,Strong Jaw,Swift Swim,Shell Armor,['LC'],"HP
+50","Atk
+64","Def
+50","SpA
+38","SpD
+38","Spe
+44"
+Chi-Yu,"Dark
+Fire",,Beads of Ruin,,,['Uber'],"HP
+55","Atk
+80","Def
+80","SpA
+135","SpD
+120","Spe
+100"
+Chien-Pao,"Dark
+Ice",,Sword of Ruin,,,['Uber'],"HP
+80","Atk
+120","Def
+80","SpA
+90","SpD
+65","Spe
+135"
+Chikorita,Grass,,Overgrow,Leaf Guard,,['LC'],"HP
+45","Atk
+49","Def
+65","SpA
+49","SpD
+65","Spe
+45"
+Chimchar,Fire,,Blaze,Iron Fist,,['LC'],"HP
+44","Atk
+58","Def
+44","SpA
+58","SpD
+44","Spe
+61"
+Chimecho,Psychic,,Levitate,,,['ZU'],"HP
+75","Atk
+50","Def
+80","SpA
+95","SpD
+90","Spe
+65"
+Chinchou,"Water
+Electric",,Volt Absorb,Water Absorb,Illuminate,['LC'],"HP
+75","Atk
+38","Def
+38","SpA
+56","SpD
+56","Spe
+67"
+Chingling,Psychic,,Levitate,,,['LC'],"HP
+45","Atk
+30","Def
+50","SpA
+65","SpD
+50","Spe
+45"
+Chromera,"Dark
+Normal",,Color Change,,,['CAP'],"HP
+85","Atk
+85","Def
+115","SpA
+115","SpD
+100","Spe
+100"
+Chuggalong,"Dragon
+Poison",,Armor Tail,Slow Start,White Smoke,['CAP'],"HP
+45","Atk
+43","Def
+117","SpA
+120","SpD
+110","Spe
+108"
+Cinccino,Normal,,Cute Charm,Skill Link,Technician,['NU'],"HP
+75","Atk
+95","Def
+60","SpA
+65","SpD
+60","Spe
+115"
+Cinderace,Fire,,Blaze,Libero,,['OU'],"HP
+80","Atk
+116","Def
+75","SpA
+65","SpD
+75","Spe
+119"
+Cinderace-Gmax,Fire,,Blaze,Libero,,['National Dex'],"HP
+80","Atk
+116","Def
+75","SpA
+65","SpD
+75","Spe
+119"
+Clamperl,Water,,Shell Armor,Rattled,,['National Dex'],"HP
+35","Atk
+64","Def
+85","SpA
+74","SpD
+55","Spe
+32"
+Clauncher,Water,,Mega Launcher,,,['LC'],"HP
+50","Atk
+53","Def
+62","SpA
+58","SpD
+63","Spe
+44"
+Clawitzer,Water,,Mega Launcher,,,['ZU'],"HP
+71","Atk
+73","Def
+88","SpA
+120","SpD
+89","Spe
+59"
+Claydol,"Ground
+Psychic",,Levitate,,,['National Dex'],"HP
+60","Atk
+70","Def
+105","SpA
+70","SpD
+120","Spe
+75"
+Clefable,Fairy,,Cute Charm,Unaware,Magic Guard,['OU'],"HP
+95","Atk
+70","Def
+73","SpA
+95","SpD
+90","Spe
+60"
+Clefairy,Fairy,,Cute Charm,Friend Guard,Magic Guard,['NFE'],"HP
+70","Atk
+45","Def
+48","SpA
+60","SpD
+65","Spe
+35"
+Cleffa,Fairy,,Cute Charm,Friend Guard,Magic Guard,['LC'],"HP
+50","Atk
+25","Def
+28","SpA
+45","SpD
+55","Spe
+15"
+Clobbopus,Fighting,,Limber,Technician,,['National Dex'],"HP
+50","Atk
+68","Def
+60","SpA
+50","SpD
+50","Spe
+32"
+Clodsire,"Poison
+Ground",,Poison Point,Unaware,Water Absorb,['UU'],"HP
+130","Atk
+75","Def
+60","SpA
+45","SpD
+100","Spe
+20"
+Cloyster,"Water
+Ice",,Shell Armor,Overcoat,Skill Link,['NUBL'],"HP
+50","Atk
+95","Def
+180","SpA
+85","SpD
+45","Spe
+70"
+Coalossal,"Rock
+Fire",,Steam Engine,Flash Fire,Flame Body,['PU'],"HP
+110","Atk
+80","Def
+120","SpA
+80","SpD
+90","Spe
+30"
+Coalossal-Gmax,"Rock
+Fire",,Steam Engine,Flash Fire,Flame Body,['National Dex'],"HP
+110","Atk
+80","Def
+120","SpA
+80","SpD
+90","Spe
+30"
+Cobalion,"Steel
+Fighting",,Justified,,,['UU'],"HP
+91","Atk
+90","Def
+129","SpA
+90","SpD
+72","Spe
+108"
+Cofagrigus,Ghost,,Mummy,,,['National Dex'],"HP
+58","Atk
+50","Def
+145","SpA
+95","SpD
+105","Spe
+30"
+Colossoil,"Ground
+Dark",,Rebound,Unnerve,Guts,['CAP'],"HP
+133","Atk
+122","Def
+72","SpA
+71","SpD
+72","Spe
+95"
+Combee,"Bug
+Flying",,Honey Gather,Hustle,,['LC'],"HP
+30","Atk
+30","Def
+42","SpA
+30","SpD
+42","Spe
+70"
+Combusken,"Fire
+Fighting",,Blaze,Speed Boost,,['NFE'],"HP
+60","Atk
+85","Def
+60","SpA
+85","SpD
+60","Spe
+55"
+Comfey,Fairy,,Flower Veil,Natural Cure,Triage,['UU'],"HP
+51","Atk
+52","Def
+90","SpA
+82","SpD
+110","Spe
+100"
+Conkeldurr,Fighting,,Guts,Iron Fist,Sheer Force,['RU'],"HP
+105","Atk
+140","Def
+95","SpA
+55","SpD
+65","Spe
+45"
+Copperajah,Steel,,Sheer Force,Heavy Metal,,['PU'],"HP
+122","Atk
+130","Def
+69","SpA
+80","SpD
+69","Spe
+30"
+Copperajah-Gmax,Steel,,Sheer Force,Heavy Metal,,['National Dex'],"HP
+122","Atk
+130","Def
+69","SpA
+80","SpD
+69","Spe
+30"
+Coribalis,"Water
+Bug",,Torrent,Poison Heal,,[],"HP
+76","Atk
+69","Def
+90","SpA
+65","SpD
+77","Spe
+43"
+Corphish,Water,,Hyper Cutter,Adaptability,Shell Armor,['LC'],"HP
+43","Atk
+80","Def
+65","SpA
+50","SpD
+35","Spe
+35"
+Corsola,"Water
+Rock",,Hustle,Regenerator,Natural Cure,['National Dex'],"HP
+65","Atk
+55","Def
+95","SpA
+65","SpD
+95","Spe
+35"
+Corsola-Galar,Ghost,,Weak Armor,Cursed Body,,['National Dex'],"HP
+60","Atk
+55","Def
+100","SpA
+65","SpD
+100","Spe
+30"
+Corviknight,"Flying
+Steel",,Pressure,Mirror Armor,Unnerve,['OU'],"HP
+98","Atk
+87","Def
+105","SpA
+53","SpD
+85","Spe
+67"
+Corviknight-Gmax,"Flying
+Steel",,Pressure,Mirror Armor,Unnerve,['National Dex'],"HP
+98","Atk
+87","Def
+105","SpA
+53","SpD
+85","Spe
+67"
+Corvisquire,Flying,,Keen Eye,Big Pecks,Unnerve,['NFE'],"HP
+68","Atk
+67","Def
+55","SpA
+43","SpD
+55","Spe
+77"
+Cosmoem,Psychic,,Sturdy,,,['NFE'],"HP
+43","Atk
+29","Def
+131","SpA
+29","SpD
+131","Spe
+37"
+Cosmog,Psychic,,Unaware,,,['LC'],"HP
+43","Atk
+29","Def
+31","SpA
+29","SpD
+31","Spe
+37"
+Cottonee,"Grass
+Fairy",,Prankster,Chlorophyll,Infiltrator,['LC'],"HP
+40","Atk
+27","Def
+60","SpA
+37","SpD
+50","Spe
+66"
+Crabominable,"Fighting
+Ice",,Hyper Cutter,Anger Point,Iron Fist,['ZU'],"HP
+97","Atk
+132","Def
+77","SpA
+62","SpD
+67","Spe
+43"
+Crabrawler,Fighting,,Hyper Cutter,Anger Point,Iron Fist,['LC'],"HP
+47","Atk
+82","Def
+57","SpA
+42","SpD
+47","Spe
+63"
+Cradily,"Rock
+Grass",,Suction Cups,Storm Drain,,['National Dex'],"HP
+86","Atk
+81","Def
+97","SpA
+81","SpD
+107","Spe
+43"
+Cramorant,"Flying
+Water",,Gulp Missile,,,['ZU'],"HP
+70","Atk
+85","Def
+55","SpA
+85","SpD
+95","Spe
+85"
+Cramorant-Gorging,"Flying
+Water",,Gulp Missile,,,['ZU'],"HP
+70","Atk
+85","Def
+55","SpA
+85","SpD
+95","Spe
+85"
+Cramorant-Gulping,"Flying
+Water",,Gulp Missile,,,['ZU'],"HP
+70","Atk
+85","Def
+55","SpA
+85","SpD
+95","Spe
+85"
+Cranidos,Rock,,Mold Breaker,Sheer Force,,['LC'],"HP
+67","Atk
+125","Def
+40","SpA
+30","SpD
+30","Spe
+58"
+Crawdaunt,"Water
+Dark",,Hyper Cutter,Adaptability,Shell Armor,['RU'],"HP
+63","Atk
+120","Def
+85","SpA
+90","SpD
+55","Spe
+55"
+Cresceidon,"Water
+Fairy",,Multiscale,Water Veil,Rough Skin,['CAP'],"HP
+80","Atk
+32","Def
+111","SpA
+88","SpD
+99","Spe
+124"
+Cresselia,Psychic,,Levitate,,,['NUBL'],"HP
+120","Atk
+70","Def
+110","SpA
+75","SpD
+120","Spe
+85"
+Croagunk,"Poison
+Fighting",,Anticipation,Poison Touch,Dry Skin,['LC'],"HP
+48","Atk
+61","Def
+40","SpA
+61","SpD
+40","Spe
+50"
+Crobat,"Poison
+Flying",,Inner Focus,Infiltrator,,['National Dex'],"HP
+85","Atk
+90","Def
+80","SpA
+70","SpD
+80","Spe
+130"
+Crocalor,Fire,,Blaze,Unaware,,['NFE'],"HP
+81","Atk
+55","Def
+78","SpA
+90","SpD
+58","Spe
+49"
+Croconaw,Water,,Torrent,Sheer Force,,['NFE'],"HP
+65","Atk
+80","Def
+80","SpA
+59","SpD
+63","Spe
+58"
+Crucibelle,"Rock
+Poison",,Regenerator,Liquid Ooze,Mold Breaker,['CAP'],"HP
+106","Atk
+105","Def
+65","SpA
+75","SpD
+85","Spe
+104"
+Crucibelle-Mega,"Rock
+Poison",,Magic Guard,,,['CAP'],"HP
+106","Atk
+135","Def
+75","SpA
+91","SpD
+125","Spe
+108"
+Crustle,"Bug
+Rock",,Sturdy,Weak Armor,Shell Armor,['National Dex'],"HP
+70","Atk
+105","Def
+125","SpA
+65","SpD
+75","Spe
+45"
+Cryogonal,Ice,,Levitate,,,['ZU'],"HP
+80","Atk
+50","Def
+50","SpA
+95","SpD
+135","Spe
+105"
+Cubchoo,Ice,,Snow Cloak,Rattled,Slush Rush,['LC'],"HP
+55","Atk
+70","Def
+40","SpA
+60","SpD
+40","Spe
+40"
+Cubone,Ground,,Rock Head,Battle Armor,Lightning Rod,['National Dex'],"HP
+50","Atk
+50","Def
+95","SpA
+40","SpD
+50","Spe
+35"
+Cufant,Steel,,Sheer Force,Heavy Metal,,['LC'],"HP
+72","Atk
+80","Def
+49","SpA
+40","SpD
+49","Spe
+40"
+Cupra,"Bug
+Psychic",,Shield Dust,Magic Guard,Keen Eye,[],"HP
+50","Atk
+60","Def
+49","SpA
+67","SpD
+30","Spe
+44"
+Cursola,Ghost,,Weak Armor,Perish Body,,['National Dex'],"HP
+60","Atk
+95","Def
+50","SpA
+145","SpD
+130","Spe
+30"
+Cutiefly,"Bug
+Fairy",,Honey Gather,Sweet Veil,Shield Dust,['NFE'],"HP
+40","Atk
+45","Def
+40","SpA
+55","SpD
+40","Spe
+84"
+Cyclizar,"Dragon
+Normal",,Shed Skin,Regenerator,,['RU'],"HP
+70","Atk
+95","Def
+65","SpA
+85","SpD
+65","Spe
+121"
+Cyclohm,"Electric
+Dragon",,Shield Dust,Damp,Static,['CAP'],"HP
+108","Atk
+60","Def
+118","SpA
+112","SpD
+70","Spe
+80"
+Cyndaquil,Fire,,Blaze,Flash Fire,,['LC'],"HP
+39","Atk
+52","Def
+43","SpA
+60","SpD
+50","Spe
+65"
+Dachsbun,Fairy,,Well-Baked Body,Aroma Veil,,['ZU'],"HP
+57","Atk
+80","Def
+115","SpA
+50","SpD
+80","Spe
+95"
+Darkrai,Dark,,Bad Dreams,,,['OU'],"HP
+70","Atk
+90","Def
+90","SpA
+135","SpD
+90","Spe
+125"
+Darmanitan,Fire,,Sheer Force,Zen Mode,,['National Dex'],"HP
+105","Atk
+140","Def
+55","SpA
+30","SpD
+55","Spe
+95"
+Darmanitan-Galar,Ice,,Gorilla Tactics,Zen Mode,,['National Dex'],"HP
+105","Atk
+140","Def
+55","SpA
+30","SpD
+55","Spe
+95"
+Darmanitan-Galar-Zen,"Ice
+Fire",,Zen Mode,,,['National Dex'],"HP
+105","Atk
+160","Def
+55","SpA
+30","SpD
+55","Spe
+135"
+Darmanitan-Zen,"Fire
+Psychic",,Zen Mode,,,['National Dex'],"HP
+105","Atk
+30","Def
+105","SpA
+140","SpD
+105","Spe
+55"
+Dartrix,"Grass
+Flying",,Overgrow,Long Reach,,['NFE'],"HP
+78","Atk
+75","Def
+75","SpA
+70","SpD
+70","Spe
+52"
+Darumaka,Fire,,Hustle,Inner Focus,,['National Dex'],"HP
+70","Atk
+90","Def
+45","SpA
+15","SpD
+45","Spe
+50"
+Darumaka-Galar,Ice,,Hustle,Inner Focus,,['National Dex'],"HP
+70","Atk
+90","Def
+45","SpA
+15","SpD
+45","Spe
+50"
+Decidueye,"Grass
+Ghost",,Overgrow,Long Reach,,['PU'],"HP
+78","Atk
+107","Def
+75","SpA
+100","SpD
+100","Spe
+70"
+Decidueye-Hisui,"Grass
+Fighting",,Overgrow,Scrappy,,['ZU'],"HP
+88","Atk
+112","Def
+80","SpA
+95","SpD
+95","Spe
+60"
+Dedenne,"Electric
+Fairy",,Cheek Pouch,Plus,Pickup,['ZU'],"HP
+67","Atk
+58","Def
+57","SpA
+81","SpD
+67","Spe
+101"
+Deerling,"Normal
+Grass",,Chlorophyll,Serene Grace,Sap Sipper,['LC'],"HP
+60","Atk
+60","Def
+50","SpA
+40","SpD
+50","Spe
+75"
+Deino,"Dark
+Dragon",,Hustle,,,['LC'],"HP
+52","Atk
+65","Def
+50","SpA
+45","SpD
+50","Spe
+38"
+Delcatty,Normal,,Cute Charm,Wonder Skin,Normalize,['National Dex'],"HP
+70","Atk
+65","Def
+65","SpA
+55","SpD
+55","Spe
+90"
+Delibird,"Ice
+Flying",,Vital Spirit,Insomnia,Hustle,['ZU'],"HP
+45","Atk
+55","Def
+45","SpA
+65","SpD
+45","Spe
+75"
+Delphox,"Fire
+Psychic",,Blaze,Magician,,['ZUBL'],"HP
+75","Atk
+69","Def
+72","SpA
+114","SpD
+100","Spe
+104"
+Deoxys,Psychic,,Pressure,,,['Uber'],"HP
+50","Atk
+150","Def
+50","SpA
+150","SpD
+50","Spe
+150"
+Deoxys-Attack,Psychic,,Pressure,,,['Uber'],"HP
+50","Atk
+180","Def
+20","SpA
+180","SpD
+20","Spe
+150"
+Deoxys-Defense,Psychic,,Pressure,,,['NUBL'],"HP
+50","Atk
+70","Def
+160","SpA
+70","SpD
+160","Spe
+90"
+Deoxys-Speed,Psychic,,Pressure,,,['OU'],"HP
+50","Atk
+95","Def
+90","SpA
+95","SpD
+90","Spe
+180"
+Dewgong,"Water
+Ice",,Thick Fat,Ice Body,Hydration,['ZU'],"HP
+90","Atk
+70","Def
+80","SpA
+70","SpD
+95","Spe
+70"
+Dewott,Water,,Torrent,Shell Armor,,['NFE'],"HP
+75","Atk
+75","Def
+60","SpA
+83","SpD
+60","Spe
+60"
+Dewpider,"Water
+Bug",,Water Bubble,Water Absorb,,['LC'],"HP
+38","Atk
+40","Def
+52","SpA
+40","SpD
+72","Spe
+27"
+Dhelmise,"Ghost
+Grass",,Steelworker,,,['National Dex'],"HP
+70","Atk
+131","Def
+100","SpA
+86","SpD
+90","Spe
+40"
+Dialga,"Steel
+Dragon",,Pressure,Telepathy,,['Uber'],"HP
+100","Atk
+120","Def
+120","SpA
+150","SpD
+100","Spe
+90"
+Dialga-Origin,"Steel
+Dragon",,Pressure,Telepathy,,['Uber'],"HP
+100","Atk
+100","Def
+120","SpA
+150","SpD
+120","Spe
+90"
+Diancie,"Rock
+Fairy",,Clear Body,,,['NU'],"HP
+50","Atk
+100","Def
+150","SpA
+100","SpD
+150","Spe
+50"
+Diancie-Mega,"Rock
+Fairy",,Magic Bounce,,,['National Dex'],"HP
+50","Atk
+160","Def
+110","SpA
+160","SpD
+110","Spe
+110"
+Diggersby,"Normal
+Ground",,Pickup,Huge Power,Cheek Pouch,['National Dex'],"HP
+85","Atk
+56","Def
+77","SpA
+50","SpD
+77","Spe
+78"
+Diglett,Ground,,Sand Veil,Sand Force,Arena Trap,['NFE'],"HP
+10","Atk
+55","Def
+25","SpA
+35","SpD
+45","Spe
+95"
+Diglett-Alola,"Ground
+Steel",,Sand Veil,Sand Force,Tangling Hair,['LC'],"HP
+10","Atk
+55","Def
+30","SpA
+35","SpD
+45","Spe
+90"
+Dipplin,"Grass
+Dragon",,Supersweet Syrup,Sticky Hold,Gluttony,['ZU'],"HP
+80","Atk
+80","Def
+110","SpA
+95","SpD
+80","Spe
+40"
+Ditto,Normal,,Limber,Imposter,,['ZU'],"HP
+48","Atk
+48","Def
+48","SpA
+48","SpD
+48","Spe
+48"
+Dodrio,"Normal
+Flying",,Run Away,Tangled Feet,Early Bird,['ZU'],"HP
+60","Atk
+110","Def
+70","SpA
+60","SpD
+60","Spe
+110"
+Doduo,"Normal
+Flying",,Run Away,Tangled Feet,Early Bird,['LC'],"HP
+35","Atk
+85","Def
+45","SpA
+35","SpD
+35","Spe
+75"
+Dolliv,"Grass
+Normal",,Early Bird,Harvest,,['NFE'],"HP
+52","Atk
+53","Def
+60","SpA
+78","SpD
+78","Spe
+33"
+Dondozo,Water,,Unaware,Water Veil,Oblivious,['OU'],"HP
+150","Atk
+100","Def
+115","SpA
+65","SpD
+65","Spe
+35"
+Donphan,Ground,,Sturdy,Sand Veil,,['UU'],"HP
+90","Atk
+120","Def
+120","SpA
+60","SpD
+60","Spe
+50"
+Dorsoil,Ground,,Oblivious,Unnerve,Guts,[],"HP
+103","Atk
+72","Def
+52","SpA
+61","SpD
+52","Spe
+65"
+Dottler,"Bug
+Psychic",,Swarm,Telepathy,Compound Eyes,['National Dex'],"HP
+50","Atk
+35","Def
+80","SpA
+50","SpD
+90","Spe
+30"
+Doublade,"Steel
+Ghost",,No Guard,,,['National Dex'],"HP
+59","Atk
+110","Def
+150","SpA
+45","SpD
+49","Spe
+35"
+Dracovish,"Water
+Dragon",,Water Absorb,Sand Rush,Strong Jaw,['National Dex'],"HP
+90","Atk
+90","Def
+100","SpA
+70","SpD
+80","Spe
+75"
+Dracozolt,"Electric
+Dragon",,Volt Absorb,Sand Rush,Hustle,['National Dex'],"HP
+90","Atk
+100","Def
+90","SpA
+80","SpD
+70","Spe
+75"
+Dragalge,"Poison
+Dragon",,Poison Point,Adaptability,Poison Touch,['NU'],"HP
+65","Atk
+75","Def
+90","SpA
+97","SpD
+123","Spe
+44"
+Dragapult,"Dragon
+Ghost",,Clear Body,Cursed Body,Infiltrator,['OU'],"HP
+88","Atk
+120","Def
+75","SpA
+100","SpD
+75","Spe
+142"
+Dragonair,Dragon,,Shed Skin,Marvel Scale,,['NFE'],"HP
+61","Atk
+84","Def
+65","SpA
+70","SpD
+70","Spe
+70"
+Dragonite,"Dragon
+Flying",,Inner Focus,Multiscale,,['OU'],"HP
+91","Atk
+134","Def
+95","SpA
+100","SpD
+100","Spe
+80"
+Drakloak,"Dragon
+Ghost",,Clear Body,Cursed Body,Infiltrator,['NFE'],"HP
+68","Atk
+80","Def
+50","SpA
+60","SpD
+50","Spe
+102"
+Drampa,"Normal
+Dragon",,Berserk,Cloud Nine,Sap Sipper,['National Dex'],"HP
+78","Atk
+60","Def
+85","SpA
+135","SpD
+91","Spe
+36"
+Drapion,"Poison
+Dark",,Battle Armor,Keen Eye,Sniper,['National Dex'],"HP
+70","Atk
+90","Def
+110","SpA
+60","SpD
+75","Spe
+95"
+Dratini,Dragon,,Shed Skin,Marvel Scale,,['LC'],"HP
+41","Atk
+64","Def
+45","SpA
+50","SpD
+50","Spe
+50"
+Drednaw,"Water
+Rock",,Strong Jaw,Swift Swim,Shell Armor,['PUBL'],"HP
+90","Atk
+115","Def
+90","SpA
+48","SpD
+68","Spe
+74"
+Drednaw-Gmax,"Water
+Rock",,Strong Jaw,Swift Swim,Shell Armor,['National Dex'],"HP
+90","Atk
+115","Def
+90","SpA
+48","SpD
+68","Spe
+74"
+Dreepy,"Dragon
+Ghost",,Clear Body,Cursed Body,Infiltrator,['LC'],"HP
+28","Atk
+60","Def
+30","SpA
+40","SpD
+30","Spe
+82"
+Drifblim,"Ghost
+Flying",,Aftermath,Flare Boost,Unburden,['ZU'],"HP
+150","Atk
+80","Def
+44","SpA
+90","SpD
+54","Spe
+80"
+Drifloon,"Ghost
+Flying",,Aftermath,Flare Boost,Unburden,['LC'],"HP
+90","Atk
+50","Def
+34","SpA
+60","SpD
+44","Spe
+70"
+Drilbur,Ground,,Sand Rush,Mold Breaker,Sand Force,['LC'],"HP
+60","Atk
+85","Def
+40","SpA
+30","SpD
+45","Spe
+68"
+Drizzile,Water,,Torrent,Sniper,,['NFE'],"HP
+65","Atk
+60","Def
+55","SpA
+95","SpD
+55","Spe
+90"
+Drowzee,Psychic,,Insomnia,Inner Focus,Forewarn,['LC'],"HP
+60","Atk
+48","Def
+45","SpA
+43","SpD
+90","Spe
+42"
+Druddigon,Dragon,,Rough Skin,Mold Breaker,Sheer Force,['National Dex'],"HP
+77","Atk
+120","Def
+90","SpA
+60","SpD
+90","Spe
+48"
+Dubwool,Normal,,Fluffy,Bulletproof,Steadfast,['National Dex'],"HP
+72","Atk
+80","Def
+100","SpA
+60","SpD
+90","Spe
+88"
+Ducklett,"Water
+Flying",,Keen Eye,Hydration,Big Pecks,['LC'],"HP
+62","Atk
+44","Def
+50","SpA
+44","SpD
+50","Spe
+55"
+Dudunsparce,Normal,,Serene Grace,Rattled,Run Away,['ZU'],"HP
+125","Atk
+100","Def
+80","SpA
+85","SpD
+75","Spe
+55"
+Dudunsparce-Three-Segment,Normal,,Serene Grace,Rattled,Run Away,['ZU'],"HP
+125","Atk
+100","Def
+80","SpA
+85","SpD
+75","Spe
+55"
+Dugtrio,Ground,,Sand Veil,Sand Force,Arena Trap,['ZU'],"HP
+35","Atk
+100","Def
+50","SpA
+50","SpD
+70","Spe
+120"
+Dugtrio-Alola,"Ground
+Steel",,Sand Veil,Sand Force,Tangling Hair,['ZU'],"HP
+35","Atk
+100","Def
+60","SpA
+50","SpD
+70","Spe
+110"
+Dunsparce,Normal,,Serene Grace,Rattled,Run Away,['NFE'],"HP
+100","Atk
+70","Def
+70","SpA
+65","SpD
+65","Spe
+45"
+Duohm,"Electric
+Dragon",,Shield Dust,Damp,Static,[],"HP
+88","Atk
+40","Def
+103","SpA
+77","SpD
+60","Spe
+60"
+Duosion,Psychic,,Overcoat,Regenerator,Magic Guard,['NFE'],"HP
+65","Atk
+40","Def
+50","SpA
+125","SpD
+60","Spe
+30"
+Duraludon,"Steel
+Dragon",,Light Metal,Stalwart,Heavy Metal,['PUBL'],"HP
+70","Atk
+95","Def
+115","SpA
+120","SpD
+50","Spe
+85"
+Duraludon-Gmax,"Steel
+Dragon",,Light Metal,Stalwart,Heavy Metal,['National Dex'],"HP
+70","Atk
+95","Def
+115","SpA
+120","SpD
+50","Spe
+85"
+Durant,"Bug
+Steel",,Swarm,Truant,Hustle,['National Dex'],"HP
+58","Atk
+109","Def
+112","SpA
+48","SpD
+48","Spe
+109"
+Dusclops,Ghost,,Pressure,Frisk,,['NFE'],"HP
+40","Atk
+70","Def
+130","SpA
+60","SpD
+130","Spe
+25"
+Dusknoir,Ghost,,Pressure,Frisk,,['ZU'],"HP
+45","Atk
+100","Def
+135","SpA
+65","SpD
+135","Spe
+45"
+Duskull,Ghost,,Levitate,Frisk,,['LC'],"HP
+20","Atk
+40","Def
+90","SpA
+30","SpD
+90","Spe
+25"
+Dustox,"Bug
+Poison",,Shield Dust,Compound Eyes,,['National Dex'],"HP
+60","Atk
+50","Def
+70","SpA
+50","SpD
+90","Spe
+65"
+Dwebble,"Bug
+Rock",,Sturdy,Weak Armor,Shell Armor,['National Dex'],"HP
+50","Atk
+65","Def
+85","SpA
+35","SpD
+35","Spe
+55"
+Eelektrik,Electric,,Levitate,,,['NFE'],"HP
+65","Atk
+85","Def
+70","SpA
+75","SpD
+70","Spe
+40"
+Eelektross,Electric,,Levitate,,,['ZU'],"HP
+85","Atk
+115","Def
+80","SpA
+105","SpD
+80","Spe
+50"
+Eevee,Normal,,Run Away,Anticipation,Adaptability,['LC'],"HP
+55","Atk
+55","Def
+50","SpA
+45","SpD
+65","Spe
+55"
+Eevee-Gmax,Normal,,Run Away,Anticipation,Adaptability,['National Dex'],"HP
+55","Atk
+55","Def
+50","SpA
+45","SpD
+65","Spe
+55"
+Eevee-Starter,Normal,,Run Away,Anticipation,Adaptability,['National Dex'],"HP
+65","Atk
+75","Def
+70","SpA
+65","SpD
+85","Spe
+75"
+Eiscue,Ice,,Ice Face,,,['ZU'],"HP
+75","Atk
+80","Def
+110","SpA
+65","SpD
+90","Spe
+50"
+Eiscue-Noice,Ice,,Ice Face,,,['ZU'],"HP
+75","Atk
+80","Def
+70","SpA
+65","SpD
+50","Spe
+130"
+Ekans,Poison,,Intimidate,Unnerve,Shed Skin,['LC'],"HP
+35","Atk
+60","Def
+44","SpA
+40","SpD
+54","Spe
+55"
+Eldegoss,Grass,,Cotton Down,Effect Spore,Regenerator,['National Dex'],"HP
+60","Atk
+50","Def
+90","SpA
+80","SpD
+120","Spe
+60"
+Electabuzz,Electric,,Static,Vital Spirit,,['NFE'],"HP
+65","Atk
+83","Def
+57","SpA
+95","SpD
+85","Spe
+105"
+Electivire,Electric,,Motor Drive,Vital Spirit,,['ZU'],"HP
+75","Atk
+123","Def
+67","SpA
+95","SpD
+85","Spe
+95"
+Electrelk,"Grass
+Electric",,Overgrow,Galvanize,,[],"HP
+59","Atk
+81","Def
+67","SpA
+57","SpD
+55","Spe
+101"
+Electrike,Electric,,Static,Minus,Lightning Rod,['National Dex'],"HP
+40","Atk
+45","Def
+40","SpA
+65","SpD
+40","Spe
+65"
+Electrode,Electric,,Soundproof,Aftermath,Static,['ZU'],"HP
+60","Atk
+50","Def
+70","SpA
+80","SpD
+80","Spe
+150"
+Electrode-Hisui,"Electric
+Grass",,Soundproof,Aftermath,Static,['ZUBL'],"HP
+60","Atk
+50","Def
+70","SpA
+80","SpD
+80","Spe
+150"
+Elekid,Electric,,Static,Vital Spirit,,['LC'],"HP
+45","Atk
+63","Def
+37","SpA
+65","SpD
+55","Spe
+95"
+Elgyem,Psychic,,Telepathy,Analytic,Synchronize,['National Dex'],"HP
+55","Atk
+55","Def
+55","SpA
+85","SpD
+55","Spe
+30"
+Embirch,"Fire
+Grass",,Reckless,Chlorophyll,Leaf Guard,[],"HP
+60","Atk
+40","Def
+55","SpA
+65","SpD
+40","Spe
+60"
+Emboar,"Fire
+Fighting",,Blaze,Reckless,,['ZUBL'],"HP
+110","Atk
+123","Def
+65","SpA
+100","SpD
+65","Spe
+65"
+Emolga,"Electric
+Flying",,Static,Motor Drive,,['National Dex'],"HP
+55","Atk
+75","Def
+60","SpA
+75","SpD
+60","Spe
+103"
+Empoleon,"Water
+Steel",,Torrent,Competitive,,['RU'],"HP
+84","Atk
+86","Def
+88","SpA
+111","SpD
+101","Spe
+60"
+Enamorus,"Fairy
+Flying",,Cute Charm,Contrary,,['OU'],"HP
+74","Atk
+115","Def
+70","SpA
+135","SpD
+80","Spe
+106"
+Enamorus-Therian,"Fairy
+Flying",,Overcoat,,,['RUBL'],"HP
+74","Atk
+115","Def
+110","SpA
+135","SpD
+100","Spe
+46"
+Entei,Fire,,Pressure,Inner Focus,,['RU'],"HP
+115","Atk
+115","Def
+85","SpA
+90","SpD
+75","Spe
+100"
+Equilibra,"Steel
+Ground",,Levitate,Justified,Bulletproof,['CAP'],"HP
+102","Atk
+50","Def
+96","SpA
+133","SpD
+118","Spe
+60"
+Escavalier,"Bug
+Steel",,Swarm,Overcoat,Shell Armor,['National Dex'],"HP
+70","Atk
+135","Def
+105","SpA
+60","SpD
+105","Spe
+20"
+Espathra,Psychic,,Opportunist,Speed Boost,Frisk,['Uber'],"HP
+95","Atk
+60","Def
+60","SpA
+101","SpD
+60","Spe
+105"
+Espeon,Psychic,,Synchronize,Magic Bounce,,['NU'],"HP
+65","Atk
+65","Def
+60","SpA
+130","SpD
+95","Spe
+110"
+Espurr,Psychic,,Keen Eye,Own Tempo,Infiltrator,['LC'],"HP
+62","Atk
+48","Def
+54","SpA
+63","SpD
+60","Spe
+68"
+Eternatus,"Poison
+Dragon",,Pressure,,,['Uber'],"HP
+140","Atk
+85","Def
+95","SpA
+145","SpD
+95","Spe
+130"
+Excadrill,"Ground
+Steel",,Sand Rush,Mold Breaker,Sand Force,['UU'],"HP
+110","Atk
+135","Def
+60","SpA
+50","SpD
+65","Spe
+88"
+Exeggcute,"Grass
+Psychic",,Chlorophyll,Harvest,,['LC'],"HP
+60","Atk
+40","Def
+80","SpA
+60","SpD
+45","Spe
+40"
+Exeggutor,"Grass
+Psychic",,Chlorophyll,Harvest,,['ZU'],"HP
+95","Atk
+95","Def
+85","SpA
+125","SpD
+75","Spe
+55"
+Exeggutor-Alola,"Grass
+Dragon",,Frisk,Harvest,,['ZU'],"HP
+95","Atk
+105","Def
+85","SpA
+125","SpD
+75","Spe
+45"
+Exploud,Normal,,Soundproof,Scrappy,,['National Dex'],"HP
+104","Atk
+91","Def
+63","SpA
+91","SpD
+73","Spe
+68"
+Falinks,Fighting,,Battle Armor,Defiant,,['ZU'],"HP
+65","Atk
+100","Def
+100","SpA
+70","SpD
+60","Spe
+75"
+Farfetch'd,"Normal
+Flying",,Keen Eye,Defiant,Inner Focus,['National Dex'],"HP
+52","Atk
+90","Def
+55","SpA
+58","SpD
+62","Spe
+60"
+Farfetch'd-Galar,Fighting,,Steadfast,Scrappy,,['National Dex'],"HP
+52","Atk
+95","Def
+55","SpA
+58","SpD
+62","Spe
+55"
+Farigiraf,"Normal
+Psychic",,Cud Chew,Sap Sipper,Armor Tail,['ZU'],"HP
+120","Atk
+90","Def
+70","SpA
+110","SpD
+70","Spe
+60"
+Fawnifer,Grass,,Overgrow,Lightning Rod,,[],"HP
+49","Atk
+61","Def
+42","SpA
+52","SpD
+40","Spe
+76"
+Fearow,"Normal
+Flying",,Keen Eye,Sniper,,['National Dex'],"HP
+65","Atk
+90","Def
+65","SpA
+61","SpD
+61","Spe
+100"
+Feebas,Water,,Swift Swim,Adaptability,Oblivious,['LC'],"HP
+20","Atk
+15","Def
+20","SpA
+10","SpD
+55","Spe
+80"
+Fennekin,Fire,,Blaze,Magician,,['LC'],"HP
+40","Atk
+45","Def
+40","SpA
+62","SpD
+60","Spe
+60"
+Feraligatr,Water,,Torrent,Sheer Force,,['NUBL'],"HP
+85","Atk
+105","Def
+100","SpA
+79","SpD
+83","Spe
+78"
+Ferroseed,"Grass
+Steel",,Iron Barbs,,,['National Dex'],"HP
+44","Atk
+50","Def
+91","SpA
+24","SpD
+86","Spe
+10"
+Ferrothorn,"Grass
+Steel",,Iron Barbs,Anticipation,,['National Dex'],"HP
+74","Atk
+94","Def
+131","SpA
+54","SpD
+116","Spe
+20"
+Fezandipiti,"Poison
+Fairy",,Toxic Chain,Technician,,['RU'],"HP
+88","Atk
+91","Def
+82","SpA
+70","SpD
+125","Spe
+99"
+Fidgit,"Poison
+Ground",,Persistent,Frisk,Vital Spirit,['CAP'],"HP
+95","Atk
+76","Def
+109","SpA
+90","SpD
+80","Spe
+105"
+Fidough,Fairy,,Own Tempo,Klutz,,['LC'],"HP
+37","Atk
+55","Def
+70","SpA
+30","SpD
+55","Spe
+65"
+Finizen,Water,,Water Veil,,,['LC'],"HP
+70","Atk
+45","Def
+40","SpA
+45","SpD
+40","Spe
+75"
+Finneon,Water,,Swift Swim,Water Veil,Storm Drain,['LC'],"HP
+49","Atk
+49","Def
+56","SpA
+49","SpD
+61","Spe
+66"
+Flaaffy,Electric,,Static,Plus,,['NFE'],"HP
+70","Atk
+55","Def
+55","SpA
+80","SpD
+60","Spe
+45"
+Flabebe,Fairy,,Flower Veil,Symbiosis,,['LC'],"HP
+44","Atk
+38","Def
+39","SpA
+61","SpD
+79","Spe
+42"
+Flamigo,"Flying
+Fighting",,Scrappy,Costar,Tangled Feet,['PUBL'],"HP
+82","Atk
+115","Def
+74","SpA
+75","SpD
+64","Spe
+90"
+Flapple,"Grass
+Dragon",,Ripen,Hustle,Gluttony,['ZU'],"HP
+70","Atk
+110","Def
+80","SpA
+95","SpD
+60","Spe
+70"
+Flapple-Gmax,"Grass
+Dragon",,Ripen,Hustle,Gluttony,['National Dex'],"HP
+70","Atk
+110","Def
+80","SpA
+95","SpD
+60","Spe
+70"
+Flarelm,"Fire
+Grass",,Rock Head,White Smoke,Battle Armor,[],"HP
+90","Atk
+50","Def
+95","SpA
+75","SpD
+70","Spe
+40"
+Flareon,Fire,,Flash Fire,Guts,,['ZU'],"HP
+65","Atk
+130","Def
+60","SpA
+95","SpD
+110","Spe
+65"
+Fletchinder,"Fire
+Flying",,Flame Body,Gale Wings,,['NFE'],"HP
+62","Atk
+73","Def
+55","SpA
+56","SpD
+52","Spe
+84"
+Fletchling,"Normal
+Flying",,Big Pecks,Gale Wings,,['LC'],"HP
+45","Atk
+50","Def
+43","SpA
+40","SpD
+38","Spe
+62"
+Flittle,Psychic,,Anticipation,Speed Boost,Frisk,['NFE'],"HP
+30","Atk
+35","Def
+30","SpA
+55","SpD
+30","Spe
+75"
+Floatoy,Water,,Water Veil,Swift Swim,Heatproof,[],"HP
+48","Atk
+70","Def
+40","SpA
+70","SpD
+30","Spe
+77"
+Floatzel,Water,,Swift Swim,Water Veil,,['ZU'],"HP
+85","Atk
+105","Def
+55","SpA
+85","SpD
+50","Spe
+115"
+Floette,Fairy,,Flower Veil,Symbiosis,,['NFE'],"HP
+54","Atk
+45","Def
+47","SpA
+75","SpD
+98","Spe
+52"
+Floragato,Grass,,Overgrow,Protean,,['NFE'],"HP
+61","Atk
+80","Def
+63","SpA
+60","SpD
+63","Spe
+83"
+Florges,Fairy,,Flower Veil,Symbiosis,,['PU'],"HP
+78","Atk
+65","Def
+68","SpA
+112","SpD
+154","Spe
+75"
+Flutter Mane,"Ghost
+Fairy",,Protosynthesis,,,['Uber'],"HP
+55","Atk
+55","Def
+55","SpA
+135","SpD
+135","Spe
+135"
+Flygon,"Ground
+Dragon",,Levitate,,,['NU'],"HP
+80","Atk
+100","Def
+80","SpA
+80","SpD
+80","Spe
+100"
+Fomantis,Grass,,Leaf Guard,Contrary,,['LC'],"HP
+40","Atk
+55","Def
+35","SpA
+50","SpD
+35","Spe
+35"
+Foongus,"Grass
+Poison",,Effect Spore,Regenerator,,['LC'],"HP
+69","Atk
+55","Def
+45","SpA
+55","SpD
+55","Spe
+15"
+Forretress,"Bug
+Steel",,Sturdy,Overcoat,,['RU'],"HP
+75","Atk
+90","Def
+140","SpA
+60","SpD
+60","Spe
+40"
+Fraxure,Dragon,,Rivalry,Unnerve,Mold Breaker,['NFE'],"HP
+66","Atk
+117","Def
+70","SpA
+40","SpD
+50","Spe
+67"
+Frigibax,"Dragon
+Ice",,Thermal Exchange,Ice Body,,['LC'],"HP
+65","Atk
+75","Def
+45","SpA
+35","SpD
+45","Spe
+55"
+Frillish,"Water
+Ghost",,Water Absorb,Damp,Cursed Body,['National Dex'],"HP
+55","Atk
+40","Def
+50","SpA
+65","SpD
+85","Spe
+40"
+Froakie,Water,,Torrent,Protean,,['LC'],"HP
+41","Atk
+56","Def
+40","SpA
+62","SpD
+44","Spe
+71"
+Frogadier,Water,,Torrent,Protean,,['NFE'],"HP
+54","Atk
+63","Def
+52","SpA
+83","SpD
+56","Spe
+97"
+Froslass,"Ice
+Ghost",,Snow Cloak,Cursed Body,,['ZU'],"HP
+70","Atk
+80","Def
+70","SpA
+80","SpD
+70","Spe
+110"
+Frosmoth,"Ice
+Bug",,Shield Dust,Ice Scales,,['ZU'],"HP
+70","Atk
+65","Def
+60","SpA
+125","SpD
+90","Spe
+65"
+Fuecoco,Fire,,Blaze,Unaware,,['LC'],"HP
+67","Atk
+45","Def
+59","SpA
+63","SpD
+40","Spe
+36"
+Furfrou,Normal,,Fur Coat,,,['National Dex'],"HP
+75","Atk
+80","Def
+60","SpA
+65","SpD
+90","Spe
+102"
+Furret,Normal,,Run Away,Frisk,Keen Eye,['ZU'],"HP
+85","Atk
+76","Def
+64","SpA
+45","SpD
+55","Spe
+90"
+Gabite,"Dragon
+Ground",,Sand Veil,Rough Skin,,['NFE'],"HP
+68","Atk
+90","Def
+65","SpA
+50","SpD
+55","Spe
+82"
+Gallade,"Psychic
+Fighting",,Steadfast,Justified,Sharpness,['NUBL'],"HP
+68","Atk
+125","Def
+65","SpA
+65","SpD
+115","Spe
+80"
+Gallade-Mega,"Psychic
+Fighting",,Inner Focus,,,['National Dex'],"HP
+68","Atk
+165","Def
+95","SpA
+65","SpD
+115","Spe
+110"
+Galvantula,"Bug
+Electric",,Compound Eyes,Swarm,Unnerve,['NU'],"HP
+70","Atk
+77","Def
+60","SpA
+97","SpD
+60","Spe
+108"
+Garbodor,Poison,,Stench,Aftermath,Weak Armor,['National Dex'],"HP
+80","Atk
+95","Def
+82","SpA
+60","SpD
+82","Spe
+75"
+Garbodor-Gmax,Poison,,Stench,Aftermath,Weak Armor,['National Dex'],"HP
+80","Atk
+95","Def
+82","SpA
+60","SpD
+82","Spe
+75"
+Garchomp,"Dragon
+Ground",,Sand Veil,Rough Skin,,['UUBL'],"HP
+108","Atk
+130","Def
+95","SpA
+80","SpD
+85","Spe
+102"
+Garchomp-Mega,"Dragon
+Ground",,Sand Force,,,['National Dex'],"HP
+108","Atk
+170","Def
+115","SpA
+120","SpD
+95","Spe
+92"
+Gardevoir,"Psychic
+Fairy",,Synchronize,Telepathy,Trace,['RU'],"HP
+68","Atk
+65","Def
+65","SpA
+125","SpD
+115","Spe
+80"
+Gardevoir-Mega,"Psychic
+Fairy",,Pixilate,,,['National Dex'],"HP
+68","Atk
+85","Def
+65","SpA
+165","SpD
+135","Spe
+100"
+Garganacl,Rock,,Purifying Salt,Clear Body,Sturdy,['OU'],"HP
+100","Atk
+100","Def
+130","SpA
+45","SpD
+90","Spe
+35"
+Gastly,"Ghost
+Poison",,Levitate,,,['NFE'],"HP
+30","Atk
+35","Def
+30","SpA
+100","SpD
+35","Spe
+80"
+Gastrodon,"Water
+Ground",,Sticky Hold,Sand Force,Storm Drain,['PU'],"HP
+111","Atk
+83","Def
+68","SpA
+92","SpD
+82","Spe
+39"
+Genesect,"Bug
+Steel",,Download,,,['National Dex'],"HP
+71","Atk
+120","Def
+95","SpA
+120","SpD
+95","Spe
+99"
+Genesect-Burn,"Bug
+Steel",,Download,,,['National Dex'],"HP
+71","Atk
+120","Def
+95","SpA
+120","SpD
+95","Spe
+99"
+Genesect-Chill,"Bug
+Steel",,Download,,,['National Dex'],"HP
+71","Atk
+120","Def
+95","SpA
+120","SpD
+95","Spe
+99"
+Genesect-Douse,"Bug
+Steel",,Download,,,['National Dex'],"HP
+71","Atk
+120","Def
+95","SpA
+120","SpD
+95","Spe
+99"
+Genesect-Shock,"Bug
+Steel",,Download,,,['National Dex'],"HP
+71","Atk
+120","Def
+95","SpA
+120","SpD
+95","Spe
+99"
+Gengar,"Ghost
+Poison",,Cursed Body,,,['RU'],"HP
+60","Atk
+65","Def
+60","SpA
+130","SpD
+75","Spe
+110"
+Gengar-Gmax,"Ghost
+Poison",,Cursed Body,,,['National Dex'],"HP
+60","Atk
+65","Def
+60","SpA
+130","SpD
+75","Spe
+110"
+Gengar-Mega,"Ghost
+Poison",,Shadow Tag,,,['National Dex'],"HP
+60","Atk
+65","Def
+80","SpA
+170","SpD
+95","Spe
+130"
+Geodude,"Rock
+Ground",,Rock Head,Sand Veil,Sturdy,['LC'],"HP
+40","Atk
+80","Def
+100","SpA
+30","SpD
+30","Spe
+20"
+Geodude-Alola,"Rock
+Electric",,Magnet Pull,Galvanize,Sturdy,['LC'],"HP
+40","Atk
+80","Def
+100","SpA
+30","SpD
+30","Spe
+20"
+Gholdengo,"Steel
+Ghost",,Good as Gold,,,['OU'],"HP
+87","Atk
+60","Def
+95","SpA
+133","SpD
+91","Spe
+84"
+Gible,"Dragon
+Ground",,Sand Veil,Rough Skin,,['LC'],"HP
+58","Atk
+70","Def
+45","SpA
+40","SpD
+45","Spe
+42"
+Gigalith,Rock,,Sturdy,Sand Force,Sand Stream,['National Dex'],"HP
+85","Atk
+135","Def
+130","SpA
+60","SpD
+80","Spe
+25"
+Gimmighoul,Ghost,,Rattled,,,['LC'],"HP
+45","Atk
+30","Def
+70","SpA
+75","SpD
+70","Spe
+10"
+Gimmighoul-Roaming,Ghost,,Run Away,,,['LC'],"HP
+45","Atk
+30","Def
+25","SpA
+75","SpD
+45","Spe
+80"
+Girafarig,"Normal
+Psychic",,Inner Focus,Sap Sipper,Early Bird,['NFE'],"HP
+70","Atk
+80","Def
+65","SpA
+90","SpD
+65","Spe
+85"
+Giratina,"Ghost
+Dragon",,Pressure,Telepathy,,['Uber'],"HP
+150","Atk
+100","Def
+120","SpA
+100","SpD
+120","Spe
+90"
+Giratina-Origin,"Ghost
+Dragon",,Levitate,,,['Uber'],"HP
+150","Atk
+120","Def
+100","SpA
+120","SpD
+100","Spe
+90"
+Glaceon,Ice,,Snow Cloak,Ice Body,,['ZU'],"HP
+65","Atk
+60","Def
+110","SpA
+130","SpD
+95","Spe
+65"
+Glalie,Ice,,Inner Focus,Moody,Ice Body,['ZU'],"HP
+80","Atk
+80","Def
+80","SpA
+80","SpD
+80","Spe
+80"
+Glalie-Mega,Ice,,Refrigerate,,,['National Dex'],"HP
+80","Atk
+120","Def
+80","SpA
+120","SpD
+80","Spe
+100"
+Glameow,Normal,,Limber,Keen Eye,Own Tempo,['National Dex'],"HP
+49","Atk
+55","Def
+42","SpA
+42","SpD
+37","Spe
+85"
+Glastrier,Ice,,Chilling Neigh,,,['ZU'],"HP
+100","Atk
+145","Def
+130","SpA
+65","SpD
+110","Spe
+30"
+Gligar,"Ground
+Flying",,Hyper Cutter,Immunity,Sand Veil,['NU'],"HP
+65","Atk
+75","Def
+105","SpA
+35","SpD
+65","Spe
+85"
+Glimmet,"Rock
+Poison",,Toxic Debris,Corrosion,,['LC'],"HP
+48","Atk
+35","Def
+42","SpA
+105","SpD
+60","Spe
+60"
+Glimmora,"Rock
+Poison",,Toxic Debris,Corrosion,,['OU'],"HP
+83","Atk
+55","Def
+90","SpA
+130","SpD
+81","Spe
+86"
+Gliscor,"Ground
+Flying",,Hyper Cutter,Poison Heal,Sand Veil,['OU'],"HP
+75","Atk
+95","Def
+125","SpA
+45","SpD
+75","Spe
+95"
+Gloom,"Grass
+Poison",,Chlorophyll,Stench,,['NFE'],"HP
+60","Atk
+65","Def
+70","SpA
+85","SpD
+75","Spe
+40"
+Gogoat,Grass,,Sap Sipper,Grass Pelt,,['ZU'],"HP
+123","Atk
+100","Def
+62","SpA
+97","SpD
+81","Spe
+68"
+Golbat,"Poison
+Flying",,Inner Focus,Infiltrator,,['National Dex'],"HP
+75","Atk
+80","Def
+70","SpA
+65","SpD
+75","Spe
+90"
+Goldeen,Water,,Swift Swim,Lightning Rod,Water Veil,['National Dex'],"HP
+45","Atk
+67","Def
+60","SpA
+35","SpD
+50","Spe
+63"
+Golduck,Water,,Damp,Swift Swim,Cloud Nine,['ZU'],"HP
+80","Atk
+82","Def
+78","SpA
+95","SpD
+80","Spe
+85"
+Golem,"Rock
+Ground",,Rock Head,Sand Veil,Sturdy,['ZU'],"HP
+80","Atk
+120","Def
+130","SpA
+55","SpD
+65","Spe
+45"
+Golem-Alola,"Rock
+Electric",,Magnet Pull,Galvanize,Sturdy,['ZU'],"HP
+80","Atk
+120","Def
+130","SpA
+55","SpD
+65","Spe
+45"
+Golett,"Ground
+Ghost",,Iron Fist,No Guard,Klutz,['LC'],"HP
+59","Atk
+74","Def
+50","SpA
+35","SpD
+50","Spe
+35"
+Golisopod,"Bug
+Water",,Emergency Exit,,,['National Dex'],"HP
+75","Atk
+125","Def
+140","SpA
+60","SpD
+90","Spe
+40"
+Golurk,"Ground
+Ghost",,Iron Fist,No Guard,Klutz,['PU'],"HP
+89","Atk
+124","Def
+80","SpA
+55","SpD
+80","Spe
+55"
+Goodra,Dragon,,Sap Sipper,Gooey,Hydration,['PU'],"HP
+90","Atk
+100","Def
+70","SpA
+110","SpD
+150","Spe
+80"
+Goodra-Hisui,"Steel
+Dragon",,Sap Sipper,Gooey,Shell Armor,['RU'],"HP
+80","Atk
+100","Def
+100","SpA
+110","SpD
+150","Spe
+60"
+Goomy,Dragon,,Sap Sipper,Gooey,Hydration,['LC'],"HP
+45","Atk
+50","Def
+35","SpA
+55","SpD
+75","Spe
+40"
+Gorebyss,Water,,Swift Swim,Hydration,,['National Dex'],"HP
+55","Atk
+84","Def
+105","SpA
+114","SpD
+75","Spe
+52"
+Gossifleur,Grass,,Cotton Down,Effect Spore,Regenerator,['National Dex'],"HP
+40","Atk
+40","Def
+60","SpA
+40","SpD
+60","Spe
+10"
+Gothita,Psychic,,Frisk,Shadow Tag,Competitive,['LC'],"HP
+45","Atk
+30","Def
+50","SpA
+55","SpD
+65","Spe
+45"
+Gothitelle,Psychic,,Frisk,Shadow Tag,Competitive,['ZU'],"HP
+70","Atk
+55","Def
+95","SpA
+95","SpD
+110","Spe
+65"
+Gothorita,Psychic,,Frisk,Shadow Tag,Competitive,['NFE'],"HP
+60","Atk
+45","Def
+70","SpA
+75","SpD
+85","Spe
+55"
+Gouging Fire,"Fire
+Dragon",,Protosynthesis,,,['Uber'],"HP
+105","Atk
+115","Def
+121","SpA
+65","SpD
+93","Spe
+91"
+Gourgeist,"Ghost
+Grass",,Pickup,Insomnia,Frisk,['National Dex'],"HP
+65","Atk
+90","Def
+122","SpA
+58","SpD
+75","Spe
+84"
+Gourgeist-Large,"Ghost
+Grass",,Pickup,Insomnia,Frisk,['National Dex'],"HP
+75","Atk
+95","Def
+122","SpA
+58","SpD
+75","Spe
+69"
+Gourgeist-Small,"Ghost
+Grass",,Pickup,Insomnia,Frisk,['National Dex'],"HP
+55","Atk
+85","Def
+122","SpA
+58","SpD
+75","Spe
+99"
+Gourgeist-Super,"Ghost
+Grass",,Pickup,Insomnia,Frisk,['National Dex'],"HP
+85","Atk
+100","Def
+122","SpA
+58","SpD
+75","Spe
+54"
+Grafaiai,"Poison
+Normal",,Unburden,Prankster,Poison Touch,['ZU'],"HP
+63","Atk
+95","Def
+65","SpA
+80","SpD
+72","Spe
+110"
+Granbull,Fairy,,Intimidate,Rattled,Quick Feet,['ZU'],"HP
+90","Atk
+120","Def
+75","SpA
+60","SpD
+60","Spe
+45"
+Grapploct,Fighting,,Limber,Technician,,['National Dex'],"HP
+80","Atk
+118","Def
+90","SpA
+70","SpD
+80","Spe
+42"
+Graveler,"Rock
+Ground",,Rock Head,Sand Veil,Sturdy,['NFE'],"HP
+55","Atk
+95","Def
+115","SpA
+45","SpD
+45","Spe
+35"
+Graveler-Alola,"Rock
+Electric",,Magnet Pull,Galvanize,Sturdy,['NFE'],"HP
+55","Atk
+95","Def
+115","SpA
+45","SpD
+45","Spe
+35"
+Great Tusk,"Ground
+Fighting",,Protosynthesis,,,['OU'],"HP
+115","Atk
+131","Def
+131","SpA
+53","SpD
+53","Spe
+87"
+Greavard,Ghost,,Pickup,Fluffy,,['LC'],"HP
+50","Atk
+61","Def
+60","SpA
+30","SpD
+55","Spe
+34"
+Greedent,Normal,,Cheek Pouch,Gluttony,,['ZU'],"HP
+120","Atk
+95","Def
+95","SpA
+55","SpD
+75","Spe
+20"
+Greninja,"Water
+Dark",,Torrent,Battle Bond,Protean,['UU'],"HP
+72","Atk
+95","Def
+67","SpA
+103","SpD
+71","Spe
+122"
+Greninja-Ash,"Water
+Dark",,Battle Bond,,,['National Dex'],"HP
+72","Atk
+145","Def
+67","SpA
+153","SpD
+71","Spe
+132"
+Greninja-Bond,"Water
+Dark",,Battle Bond,,,['UU'],"HP
+72","Atk
+95","Def
+67","SpA
+103","SpD
+71","Spe
+122"
+Grimer,Poison,,Stench,Poison Touch,Sticky Hold,['LC'],"HP
+80","Atk
+80","Def
+50","SpA
+40","SpD
+50","Spe
+25"
+Grimer-Alola,"Poison
+Dark",,Poison Touch,Power of Alchemy,Gluttony,['LC'],"HP
+80","Atk
+80","Def
+50","SpA
+40","SpD
+50","Spe
+25"
+Grimmsnarl,"Dark
+Fairy",,Prankster,Pickpocket,Frisk,['PU'],"HP
+95","Atk
+120","Def
+65","SpA
+95","SpD
+75","Spe
+60"
+Grimmsnarl-Gmax,"Dark
+Fairy",,Prankster,Pickpocket,Frisk,['National Dex'],"HP
+95","Atk
+120","Def
+65","SpA
+95","SpD
+75","Spe
+60"
+Grookey,Grass,,Overgrow,Grassy Surge,,['LC'],"HP
+50","Atk
+65","Def
+50","SpA
+40","SpD
+40","Spe
+65"
+Grotle,Grass,,Overgrow,Shell Armor,,['NFE'],"HP
+75","Atk
+89","Def
+85","SpA
+55","SpD
+65","Spe
+36"
+Groudon,Ground,,Drought,,,['Uber'],"HP
+100","Atk
+150","Def
+140","SpA
+100","SpD
+90","Spe
+90"
+Groudon-Primal,"Ground
+Fire",,Desolate Land,,,['National Dex'],"HP
+100","Atk
+180","Def
+160","SpA
+150","SpD
+90","Spe
+90"
+Grovyle,Grass,,Overgrow,Unburden,,['NFE'],"HP
+50","Atk
+65","Def
+45","SpA
+85","SpD
+65","Spe
+95"
+Growlithe,Fire,,Intimidate,Justified,Flash Fire,['LC'],"HP
+55","Atk
+70","Def
+45","SpA
+70","SpD
+50","Spe
+60"
+Growlithe-Hisui,"Fire
+Rock",,Intimidate,Rock Head,Flash Fire,['LC'],"HP
+60","Atk
+75","Def
+45","SpA
+65","SpD
+50","Spe
+55"
+Grubbin,Bug,,Swarm,,,['LC'],"HP
+47","Atk
+62","Def
+45","SpA
+55","SpD
+45","Spe
+46"
+Grumpig,Psychic,,Thick Fat,Gluttony,Own Tempo,['ZU'],"HP
+80","Atk
+45","Def
+65","SpA
+90","SpD
+110","Spe
+80"
+Gulpin,Poison,,Liquid Ooze,Gluttony,Sticky Hold,['LC'],"HP
+70","Atk
+43","Def
+53","SpA
+43","SpD
+53","Spe
+40"
+Gumshoos,Normal,,Stakeout,Adaptability,Strong Jaw,['ZU'],"HP
+88","Atk
+110","Def
+60","SpA
+55","SpD
+60","Spe
+45"
+Gumshoos-Totem,Normal,,Adaptability,,,['National Dex'],"HP
+88","Atk
+110","Def
+60","SpA
+55","SpD
+60","Spe
+45"
+Gurdurr,Fighting,,Guts,Iron Fist,Sheer Force,['NFE'],"HP
+85","Atk
+105","Def
+85","SpA
+40","SpD
+50","Spe
+40"
+Guzzlord,"Dark
+Dragon",,Beast Boost,,,['National Dex'],"HP
+223","Atk
+101","Def
+53","SpA
+97","SpD
+53","Spe
+43"
+Gyarados,"Water
+Flying",,Intimidate,Moxie,,['NUBL'],"HP
+95","Atk
+125","Def
+79","SpA
+60","SpD
+100","Spe
+81"
+Gyarados-Mega,"Water
+Dark",,Mold Breaker,,,['National Dex'],"HP
+95","Atk
+155","Def
+109","SpA
+70","SpD
+130","Spe
+81"
+Hakamo-o,"Dragon
+Fighting",,Bulletproof,Overcoat,Soundproof,['NFE'],"HP
+55","Atk
+75","Def
+90","SpA
+65","SpD
+70","Spe
+65"
+Happiny,Normal,,Natural Cure,Friend Guard,Serene Grace,['LC'],"HP
+100","Atk
+5","Def
+5","SpA
+15","SpD
+65","Spe
+30"
+Hariyama,Fighting,,Thick Fat,Sheer Force,Guts,['ZUBL'],"HP
+144","Atk
+120","Def
+60","SpA
+40","SpD
+60","Spe
+50"
+Hatenna,Psychic,,Healer,Magic Bounce,Anticipation,['LC'],"HP
+42","Atk
+30","Def
+45","SpA
+56","SpD
+53","Spe
+39"
+Hatterene,"Psychic
+Fairy",,Healer,Magic Bounce,Anticipation,['OU'],"HP
+57","Atk
+90","Def
+95","SpA
+136","SpD
+103","Spe
+29"
+Hatterene-Gmax,"Psychic
+Fairy",,Healer,Magic Bounce,Anticipation,['National Dex'],"HP
+57","Atk
+90","Def
+95","SpA
+136","SpD
+103","Spe
+29"
+Hattrem,Psychic,,Healer,Magic Bounce,Anticipation,['NFE'],"HP
+57","Atk
+40","Def
+65","SpA
+86","SpD
+73","Spe
+49"
+Haunter,"Ghost
+Poison",,Levitate,,,['NFE'],"HP
+45","Atk
+50","Def
+45","SpA
+115","SpD
+55","Spe
+95"
+Hawlucha,"Fighting
+Flying",,Limber,Mold Breaker,Unburden,['RUBL'],"HP
+78","Atk
+92","Def
+75","SpA
+74","SpD
+63","Spe
+118"
+Haxorus,Dragon,,Rivalry,Unnerve,Mold Breaker,['RUBL'],"HP
+76","Atk
+147","Def
+90","SpA
+60","SpD
+70","Spe
+97"
+Heatmor,Fire,,Gluttony,White Smoke,Flash Fire,['National Dex'],"HP
+85","Atk
+97","Def
+66","SpA
+105","SpD
+66","Spe
+65"
+Heatran,"Fire
+Steel",,Flash Fire,Flame Body,,['UU'],"HP
+91","Atk
+90","Def
+106","SpA
+130","SpD
+106","Spe
+77"
+Heliolisk,"Electric
+Normal",,Dry Skin,Solar Power,Sand Veil,['National Dex'],"HP
+62","Atk
+55","Def
+52","SpA
+109","SpD
+94","Spe
+109"
+Helioptile,"Electric
+Normal",,Dry Skin,Solar Power,Sand Veil,['National Dex'],"HP
+44","Atk
+38","Def
+33","SpA
+61","SpD
+43","Spe
+70"
+Hemogoblin,"Fairy
+Fire",,Pixilate,Own Tempo,Intimidate,['CAP'],"HP
+90","Atk
+96","Def
+87","SpA
+96","SpD
+89","Spe
+55"
+Heracross,"Bug
+Fighting",,Swarm,Moxie,Guts,['NU'],"HP
+80","Atk
+125","Def
+75","SpA
+40","SpD
+95","Spe
+85"
+Heracross-Mega,"Bug
+Fighting",,Skill Link,,,['National Dex'],"HP
+80","Atk
+185","Def
+115","SpA
+40","SpD
+105","Spe
+75"
+Herdier,Normal,,Intimidate,Scrappy,Sand Rush,['National Dex'],"HP
+65","Atk
+80","Def
+65","SpA
+35","SpD
+65","Spe
+60"
+Hippopotas,Ground,,Sand Stream,Sand Force,,['LC'],"HP
+68","Atk
+72","Def
+78","SpA
+38","SpD
+42","Spe
+32"
+Hippowdon,Ground,,Sand Stream,Sand Force,,['RU'],"HP
+108","Atk
+112","Def
+118","SpA
+68","SpD
+72","Spe
+47"
+Hitmonchan,Fighting,,Keen Eye,Inner Focus,Iron Fist,['ZU'],"HP
+50","Atk
+105","Def
+79","SpA
+35","SpD
+110","Spe
+76"
+Hitmonlee,Fighting,,Limber,Unburden,Reckless,['ZU'],"HP
+50","Atk
+120","Def
+53","SpA
+35","SpD
+110","Spe
+87"
+Hitmontop,Fighting,,Intimidate,Steadfast,Technician,['PU'],"HP
+50","Atk
+95","Def
+95","SpA
+35","SpD
+110","Spe
+70"
+Ho-Oh,"Fire
+Flying",,Pressure,Regenerator,,['Uber'],"HP
+106","Atk
+130","Def
+90","SpA
+110","SpD
+154","Spe
+90"
+Honchkrow,"Dark
+Flying",,Insomnia,Moxie,Super Luck,['ZU'],"HP
+100","Atk
+125","Def
+52","SpA
+105","SpD
+52","Spe
+71"
+Honedge,"Steel
+Ghost",,No Guard,,,['National Dex'],"HP
+45","Atk
+80","Def
+100","SpA
+35","SpD
+37","Spe
+28"
+Hoopa,"Psychic
+Ghost",,Magician,,,['PU'],"HP
+80","Atk
+110","Def
+60","SpA
+150","SpD
+130","Spe
+70"
+Hoopa-Unbound,"Psychic
+Dark",,Magician,,,['UU'],"HP
+80","Atk
+160","Def
+60","SpA
+170","SpD
+130","Spe
+80"
+Hoothoot,"Normal
+Flying",,Insomnia,Tinted Lens,Keen Eye,['LC'],"HP
+60","Atk
+30","Def
+30","SpA
+36","SpD
+56","Spe
+50"
+Hoppip,"Grass
+Flying",,Chlorophyll,Infiltrator,Leaf Guard,['LC'],"HP
+35","Atk
+35","Def
+40","SpA
+35","SpD
+55","Spe
+50"
+Horsea,Water,,Swift Swim,Damp,Sniper,['LC'],"HP
+30","Atk
+40","Def
+70","SpA
+70","SpD
+25","Spe
+60"
+Houndoom,"Dark
+Fire",,Early Bird,Unnerve,Flash Fire,['ZU'],"HP
+75","Atk
+90","Def
+50","SpA
+110","SpD
+80","Spe
+95"
+Houndoom-Mega,"Dark
+Fire",,Solar Power,,,['National Dex'],"HP
+75","Atk
+90","Def
+90","SpA
+140","SpD
+90","Spe
+115"
+Houndour,"Dark
+Fire",,Early Bird,Unnerve,"Flash Fire
+This Pokemon's Fire attacks do 1.5x damage if hit by one Fire move; Fire immunity.",['LC'],"HP
+45","Atk
+60","Def
+30","SpA
+80","SpD
+50","Spe
+65"
+Houndstone,Ghost,,Sand Rush,Fluffy,,['PU'],"HP
+72","Atk
+101","Def
+100","SpA
+50","SpD
+97","Spe
+68"
+Huntail,Water,,Swift Swim,Water Veil,,['National Dex'],"HP
+55","Atk
+104","Def
+105","SpA
+94","SpD
+75","Spe
+52"
+Hydrapple,"Grass
+Dragon",,Supersweet Syrup,Sticky Hold,Regenerator,['UU'],"HP
+106","Atk
+80","Def
+110","SpA
+120","SpD
+80","Spe
+44"
+Hydreigon,"Dark
+Dragon",,Levitate,,,['RUBL'],"HP
+92","Atk
+105","Def
+90","SpA
+125","SpD
+90","Spe
+98"
+Hypno,Psychic,,Insomnia,Inner Focus,Forewarn,['ZU'],"HP
+85","Atk
+73","Def
+70","SpA
+73","SpD
+115","Spe
+67"
+Igglybuff,"Normal
+Fairy",,Cute Charm,Friend Guard,Competitive,['LC'],"HP
+90","Atk
+30","Def
+15","SpA
+40","SpD
+20","Spe
+15"
+Illumise,Bug,,Oblivious,Prankster,Tinted Lens,['ZU'],"HP
+65","Atk
+47","Def
+75","SpA
+73","SpD
+85","Spe
+85"
+Impidimp,"Dark
+Fairy",,Prankster,Pickpocket,Frisk,['LC'],"HP
+45","Atk
+45","Def
+30","SpA
+55","SpD
+40","Spe
+50"
+Incineroar,"Fire
+Dark",,Blaze,Intimidate,,['NU'],"HP
+95","Atk
+115","Def
+90","SpA
+80","SpD
+90","Spe
+60"
+Indeedee,"Psychic
+Normal",,Inner Focus,Psychic Surge,Synchronize,['PUBL'],"HP
+60","Atk
+65","Def
+55","SpA
+105","SpD
+95","Spe
+95"
+Indeedee-F,"Psychic
+Normal",,Own Tempo,Psychic Surge,Synchronize,['ZU'],"HP
+70","Atk
+55","Def
+65","SpA
+95","SpD
+105","Spe
+85"
+Infernape,"Fire
+Fighting",,Blaze,Iron Fist,,['NU'],"HP
+76","Atk
+104","Def
+71","SpA
+104","SpD
+71","Spe
+108"
+Inkay,"Dark
+Psychic",,Contrary,Infiltrator,Suction Cups,['LC'],"HP
+53","Atk
+54","Def
+53","SpA
+37","SpD
+46","Spe
+45"
+Inteleon,Water,,Torrent,Sniper,,['NU'],"HP
+70","Atk
+85","Def
+65","SpA
+125","SpD
+65","Spe
+120"
+Inteleon-Gmax,Water,,Torrent,Sniper,,['National Dex'],"HP
+70","Atk
+85","Def
+65","SpA
+125","SpD
+65","Spe
+120"
+Iron Boulder,"Rock
+Psychic",,Quark Drive,,,['UUBL'],"HP
+90","Atk
+120","Def
+80","SpA
+68","SpD
+108","Spe
+124"
+Iron Bundle,"Ice
+Water",,Quark Drive,,,['Uber'],"HP
+56","Atk
+80","Def
+114","SpA
+124","SpD
+60","Spe
+136"
+Iron Crown,"Steel
+Psychic",,Quark Drive,,,['OU'],"HP
+90","Atk
+72","Def
+100","SpA
+122","SpD
+108","Spe
+98"
+Iron Hands,"Fighting
+Electric",,Quark Drive,,,['UUBL'],"HP
+154","Atk
+140","Def
+108","SpA
+50","SpD
+68","Spe
+50"
+Iron Jugulis,"Dark
+Flying",,Quark Drive,,,['RUBL'],"HP
+94","Atk
+80","Def
+86","SpA
+122","SpD
+80","Spe
+108"
+Iron Leaves,"Grass
+Psychic",,Quark Drive,,,['RUBL'],"HP
+90","Atk
+130","Def
+88","SpA
+70","SpD
+108","Spe
+104"
+Iron Moth,"Fire
+Poison",,Quark Drive,,,['OU'],"HP
+80","Atk
+70","Def
+60","SpA
+140","SpD
+110","Spe
+110"
+Iron Thorns,"Rock
+Electric",,Quark Drive,,,['NUBL'],"HP
+100","Atk
+134","Def
+110","SpA
+70","SpD
+84","Spe
+72"
+Iron Treads,"Ground
+Steel",,Quark Drive,,,['OU'],"HP
+90","Atk
+112","Def
+120","SpA
+72","SpD
+70","Spe
+106"
+Iron Valiant,"Fairy
+Fighting",,Quark Drive,,,['OU'],"HP
+74","Atk
+130","Def
+90","SpA
+120","SpD
+60","Spe
+116"
+Ivysaur,"Grass
+Poison",,Overgrow,Chlorophyll,,['NFE'],"HP
+60","Atk
+62","Def
+63","SpA
+80","SpD
+80","Spe
+60"
+Jangmo-o,Dragon,,Bulletproof,Overcoat,Soundproof,['LC'],"HP
+45","Atk
+55","Def
+65","SpA
+45","SpD
+45","Spe
+45"
+Jellicent,"Water
+Ghost",,Water Absorb,Damp,Cursed Body,['National Dex'],"HP
+100","Atk
+60","Def
+70","SpA
+85","SpD
+105","Spe
+60"
+Jigglypuff,"Normal
+Fairy",,Cute Charm,Friend Guard,Competitive,['NFE'],"HP
+115","Atk
+45","Def
+20","SpA
+45","SpD
+25","Spe
+20"
+Jirachi,"Steel
+Psychic",,Serene Grace,,,['RU'],"HP
+100","Atk
+100","Def
+100","SpA
+100","SpD
+100","Spe
+100"
+Jolteon,Electric,,Volt Absorb,Quick Feet,,['ZU'],"HP
+65","Atk
+65","Def
+60","SpA
+110","SpD
+95","Spe
+130"
+Joltik,"Bug
+Electric",,Compound Eyes,Swarm,Unnerve,['LC'],"HP
+50","Atk
+47","Def
+50","SpA
+57","SpD
+50","Spe
+65"
+Jumbao,"Grass
+Fairy",,Trace,Drought,Overcoat,['CAP'],"HP
+92","Atk
+63","Def
+97","SpA
+124","SpD
+104","Spe
+96"
+Jumpluff,"Grass
+Flying",,Chlorophyll,Infiltrator,Leaf Guard,['ZU'],"HP
+75","Atk
+55","Def
+70","SpA
+55","SpD
+95","Spe
+110"
+Justyke,"Steel
+Ground",,Levitate,Justified,Bulletproof,[],"HP
+72","Atk
+70","Def
+56","SpA
+83","SpD
+68","Spe
+30"
+Jynx,"Ice
+Psychic",,Oblivious,Dry Skin,Forewarn,['National Dex'],"HP
+65","Atk
+50","Def
+35","SpA
+115","SpD
+95","Spe
+95"
+Kabuto,"Rock
+Water",,Swift Swim,Weak Armor,Battle Armor,['National Dex'],"HP
+30","Atk
+80","Def
+90","SpA
+55","SpD
+45","Spe
+55"
+Kabutops,"Rock
+Water",,Swift Swim,Weak Armor,Battle Armor,['National Dex'],"HP
+60","Atk
+115","Def
+105","SpA
+65","SpD
+70","Spe
+80"
+Kadabra,Psychic,,Synchronize,Magic Guard,Inner Focus,['National Dex'],"HP
+40","Atk
+35","Def
+30","SpA
+120","SpD
+70","Spe
+105"
+Kakuna,"Bug
+Poison",,Shed Skin,,,['National Dex'],"HP
+45","Atk
+25","Def
+50","SpA
+25","SpD
+25","Spe
+35"
+Kangaskhan,Normal,,Early Bird,Inner Focus,Scrappy,['National Dex'],"HP
+105","Atk
+95","Def
+80","SpA
+40","SpD
+80","Spe
+90"
+Kangaskhan-Mega,Normal,,Parental Bond,,,['National Dex'],"HP
+105","Atk
+125","Def
+100","SpA
+60","SpD
+100","Spe
+100"
+Karrablast,Bug,,Swarm,No Guard,Shed Skin,['National Dex'],"HP
+50","Atk
+75","Def
+45","SpA
+40","SpD
+45","Spe
+60"
+Kartana,"Grass
+Steel",,Beast Boost,,,['National Dex'],"HP
+59","Atk
+181","Def
+131","SpA
+59","SpD
+31","Spe
+109"
+Kecleon,Normal,,Color Change,Protean,,['National Dex'],"HP
+60","Atk
+90","Def
+70","SpA
+60","SpD
+120","Spe
+40"
+Keldeo,"Water
+Fighting",,Justified,,,['UU'],"HP
+91","Atk
+72","Def
+90","SpA
+129","SpD
+90","Spe
+108"
+Keldeo-Resolute,"Water
+Fighting",,Justified,,,['UU'],"HP
+91","Atk
+72","Def
+90","SpA
+129","SpD
+90","Spe
+108"
+Kerfluffle,"Fairy
+Fighting",,Natural Cure,Friend Guard,Aroma Veil,['CAP'],"HP
+84","Atk
+78","Def
+86","SpA
+115","SpD
+88","Spe
+119"
+Kilowattrel,"Electric
+Flying",,Wind Power,Competitive,"Volt Absorb
+This Pokemon heals 1/4 of its max HP when hit by Electric moves; Electric immunity.",['NU'],"HP
+70","Atk
+70","Def
+60","SpA
+105","SpD
+60","Spe
+125"
+Kingambit,"Dark
+Steel",,Defiant,Pressure,Supreme Overlord,['OU'],"HP
+100","Atk
+135","Def
+120","SpA
+60","SpD
+85","Spe
+50"
+Kingdra,"Water
+Dragon",,Swift Swim,Damp,Sniper,['ZUBL'],"HP
+75","Atk
+95","Def
+95","SpA
+95","SpD
+95","Spe
+85"
+Kingler,Water,,Hyper Cutter,Sheer Force,Shell Armor,['National Dex'],"HP
+55","Atk
+130","Def
+115","SpA
+50","SpD
+50","Spe
+75"
+Kingler-Gmax,Water,,Hyper Cutter,Sheer Force,Shell Armor,['National Dex'],"HP
+55","Atk
+130","Def
+115","SpA
+50","SpD
+50","Spe
+75"
+Kirlia,"Psychic
+Fairy",,Synchronize,Telepathy,Trace,['NFE'],"HP
+38","Atk
+35","Def
+35","SpA
+65","SpD
+55","Spe
+50"
+Kitsunoh,"Ghost
+Steel",,Frisk,Trace,Limber,['CAP'],"HP
+80","Atk
+117","Def
+85","SpA
+55","SpD
+80","Spe
+128"
+Klang,Steel,,Plus,Clear Body,Minus,['National Dex'],"HP
+60","Atk
+80","Def
+95","SpA
+70","SpD
+85","Spe
+50"
+Klawf,Rock,,Anger Shell,Regenerator,Shell Armor,['ZU'],"HP
+70","Atk
+100","Def
+115","SpA
+35","SpD
+55","Spe
+75"
+Kleavor,"Bug
+Rock",,Swarm,Sharpness,Sheer Force,['RU'],"HP
+70","Atk
+135","Def
+95","SpA
+45","SpD
+70","Spe
+85"
+Klefki,"Steel
+Fairy",,Prankster,Magician,,['NU'],"HP
+57","Atk
+80","Def
+91","SpA
+80","SpD
+87","Spe
+75"
+Klink,Steel,,Plus,Clear Body,Minus,['National Dex'],"HP
+40","Atk
+55","Def
+70","SpA
+45","SpD
+60","Spe
+30"
+Klinklang,Steel,,Plus,Clear Body,Minus,['National Dex'],"HP
+60","Atk
+100","Def
+115","SpA
+70","SpD
+85","Spe
+90"
+Koffing,Poison,,Levitate,Stench,Neutralizing Gas,['LC'],"HP
+40","Atk
+65","Def
+95","SpA
+60","SpD
+45","Spe
+35"
+Komala,Normal,,Comatose,,,['ZU'],"HP
+65","Atk
+115","Def
+65","SpA
+75","SpD
+95","Spe
+65"
+Kommo-o,"Dragon
+Fighting",,Bulletproof,Overcoat,Soundproof,['UUBL'],"HP
+75","Atk
+110","Def
+125","SpA
+100","SpD
+105","Spe
+85"
+Kommo-o-Totem,"Dragon
+Fighting",,Overcoat,,,['National Dex'],"HP
+75","Atk
+110","Def
+125","SpA
+100","SpD
+105","Spe
+85"
+Koraidon,"Fighting
+Dragon",,Orichalcum Pulse,,,['Uber'],"HP
+100","Atk
+135","Def
+115","SpA
+85","SpD
+100","Spe
+135"
+Krabby,Water,,Hyper Cutter,Sheer Force,Shell Armor,['National Dex'],"HP
+30","Atk
+105","Def
+90","SpA
+25","SpD
+25","Spe
+50"
+Kricketot,Bug,,Shed Skin,Run Away,,['LC'],"HP
+37","Atk
+25","Def
+41","SpA
+25","SpD
+41","Spe
+25"
+Kricketune,Bug,,Swarm,Technician,,['ZU'],"HP
+77","Atk
+85","Def
+51","SpA
+55","SpD
+51","Spe
+65"
+Krilowatt,"Electric
+Water",,Trace,Minus,Magic Guard,['CAP'],"HP
+151","Atk
+84","Def
+73","SpA
+83","SpD
+74","Spe
+105"
+Krokorok,"Ground
+Dark",,Intimidate,Anger Point,Moxie,['NFE'],"HP
+60","Atk
+82","Def
+45","SpA
+45","SpD
+45","Spe
+74"
+Krookodile,"Ground
+Dark",,Intimidate,Anger Point,Moxie,['RU'],"HP
+95","Atk
+117","Def
+80","SpA
+65","SpD
+70","Spe
+92"
+Kubfu,Fighting,,Inner Focus,,,['NFE'],"HP
+60","Atk
+90","Def
+60","SpA
+53","SpD
+50","Spe
+72"
+Kyogre,Water,,Drizzle,,,['Uber'],"HP
+100","Atk
+100","Def
+90","SpA
+150","SpD
+140","Spe
+90"
+Kyogre-Primal,Water,,Primordial Sea,,,['National Dex'],"HP
+100","Atk
+150","Def
+90","SpA
+180","SpD
+160","Spe
+90"
+Kyurem,"Dragon
+Ice",,Pressure,,,['OU'],"HP
+125","Atk
+130","Def
+90","SpA
+130","SpD
+90","Spe
+95"
+Kyurem-Black,"Dragon
+Ice",,Teravolt,,,['Uber'],"HP
+125","Atk
+170","Def
+100","SpA
+120","SpD
+90","Spe
+95"
+Kyurem-White,"Dragon
+Ice",,Turboblaze,,,['Uber'],"HP
+125","Atk
+120","Def
+90","SpA
+170","SpD
+100","Spe
+95"
+Lairon,"Steel
+Rock",,Sturdy,Heavy Metal,Rock Head,['National Dex'],"HP
+60","Atk
+90","Def
+140","SpA
+50","SpD
+50","Spe
+40"
+Lampent,"Ghost
+Fire",,Flash Fire,Infiltrator,Flame Body,['NFE'],"HP
+60","Atk
+40","Def
+60","SpA
+95","SpD
+60","Spe
+55"
+Landorus,"Ground
+Flying",,Sand Force,Sheer Force,,['Uber'],"HP
+89","Atk
+125","Def
+90","SpA
+115","SpD
+80","Spe
+101"
+Landorus-Therian,"Ground
+Flying",,Intimidate,,,['OU'],"HP
+89","Atk
+145","Def
+90","SpA
+105","SpD
+80","Spe
+91"
+Lanturn,"Water
+Electric",,Volt Absorb,Water Absorb,Illuminate,['ZU'],"HP
+125","Atk
+58","Def
+58","SpA
+76","SpD
+76","Spe
+67"
+Lapras,"Water
+Ice",,Water Absorb,Hydration,Shell Armor,['ZU'],"HP
+130","Atk
+85","Def
+80","SpA
+85","SpD
+95","Spe
+60"
+Lapras-Gmax,"Water
+Ice",,Water Absorb,Hydration,Shell Armor,['National Dex'],"HP
+130","Atk
+85","Def
+80","SpA
+85","SpD
+95","Spe
+60"
+Larvesta,"Bug
+Fire",,Flame Body,Swarm,,['LC'],"HP
+55","Atk
+85","Def
+55","SpA
+50","SpD
+55","Spe
+60"
+Larvitar,"Rock
+Ground",,Guts,Sand Veil,,['LC'],"HP
+50","Atk
+64","Def
+50","SpA
+45","SpD
+50","Spe
+41"
+Latias,"Dragon
+Psychic",,Levitate,,,['UUBL'],"HP
+80","Atk
+80","Def
+90","SpA
+110","SpD
+130","Spe
+110"
+Latias-Mega,"Dragon
+Psychic",,Levitate,,,['National Dex'],"HP
+80","Atk
+100","Def
+120","SpA
+140","SpD
+150","Spe
+110"
+Latios,"Dragon
+Psychic",,Levitate,,,['UU'],"HP
+80","Atk
+90","Def
+80","SpA
+130","SpD
+110","Spe
+110"
+Latios-Mega,"Dragon
+Psychic",,Levitate,,,['National Dex'],"HP
+80","Atk
+130","Def
+100","SpA
+160","SpD
+120","Spe
+110"
+Leafeon,Grass,,Leaf Guard,Chlorophyll,,['ZU'],"HP
+65","Atk
+110","Def
+130","SpA
+60","SpD
+65","Spe
+95"
+Leavanny,"Bug
+Grass",,Swarm,Overcoat,Chlorophyll,['ZU'],"HP
+75","Atk
+103","Def
+80","SpA
+70","SpD
+80","Spe
+92"
+Lechonk,Normal,,Aroma Veil,Thick Fat,Gluttony,['LC'],"HP
+54","Atk
+45","Def
+40","SpA
+35","SpD
+45","Spe
+35"
+Ledian,"Bug
+Flying",,Swarm,Iron Fist,Early Bird,['National Dex'],"HP
+55","Atk
+35","Def
+50","SpA
+55","SpD
+110","Spe
+85"
+Ledyba,"Bug
+Flying",,Swarm,Rattled,Early Bird,['National Dex'],"HP
+40","Atk
+20","Def
+30","SpA
+40","SpD
+80","Spe
+55"
+Lickilicky,Normal,,Own Tempo,Cloud Nine,Oblivious,['National Dex'],"HP
+110","Atk
+85","Def
+95","SpA
+80","SpD
+95","Spe
+50"
+Lickitung,Normal,,Own Tempo,Cloud Nine,Oblivious,['National Dex'],"HP
+90","Atk
+55","Def
+75","SpA
+60","SpD
+75","Spe
+30"
+Liepard,Dark,,Limber,Prankster,Unburden,['National Dex'],"HP
+64","Atk
+88","Def
+50","SpA
+88","SpD
+50","Spe
+106"
+Lileep,"Rock
+Grass",,Suction Cups,Storm Drain,,['National Dex'],"HP
+66","Atk
+41","Def
+77","SpA
+61","SpD
+87","Spe
+23"
+Lilligant,Grass,,Chlorophyll,Leaf Guard,Own Tempo,['ZU'],"HP
+70","Atk
+60","Def
+75","SpA
+110","SpD
+75","Spe
+90"
+Lilligant-Hisui,"Grass
+Fighting",,Chlorophyll,Leaf Guard,Hustle,['NUBL'],"HP
+70","Atk
+105","Def
+75","SpA
+50","SpD
+75","Spe
+105"
+Lillipup,Normal,,Vital Spirit,Run Away,Pickup,['National Dex'],"HP
+45","Atk
+60","Def
+45","SpA
+25","SpD
+45","Spe
+55"
+Linoone,Normal,,Pickup,Quick Feet,Gluttony,['National Dex'],"HP
+78","Atk
+70","Def
+61","SpA
+50","SpD
+61","Spe
+100"
+Linoone-Galar,"Dark
+Normal",,Pickup,Quick Feet,Gluttony,['National Dex'],"HP
+78","Atk
+70","Def
+61","SpA
+50","SpD
+61","Spe
+100"
+Litleo,"Fire
+Normal",,Rivalry,Moxie,Unnerve,['LC'],"HP
+62","Atk
+50","Def
+58","SpA
+73","SpD
+54","Spe
+72"
+Litten,Fire,,Blaze,Intimidate,,['LC'],"HP
+45","Atk
+65","Def
+40","SpA
+60","SpD
+40","Spe
+70"
+Litwick,"Ghost
+Fire",,Flash Fire,Infiltrator,Flame Body,['LC'],"HP
+50","Atk
+30","Def
+55","SpA
+65","SpD
+55","Spe
+20"
+Lokix,"Bug
+Dark",,Swarm,Tinted Lens,,['UU'],"HP
+71","Atk
+102","Def
+78","SpA
+52","SpD
+55","Spe
+92"
+Lombre,"Water
+Grass",,Swift Swim,Own Tempo,Rain Dish,['NFE'],"HP
+60","Atk
+50","Def
+50","SpA
+60","SpD
+70","Spe
+50"
+Lopunny,Normal,,Cute Charm,Limber,Klutz,['National Dex'],"HP
+65","Atk
+76","Def
+84","SpA
+54","SpD
+96","Spe
+105"
+Lopunny-Mega,"Normal
+Fighting",,Scrappy,,,['National Dex'],"HP
+65","Atk
+136","Def
+94","SpA
+54","SpD
+96","Spe
+135"
+Lotad,"Water
+Grass",,Swift Swim,Own Tempo,Rain Dish,['LC'],"HP
+40","Atk
+30","Def
+30","SpA
+40","SpD
+50","Spe
+30"
+Loudred,Normal,,Soundproof,Scrappy,,['National Dex'],"HP
+84","Atk
+71","Def
+43","SpA
+71","SpD
+43","Spe
+48"
+Lucario,"Fighting
+Steel",,Steadfast,Justified,Inner Focus,['NUBL'],"HP
+70","Atk
+110","Def
+70","SpA
+115","SpD
+70","Spe
+90"
+Lucario-Mega,"Fighting
+Steel",,Adaptability,,,['National Dex'],"HP
+70","Atk
+145","Def
+88","SpA
+140","SpD
+70","Spe
+112"
+Ludicolo,"Water
+Grass",,Swift Swim,Own Tempo,Rain Dish,['ZU'],"HP
+80","Atk
+70","Def
+70","SpA
+90","SpD
+100","Spe
+70"
+Lugia,"Psychic
+Flying",,Pressure,Multiscale,,['Uber'],"HP
+106","Atk
+90","Def
+130","SpA
+90","SpD
+154","Spe
+110"
+Lumineon,Water,,Swift Swim,Water Veil,Storm Drain,['ZU'],"HP
+69","Atk
+69","Def
+76","SpA
+69","SpD
+86","Spe
+91"
+Lunala,"Psychic
+Ghost",,Shadow Shield,,,['Uber'],"HP
+137","Atk
+113","Def
+89","SpA
+137","SpD
+107","Spe
+97"
+Lunatone,"Rock
+Psychic",,Levitate,,,['National Dex'],"HP
+90","Atk
+55","Def
+65","SpA
+95","SpD
+85","Spe
+70"
+Lurantis,Grass,,Leaf Guard,Contrary,,['ZU'],"HP
+70","Atk
+105","Def
+90","SpA
+80","SpD
+90","Spe
+45"
+Lurantis-Totem,Grass,,Leaf Guard,,,['National Dex'],"HP
+70","Atk
+105","Def
+90","SpA
+80","SpD
+90","Spe
+45"
+Luvdisc,Water,,Swift Swim,Hydration,,['ZU'],"HP
+43","Atk
+30","Def
+55","SpA
+40","SpD
+65","Spe
+97"
+Luxio,Electric,,Rivalry,Guts,Intimidate,['NFE'],"HP
+60","Atk
+85","Def
+49","SpA
+60","SpD
+49","Spe
+60"
+Luxray,Electric,,Rivalry,Guts,Intimidate,['ZU'],"HP
+80","Atk
+120","Def
+79","SpA
+95","SpD
+79","Spe
+70"
+Lycanroc,Rock,,Keen Eye,Steadfast,Sand Rush,['ZU'],"HP
+75","Atk
+115","Def
+65","SpA
+55","SpD
+65","Spe
+112"
+Lycanroc-Dusk,Rock,,Tough Claws,,,['NUBL'],"HP
+75","Atk
+117","Def
+65","SpA
+55","SpD
+65","Spe
+110"
+Lycanroc-Midnight,Rock,,Keen Eye,No Guard,Vital Spirit,['ZU'],"HP
+85","Atk
+115","Def
+75","SpA
+55","SpD
+75","Spe
+82"
+Mabosstiff,Dark,,Intimidate,Stakeout,Guard Dog,['ZU'],"HP
+80","Atk
+120","Def
+90","SpA
+60","SpD
+70","Spe
+85"
+Machamp,Fighting,,Guts,Steadfast,No Guard,['National Dex'],"HP
+90","Atk
+130","Def
+80","SpA
+65","SpD
+85","Spe
+55"
+Machamp-Gmax,Fighting,,Guts,Steadfast,No Guard,['National Dex'],"HP
+90","Atk
+130","Def
+80","SpA
+65","SpD
+85","Spe
+55"
+Machoke,Fighting,,Guts,Steadfast,No Guard,['National Dex'],"HP
+80","Atk
+100","Def
+70","SpA
+50","SpD
+60","Spe
+45"
+Machop,Fighting,,Guts,Steadfast,No Guard,['National Dex'],"HP
+70","Atk
+80","Def
+50","SpA
+35","SpD
+35","Spe
+35"
+Magby,Fire,,Flame Body,Vital Spirit,,['LC'],"HP
+45","Atk
+75","Def
+37","SpA
+70","SpD
+55","Spe
+83"
+Magcargo,"Fire
+Rock",,Magma Armor,Weak Armor,Flame Body,['ZU'],"HP
+60","Atk
+50","Def
+120","SpA
+90","SpD
+80","Spe
+30"
+Magearna,"Steel
+Fairy",,Soul-Heart,,,['Uber'],"HP
+80","Atk
+95","Def
+115","SpA
+130","SpD
+115","Spe
+65"
+Magearna-Original,"Steel
+Fairy",,Soul-Heart,,,['Uber'],"HP
+80","Atk
+95","Def
+115","SpA
+130","SpD
+115","Spe
+65"
+Magikarp,Water,,Swift Swim,Rattled,,['LC'],"HP
+20","Atk
+10","Def
+55","SpA
+15","SpD
+20","Spe
+80"
+Magmar,Fire,,Flame Body,Vital Spirit,,['NFE'],"HP
+65","Atk
+95","Def
+57","SpA
+100","SpD
+85","Spe
+93"
+Magmortar,Fire,,Flame Body,Vital Spirit,,['ZU'],"HP
+75","Atk
+95","Def
+67","SpA
+125","SpD
+95","Spe
+83"
+Magnemite,"Electric
+Steel",,Magnet Pull,Analytic,Sturdy,['LC'],"HP
+25","Atk
+35","Def
+70","SpA
+95","SpD
+55","Spe
+45"
+Magneton,"Electric
+Steel",,Magnet Pull,Analytic,Sturdy,['ZU'],"HP
+50","Atk
+60","Def
+95","SpA
+120","SpD
+70","Spe
+70"
+Magnezone,"Electric
+Steel",,Magnet Pull,Analytic,Sturdy,['RU'],"HP
+70","Atk
+70","Def
+115","SpA
+130","SpD
+90","Spe
+60"
+Makuhita,Fighting,,Thick Fat,Sheer Force,Guts,['LC'],"HP
+72","Atk
+60","Def
+30","SpA
+20","SpD
+30","Spe
+25"
+Malaconda,"Dark
+Grass",,Harvest,Drought,Infiltrator,['CAP'],"HP
+115","Atk
+100","Def
+60","SpA
+40","SpD
+130","Spe
+55"
+Malamar,"Dark
+Psychic",,Contrary,Infiltrator,Suction Cups,['ZU'],"HP
+86","Atk
+92","Def
+88","SpA
+68","SpD
+75","Spe
+73"
+Mamoswine,"Ice
+Ground",,Oblivious,Thick Fat,Snow Cloak,['UU'],"HP
+110","Atk
+130","Def
+80","SpA
+70","SpD
+60","Spe
+80"
+Manaphy,Water,,Hydration,,,['RUBL'],"HP
+100","Atk
+100","Def
+100","SpA
+100","SpD
+100","Spe
+100"
+Mandibuzz,"Dark
+Flying",,Big Pecks,Weak Armor,Overcoat,['UU'],"HP
+110","Atk
+65","Def
+105","SpA
+55","SpD
+95","Spe
+80"
+Manectric,Electric,,Static,Minus,Lightning Rod,['National Dex'],"HP
+70","Atk
+75","Def
+60","SpA
+105","SpD
+60","Spe
+105"
+Manectric-Mega,Electric,,Intimidate,,,['National Dex'],"HP
+70","Atk
+75","Def
+80","SpA
+135","SpD
+80","Spe
+135"
+Mankey,Fighting,,Vital Spirit,Defiant,Anger Point,['LC'],"HP
+40","Atk
+80","Def
+35","SpA
+35","SpD
+45","Spe
+70"
+Mantine,"Water
+Flying",,Swift Swim,Water Veil,Water Absorb,['National Dex'],"HP
+85","Atk
+40","Def
+70","SpA
+80","SpD
+140","Spe
+70"
+Mantyke,"Water
+Flying",,Swift Swim,Water Veil,Water Absorb,['National Dex'],"HP
+45","Atk
+20","Def
+50","SpA
+60","SpD
+120","Spe
+50"
+Maractus,Grass,,Water Absorb,Storm Drain,Chlorophyll,['National Dex'],"HP
+75","Atk
+86","Def
+67","SpA
+106","SpD
+67","Spe
+60"
+Mareanie,"Poison
+Water",,Merciless,Regenerator,Limber,['LC'],"HP
+50","Atk
+53","Def
+62","SpA
+43","SpD
+52","Spe
+45"
+Mareep,Electric,,Static,Plus,,['LC'],"HP
+55","Atk
+40","Def
+40","SpA
+65","SpD
+45","Spe
+35"
+Marill,"Water
+Fairy",,Thick Fat,Sap Sipper,Huge Power,['NFE'],"HP
+70","Atk
+20","Def
+50","SpA
+20","SpD
+50","Spe
+40"
+Marowak,Ground,,Rock Head,Battle Armor,Lightning Rod,['National Dex'],"HP
+60","Atk
+80","Def
+110","SpA
+50","SpD
+80","Spe
+45"
+Marowak-Alola,"Fire
+Ghost",,Cursed Body,Rock Head,Lightning Rod,['National Dex'],"HP
+60","Atk
+80","Def
+110","SpA
+50","SpD
+80","Spe
+45"
+Marowak-Alola-Totem,"Fire
+Ghost",,Rock Head,,,['National Dex'],"HP
+60","Atk
+80","Def
+110","SpA
+50","SpD
+80","Spe
+45"
+Marshadow,"Fighting
+Ghost",,Technician,,,['National Dex'],"HP
+90","Atk
+125","Def
+80","SpA
+90","SpD
+90","Spe
+125"
+Marshtomp,"Water
+Ground",,Torrent,Damp,,['NFE'],"HP
+70","Atk
+85","Def
+70","SpA
+60","SpD
+70","Spe
+50"
+Maschiff,Dark,,Intimidate,Stakeout,Run Away,['LC'],"HP
+60","Atk
+78","Def
+60","SpA
+40","SpD
+51","Spe
+51"
+Masquerain,"Bug
+Flying",,Intimidate,Unnerve,,['ZU'],"HP
+70","Atk
+60","Def
+62","SpA
+100","SpD
+82","Spe
+80"
+Maushold,Normal,,Friend Guard,Technician,Cheek Pouch,['RU'],"HP
+74","Atk
+75","Def
+70","SpA
+65","SpD
+75","Spe
+111"
+Maushold-Four,Normal,,Friend Guard,Technician,Cheek Pouch,['RU'],"HP
+74","Atk
+75","Def
+70","SpA
+65","SpD
+75","Spe
+111"
+Mawile,"Steel
+Fairy",,Hyper Cutter,Sheer Force,Intimidate,['National Dex'],"HP
+50","Atk
+85","Def
+85","SpA
+55","SpD
+55","Spe
+50"
+Mawile-Mega,"Steel
+Fairy",,Huge Power,,,['National Dex'],"HP
+50","Atk
+105","Def
+125","SpA
+55","SpD
+95","Spe
+50"
+Medicham,"Fighting
+Psychic",,Pure Power,Telepathy,,['ZU'],"HP
+60","Atk
+60","Def
+75","SpA
+60","SpD
+75","Spe
+80"
+Medicham-Mega,"Fighting
+Psychic",,Pure Power,,,['National Dex'],"HP
+60","Atk
+100","Def
+85","SpA
+80","SpD
+85","Spe
+100"
+Meditite,"Fighting
+Psychic",,Pure Power,Telepathy,,['NFE'],"HP
+30","Atk
+40","Def
+55","SpA
+40","SpD
+55","Spe
+60"
+Meganium,Grass,,Overgrow,Leaf Guard,,['ZU'],"HP
+80","Atk
+82","Def
+100","SpA
+83","SpD
+100","Spe
+80"
+Melmetal,Steel,,Iron Fist,,,['National Dex'],"HP
+135","Atk
+143","Def
+143","SpA
+80","SpD
+65","Spe
+34"
+Melmetal-Gmax,Steel,,Iron Fist,,,['National Dex'],"HP
+135","Atk
+143","Def
+143","SpA
+80","SpD
+65","Spe
+34"
+Meloetta,"Normal
+Psychic",,Serene Grace,,,['PU'],"HP
+100","Atk
+77","Def
+77","SpA
+128","SpD
+128","Spe
+90"
+Meloetta-Pirouette,"Normal
+Fighting",,Serene Grace,,,['PU'],"HP
+100","Atk
+128","Def
+90","SpA
+77","SpD
+77","Spe
+128"
+Meltan,Steel,,Magnet Pull,,,['National Dex'],"HP
+46","Atk
+65","Def
+65","SpA
+55","SpD
+35","Spe
+34"
+Meowscarada,"Grass
+Dark",,Overgrow,Protean,,['OU'],"HP
+76","Atk
+110","Def
+70","SpA
+81","SpD
+70","Spe
+123"
+Meowstic-F,Psychic,,Keen Eye,Competitive,Infiltrator,['ZU'],"HP
+74","Atk
+48","Def
+76","SpA
+83","SpD
+81","Spe
+104"
+Meowstic-M,Psychic,,Keen Eye,Prankster,Infiltrator,['ZU'],"HP
+74","Atk
+48","Def
+76","SpA
+83","SpD
+81","Spe
+104"
+Meowth,Normal,,Pickup,Unnerve,Technician,['LC'],"HP
+40","Atk
+45","Def
+35","SpA
+40","SpD
+40","Spe
+90"
+Meowth-Alola,Dark,,Pickup,Rattled,Technician,['LC'],"HP
+40","Atk
+35","Def
+35","SpA
+50","SpD
+40","Spe
+90"
+Meowth-Galar,Steel,,Pickup,Unnerve,Tough Claws,['LC'],"HP
+50","Atk
+65","Def
+55","SpA
+40","SpD
+40","Spe
+40"
+Meowth-Gmax,Normal,,Pickup,Unnerve,Technician,['National Dex'],"HP
+40","Atk
+45","Def
+35","SpA
+40","SpD
+40","Spe
+90"
+Mesprit,Psychic,,Levitate,,,['ZU'],"HP
+80","Atk
+105","Def
+105","SpA
+105","SpD
+105","Spe
+80"
+Metagross,"Steel
+Psychic",,Clear Body,Light Metal,,['UU'],"HP
+80","Atk
+135","Def
+130","SpA
+95","SpD
+90","Spe
+70"
+Metagross-Mega,"Steel
+Psychic",,Tough Claws,,,['National Dex'],"HP
+80","Atk
+145","Def
+150","SpA
+105","SpD
+110","Spe
+110"
+Metang,"Steel
+Psychic",,Clear Body,Light Metal,,['NFE'],"HP
+60","Atk
+75","Def
+100","SpA
+55","SpD
+80","Spe
+50"
+Metapod,Bug,,Shed Skin,,,['National Dex'],"HP
+50","Atk
+20","Def
+55","SpA
+25","SpD
+25","Spe
+30"
+Mew,Psychic,,Synchronize,,,['NUBL'],"HP
+100","Atk
+100","Def
+100","SpA
+100","SpD
+100","Spe
+100"
+Mewtwo,Psychic,,Pressure,Unnerve,,['Uber'],"HP
+106","Atk
+110","Def
+90","SpA
+154","SpD
+90","Spe
+130"
+Mewtwo-Mega-X,"Psychic
+Fighting",,Steadfast,,,['National Dex'],"HP
+106","Atk
+190","Def
+100","SpA
+154","SpD
+100","Spe
+130"
+Mewtwo-Mega-Y,Psychic,,Insomnia,,,['National Dex'],"HP
+106","Atk
+150","Def
+70","SpA
+194","SpD
+120","Spe
+140"
+Miasmaw,"Bug
+Dragon",,Neutralizing Gas,Compound Eyes,Hyper Cutter,['CAP'],"HP
+85","Atk
+135","Def
+60","SpA
+88","SpD
+105","Spe
+99"
+Miasmite,"Bug
+Dragon",,Neutralizing Gas,Compound Eyes,Hyper Cutter,[],"HP
+40","Atk
+85","Def
+60","SpA
+52","SpD
+52","Spe
+44"
+Mienfoo,Fighting,,Inner Focus,Reckless,Regenerator,['LC'],"HP
+45","Atk
+85","Def
+50","SpA
+55","SpD
+50","Spe
+65"
+Mienshao,Fighting,,Inner Focus,Reckless,Regenerator,['NU'],"HP
+65","Atk
+125","Def
+60","SpA
+95","SpD
+60","Spe
+105"
+Mightyena,Dark,,Intimidate,Moxie,Quick Feet,['ZU'],"HP
+70","Atk
+90","Def
+70","SpA
+60","SpD
+60","Spe
+70"
+Milcery,Fairy,,Sweet Veil,Aroma Veil,,['LC'],"HP
+45","Atk
+40","Def
+40","SpA
+50","SpD
+61","Spe
+34"
+Milotic,Water,,Marvel Scale,Cute Charm,Competitive,['NU'],"HP
+95","Atk
+60","Def
+79","SpA
+100","SpD
+125","Spe
+81"
+Miltank,Normal,,Thick Fat,Sap Sipper,Scrappy,['National Dex'],"HP
+95","Atk
+80","Def
+105","SpA
+40","SpD
+70","Spe
+100"
+Mime Jr.,"Psychic
+Fairy",,Soundproof,Technician,Filter,['National Dex'],"HP
+20","Atk
+25","Def
+45","SpA
+70","SpD
+90","Spe
+60"
+Mimikyu,"Ghost
+Fairy",,Disguise,,,['RU'],"HP
+55","Atk
+90","Def
+80","SpA
+50","SpD
+105","Spe
+96"
+Mimikyu-Busted,"Ghost
+Fairy",,Disguise,,,['RU'],"HP
+55","Atk
+90","Def
+80","SpA
+50","SpD
+105","Spe
+96"
+Mimikyu-Busted-Totem,"Ghost
+Fairy",,Disguise,,,['National Dex'],"HP
+55","Atk
+90","Def
+80","SpA
+50","SpD
+105","Spe
+96"
+Mimikyu-Totem,"Ghost
+Fairy",,Disguise,,,['National Dex'],"HP
+55","Atk
+90","Def
+80","SpA
+50","SpD
+105","Spe
+96"
+Minccino,Normal,,Cute Charm,Skill Link,Technician,['LC'],"HP
+55","Atk
+50","Def
+40","SpA
+40","SpD
+40","Spe
+75"
+Minior,"Rock
+Flying",,Shields Down,,,['PU'],"HP
+60","Atk
+100","Def
+60","SpA
+100","SpD
+60","Spe
+120"
+Minior-Meteor,"Rock
+Flying",,Shields Down,,,['PU'],"HP
+60","Atk
+60","Def
+100","SpA
+60","SpD
+100","Spe
+60"
+Minun,Electric,,Minus,Volt Absorb,,['ZU'],"HP
+60","Atk
+40","Def
+50","SpA
+75","SpD
+85","Spe
+95"
+Miraidon,"Electric
+Dragon",,Hadron Engine,,,['AG'],"HP
+100","Atk
+85","Def
+100","SpA
+135","SpD
+115","Spe
+135"
+Misdreavus,Ghost,,Levitate,,,['NFE'],"HP
+60","Atk
+60","Def
+60","SpA
+85","SpD
+85","Spe
+85"
+Mismagius,Ghost,,Levitate,,,['ZU'],"HP
+60","Atk
+60","Def
+60","SpA
+105","SpD
+105","Spe
+105"
+Mollux,"Fire
+Poison",,Dry Skin,Illuminate,,['CAP'],"HP
+95","Atk
+45","Def
+83","SpA
+131","SpD
+105","Spe
+76"
+Moltres,"Fire
+Flying",,Pressure,Flame Body,,['OU'],"HP
+90","Atk
+100","Def
+90","SpA
+125","SpD
+85","Spe
+90"
+Moltres-Galar,"Dark
+Flying",,Berserk,,,['UUBL'],"HP
+90","Atk
+85","Def
+90","SpA
+100","SpD
+125","Spe
+90"
+Monferno,"Fire
+Fighting",,Blaze,Iron Fist,,['NFE'],"HP
+64","Atk
+78","Def
+52","SpA
+78","SpD
+52","Spe
+81"
+Monohm,Electric,,Shield Dust,Damp,Static,[],"HP
+53","Atk
+40","Def
+58","SpA
+67","SpD
+55","Spe
+55"
+Morelull,"Grass
+Fairy",,Illuminate,Rain Dish,Effect Spore,['National Dex'],"HP
+40","Atk
+35","Def
+55","SpA
+65","SpD
+75","Spe
+15"
+Morgrem,"Dark
+Fairy",,Prankster,Pickpocket,Frisk,['NFE'],"HP
+65","Atk
+60","Def
+45","SpA
+75","SpD
+55","Spe
+70"
+Morpeko,"Electric
+Dark",,Hunger Switch,,,['ZU'],"HP
+58","Atk
+95","Def
+58","SpA
+70","SpD
+58","Spe
+97"
+Morpeko-Hangry,"Electric
+Dark",,Hunger Switch,,,['ZU'],"HP
+58","Atk
+95","Def
+58","SpA
+70","SpD
+58","Spe
+97"
+Mothim,"Bug
+Flying",,Swarm,Tinted Lens,,['National Dex'],"HP
+70","Atk
+94","Def
+50","SpA
+94","SpD
+50","Spe
+66"
+Mr. Mime,"Psychic
+Fairy",,Soundproof,Technician,Filter,['National Dex'],"HP
+40","Atk
+45","Def
+65","SpA
+100","SpD
+120","Spe
+90"
+Mr. Mime-Galar,"Ice
+Psychic",,Vital Spirit,Ice Body,Screen Cleaner,['National Dex'],"HP
+50","Atk
+65","Def
+65","SpA
+90","SpD
+90","Spe
+100"
+Mr. Rime,"Ice
+Psychic",,Tangled Feet,Ice Body,Screen Cleaner,['National Dex'],"HP
+80","Atk
+85","Def
+75","SpA
+110","SpD
+100","Spe
+70"
+Mudbray,Ground,,Own Tempo,Inner Focus,Stamina,['LC'],"HP
+70","Atk
+100","Def
+70","SpA
+45","SpD
+55","Spe
+45"
+Mudkip,Water,,Torrent,Damp,,['LC'],"HP
+50","Atk
+70","Def
+50","SpA
+50","SpD
+50","Spe
+40"
+Mudsdale,Ground,,Own Tempo,Inner Focus,Stamina,['PU'],"HP
+100","Atk
+125","Def
+100","SpA
+55","SpD
+85","Spe
+35"
+Muk,Poison,,Stench,Poison Touch,Sticky Hold,['ZU'],"HP
+105","Atk
+105","Def
+75","SpA
+65","SpD
+100","Spe
+50"
+Muk-Alola,"Poison
+Dark",,Poison Touch,Power of Alchemy,Gluttony,['NU'],"HP
+105","Atk
+105","Def
+75","SpA
+65","SpD
+100","Spe
+50"
+Mumbao,"Grass
+Fairy",,Trace,Solar Power,Overcoat,[],"HP
+55","Atk
+30","Def
+64","SpA
+87","SpD
+73","Spe
+66"
+Munchlax,Normal,,Pickup,Gluttony,Thick Fat,['LC'],"HP
+135","Atk
+85","Def
+40","SpA
+40","SpD
+85","Spe
+5"
+Munkidori,"Poison
+Psychic",,Toxic Chain,Frisk,,['NU'],"HP
+88","Atk
+75","Def
+66","SpA
+130","SpD
+90","Spe
+106"
+Munna,Psychic,,Forewarn,Telepathy,Synchronize,['National Dex'],"HP
+76","Atk
+25","Def
+45","SpA
+67","SpD
+55","Spe
+24"
+Murkrow,"Dark
+Flying",,Insomnia,Prankster,Super Luck,['NFE'],"HP
+60","Atk
+85","Def
+42","SpA
+85","SpD
+42","Spe
+91"
+Musharna,Psychic,,Forewarn,Telepathy,Synchronize,['National Dex'],"HP
+116","Atk
+55","Def
+85","SpA
+107","SpD
+95","Spe
+29"
+Nacli,Rock,,Purifying Salt,Clear Body,Sturdy,['LC'],"HP
+55","Atk
+55","Def
+75","SpA
+35","SpD
+35","Spe
+25"
+Naclstack,Rock,,Purifying Salt,Clear Body,Sturdy,['NFE'],"HP
+60","Atk
+60","Def
+100","SpA
+35","SpD
+65","Spe
+35"
+Naganadel,"Poison
+Dragon",,Beast Boost,,,['National Dex'],"HP
+73","Atk
+73","Def
+73","SpA
+127","SpD
+73","Spe
+121"
+Natu,"Psychic
+Flying",,Synchronize,Magic Bounce,Early Bird,['National Dex'],"HP
+40","Atk
+50","Def
+45","SpA
+70","SpD
+45","Spe
+70"
+Naviathan,"Water
+Steel",,Guts,Light Metal,Heatproof,['CAP'],"HP
+103","Atk
+110","Def
+90","SpA
+95","SpD
+65","Spe
+97"
+Necrozma,Psychic,,Prism Armor,,,['NUBL'],"HP
+97","Atk
+107","Def
+101","SpA
+127","SpD
+89","Spe
+79"
+Necrozma-Dawn Wings,"Psychic
+Ghost",,Prism Armor,,,['Uber'],"HP
+97","Atk
+113","Def
+109","SpA
+157","SpD
+127","Spe
+77"
+Necrozma-Dusk Mane,"Psychic
+Steel",,Prism Armor,,,['Uber'],"HP
+97","Atk
+157","Def
+127","SpA
+113","SpD
+109","Spe
+77"
+Necrozma-Ultra,"Psychic
+Dragon",,Neuroforce,,,['National Dex'],"HP
+97","Atk
+167","Def
+97","SpA
+167","SpD
+97","Spe
+129"
+Necturine,"Grass
+Ghost",,Anticipation,Telepathy,,[],"HP
+49","Atk
+55","Def
+60","SpA
+50","SpD
+75","Spe
+51"
+Necturna,"Grass
+Ghost",,Forewarn,Telepathy,,['CAP'],"HP
+64","Atk
+120","Def
+100","SpA
+85","SpD
+120","Spe
+58"
+Nickit,Dark,,Run Away,Stakeout,Unburden,['National Dex'],"HP
+40","Atk
+28","Def
+28","SpA
+47","SpD
+52","Spe
+50"
+Nidoking,"Poison
+Ground",,Poison Point,Sheer Force,Rivalry,['National Dex'],"HP
+81","Atk
+102","Def
+77","SpA
+85","SpD
+75","Spe
+85"
+Nidoqueen,"Poison
+Ground",,Poison Point,Sheer Force,Rivalry,['National Dex'],"HP
+90","Atk
+92","Def
+87","SpA
+75","SpD
+85","Spe
+76"
+Nidoran-F,Poison,,Poison Point,Hustle,Rivalry,['National Dex'],"HP
+55","Atk
+47","Def
+52","SpA
+40","SpD
+40","Spe
+41"
+Nidoran-M,Poison,,Poison Point,Hustle,Rivalry,['National Dex'],"HP
+46","Atk
+57","Def
+40","SpA
+40","SpD
+40","Spe
+50"
+Nidorina,Poison,,Poison Point,Hustle,Rivalry,['National Dex'],"HP
+70","Atk
+62","Def
+67","SpA
+55","SpD
+55","Spe
+56"
+Nidorino,Poison,,Poison Point,Hustle,Rivalry,['National Dex'],"HP
+61","Atk
+72","Def
+57","SpA
+55","SpD
+55","Spe
+65"
+Nihilego,"Rock
+Poison",,Beast Boost,,,['National Dex'],"HP
+109","Atk
+53","Def
+47","SpA
+127","SpD
+131","Spe
+103"
+Nincada,"Bug
+Ground",,Compound Eyes,Run Away,,['National Dex'],"HP
+31","Atk
+45","Def
+90","SpA
+30","SpD
+30","Spe
+40"
+Ninetales,Fire,,Flash Fire,Drought,,['ZU'],"HP
+73","Atk
+76","Def
+75","SpA
+81","SpD
+100","Spe
+100"
+Ninetales-Alola,"Ice
+Fairy",,Snow Cloak,Snow Warning,,['RU'],"HP
+73","Atk
+67","Def
+75","SpA
+81","SpD
+100","Spe
+109"
+Ninjask,"Bug
+Flying",,Speed Boost,Infiltrator,,['National Dex'],"HP
+61","Atk
+90","Def
+45","SpA
+50","SpD
+50","Spe
+160"
+Noctowl,"Normal
+Flying",,Insomnia,Tinted Lens,Keen Eye,['ZU'],"HP
+100","Atk
+50","Def
+50","SpA
+86","SpD
+96","Spe
+70"
+Nohface,Ghost,,Frisk,Unnerve,Limber,[],"HP
+50","Atk
+73","Def
+50","SpA
+30","SpD
+50","Spe
+80"
+Noibat,"Flying
+Dragon",,Frisk,Telepathy,Infiltrator,['LC'],"HP
+40","Atk
+30","Def
+35","SpA
+45","SpD
+40","Spe
+55"
+Noivern,"Flying
+Dragon",,Frisk,Telepathy,Infiltrator,['RU'],"HP
+85","Atk
+70","Def
+80","SpA
+97","SpD
+80","Spe
+123"
+Nosepass,Rock,,Sturdy,Sand Force,Magnet Pull,['LC'],"HP
+30","Atk
+45","Def
+135","SpA
+45","SpD
+90","Spe
+30"
+Numel,"Fire
+Ground",,Oblivious,Own Tempo,Simple,['LC'],"HP
+60","Atk
+60","Def
+40","SpA
+65","SpD
+45","Spe
+35"
+Nuzleaf,"Grass
+Dark",,Chlorophyll,Pickpocket,Early Bird,['NFE'],"HP
+70","Atk
+70","Def
+40","SpA
+60","SpD
+40","Spe
+60"
+Nymble,Bug,,Swarm,Tinted Lens,,['LC'],"HP
+33","Atk
+46","Def
+40","SpA
+21","SpD
+25","Spe
+45"
+Obstagoon,"Dark
+Normal",,Reckless,Defiant,Guts,['National Dex'],"HP
+93","Atk
+90","Def
+101","SpA
+60","SpD
+81","Spe
+95"
+Octillery,Water,,Suction Cups,Moody,Sniper,['National Dex'],"HP
+75","Atk
+105","Def
+75","SpA
+105","SpD
+75","Spe
+45"
+Oddish,"Grass
+Poison",,Chlorophyll,Run Away,,['LC'],"HP
+45","Atk
+50","Def
+55","SpA
+75","SpD
+65","Spe
+30"
+Ogerpon,Grass,,Defiant,,,['UU'],"HP
+80","Atk
+120","Def
+84","SpA
+60","SpD
+96","Spe
+110"
+Ogerpon-Cornerstone,"Grass
+Rock",,Sturdy,,,['UU'],"HP
+80","Atk
+120","Def
+84","SpA
+60","SpD
+96","Spe
+110"
+Ogerpon-Cornerstone-Tera,"Grass
+Rock",,Embody Aspect (Cornerstone),,,['UU'],"HP
+80","Atk
+120","Def
+84","SpA
+60","SpD
+96","Spe
+110"
+Ogerpon-Hearthflame,"Grass
+Fire",,Mold Breaker,,,['Uber'],"HP
+80","Atk
+120","Def
+84","SpA
+60","SpD
+96","Spe
+110"
+Ogerpon-Hearthflame-Tera,"Grass
+Fire",,Embody Aspect (Hearthflame),,,['Uber'],"HP
+80","Atk
+120","Def
+84","SpA
+60","SpD
+96","Spe
+110"
+Ogerpon-Teal-Tera,Grass,,Embody Aspect (Teal),,,['UU'],"HP
+80","Atk
+120","Def
+84","SpA
+60","SpD
+96","Spe
+110"
+Ogerpon-Wellspring,"Grass
+Water",,Water Absorb,,,['OU'],"HP
+80","Atk
+120","Def
+84","SpA
+60","SpD
+96","Spe
+110"
+Ogerpon-Wellspring-Tera,"Grass
+Water",,Embody Aspect (Wellspring),,,['OU'],"HP
+80","Atk
+120","Def
+84","SpA
+60","SpD
+96","Spe
+110"
+Oinkologne,Normal,,Lingering Aroma,Thick Fat,Gluttony,['ZU'],"HP
+110","Atk
+100","Def
+75","SpA
+59","SpD
+80","Spe
+65"
+Oinkologne-F,Normal,,Aroma Veil,Thick Fat,Gluttony,['ZU'],"HP
+115","Atk
+90","Def
+70","SpA
+59","SpD
+90","Spe
+65"
+Okidogi,"Poison
+Fighting",,Toxic Chain,Guard Dog,,['UU'],"HP
+88","Atk
+128","Def
+115","SpA
+58","SpD
+86","Spe
+80"
+Omanyte,"Rock
+Water",,Swift Swim,Weak Armor,Shell Armor,['National Dex'],"HP
+35","Atk
+40","Def
+100","SpA
+90","SpD
+55","Spe
+35"
+Omastar,"Rock
+Water",,Swift Swim,Weak Armor,Shell Armor,['National Dex'],"HP
+70","Atk
+60","Def
+125","SpA
+115","SpD
+70","Spe
+55"
+Onix,"Rock
+Ground",,Rock Head,Weak Armor,Sturdy,['National Dex'],"HP
+35","Atk
+45","Def
+160","SpA
+30","SpD
+45","Spe
+70"
+Oranguru,"Normal
+Psychic",,Inner Focus,Symbiosis,Telepathy,['ZU'],"HP
+90","Atk
+60","Def
+80","SpA
+90","SpD
+110","Spe
+60"
+Orbeetle,"Bug
+Psychic",,Swarm,Telepathy,Frisk,['National Dex'],"HP
+60","Atk
+45","Def
+110","SpA
+80","SpD
+120","Spe
+90"
+Orbeetle-Gmax,"Bug
+Psychic",,Swarm,Telepathy,Frisk,['National Dex'],"HP
+60","Atk
+45","Def
+110","SpA
+80","SpD
+120","Spe
+90"
+Oricorio,"Fire
+Flying",,Dancer,,,['ZU'],"HP
+75","Atk
+70","Def
+70","SpA
+98","SpD
+70","Spe
+93"
+Oricorio-Pa'u,"Psychic
+Flying",,Dancer,,,['ZU'],"HP
+75","Atk
+70","Def
+70","SpA
+98","SpD
+70","Spe
+93"
+Oricorio-Pom-Pom,"Electric
+Flying",,Dancer,,,['NUBL'],"HP
+75","Atk
+70","Def
+70","SpA
+98","SpD
+70","Spe
+93"
+Oricorio-Sensu,"Ghost
+Flying",,Dancer,,,['ZU'],"HP
+75","Atk
+70","Def
+70","SpA
+98","SpD
+70","Spe
+93"
+Orthworm,Steel,,Earth Eater,Sand Veil,,['ZU'],"HP
+70","Atk
+85","Def
+145","SpA
+60","SpD
+55","Spe
+65"
+Oshawott,Water,,Torrent,Shell Armor,,['LC'],"HP
+55","Atk
+55","Def
+45","SpA
+63","SpD
+45","Spe
+45"
+Overqwil,"Dark
+Poison",,Poison Point,Intimidate,Swift Swim,['NU'],"HP
+85","Atk
+115","Def
+95","SpA
+65","SpD
+65","Spe
+85"
+Pachirisu,Electric,,Run Away,Volt Absorb,Pickup,['ZU'],"HP
+60","Atk
+45","Def
+70","SpA
+45","SpD
+90","Spe
+95"
+Pajantom,"Dragon
+Ghost",,Comatose,,,['CAP'],"HP
+84","Atk
+133","Def
+71","SpA
+51","SpD
+111","Spe
+101"
+Palafin,Water,,Zero to Hero,,,['Uber'],"HP
+100","Atk
+70","Def
+72","SpA
+53","SpD
+62","Spe
+100"
+Palafin-Hero,Water,,Zero to Hero,,,['Uber'],"HP
+100","Atk
+160","Def
+97","SpA
+106","SpD
+87","Spe
+100"
+Palkia,"Water
+Dragon",,Pressure,Telepathy,,['Uber'],"HP
+90","Atk
+120","Def
+100","SpA
+150","SpD
+120","Spe
+100"
+Palkia-Origin,"Water
+Dragon",,Pressure,Telepathy,,['Uber'],"HP
+90","Atk
+100","Def
+100","SpA
+150","SpD
+120","Spe
+120"
+Palossand,"Ghost
+Ground",,Water Compaction,Sand Veil,,['ZU'],"HP
+85","Atk
+75","Def
+110","SpA
+100","SpD
+75","Spe
+35"
+Palpitoad,"Water
+Ground",,Swift Swim,Water Absorb,Hydration,['National Dex'],"HP
+75","Atk
+65","Def
+55","SpA
+65","SpD
+55","Spe
+69"
+Pancham,Fighting,,Iron Fist,Scrappy,Mold Breaker,['National Dex'],"HP
+67","Atk
+82","Def
+62","SpA
+46","SpD
+48","Spe
+43"
+Pangoro,"Fighting
+Dark",,Iron Fist,Scrappy,Mold Breaker,['National Dex'],"HP
+95","Atk
+124","Def
+78","SpA
+69","SpD
+71","Spe
+58"
+Panpour,Water,,Gluttony,Torrent,,['National Dex'],"HP
+50","Atk
+53","Def
+48","SpA
+53","SpD
+48","Spe
+64"
+Pansage,Grass,,Gluttony,Overgrow,,['National Dex'],"HP
+50","Atk
+53","Def
+48","SpA
+53","SpD
+48","Spe
+64"
+Pansear,Fire,,Gluttony,Blaze,,['National Dex'],"HP
+50","Atk
+53","Def
+48","SpA
+53","SpD
+48","Spe
+64"
+Paras,"Bug
+Grass",,Effect Spore,Damp,Dry Skin,['National Dex'],"HP
+35","Atk
+70","Def
+55","SpA
+45","SpD
+55","Spe
+25"
+Parasect,"Bug
+Grass",,Effect Spore,Damp,Dry Skin,['National Dex'],"HP
+60","Atk
+95","Def
+80","SpA
+60","SpD
+80","Spe
+30"
+Passimian,Fighting,,Receiver,Defiant,,['ZU'],"HP
+100","Atk
+120","Def
+90","SpA
+40","SpD
+60","Spe
+80"
+Patrat,Normal,,Run Away,Analytic,Keen Eye,['National Dex'],"HP
+45","Atk
+55","Def
+39","SpA
+35","SpD
+39","Spe
+42"
+Pawmi,Electric,,Static,Iron Fist,Natural Cure,['LC'],"HP
+45","Atk
+50","Def
+20","SpA
+40","SpD
+25","Spe
+60"
+Pawmo,"Electric
+Fighting",,Volt Absorb,Iron Fist,Natural Cure,['NFE'],"HP
+60","Atk
+75","Def
+40","SpA
+50","SpD
+40","Spe
+85"
+Pawmot,"Electric
+Fighting",,Volt Absorb,Iron Fist,Natural Cure,['PU'],"HP
+70","Atk
+115","Def
+70","SpA
+70","SpD
+60","Spe
+105"
+Pawniard,"Dark
+Steel",,Defiant,Pressure,Inner Focus,['LC'],"HP
+45","Atk
+85","Def
+70","SpA
+40","SpD
+40","Spe
+60"
+Pecharunt,"Poison
+Ghost",,Poison Puppeteer,,,['UU'],"HP
+88","Atk
+88","Def
+160","SpA
+88","SpD
+88","Spe
+88"
+Pelipper,"Water
+Flying",,Keen Eye,Rain Dish,Drizzle,['UUBL'],"HP
+60","Atk
+50","Def
+100","SpA
+95","SpD
+70","Spe
+65"
+Perrserker,Steel,,Battle Armor,Steely Spirit,Tough Claws,['ZU'],"HP
+70","Atk
+110","Def
+100","SpA
+50","SpD
+60","Spe
+50"
+Persian,Normal,,Limber,Unnerve,Technician,['ZU'],"HP
+65","Atk
+70","Def
+60","SpA
+65","SpD
+65","Spe
+115"
+Persian-Alola,Dark,,Fur Coat,Rattled,Technician,['ZU'],"HP
+65","Atk
+60","Def
+60","SpA
+75","SpD
+65","Spe
+115"
+Petilil,Grass,,Chlorophyll,Leaf Guard,Own Tempo,['LC'],"HP
+45","Atk
+35","Def
+50","SpA
+70","SpD
+50","Spe
+30"
+Phanpy,Ground,,Pickup,Sand Veil,,['LC'],"HP
+90","Atk
+60","Def
+60","SpA
+40","SpD
+40","Spe
+40"
+Phantump,"Ghost
+Grass",,Natural Cure,Harvest,Frisk,['LC'],"HP
+43","Atk
+70","Def
+48","SpA
+50","SpD
+60","Spe
+38"
+Pheromosa,"Bug
+Fighting",,Beast Boost,,,['National Dex'],"HP
+71","Atk
+137","Def
+37","SpA
+137","SpD
+37","Spe
+151"
+Phione,Water,,Hydration,,,['ZU'],"HP
+80","Atk
+80","Def
+80","SpA
+80","SpD
+80","Spe
+80"
+Pichu,Electric,,Static,Lightning Rod,,['LC'],"HP
+20","Atk
+40","Def
+15","SpA
+35","SpD
+35","Spe
+60"
+Pidgeot,"Normal
+Flying",,Keen Eye,Big Pecks,Tangled Feet,['National Dex'],"HP
+83","Atk
+80","Def
+75","SpA
+70","SpD
+70","Spe
+101"
+Pidgeot-Mega,"Normal
+Flying",,No Guard,,,['National Dex'],"HP
+83","Atk
+80","Def
+80","SpA
+135","SpD
+80","Spe
+121"
+Pidgeotto,"Normal
+Flying",,Keen Eye,Big Pecks,Tangled Feet,['National Dex'],"HP
+63","Atk
+60","Def
+55","SpA
+50","SpD
+50","Spe
+71"
+Pidgey,"Normal
+Flying",,Keen Eye,Big Pecks,Tangled Feet,['National Dex'],"HP
+40","Atk
+45","Def
+40","SpA
+35","SpD
+35","Spe
+56"
+Pidove,"Normal
+Flying",,Big Pecks,Rivalry,Super Luck,['National Dex'],"HP
+50","Atk
+55","Def
+50","SpA
+36","SpD
+30","Spe
+43"
+Pignite,"Fire
+Fighting",,Blaze,Thick Fat,,['NFE'],"HP
+90","Atk
+93","Def
+55","SpA
+70","SpD
+55","Spe
+55"
+Pikachu,Electric,,Static,Lightning Rod,,['ZU'],"HP
+35","Atk
+55","Def
+40","SpA
+50","SpD
+50","Spe
+90"
+Pikachu-Alola,Electric,,Static,Lightning Rod,,['ZU'],"HP
+35","Atk
+55","Def
+40","SpA
+50","SpD
+50","Spe
+90"
+Pikachu-Gmax,Electric,,Static,Lightning Rod,,['National Dex'],"HP
+35","Atk
+55","Def
+40","SpA
+50","SpD
+50","Spe
+90"
+Pikachu-Hoenn,Electric,,Static,Lightning Rod,,['ZU'],"HP
+35","Atk
+55","Def
+40","SpA
+50","SpD
+50","Spe
+90"
+Pikachu-Kalos,Electric,,Static,Lightning Rod,,['ZU'],"HP
+35","Atk
+55","Def
+40","SpA
+50","SpD
+50","Spe
+90"
+Pikachu-Original,Electric,,Static,Lightning Rod,,['ZU'],"HP
+35","Atk
+55","Def
+40","SpA
+50","SpD
+50","Spe
+90"
+Pikachu-Partner,Electric,,Static,Lightning Rod,,['ZU'],"HP
+35","Atk
+55","Def
+40","SpA
+50","SpD
+50","Spe
+90"
+Pikachu-Sinnoh,Electric,,Static,Lightning Rod,,['ZU'],"HP
+35","Atk
+55","Def
+40","SpA
+50","SpD
+50","Spe
+90"
+Pikachu-Starter,Electric,,Static,Lightning Rod,,['National Dex'],"HP
+45","Atk
+80","Def
+50","SpA
+75","SpD
+60","Spe
+120"
+Pikachu-Unova,Electric,,Static,Lightning Rod,,['ZU'],"HP
+35","Atk
+55","Def
+40","SpA
+50","SpD
+50","Spe
+90"
+Pikachu-World,Electric,,Static,Lightning Rod,,['ZU'],"HP
+35","Atk
+55","Def
+40","SpA
+50","SpD
+50","Spe
+90"
+Pikipek,"Normal
+Flying",,Keen Eye,Pickup,Skill Link,['LC'],"HP
+35","Atk
+75","Def
+30","SpA
+30","SpD
+30","Spe
+65"
+Piloswine,"Ice
+Ground",,Oblivious,Thick Fat,Snow Cloak,['NFE'],"HP
+100","Atk
+100","Def
+80","SpA
+60","SpD
+60","Spe
+50"
+Pincurchin,Electric,,Lightning Rod,Electric Surge,,['ZU'],"HP
+48","Atk
+101","Def
+95","SpA
+91","SpD
+85","Spe
+15"
+Pineco,Bug,,Sturdy,Overcoat,,['LC'],"HP
+50","Atk
+65","Def
+90","SpA
+35","SpD
+35","Spe
+15"
+Pinsir,Bug,,Hyper Cutter,Moxie,Mold Breaker,['National Dex'],"HP
+65","Atk
+125","Def
+100","SpA
+55","SpD
+70","Spe
+85"
+Pinsir-Mega,"Bug
+Flying",,Aerilate,,,['National Dex'],"HP
+65","Atk
+155","Def
+120","SpA
+65","SpD
+90","Spe
+105"
+Piplup,Water,,Torrent,Competitive,,['LC'],"HP
+53","Atk
+51","Def
+53","SpA
+61","SpD
+56","Spe
+40"
+Plasmanta,"Electric
+Poison",,Storm Drain,Telepathy,Vital Spirit,['CAP'],"HP
+60","Atk
+57","Def
+119","SpA
+131","SpD
+98","Spe
+100"
+Pluffle,Fairy,,Natural Cure,Friend Guard,Aroma Veil,[],"HP
+74","Atk
+38","Def
+51","SpA
+65","SpD
+78","Spe
+49"
+Plusle,Electric,,Plus,Lightning Rod,,['ZU'],"HP
+60","Atk
+50","Def
+40","SpA
+85","SpD
+75","Spe
+95"
+Poipole,Poison,,Beast Boost,,,['National Dex'],"HP
+67","Atk
+73","Def
+67","SpA
+73","SpD
+67","Spe
+73"
+Politoed,Water,,Water Absorb,Drizzle,Damp,['RU'],"HP
+90","Atk
+75","Def
+75","SpA
+90","SpD
+100","Spe
+70"
+Poliwag,Water,,Water Absorb,Swift Swim,Damp,['LC'],"HP
+40","Atk
+50","Def
+40","SpA
+40","SpD
+40","Spe
+90"
+Poliwhirl,Water,,Water Absorb,Swift Swim,Damp,['NFE'],"HP
+65","Atk
+65","Def
+65","SpA
+50","SpD
+50","Spe
+90"
+Poliwrath,"Water
+Fighting",,Water Absorb,Swift Swim,Damp,['ZU'],"HP
+90","Atk
+95","Def
+95","SpA
+70","SpD
+90","Spe
+70"
+Poltchageist,"Grass
+Ghost",,Hospitality,Heatproof,,['LC'],"HP
+40","Atk
+45","Def
+45","SpA
+74","SpD
+54","Spe
+50"
+Poltchageist-Artisan,"Grass
+Ghost",,Hospitality,Heatproof,,['LC'],"HP
+40","Atk
+45","Def
+45","SpA
+74","SpD
+54","Spe
+50"
+Polteageist,Ghost,,Weak Armor,Cursed Body,,['RUBL'],"HP
+60","Atk
+65","Def
+65","SpA
+134","SpD
+114","Spe
+70"
+Polteageist-Antique,Ghost,,Weak Armor,Cursed Body,,['RUBL'],"HP
+60","Atk
+65","Def
+65","SpA
+134","SpD
+114","Spe
+70"
+Ponyta,Fire,,Run Away,Flame Body,Flash Fire,['National Dex'],"HP
+50","Atk
+85","Def
+55","SpA
+65","SpD
+65","Spe
+90"
+Ponyta-Galar,Psychic,,Run Away,Anticipation,Pastel Veil,['National Dex'],"HP
+50","Atk
+85","Def
+55","SpA
+65","SpD
+65","Spe
+90"
+Poochyena,Dark,,Run Away,Rattled,Quick Feet,['LC'],"HP
+35","Atk
+55","Def
+35","SpA
+30","SpD
+30","Spe
+35"
+Popplio,Water,,Torrent,Liquid Voice,,['LC'],"HP
+50","Atk
+54","Def
+54","SpA
+66","SpD
+56","Spe
+40"
+Porygon,Normal,,Trace,Analytic,Download,['NFE'],"HP
+65","Atk
+60","Def
+70","SpA
+85","SpD
+75","Spe
+40"
+Porygon-Z,Normal,,Adaptability,Analytic,Download,['NU'],"HP
+85","Atk
+80","Def
+70","SpA
+135","SpD
+75","Spe
+90"
+Porygon2,Normal,,Trace,Analytic,Download,['NFE'],"HP
+85","Atk
+80","Def
+90","SpA
+105","SpD
+95","Spe
+60"
+Primarina,"Water
+Fairy",,Torrent,Liquid Voice,,['OU'],"HP
+80","Atk
+74","Def
+74","SpA
+126","SpD
+116","Spe
+60"
+Primeape,Fighting,,Vital Spirit,Defiant,Anger Point,['ZU'],"HP
+65","Atk
+105","Def
+60","SpA
+60","SpD
+70","Spe
+95"
+Prinplup,Water,,Torrent,Competitive,,['NFE'],"HP
+64","Atk
+66","Def
+68","SpA
+81","SpD
+76","Spe
+50"
+Privatyke,"Water
+Fighting",,Unaware,Technician,,[],"HP
+65","Atk
+75","Def
+65","SpA
+40","SpD
+60","Spe
+45"
+Probopass,"Rock
+Steel",,Sturdy,Sand Force,Magnet Pull,['ZU'],"HP
+60","Atk
+55","Def
+145","SpA
+75","SpD
+150","Spe
+40"
+Protowatt,"Electric
+Water",,Trace,Minus,Magic Guard,[],"HP
+51","Atk
+44","Def
+33","SpA
+43","SpD
+34","Spe
+65"
+Psyduck,Water,,Damp,Swift Swim,Cloud Nine,['LC'],"HP
+50","Atk
+52","Def
+48","SpA
+65","SpD
+50","Spe
+55"
+Pumpkaboo,"Ghost
+Grass",,Pickup,Insomnia,Frisk,['National Dex'],"HP
+49","Atk
+66","Def
+70","SpA
+44","SpD
+55","Spe
+51"
+Pumpkaboo-Large,"Ghost
+Grass",,Pickup,Insomnia,Frisk,['National Dex'],"HP
+54","Atk
+66","Def
+70","SpA
+44","SpD
+55","Spe
+46"
+Pumpkaboo-Small,"Ghost
+Grass",,Pickup,Insomnia,Frisk,['National Dex'],"HP
+44","Atk
+66","Def
+70","SpA
+44","SpD
+55","Spe
+56"
+Pumpkaboo-Super,"Ghost
+Grass",,Pickup,Insomnia,Frisk,['National Dex'],"HP
+59","Atk
+66","Def
+70","SpA
+44","SpD
+55","Spe
+41"
+Pupitar,"Rock
+Ground",,Shed Skin,,,['NFE'],"HP
+70","Atk
+84","Def
+70","SpA
+65","SpD
+70","Spe
+51"
+Purrloin,Dark,,Limber,Prankster,Unburden,['National Dex'],"HP
+41","Atk
+50","Def
+37","SpA
+50","SpD
+37","Spe
+66"
+Purugly,Normal,,Thick Fat,Defiant,Own Tempo,['National Dex'],"HP
+71","Atk
+82","Def
+64","SpA
+64","SpD
+59","Spe
+112"
+Pyroak,"Fire
+Grass",,Rock Head,Contrary,Battle Armor,['CAP'],"HP
+120","Atk
+70","Def
+105","SpA
+70","SpD
+65","Spe
+60"
+Pyroar,"Fire
+Normal",,Rivalry,Moxie,Unnerve,['ZU'],"HP
+86","Atk
+68","Def
+72","SpA
+109","SpD
+66","Spe
+106"
+Pyukumuku,Water,,Innards Out,Unaware,,['National Dex'],"HP
+55","Atk
+60","Def
+130","SpA
+30","SpD
+130","Spe
+5"
+Quagsire,"Water
+Ground",,Damp,Unaware,Water Absorb,['RU'],"HP
+95","Atk
+85","Def
+85","SpA
+65","SpD
+65","Spe
+35"
+Quaquaval,"Water
+Fighting",,Torrent,Moxie,,['UU'],"HP
+85","Atk
+120","Def
+80","SpA
+85","SpD
+75","Spe
+85"
+Quaxly,Water,,Torrent,Moxie,,['LC'],"HP
+55","Atk
+65","Def
+45","SpA
+50","SpD
+45","Spe
+50"
+Quaxwell,Water,,Torrent,Moxie,,['NFE'],"HP
+70","Atk
+85","Def
+65","SpA
+65","SpD
+60","Spe
+65"
+Quilava,Fire,,Blaze,Flash Fire,,['NFE'],"HP
+58","Atk
+64","Def
+58","SpA
+80","SpD
+65","Spe
+80"
+Quilladin,Grass,,Overgrow,Bulletproof,,['NFE'],"HP
+61","Atk
+78","Def
+95","SpA
+56","SpD
+58","Spe
+57"
+Qwilfish,"Water
+Poison",,Poison Point,Intimidate,Swift Swim,['ZU'],"HP
+65","Atk
+95","Def
+85","SpA
+55","SpD
+55","Spe
+85"
+Qwilfish-Hisui,"Dark
+Poison",,Poison Point,Intimidate,Swift Swim,['ZU'],"HP
+65","Atk
+95","Def
+85","SpA
+55","SpD
+55","Spe
+85"
+Raboot,Fire,,Blaze,Libero,,['NFE'],"HP
+65","Atk
+86","Def
+60","SpA
+55","SpD
+60","Spe
+94"
+Rabsca,"Bug
+Psychic",,Synchronize,Telepathy,,['ZU'],"HP
+75","Atk
+50","Def
+85","SpA
+115","SpD
+100","Spe
+45"
+Raging Bolt,"Electric
+Dragon",,Protosynthesis,,,['OU'],"HP
+125","Atk
+73","Def
+91","SpA
+137","SpD
+89","Spe
+75"
+Raichu,Electric,,Static,Lightning Rod,,['ZU'],"HP
+60","Atk
+90","Def
+55","SpA
+90","SpD
+80","Spe
+110"
+Raichu-Alola,"Electric
+Psychic",,Surge Surfer,,,['ZU'],"HP
+60","Atk
+85","Def
+50","SpA
+95","SpD
+85","Spe
+110"
+Raikou,Electric,,Pressure,Inner Focus,,['PUBL'],"HP
+90","Atk
+85","Def
+75","SpA
+115","SpD
+100","Spe
+115"
+Ralts,"Psychic
+Fairy",,Synchronize,Telepathy,Trace,['LC'],"HP
+28","Atk
+25","Def
+25","SpA
+45","SpD
+35","Spe
+40"
+Rampardos,Rock,,Mold Breaker,Sheer Force,,['ZU'],"HP
+97","Atk
+165","Def
+60","SpA
+65","SpD
+50","Spe
+58"
+Rapidash,Fire,,Run Away,Flame Body,Flash Fire,['National Dex'],"HP
+65","Atk
+100","Def
+70","SpA
+80","SpD
+80","Spe
+105"
+Rapidash-Galar,"Psychic
+Fairy",,Run Away,Anticipation,Pastel Veil,['National Dex'],"HP
+65","Atk
+100","Def
+70","SpA
+80","SpD
+80","Spe
+105"
+Raticate,Normal,,Run Away,Hustle,Guts,['National Dex'],"HP
+55","Atk
+81","Def
+60","SpA
+50","SpD
+70","Spe
+97"
+Raticate-Alola,"Dark
+Normal",,Gluttony,Thick Fat,Hustle,['National Dex'],"HP
+75","Atk
+71","Def
+70","SpA
+40","SpD
+80","Spe
+77"
+Raticate-Alola-Totem,"Dark
+Normal",,Thick Fat,,,['National Dex'],"HP
+75","Atk
+71","Def
+70","SpA
+40","SpD
+80","Spe
+77"
+Rattata,Normal,,Run Away,Hustle,Guts,['National Dex'],"HP
+30","Atk
+56","Def
+35","SpA
+25","SpD
+35","Spe
+72"
+Rattata-Alola,"Dark
+Normal",,Gluttony,Thick Fat,Hustle,['National Dex'],"HP
+30","Atk
+56","Def
+35","SpA
+25","SpD
+35","Spe
+72"
+Rayquaza,"Dragon
+Flying",,Air Lock,,,['Uber'],"HP
+105","Atk
+150","Def
+90","SpA
+150","SpD
+90","Spe
+95"
+Rayquaza-Mega,"Dragon
+Flying",,Delta Stream,,,['National Dex'],"HP
+105","Atk
+180","Def
+100","SpA
+180","SpD
+100","Spe
+115"
+Rebble,Rock,,Levitate,Sniper,Solid Rock,[],"HP
+45","Atk
+25","Def
+65","SpA
+75","SpD
+55","Spe
+80"
+Regice,Ice,,Clear Body,Ice Body,,['ZU'],"HP
+80","Atk
+50","Def
+100","SpA
+100","SpD
+200","Spe
+50"
+Regidrago,Dragon,,Dragon's Maw,,,['NUBL'],"HP
+200","Atk
+100","Def
+50","SpA
+100","SpD
+50","Spe
+80"
+Regieleki,Electric,,Transistor,,,['Uber'],"HP
+80","Atk
+100","Def
+50","SpA
+100","SpD
+50","Spe
+200"
+Regigigas,Normal,,Slow Start,,,['ZU'],"HP
+110","Atk
+160","Def
+110","SpA
+80","SpD
+110","Spe
+100"
+Regirock,Rock,,Clear Body,Sturdy,,['ZU'],"HP
+80","Atk
+100","Def
+200","SpA
+50","SpD
+100","Spe
+50"
+Registeel,Steel,,Clear Body,Light Metal,,['NU'],"HP
+80","Atk
+75","Def
+150","SpA
+75","SpD
+150","Spe
+50"
+Relicanth,"Water
+Rock",,Swift Swim,Sturdy,Rock Head,['National Dex'],"HP
+100","Atk
+90","Def
+130","SpA
+45","SpD
+65","Spe
+55"
+Rellor,Bug,,Compound Eyes,Shed Skin,,['LC'],"HP
+41","Atk
+50","Def
+60","SpA
+31","SpD
+58","Spe
+30"
+Remoraid,Water,,Hustle,Moody,Sniper,['National Dex'],"HP
+35","Atk
+65","Def
+35","SpA
+65","SpD
+35","Spe
+65"
+Reshiram,"Dragon
+Fire",,Turboblaze,,,['Uber'],"HP
+100","Atk
+120","Def
+100","SpA
+150","SpD
+120","Spe
+90"
+Reuniclus,Psychic,,Overcoat,Regenerator,Magic Guard,['RU'],"HP
+110","Atk
+65","Def
+75","SpA
+125","SpD
+85","Spe
+30"
+Revavroom,"Steel
+Poison",,Overcoat,Filter,,['RU'],"HP
+80","Atk
+119","Def
+90","SpA
+54","SpD
+67","Spe
+90"
+Revenankh,"Ghost
+Fighting",,Air Lock,Shed Skin,Triage,['CAP'],"HP
+90","Atk
+105","Def
+90","SpA
+65","SpD
+110","Spe
+65"
+Rhydon,"Ground
+Rock",,Lightning Rod,Reckless,Rock Head,['NFE'],"HP
+105","Atk
+130","Def
+120","SpA
+45","SpD
+45","Spe
+40"
+Rhyhorn,"Ground
+Rock",,Lightning Rod,Reckless,Rock Head,['LC'],"HP
+80","Atk
+85","Def
+95","SpA
+30","SpD
+30","Spe
+25"
+Rhyperior,"Ground
+Rock",,Lightning Rod,Reckless,Solid Rock,['UU'],"HP
+115","Atk
+140","Def
+130","SpA
+55","SpD
+55","Spe
+40"
+Ribombee,"Bug
+Fairy",,Honey Gather,Sweet Veil,Shield Dust,['RU'],"HP
+60","Atk
+55","Def
+60","SpA
+95","SpD
+70","Spe
+124"
+Ribombee-Totem,"Bug
+Fairy",,Sweet Veil,,,['National Dex'],"HP
+60","Atk
+55","Def
+60","SpA
+95","SpD
+70","Spe
+124"
+Rillaboom,Grass,,Overgrow,Grassy Surge,,['OU'],"HP
+100","Atk
+125","Def
+90","SpA
+60","SpD
+70","Spe
+85"
+Rillaboom-Gmax,Grass,,Overgrow,Grassy Surge,,['National Dex'],"HP
+100","Atk
+125","Def
+90","SpA
+60","SpD
+70","Spe
+85"
+Riolu,Fighting,,Steadfast,Prankster,Inner Focus,['LC'],"HP
+40","Atk
+70","Def
+40","SpA
+35","SpD
+40","Spe
+60"
+Roaring Moon,"Dragon
+Dark",,Protosynthesis,,,['OU'],"HP
+105","Atk
+139","Def
+71","SpA
+55","SpD
+101","Spe
+119"
+Rockruff,Rock,,Keen Eye,Steadfast,Vital Spirit,['LC'],"HP
+45","Atk
+65","Def
+40","SpA
+30","SpD
+40","Spe
+60"
+Roggenrola,Rock,,Sturdy,Sand Force,Weak Armor,['National Dex'],"HP
+55","Atk
+75","Def
+85","SpA
+25","SpD
+25","Spe
+15"
+Rolycoly,Rock,,Steam Engine,Flash Fire,Heatproof,['LC'],"HP
+30","Atk
+40","Def
+50","SpA
+40","SpD
+50","Spe
+30"
+Rookidee,Flying,,Keen Eye,Big Pecks,Unnerve,['LC'],"HP
+38","Atk
+47","Def
+35","SpA
+33","SpD
+35","Spe
+57"
+Roselia,"Grass
+Poison",,Natural Cure,Leaf Guard,Poison Point,['National Dex'],"HP
+50","Atk
+60","Def
+45","SpA
+100","SpD
+80","Spe
+65"
+Roserade,"Grass
+Poison",,Natural Cure,Technician,Poison Point,['National Dex'],"HP
+60","Atk
+70","Def
+65","SpA
+125","SpD
+105","Spe
+90"
+Rotom,"Electric
+Ghost",,Levitate,,,['ZU'],"HP
+50","Atk
+50","Def
+77","SpA
+95","SpD
+77","Spe
+91"
+Rotom-Fan,"Electric
+Flying",,Levitate,,,['ZU'],"HP
+50","Atk
+65","Def
+107","SpA
+105","SpD
+107","Spe
+86"
+Rotom-Frost,"Electric
+Ice",,Levitate,,,['ZU'],"HP
+50","Atk
+65","Def
+107","SpA
+105","SpD
+107","Spe
+86"
+Rotom-Heat,"Electric
+Fire",,Levitate,,,['PU'],"HP
+50","Atk
+65","Def
+107","SpA
+105","SpD
+107","Spe
+86"
+Rotom-Mow,"Electric
+Grass",,Levitate,,,['PU'],"HP
+50","Atk
+65","Def
+107","SpA
+105","SpD
+107","Spe
+86"
+Rotom-Wash,"Electric
+Water",,Levitate,,,['UU'],"HP
+50","Atk
+65","Def
+107","SpA
+105","SpD
+107","Spe
+86"
+Rowlet,"Grass
+Flying",,Overgrow,Long Reach,,['LC'],"HP
+68","Atk
+55","Def
+55","SpA
+50","SpD
+50","Spe
+42"
+Rufflet,"Normal
+Flying",,Keen Eye,Hustle,Sheer Force,['NFE'],"HP
+70","Atk
+83","Def
+50","SpA
+37","SpD
+50","Spe
+60"
+Runerigus,"Ground
+Ghost",,Wandering Spirit,,,['National Dex'],"HP
+58","Atk
+95","Def
+145","SpA
+50","SpD
+105","Spe
+30"
+Sableye,"Dark
+Ghost",,Keen Eye,Prankster,Stall,['ZU'],"HP
+50","Atk
+75","Def
+75","SpA
+65","SpD
+65","Spe
+50"
+Sableye-Mega,"Dark
+Ghost",,Magic Bounce,,,['National Dex'],"HP
+50","Atk
+85","Def
+125","SpA
+85","SpD
+115","Spe
+20"
+Saharaja,Ground,,Water Absorb,Sand Spit,Serene Grace,['CAP'],"HP
+70","Atk
+112","Def
+105","SpA
+65","SpD
+123","Spe
+78"
+Saharascal,Ground,,Water Absorb,Sand Spit,Pickpocket,[],"HP
+50","Atk
+80","Def
+65","SpA
+45","SpD
+90","Spe
+70"
+Salamence,"Dragon
+Flying",,Intimidate,Moxie,,['RU'],"HP
+95","Atk
+135","Def
+80","SpA
+110","SpD
+80","Spe
+100"
+Salamence-Mega,"Dragon
+Flying",,Aerilate,,,['National Dex'],"HP
+95","Atk
+145","Def
+130","SpA
+120","SpD
+90","Spe
+120"
+Salandit,"Poison
+Fire",,Corrosion,Oblivious,,['LC'],"HP
+48","Atk
+44","Def
+40","SpA
+71","SpD
+40","Spe
+77"
+Salazzle,"Poison
+Fire",,Corrosion,Oblivious,,['PU'],"HP
+68","Atk
+64","Def
+60","SpA
+111","SpD
+60","Spe
+117"
+Salazzle-Totem,"Poison
+Fire",,Corrosion,,,['National Dex'],"HP
+68","Atk
+64","Def
+60","SpA
+111","SpD
+60","Spe
+117"
+Samurott,Water,,Torrent,Shell Armor,,['ZU'],"HP
+95","Atk
+100","Def
+85","SpA
+108","SpD
+70","Spe
+70"
+Samurott-Hisui,"Water
+Dark",,Torrent,Sharpness,,['OU'],"HP
+90","Atk
+108","Def
+80","SpA
+100","SpD
+65","Spe
+85"
+Sandaconda,Ground,,Sand Spit,Sand Veil,Shed Skin,['ZU'],"HP
+72","Atk
+107","Def
+125","SpA
+65","SpD
+70","Spe
+71"
+Sandaconda-Gmax,Ground,,Sand Spit,Sand Veil,Shed Skin,['National Dex'],"HP
+72","Atk
+107","Def
+125","SpA
+65","SpD
+70","Spe
+71"
+Sandile,"Ground
+Dark",,Intimidate,Anger Point,Moxie,['LC'],"HP
+50","Atk
+72","Def
+35","SpA
+35","SpD
+35","Spe
+65"
+Sandshrew,Ground,,Sand Veil,Sand Rush,,['LC'],"HP
+50","Atk
+75","Def
+85","SpA
+20","SpD
+30","Spe
+40"
+Sandshrew-Alola,"Ice
+Steel",,Snow Cloak,Slush Rush,,['LC'],"HP
+50","Atk
+75","Def
+90","SpA
+10","SpD
+35","Spe
+40"
+Sandslash,Ground,,Sand Veil,Sand Rush,,['ZU'],"HP
+75","Atk
+100","Def
+110","SpA
+45","SpD
+55","Spe
+65"
+Sandslash-Alola,"Ice
+Steel",,Snow Cloak,Slush Rush,,['PU'],"HP
+75","Atk
+100","Def
+120","SpA
+25","SpD
+65","Spe
+65"
+Sandy Shocks,"Electric
+Ground",,Protosynthesis,,,['UU'],"HP
+85","Atk
+81","Def
+97","SpA
+121","SpD
+85","Spe
+101"
+Sandygast,"Ghost
+Ground",,Water Compaction,Sand Veil,,['LC'],"HP
+55","Atk
+55","Def
+80","SpA
+70","SpD
+45","Spe
+15"
+Sawk,Fighting,,Sturdy,Mold Breaker,Inner Focus,['National Dex'],"HP
+75","Atk
+125","Def
+75","SpA
+30","SpD
+75","Spe
+85"
+Sawsbuck,"Normal
+Grass",,Chlorophyll,Serene Grace,Sap Sipper,['ZU'],"HP
+80","Atk
+100","Def
+70","SpA
+60","SpD
+70","Spe
+95"
+Scatterbug,Bug,,Shield Dust,Friend Guard,Compound Eyes,['LC'],"HP
+38","Atk
+35","Def
+40","SpA
+27","SpD
+25","Spe
+35"
+Scattervein,Fairy,,Pixilate,Own Tempo,Intimidate,[],"HP
+75","Atk
+74","Def
+87","SpA
+62","SpD
+89","Spe
+63"
+Sceptile,Grass,,Overgrow,Unburden,,['ZU'],"HP
+70","Atk
+85","Def
+65","SpA
+105","SpD
+85","Spe
+120"
+Sceptile-Mega,"Grass
+Dragon",,Lightning Rod,,,['National Dex'],"HP
+70","Atk
+110","Def
+75","SpA
+145","SpD
+85","Spe
+145"
+Scizor,"Bug
+Steel",,Swarm,Light Metal,Technician,['UU'],"HP
+70","Atk
+130","Def
+100","SpA
+55","SpD
+80","Spe
+65"
+Scizor-Mega,"Bug
+Steel",,Technician,,,['National Dex'],"HP
+70","Atk
+150","Def
+140","SpA
+65","SpD
+100","Spe
+75"
+Scolipede,"Bug
+Poison",,Poison Point,Speed Boost,Swarm,['National Dex'],"HP
+60","Atk
+100","Def
+89","SpA
+55","SpD
+69","Spe
+112"
+Scorbunny,Fire,,Blaze,Libero,,['LC'],"HP
+50","Atk
+71","Def
+40","SpA
+40","SpD
+40","Spe
+69"
+Scovillain,"Grass
+Fire",,Chlorophyll,Moody,Insomnia,['ZU'],"HP
+65","Atk
+108","Def
+65","SpA
+108","SpD
+65","Spe
+75"
+Scrafty,"Dark
+Fighting",,Shed Skin,Intimidate,Moxie,['PU'],"HP
+65","Atk
+90","Def
+115","SpA
+45","SpD
+115","Spe
+58"
+Scraggy,"Dark
+Fighting",,Shed Skin,Intimidate,Moxie,['NFE'],"HP
+50","Atk
+75","Def
+70","SpA
+35","SpD
+70","Spe
+48"
+Scratchet,"Normal
+Fighting",,Scrappy,Vital Spirit,Prankster,[],"HP
+55","Atk
+85","Def
+80","SpA
+20","SpD
+70","Spe
+40"
+Scream Tail,"Fairy
+Psychic",,Protosynthesis,,,['NU'],"HP
+115","Atk
+65","Def
+99","SpA
+65","SpD
+115","Spe
+111"
+Scyther,"Bug
+Flying",,Swarm,Steadfast,Technician,['PU'],"HP
+70","Atk
+110","Def
+80","SpA
+55","SpD
+80","Spe
+105"
+Seadra,Water,,Poison Point,Damp,Sniper,['NFE'],"HP
+55","Atk
+65","Def
+95","SpA
+95","SpD
+45","Spe
+85"
+Seaking,Water,,Swift Swim,Lightning Rod,Water Veil,['National Dex'],"HP
+80","Atk
+92","Def
+65","SpA
+65","SpD
+80","Spe
+68"
+Sealeo,"Ice
+Water",,Thick Fat,Oblivious,Ice Body,['National Dex'],"HP
+90","Atk
+60","Def
+70","SpA
+75","SpD
+70","Spe
+45"
+Seedot,Grass,,Chlorophyll,Pickpocket,Early Bird,['LC'],"HP
+40","Atk
+40","Def
+50","SpA
+30","SpD
+30","Spe
+30"
+Seel,Water,,Thick Fat,Ice Body,Hydration,['LC'],"HP
+65","Atk
+45","Def
+55","SpA
+45","SpD
+70","Spe
+45"
+Seismitoad,"Water
+Ground",,Swift Swim,Water Absorb,Poison Touch,['National Dex'],"HP
+105","Atk
+95","Def
+75","SpA
+85","SpD
+75","Spe
+74"
+Sentret,Normal,,Run Away,Frisk,Keen Eye,['LC'],"HP
+35","Atk
+46","Def
+34","SpA
+35","SpD
+45","Spe
+20"
+Serperior,Grass,,Overgrow,Contrary,,['UU'],"HP
+75","Atk
+75","Def
+95","SpA
+75","SpD
+95","Spe
+113"
+Servine,Grass,,Overgrow,Contrary,,['NFE'],"HP
+60","Atk
+60","Def
+75","SpA
+60","SpD
+75","Spe
+83"
+Seviper,Poison,,Shed Skin,Infiltrator,,['ZU'],"HP
+73","Atk
+100","Def
+60","SpA
+100","SpD
+60","Spe
+65"
+Sewaddle,"Bug
+Grass",,Swarm,Overcoat,Chlorophyll,['LC'],"HP
+45","Atk
+53","Def
+70","SpA
+40","SpD
+60","Spe
+42"
+Sharpedo,"Water
+Dark",,Rough Skin,Speed Boost,,['National Dex'],"HP
+70","Atk
+120","Def
+40","SpA
+95","SpD
+40","Spe
+95"
+Sharpedo-Mega,"Water
+Dark",,Strong Jaw,,,['National Dex'],"HP
+70","Atk
+140","Def
+70","SpA
+110","SpD
+65","Spe
+105"
+Shaymin,Grass,,Natural Cure,,,['ZU'],"HP
+100","Atk
+100","Def
+100","SpA
+100","SpD
+100","Spe
+100"
+Shaymin-Sky,"Grass
+Flying",,Serene Grace,,,['Uber'],"HP
+100","Atk
+103","Def
+75","SpA
+120","SpD
+75","Spe
+127"
+Shedinja,"Bug
+Ghost",,Wonder Guard,,,['National Dex'],"HP
+1","Atk
+90","Def
+45","SpA
+30","SpD
+30","Spe
+40"
+Shelgon,Dragon,,Rock Head,Overcoat,,['NFE'],"HP
+65","Atk
+95","Def
+100","SpA
+60","SpD
+50","Spe
+50"
+Shellder,Water,,Shell Armor,Overcoat,Skill Link,['LC'],"HP
+30","Atk
+65","Def
+100","SpA
+45","SpD
+25","Spe
+40"
+Shellos,Water,,Sticky Hold,Sand Force,Storm Drain,['LC'],"HP
+76","Atk
+48","Def
+48","SpA
+57","SpD
+62","Spe
+34"
+Shelmet,Bug,,Hydration,Overcoat,Shell Armor,['National Dex'],"HP
+50","Atk
+40","Def
+85","SpA
+40","SpD
+65","Spe
+25"
+Shieldon,"Rock
+Steel",,Sturdy,Soundproof,,['LC'],"HP
+30","Atk
+42","Def
+118","SpA
+42","SpD
+88","Spe
+30"
+Shiftry,"Grass
+Dark",,Chlorophyll,Pickpocket,Wind Rider,['ZU'],"HP
+90","Atk
+100","Def
+60","SpA
+90","SpD
+60","Spe
+80"
+Shiinotic,"Grass
+Fairy",,Illuminate,Rain Dish,Effect Spore,['National Dex'],"HP
+60","Atk
+45","Def
+80","SpA
+90","SpD
+100","Spe
+30"
+Shinx,Electric,,Rivalry,Guts,Intimidate,['LC'],"HP
+45","Atk
+65","Def
+34","SpA
+40","SpD
+34","Spe
+45"
+Shroodle,"Poison
+Normal",,Unburden,Prankster,Pickpocket,['LC'],"HP
+40","Atk
+65","Def
+35","SpA
+40","SpD
+35","Spe
+75"
+Shroomish,Grass,,Effect Spore,Quick Feet,Poison Heal,['LC'],"HP
+60","Atk
+40","Def
+60","SpA
+40","SpD
+60","Spe
+35"
+Shuckle,"Bug
+Rock",,Sturdy,Contrary,Gluttony,['National Dex'],"HP
+20","Atk
+10","Def
+230","SpA
+10","SpD
+230","Spe
+5"
+Shuppet,Ghost,,Insomnia,Cursed Body,Frisk,['LC'],"HP
+44","Atk
+75","Def
+35","SpA
+63","SpD
+33","Spe
+45"
+Sigilyph,"Psychic
+Flying",,Wonder Skin,Tinted Lens,Magic Guard,['National Dex'],"HP
+72","Atk
+58","Def
+80","SpA
+103","SpD
+80","Spe
+97"
+Silcoon,Bug,,Shed Skin,,,['National Dex'],"HP
+50","Atk
+35","Def
+55","SpA
+25","SpD
+25","Spe
+15"
+Silicobra,Ground,,Sand Spit,Sand Veil,Shed Skin,['LC'],"HP
+52","Atk
+57","Def
+75","SpA
+35","SpD
+50","Spe
+46"
+Silvally,Normal,,RKS System,,,['National Dex'],"HP
+95","Atk
+95","Def
+95","SpA
+95","SpD
+95","Spe
+95"
+Silvally-Bug,Bug,,RKS System,,,['National Dex'],"HP
+95","Atk
+95","Def
+95","SpA
+95","SpD
+95","Spe
+95"
+Silvally-Dark,Dark,,RKS System,,,['National Dex'],"HP
+95","Atk
+95","Def
+95","SpA
+95","SpD
+95","Spe
+95"
+Silvally-Dragon,Dragon,,RKS System,,,['National Dex'],"HP
+95","Atk
+95","Def
+95","SpA
+95","SpD
+95","Spe
+95"
+Silvally-Electric,Electric,,RKS System,,,['National Dex'],"HP
+95","Atk
+95","Def
+95","SpA
+95","SpD
+95","Spe
+95"
+Silvally-Fairy,Fairy,,RKS System,,,['National Dex'],"HP
+95","Atk
+95","Def
+95","SpA
+95","SpD
+95","Spe
+95"
+Silvally-Fighting,Fighting,,RKS System,,,['National Dex'],"HP
+95","Atk
+95","Def
+95","SpA
+95","SpD
+95","Spe
+95"
+Silvally-Fire,Fire,,RKS System,,,['National Dex'],"HP
+95","Atk
+95","Def
+95","SpA
+95","SpD
+95","Spe
+95"
+Silvally-Flying,Flying,,RKS System,,,['National Dex'],"HP
+95","Atk
+95","Def
+95","SpA
+95","SpD
+95","Spe
+95"
+Silvally-Ghost,Ghost,,RKS System,,,['National Dex'],"HP
+95","Atk
+95","Def
+95","SpA
+95","SpD
+95","Spe
+95"
+Silvally-Grass,Grass,,RKS System,,,['National Dex'],"HP
+95","Atk
+95","Def
+95","SpA
+95","SpD
+95","Spe
+95"
+Silvally-Ground,Ground,,RKS System,,,['National Dex'],"HP
+95","Atk
+95","Def
+95","SpA
+95","SpD
+95","Spe
+95"
+Silvally-Ice,Ice,,RKS System,,,['National Dex'],"HP
+95","Atk
+95","Def
+95","SpA
+95","SpD
+95","Spe
+95"
+Silvally-Poison,Poison,,RKS System,,,['National Dex'],"HP
+95","Atk
+95","Def
+95","SpA
+95","SpD
+95","Spe
+95"
+Silvally-Psychic,Psychic,,RKS System,,,['National Dex'],"HP
+95","Atk
+95","Def
+95","SpA
+95","SpD
+95","Spe
+95"
+Silvally-Rock,Rock,,RKS System,,,['National Dex'],"HP
+95","Atk
+95","Def
+95","SpA
+95","SpD
+95","Spe
+95"
+Silvally-Steel,Steel,,RKS System,,,['National Dex'],"HP
+95","Atk
+95","Def
+95","SpA
+95","SpD
+95","Spe
+95"
+Silvally-Water,Water,,RKS System,,,['National Dex'],"HP
+95","Atk
+95","Def
+95","SpA
+95","SpD
+95","Spe
+95"
+Simipour,Water,,Gluttony,Torrent,,['National Dex'],"HP
+75","Atk
+98","Def
+63","SpA
+98","SpD
+63","Spe
+101"
+Simisage,Grass,,Gluttony,Overgrow,,['National Dex'],"HP
+75","Atk
+98","Def
+63","SpA
+98","SpD
+63","Spe
+101"
+Simisear,Fire,,Gluttony,Blaze,,['National Dex'],"HP
+75","Atk
+98","Def
+63","SpA
+98","SpD
+63","Spe
+101"
+Sinistcha,"Grass
+Ghost",,Hospitality,Heatproof,,['UU'],"HP
+71","Atk
+60","Def
+106","SpA
+121","SpD
+80","Spe
+70"
+Sinistcha-Masterpiece,"Grass
+Ghost",,Hospitality,Heatproof,,['UU'],"HP
+71","Atk
+60","Def
+106","SpA
+121","SpD
+80","Spe
+70"
+Sinistea,Ghost,,Weak Armor,Cursed Body,,['LC'],"HP
+40","Atk
+45","Def
+45","SpA
+74","SpD
+54","Spe
+50"
+Sinistea-Antique,Ghost,,Weak Armor,Cursed Body,,['LC'],"HP
+40","Atk
+45","Def
+45","SpA
+74","SpD
+54","Spe
+50"
+Sirfetch'd,Fighting,,Steadfast,Scrappy,,['National Dex'],"HP
+62","Atk
+135","Def
+95","SpA
+68","SpD
+82","Spe
+65"
+Sizzlipede,"Fire
+Bug",,Flash Fire,Flame Body,White Smoke,['National Dex'],"HP
+50","Atk
+65","Def
+45","SpA
+50","SpD
+50","Spe
+45"
+Skarmory,"Steel
+Flying",,Keen Eye,Weak Armor,Sturdy,['UU'],"HP
+65","Atk
+80","Def
+140","SpA
+40","SpD
+70","Spe
+70"
+Skeledirge,"Fire
+Ghost",,Blaze,Unaware,,['UU'],"HP
+104","Atk
+75","Def
+100","SpA
+110","SpD
+75","Spe
+66"
+Skiddo,Grass,,Sap Sipper,Grass Pelt,,['LC'],"HP
+66","Atk
+65","Def
+48","SpA
+62","SpD
+57","Spe
+52"
+Skiploom,"Grass
+Flying",,Chlorophyll,Infiltrator,Leaf Guard,['NFE'],"HP
+55","Atk
+45","Def
+50","SpA
+45","SpD
+65","Spe
+80"
+Skitty,Normal,,Cute Charm,Wonder Skin,Normalize,['National Dex'],"HP
+50","Atk
+45","Def
+45","SpA
+35","SpD
+35","Spe
+50"
+Skorupi,"Poison
+Bug",,Battle Armor,Keen Eye,Sniper,['National Dex'],"HP
+40","Atk
+50","Def
+90","SpA
+30","SpD
+55","Spe
+65"
+Skrelp,"Poison
+Water",,Poison Point,Adaptability,Poison Touch,['LC'],"HP
+50","Atk
+60","Def
+60","SpA
+60","SpD
+60","Spe
+30"
+Skuntank,"Poison
+Dark",,Stench,Keen Eye,Aftermath,['PU'],"HP
+103","Atk
+93","Def
+67","SpA
+71","SpD
+61","Spe
+84"
+Skwovet,Normal,,Cheek Pouch,Gluttony,,['LC'],"HP
+70","Atk
+55","Def
+55","SpA
+35","SpD
+35","Spe
+25"
+Slaking,Normal,,Truant,,,['ZU'],"HP
+150","Atk
+160","Def
+100","SpA
+95","SpD
+65","Spe
+100"
+Slakoth,Normal,,Truant,,,['LC'],"HP
+60","Atk
+60","Def
+60","SpA
+35","SpD
+35","Spe
+30"
+Sliggoo,Dragon,,Sap Sipper,Gooey,Hydration,['NFE'],"HP
+68","Atk
+75","Def
+53","SpA
+83","SpD
+113","Spe
+60"
+Sliggoo-Hisui,"Steel
+Dragon",,Sap Sipper,Gooey,Shell Armor,['NFE'],"HP
+58","Atk
+75","Def
+83","SpA
+83","SpD
+113","Spe
+40"
+Slither Wing,"Bug
+Fighting",,Protosynthesis,,,['RU'],"HP
+85","Atk
+135","Def
+79","SpA
+85","SpD
+105","Spe
+81"
+Slowbro,"Water
+Psychic",,Oblivious,Regenerator,Own Tempo,['RU'],"HP
+95","Atk
+75","Def
+110","SpA
+100","SpD
+80","Spe
+30"
+Slowbro-Galar,"Poison
+Psychic",,Quick Draw,Regenerator,Own Tempo,['NU'],"HP
+95","Atk
+100","Def
+95","SpA
+100","SpD
+70","Spe
+30"
+Slowbro-Mega,"Water
+Psychic",,Shell Armor,,,['National Dex'],"HP
+95","Atk
+75","Def
+180","SpA
+130","SpD
+80","Spe
+30"
+Slowking,"Water
+Psychic",,Oblivious,Regenerator,Own Tempo,['UU'],"HP
+95","Atk
+75","Def
+80","SpA
+100","SpD
+110","Spe
+30"
+Slowking-Galar,"Poison
+Psychic",,Curious Medicine,Regenerator,Own Tempo,['OU'],"HP
+95","Atk
+65","Def
+80","SpA
+110","SpD
+110","Spe
+30"
+Slowpoke,"Water
+Psychic",,Oblivious,Regenerator,Own Tempo,['LC'],"HP
+90","Atk
+65","Def
+65","SpA
+40","SpD
+40","Spe
+15"
+Slowpoke-Galar,Psychic,,Gluttony,Regenerator,Own Tempo,['LC'],"HP
+90","Atk
+65","Def
+65","SpA
+40","SpD
+40","Spe
+15"
+Slugma,Fire,,Magma Armor,Weak Armor,Flame Body,['LC'],"HP
+40","Atk
+40","Def
+40","SpA
+70","SpD
+40","Spe
+20"
+Slurpuff,Fairy,,Sweet Veil,Unburden,,['National Dex'],"HP
+82","Atk
+80","Def
+86","SpA
+85","SpD
+75","Spe
+72"
+Smeargle,Normal,,Own Tempo,Moody,Technician,['ZU'],"HP
+55","Atk
+20","Def
+35","SpA
+20","SpD
+45","Spe
+75"
+Smogecko,Fire,,Blaze,Technician,,[],"HP
+48","Atk
+66","Def
+43","SpA
+58","SpD
+48","Spe
+56"
+Smoguana,"Fire
+Ground",,Blaze,Technician,,[],"HP
+68","Atk
+86","Def
+53","SpA
+68","SpD
+68","Spe
+76"
+Smokomodo,"Fire
+Ground",,Blaze,Technician,,['CAP'],"HP
+88","Atk
+116","Def
+67","SpA
+88","SpD
+78","Spe
+97"
+Smoliv,"Grass
+Normal",,Early Bird,Harvest,,['LC'],"HP
+41","Atk
+35","Def
+45","SpA
+58","SpD
+51","Spe
+30"
+Smoochum,"Ice
+Psychic",,Oblivious,Hydration,Forewarn,['National Dex'],"HP
+45","Atk
+30","Def
+15","SpA
+85","SpD
+65","Spe
+65"
+Snaelstrom,"Water
+Bug",,Torrent,Poison Heal,,['CAP'],"HP
+91","Atk
+94","Def
+110","SpA
+80","SpD
+97","Spe
+63"
+Sneasel,"Dark
+Ice",,Inner Focus,Pickpocket,Keen Eye,['ZU'],"HP
+55","Atk
+95","Def
+55","SpA
+35","SpD
+75","Spe
+115"
+Sneasel-Hisui,"Fighting
+Poison",,Inner Focus,Pickpocket,Keen Eye,['NFE'],"HP
+55","Atk
+95","Def
+55","SpA
+35","SpD
+75","Spe
+115"
+Sneasler,"Fighting
+Poison",,Pressure,Poison Touch,Unburden,['Uber'],"HP
+80","Atk
+130","Def
+60","SpA
+40","SpD
+80","Spe
+120"
+Snivy,Grass,,Overgrow,Contrary,,['NFE'],"HP
+45","Atk
+45","Def
+55","SpA
+45","SpD
+55","Spe
+63"
+Snom,"Ice
+Bug",,Shield Dust,Ice Scales,,['LC'],"HP
+30","Atk
+25","Def
+35","SpA
+45","SpD
+30","Spe
+20"
+Snorlax,Normal,,Immunity,Gluttony,Thick Fat,['ZU'],"HP
+160","Atk
+110","Def
+65","SpA
+65","SpD
+110","Spe
+30"
+Snorlax-Gmax,Normal,,Immunity,Gluttony,Thick Fat,['National Dex'],"HP
+160","Atk
+110","Def
+65","SpA
+65","SpD
+110","Spe
+30"
+Snorunt,Ice,,Inner Focus,Moody,Ice Body,['LC'],"HP
+50","Atk
+50","Def
+50","SpA
+50","SpD
+50","Spe
+50"
+Snover,"Grass
+Ice",,Snow Warning,Soundproof,,['LC'],"HP
+60","Atk
+62","Def
+50","SpA
+62","SpD
+60","Spe
+40"
+Snubbull,Fairy,,Intimidate,Rattled,Run Away,['LC'],"HP
+60","Atk
+80","Def
+50","SpA
+40","SpD
+40","Spe
+30"
+Snugglow,"Electric
+Poison",,Storm Drain,Telepathy,Vital Spirit,[],"HP
+40","Atk
+37","Def
+79","SpA
+91","SpD
+68","Spe
+70"
+Sobble,Water,,Torrent,Sniper,,['LC'],"HP
+50","Atk
+40","Def
+40","SpA
+70","SpD
+40","Spe
+70"
+Solgaleo,"Psychic
+Steel",,Full Metal Body,,,['Uber'],"HP
+137","Atk
+137","Def
+107","SpA
+113","SpD
+89","Spe
+97"
+Solosis,Psychic,,Overcoat,Regenerator,Magic Guard,['LC'],"HP
+45","Atk
+30","Def
+40","SpA
+105","SpD
+50","Spe
+20"
+Solotl,"Fire
+Dragon",,Regenerator,Magician,Vital Spirit,[],"HP
+68","Atk
+48","Def
+34","SpA
+72","SpD
+24","Spe
+84"
+Solrock,"Rock
+Psychic",,Levitate,,,['National Dex'],"HP
+90","Atk
+95","Def
+85","SpA
+55","SpD
+65","Spe
+70"
+Spearow,"Normal
+Flying",,Keen Eye,Sniper,,['National Dex'],"HP
+40","Atk
+60","Def
+30","SpA
+31","SpD
+31","Spe
+70"
+Spectrier,Ghost,,Grim Neigh,,,['Uber'],"HP
+100","Atk
+65","Def
+60","SpA
+145","SpD
+80","Spe
+130"
+Spewpa,Bug,,Shed Skin,Friend Guard,,['NFE'],"HP
+45","Atk
+22","Def
+60","SpA
+27","SpD
+30","Spe
+29"
+Spheal,"Ice
+Water",,Thick Fat,Oblivious,Ice Body,['National Dex'],"HP
+70","Atk
+40","Def
+50","SpA
+55","SpD
+50","Spe
+25"
+Spidops,Bug,,Insomnia,Stakeout,,['ZU'],"HP
+60","Atk
+79","Def
+92","SpA
+52","SpD
+86","Spe
+35"
+Spinarak,"Bug
+Poison",,Swarm,Sniper,Insomnia,['LC'],"HP
+40","Atk
+60","Def
+40","SpA
+40","SpD
+40","Spe
+30"
+Spinda,Normal,,Own Tempo,Contrary,Tangled Feet,['National Dex'],"HP
+60","Atk
+60","Def
+60","SpA
+60","SpD
+60","Spe
+60"
+Spiritomb,"Ghost
+Dark",,Pressure,Infiltrator,,['ZU'],"HP
+50","Atk
+92","Def
+108","SpA
+92","SpD
+108","Spe
+35"
+Spoink,Psychic,,Thick Fat,Gluttony,Own Tempo,['LC'],"HP
+60","Atk
+25","Def
+35","SpA
+70","SpD
+80","Spe
+60"
+Sprigatito,Grass,,Overgrow,Protean,,['LC'],"HP
+40","Atk
+61","Def
+54","SpA
+45","SpD
+45","Spe
+65"
+Spritzee,Fairy,,Healer,Aroma Veil,,['National Dex'],"HP
+78","Atk
+52","Def
+60","SpA
+63","SpD
+65","Spe
+23"
+Squawkabilly,"Normal
+Flying",,Intimidate,Guts,Hustle,['ZU'],"HP
+82","Atk
+96","Def
+51","SpA
+45","SpD
+51","Spe
+92"
+Squawkabilly-Blue,"Normal
+Flying",,Intimidate,Guts,Hustle,['ZU'],"HP
+82","Atk
+96","Def
+51","SpA
+45","SpD
+51","Spe
+92"
+Squawkabilly-White,"Normal
+Flying",,Intimidate,Sheer Force,Hustle,['ZU'],"HP
+82","Atk
+96","Def
+51","SpA
+45","SpD
+51","Spe
+92"
+Squawkabilly-Yellow,"Normal
+Flying",,Intimidate,Sheer Force,Hustle,['ZU'],"HP
+82","Atk
+96","Def
+51","SpA
+45","SpD
+51","Spe
+92"
+Squirtle,Water,,Torrent,Rain Dish,,['LC'],"HP
+44","Atk
+48","Def
+65","SpA
+50","SpD
+64","Spe
+43"
+Stakataka,"Rock
+Steel",,Beast Boost,,,['National Dex'],"HP
+61","Atk
+131","Def
+211","SpA
+53","SpD
+101","Spe
+13"
+Stantler,Normal,,Intimidate,Sap Sipper,Frisk,['NFE'],"HP
+73","Atk
+95","Def
+62","SpA
+85","SpD
+65","Spe
+85"
+Staraptor,"Normal
+Flying",,Intimidate,Reckless,,['NU'],"HP
+85","Atk
+120","Def
+70","SpA
+50","SpD
+60","Spe
+100"
+Staravia,"Normal
+Flying",,Intimidate,Reckless,,['NFE'],"HP
+55","Atk
+75","Def
+50","SpA
+40","SpD
+40","Spe
+80"
+Starly,"Normal
+Flying",,Keen Eye,Reckless,,['LC'],"HP
+40","Atk
+55","Def
+30","SpA
+30","SpD
+30","Spe
+60"
+Starmie,"Water
+Psychic",,Illuminate,Analytic,Natural Cure,['National Dex'],"HP
+60","Atk
+75","Def
+85","SpA
+100","SpD
+85","Spe
+115"
+Staryu,Water,,Illuminate,Analytic,Natural Cure,['National Dex'],"HP
+30","Atk
+45","Def
+55","SpA
+70","SpD
+55","Spe
+85"
+Steelix,"Steel
+Ground",,Rock Head,Sheer Force,Sturdy,['National Dex'],"HP
+75","Atk
+85","Def
+200","SpA
+55","SpD
+65","Spe
+30"
+Steelix-Mega,"Steel
+Ground",,Sand Force,,,['National Dex'],"HP
+75","Atk
+125","Def
+230","SpA
+55","SpD
+95","Spe
+30"
+Steenee,Grass,,Leaf Guard,Sweet Veil,Oblivious,['NFE'],"HP
+52","Atk
+40","Def
+48","SpA
+40","SpD
+48","Spe
+62"
+Stonjourner,Rock,,Power Spot,,,['ZU'],"HP
+100","Atk
+125","Def
+135","SpA
+20","SpD
+20","Spe
+70"
+Stoutland,Normal,,Intimidate,Scrappy,Sand Rush,['National Dex'],"HP
+85","Atk
+110","Def
+90","SpA
+45","SpD
+90","Spe
+80"
+Stratagem,Rock,,Levitate,Sniper,Technician,['CAP'],"HP
+90","Atk
+60","Def
+65","SpA
+120","SpD
+70","Spe
+130"
+Stufful,"Normal
+Fighting",,Fluffy,Cute Charm,Klutz,['National Dex'],"HP
+70","Atk
+75","Def
+50","SpA
+45","SpD
+50","Spe
+50"
+Stunfisk,"Ground
+Electric",,Static,Sand Veil,Limber,['National Dex'],"HP
+109","Atk
+66","Def
+84","SpA
+81","SpD
+99","Spe
+32"
+Stunfisk-Galar,"Ground
+Steel",,Mimicry,,,['National Dex'],"HP
+109","Atk
+81","Def
+99","SpA
+66","SpD
+84","Spe
+32"
+Stunky,"Poison
+Dark",,Stench,Keen Eye,Aftermath,['LC'],"HP
+63","Atk
+63","Def
+47","SpA
+41","SpD
+41","Spe
+74"
+Sudowoodo,Rock,,Sturdy,Rattled,Rock Head,['ZU'],"HP
+70","Atk
+100","Def
+115","SpA
+30","SpD
+65","Spe
+30"
+Suicune,Water,,Pressure,Inner Focus,,['NUBL'],"HP
+100","Atk
+75","Def
+115","SpA
+90","SpD
+115","Spe
+85"
+Sunflora,Grass,,Chlorophyll,Early Bird,Solar Power,['ZU'],"HP
+75","Atk
+75","Def
+55","SpA
+105","SpD
+85","Spe
+30"
+Sunkern,Grass,,Chlorophyll,Early Bird,Solar Power,['LC'],"HP
+30","Atk
+30","Def
+30","SpA
+30","SpD
+30","Spe
+30"
+Surskit,"Bug
+Water",,Swift Swim,Rain Dish,,['LC'],"HP
+40","Atk
+30","Def
+32","SpA
+50","SpD
+52","Spe
+65"
+Swablu,"Normal
+Flying",,Natural Cure,Cloud Nine,,['LC'],"HP
+45","Atk
+40","Def
+60","SpA
+40","SpD
+75","Spe
+50"
+Swadloon,"Bug
+Grass",,Leaf Guard,Overcoat,Chlorophyll,['NFE'],"HP
+55","Atk
+63","Def
+90","SpA
+50","SpD
+80","Spe
+42"
+Swalot,Poison,,Liquid Ooze,Gluttony,Sticky Hold,['ZU'],"HP
+100","Atk
+73","Def
+83","SpA
+73","SpD
+83","Spe
+55"
+Swampert,"Water
+Ground",,Torrent,Damp,,['NU'],"HP
+100","Atk
+110","Def
+90","SpA
+85","SpD
+90","Spe
+60"
+Swampert-Mega,"Water
+Ground",,Swift Swim,,,['National Dex'],"HP
+100","Atk
+150","Def
+110","SpA
+95","SpD
+110","Spe
+70"
+Swanna,"Water
+Flying",,Keen Eye,Hydration,Big Pecks,['ZU'],"HP
+75","Atk
+87","Def
+63","SpA
+87","SpD
+63","Spe
+98"
+Swellow,"Normal
+Flying",,Guts,Scrappy,,['National Dex'],"HP
+60","Atk
+85","Def
+60","SpA
+75","SpD
+50","Spe
+125"
+Swinub,"Ice
+Ground",,Oblivious,Thick Fat,Snow Cloak,['LC'],"HP
+50","Atk
+50","Def
+40","SpA
+30","SpD
+30","Spe
+50"
+Swirlix,Fairy,,Sweet Veil,Unburden,,['National Dex'],"HP
+62","Atk
+48","Def
+66","SpA
+59","SpD
+57","Spe
+49"
+Swirlpool,Water,,Torrent,Poison Heal,,[],"HP
+61","Atk
+49","Def
+70","SpA
+50","SpD
+62","Spe
+28"
+Swoobat,"Psychic
+Flying",,Unaware,Simple,Klutz,['National Dex'],"HP
+67","Atk
+57","Def
+55","SpA
+77","SpD
+55","Spe
+114"
+Syclant,"Ice
+Bug",,Compound Eyes,Ice Body,Mountaineer,['CAP'],"HP
+70","Atk
+116","Def
+70","SpA
+114","SpD
+64","Spe
+121"
+Syclar,"Ice
+Bug",,Compound Eyes,Ice Body,Snow Cloak,[],"HP
+40","Atk
+76","Def
+45","SpA
+74","SpD
+39","Spe
+91"
+Sylveon,Fairy,,Cute Charm,Pixilate,,['NU'],"HP
+95","Atk
+65","Def
+65","SpA
+110","SpD
+130","Spe
+60"
+Tactite,Rock,,Levitate,Sniper,Technician,[],"HP
+70","Atk
+40","Def
+65","SpA
+100","SpD
+65","Spe
+95"
+Tadbulb,Electric,,Own Tempo,Damp,Static,['LC'],"HP
+61","Atk
+31","Def
+41","SpA
+59","SpD
+35","Spe
+45"
+Taillow,"Normal
+Flying",,Guts,Scrappy,,['National Dex'],"HP
+40","Atk
+55","Def
+30","SpA
+30","SpD
+30","Spe
+85"
+Talonflame,"Fire
+Flying",,Flame Body,Gale Wings,,['RU'],"HP
+78","Atk
+81","Def
+71","SpA
+74","SpD
+69","Spe
+126"
+Tandemaus,Normal,,Run Away,Own Tempo,Pickup,['LC'],"HP
+50","Atk
+50","Def
+45","SpA
+40","SpD
+45","Spe
+75"
+Tangela,Grass,,Chlorophyll,Regenerator,Leaf Guard,['National Dex'],"HP
+65","Atk
+55","Def
+115","SpA
+100","SpD
+40","Spe
+60"
+Tangrowth,Grass,,Chlorophyll,Regenerator,Leaf Guard,['National Dex'],"HP
+100","Atk
+100","Def
+125","SpA
+110","SpD
+50","Spe
+50"
+Tapu Bulu,"Grass
+Fairy",,Grassy Surge,Telepathy,,['National Dex'],"HP
+70","Atk
+130","Def
+115","SpA
+85","SpD
+95","Spe
+75"
+Tapu Fini,"Water
+Fairy",,Misty Surge,Telepathy,,['National Dex'],"HP
+70","Atk
+75","Def
+115","SpA
+95","SpD
+130","Spe
+85"
+Tapu Koko,"Electric
+Fairy",,Electric Surge,Telepathy,,['National Dex'],"HP
+70","Atk
+115","Def
+85","SpA
+95","SpD
+75","Spe
+130"
+Tapu Lele,"Psychic
+Fairy",,Psychic Surge,Telepathy,,['National Dex'],"HP
+70","Atk
+85","Def
+75","SpA
+130","SpD
+115","Spe
+95"
+Tarountula,Bug,,Insomnia,Stakeout,,['LC'],"HP
+35","Atk
+41","Def
+45","SpA
+29","SpD
+40","Spe
+20"
+Tatsugiri,"Dragon
+Water",,Commander,Storm Drain,,['PU'],"HP
+68","Atk
+50","Def
+60","SpA
+120","SpD
+95","Spe
+82"
+Tauros,Normal,,Intimidate,Sheer Force,Anger Point,['ZU'],"HP
+75","Atk
+100","Def
+95","SpA
+40","SpD
+70","Spe
+110"
+Tauros-Paldea-Aqua,"Fighting
+Water",,Intimidate,Cud Chew,Anger Point,['NU'],"HP
+75","Atk
+110","Def
+105","SpA
+30","SpD
+70","Spe
+100"
+Tauros-Paldea-Blaze,"Fighting
+Fire",,Intimidate,Cud Chew,Anger Point,['PU'],"HP
+75","Atk
+110","Def
+105","SpA
+30","SpD
+70","Spe
+100"
+Tauros-Paldea-Combat,Fighting,,Intimidate,Cud Chew,Anger Point,['ZU'],"HP
+75","Atk
+110","Def
+105","SpA
+30","SpD
+70","Spe
+100"
+Teddiursa,Normal,,Pickup,Honey Gather,Quick Feet,['LC'],"HP
+60","Atk
+80","Def
+50","SpA
+50","SpD
+50","Spe
+40"
+Tentacool,"Water
+Poison",,Clear Body,Rain Dish,Liquid Ooze,['LC'],"HP
+40","Atk
+40","Def
+35","SpA
+50","SpD
+100","Spe
+70"
+Tentacruel,"Water
+Poison",,Clear Body,Rain Dish,Liquid Ooze,['NU'],"HP
+80","Atk
+70","Def
+65","SpA
+80","SpD
+120","Spe
+100"
+Tepig,Fire,,Blaze,Thick Fat,,['LC'],"HP
+65","Atk
+63","Def
+45","SpA
+45","SpD
+45","Spe
+45"
+Terapagos,Normal,,Tera Shift,,,['Uber'],"HP
+90","Atk
+65","Def
+85","SpA
+65","SpD
+85","Spe
+60"
+Terapagos-Stellar,Normal,,Teraform Zero,,,['Uber'],"HP
+160","Atk
+105","Def
+110","SpA
+130","SpD
+110","Spe
+85"
+Terapagos-Terastal,Normal,,Tera Shell,,,['Uber'],"HP
+95","Atk
+95","Def
+110","SpA
+105","SpD
+110","Spe
+85"
+Terrakion,"Rock
+Fighting",,Justified,,,['RU'],"HP
+91","Atk
+129","Def
+90","SpA
+72","SpD
+90","Spe
+108"
+Thievul,Dark,,Run Away,Stakeout,Unburden,['National Dex'],"HP
+70","Atk
+58","Def
+58","SpA
+87","SpD
+92","Spe
+90"
+Throh,Fighting,,Guts,Mold Breaker,Inner Focus,['National Dex'],"HP
+120","Atk
+100","Def
+85","SpA
+30","SpD
+85","Spe
+45"
+Thundurus,"Electric
+Flying",,Prankster,Defiant,,['RUBL'],"HP
+79","Atk
+115","Def
+70","SpA
+125","SpD
+80","Spe
+111"
+Thundurus-Therian,"Electric
+Flying",,Volt Absorb,,,['UU'],"HP
+79","Atk
+105","Def
+70","SpA
+145","SpD
+80","Spe
+101"
+Thwackey,Grass,,Overgrow,Grassy Surge,,['NFE'],"HP
+70","Atk
+85","Def
+70","SpA
+55","SpD
+60","Spe
+80"
+Timburr,Fighting,,Guts,Iron Fist,Sheer Force,['LC'],"HP
+75","Atk
+80","Def
+55","SpA
+25","SpD
+35","Spe
+35"
+Ting-Lu,"Dark
+Ground",,Vessel of Ruin,,,['OU'],"HP
+155","Atk
+110","Def
+125","SpA
+55","SpD
+80","Spe
+45"
+Tinkatink,"Fairy
+Steel",,Mold Breaker,Pickpocket,Own Tempo,['LC'],"HP
+50","Atk
+45","Def
+45","SpA
+35","SpD
+64","Spe
+58"
+Tinkaton,"Fairy
+Steel",,Mold Breaker,Pickpocket,Own Tempo,['UU'],"HP
+85","Atk
+75","Def
+77","SpA
+70","SpD
+105","Spe
+94"
+Tinkatuff,"Fairy
+Steel",,Mold Breaker,Pickpocket,Own Tempo,['NFE'],"HP
+65","Atk
+55","Def
+55","SpA
+45","SpD
+82","Spe
+78"
+Tirtouga,"Water
+Rock",,Solid Rock,Swift Swim,Sturdy,['National Dex'],"HP
+54","Atk
+78","Def
+103","SpA
+53","SpD
+45","Spe
+22"
+Toedscool,"Ground
+Grass",,Mycelium Might,,,['LC'],"HP
+40","Atk
+40","Def
+35","SpA
+50","SpD
+100","Spe
+70"
+Toedscruel,"Ground
+Grass",,Mycelium Might,,,['ZU'],"HP
+80","Atk
+70","Def
+65","SpA
+80","SpD
+120","Spe
+100"
+Togedemaru,"Electric
+Steel",,Iron Barbs,Sturdy,Lightning Rod,['National Dex'],"HP
+65","Atk
+98","Def
+63","SpA
+40","SpD
+73","Spe
+96"
+Togedemaru-Totem,"Electric
+Steel",,Sturdy,,,['National Dex'],"HP
+65","Atk
+98","Def
+63","SpA
+40","SpD
+73","Spe
+96"
+Togekiss,"Fairy
+Flying",,Hustle,Super Luck,Serene Grace,['National Dex'],"HP
+85","Atk
+50","Def
+95","SpA
+120","SpD
+115","Spe
+80"
+Togepi,Fairy,,Hustle,Super Luck,Serene Grace,['National Dex'],"HP
+35","Atk
+20","Def
+65","SpA
+40","SpD
+65","Spe
+20"
+Togetic,"Fairy
+Flying",,Hustle,Super Luck,Serene Grace,['National Dex'],"HP
+55","Atk
+40","Def
+85","SpA
+80","SpD
+105","Spe
+40"
+Tomohawk,"Flying
+Fighting",,Intimidate,Justified,Prankster,['CAP'],"HP
+105","Atk
+60","Def
+90","SpA
+115","SpD
+80","Spe
+85"
+Torchic,Fire,,Blaze,Speed Boost,,['LC'],"HP
+45","Atk
+60","Def
+40","SpA
+70","SpD
+50","Spe
+45"
+Torkoal,Fire,,White Smoke,Shell Armor,Drought,['RU'],"HP
+70","Atk
+85","Def
+140","SpA
+85","SpD
+70","Spe
+20"
+Tornadus,Flying,,Prankster,Defiant,,['ZUBL'],"HP
+79","Atk
+115","Def
+70","SpA
+125","SpD
+80","Spe
+111"
+Tornadus-Therian,Flying,,Regenerator,,,['UU'],"HP
+79","Atk
+100","Def
+80","SpA
+110","SpD
+90","Spe
+121"
+Torracat,Fire,,Blaze,Intimidate,,['NFE'],"HP
+65","Atk
+85","Def
+50","SpA
+80","SpD
+50","Spe
+90"
+Torterra,"Grass
+Ground",,Overgrow,Shell Armor,,['NU'],"HP
+95","Atk
+109","Def
+105","SpA
+75","SpD
+85","Spe
+56"
+Totodile,Water,,Torrent,Sheer Force,,['LC'],"HP
+50","Atk
+65","Def
+64","SpA
+44","SpD
+48","Spe
+43"
+Toucannon,"Normal
+Flying",,Keen Eye,Sheer Force,Skill Link,['ZU'],"HP
+80","Atk
+120","Def
+75","SpA
+75","SpD
+75","Spe
+60"
+Toxapex,"Poison
+Water",,Merciless,Regenerator,Limber,['UU'],"HP
+50","Atk
+63","Def
+152","SpA
+53","SpD
+142","Spe
+35"
+Toxel,"Electric
+Poison",,Rattled,Klutz,Static,['LC'],"HP
+40","Atk
+38","Def
+35","SpA
+54","SpD
+35","Spe
+40"
+Toxicroak,"Poison
+Fighting",,Anticipation,Poison Touch,Dry Skin,['NU'],"HP
+83","Atk
+106","Def
+65","SpA
+86","SpD
+65","Spe
+85"
+Toxtricity,"Electric
+Poison",,Punk Rock,Technician,Plus,['PU'],"HP
+75","Atk
+98","Def
+70","SpA
+114","SpD
+70","Spe
+75"
+Toxtricity-Gmax,"Electric
+Poison",,Punk Rock,Technician,Plus,['National Dex'],"HP
+75","Atk
+98","Def
+70","SpA
+114","SpD
+70","Spe
+75"
+Toxtricity-Low-Key,"Electric
+Poison",,Punk Rock,Technician,Minus,['PU'],"HP
+75","Atk
+98","Def
+70","SpA
+114","SpD
+70","Spe
+75"
+Toxtricity-Low-Key-Gmax,"Electric
+Poison",,Punk Rock,Technician,Minus,['National Dex'],"HP
+75","Atk
+98","Def
+70","SpA
+114","SpD
+70","Spe
+75"
+Tranquill,"Normal
+Flying",,Big Pecks,Rivalry,Super Luck,['National Dex'],"HP
+62","Atk
+77","Def
+62","SpA
+50","SpD
+42","Spe
+65"
+Trapinch,Ground,,Hyper Cutter,Sheer Force,Arena Trap,['LC'],"HP
+45","Atk
+100","Def
+45","SpA
+45","SpD
+45","Spe
+10"
+Treecko,Grass,,Overgrow,Unburden,,['LC'],"HP
+40","Atk
+45","Def
+35","SpA
+65","SpD
+55","Spe
+70"
+Trevenant,"Ghost
+Grass",,Natural Cure,Harvest,Frisk,['ZU'],"HP
+85","Atk
+110","Def
+76","SpA
+65","SpD
+82","Spe
+56"
+Tropius,"Grass
+Flying",,Chlorophyll,Harvest,Solar Power,['ZU'],"HP
+99","Atk
+68","Def
+83","SpA
+72","SpD
+87","Spe
+51"
+Trubbish,Poison,,Stench,Aftermath,Sticky Hold,['National Dex'],"HP
+50","Atk
+50","Def
+62","SpA
+40","SpD
+62","Spe
+65"
+Trumbeak,"Normal
+Flying",,Keen Eye,Pickup,Skill Link,['NFE'],"HP
+55","Atk
+85","Def
+50","SpA
+40","SpD
+50","Spe
+75"
+Tsareena,Grass,,Leaf Guard,Sweet Veil,Queenly Majesty,['NU'],"HP
+72","Atk
+120","Def
+98","SpA
+50","SpD
+98","Spe
+72"
+Turtonator,"Fire
+Dragon",,Shell Armor,,,['National Dex'],"HP
+60","Atk
+78","Def
+135","SpA
+91","SpD
+85","Spe
+36"
+Turtwig,Grass,,Overgrow,Shell Armor,,['LC'],"HP
+55","Atk
+68","Def
+64","SpA
+45","SpD
+55","Spe
+31"
+Tympole,Water,,Swift Swim,Water Absorb,Hydration,['National Dex'],"HP
+50","Atk
+50","Def
+40","SpA
+50","SpD
+40","Spe
+64"
+Tynamo,Electric,,Levitate,,,['LC'],"HP
+35","Atk
+55","Def
+40","SpA
+45","SpD
+40","Spe
+60"
+Type: Null,Normal,,Battle Armor,,,['National Dex'],"HP
+95","Atk
+95","Def
+95","SpA
+95","SpD
+95","Spe
+59"
+Typhlosion,Fire,,Blaze,Flash Fire,,['ZU'],"HP
+78","Atk
+84","Def
+78","SpA
+109","SpD
+85","Spe
+100"
+Typhlosion-Hisui,"Fire
+Ghost",,Blaze,Frisk,,['NU'],"HP
+73","Atk
+84","Def
+78","SpA
+119","SpD
+85","Spe
+95"
+Tyranitar,"Rock
+Dark",,Sand Stream,Unnerve,,['UU'],"HP
+100","Atk
+134","Def
+110","SpA
+95","SpD
+100","Spe
+61"
+Tyranitar-Mega,"Rock
+Dark",,Sand Stream,,,['National Dex'],"HP
+100","Atk
+164","Def
+150","SpA
+95","SpD
+120","Spe
+71"
+Tyrantrum,"Rock
+Dragon",,Strong Jaw,Rock Head,,['National Dex'],"HP
+82","Atk
+121","Def
+119","SpA
+69","SpD
+59","Spe
+71"
+Tyrogue,Fighting,,Guts,Vital Spirit,Steadfast,['LC'],"HP
+35","Atk
+35","Def
+35","SpA
+35","SpD
+35","Spe
+35"
+Tyrunt,"Rock
+Dragon",,Strong Jaw,Sturdy,,['National Dex'],"HP
+58","Atk
+89","Def
+77","SpA
+45","SpD
+45","Spe
+48"
+Umbreon,Dark,,Synchronize,Inner Focus,,['RU'],"HP
+95","Atk
+65","Def
+110","SpA
+60","SpD
+130","Spe
+65"
+Unfezant,"Normal
+Flying",,Big Pecks,Rivalry,Super Luck,['National Dex'],"HP
+80","Atk
+115","Def
+80","SpA
+65","SpD
+55","Spe
+93"
+Unown,Psychic,,Levitate,,,['National Dex'],"HP
+48","Atk
+72","Def
+48","SpA
+72","SpD
+48","Spe
+48"
+Ursaluna,"Ground
+Normal",,Guts,Unnerve,Bulletproof,['UUBL'],"HP
+130","Atk
+140","Def
+105","SpA
+45","SpD
+80","Spe
+50"
+Ursaluna-Bloodmoon,"Ground
+Normal",,Mind's Eye,,,['Uber'],"HP
+113","Atk
+70","Def
+120","SpA
+135","SpD
+65","Spe
+52"
+Ursaring,Normal,,Guts,Unnerve,Quick Feet,['NFE'],"HP
+90","Atk
+130","Def
+75","SpA
+75","SpD
+75","Spe
+55"
+Urshifu,"Fighting
+Dark",,Unseen Fist,,,['Uber'],"HP
+100","Atk
+130","Def
+100","SpA
+63","SpD
+60","Spe
+97"
+Urshifu-Gmax,"Fighting
+Dark",,Unseen Fist,,,['National Dex'],"HP
+100","Atk
+130","Def
+100","SpA
+63","SpD
+60","Spe
+97"
+Urshifu-Rapid-Strike,"Fighting
+Water",,Unseen Fist,,,['Uber'],"HP
+100","Atk
+130","Def
+100","SpA
+63","SpD
+60","Spe
+97"
+Urshifu-Rapid-Strike-Gmax,"Fighting
+Water",,Unseen Fist,,,['National Dex'],"HP
+100","Atk
+130","Def
+100","SpA
+63","SpD
+60","Spe
+97"
+Uxie,Psychic,,Levitate,,,['ZUBL'],"HP
+75","Atk
+75","Def
+130","SpA
+75","SpD
+130","Spe
+95"
+Vanillish,Ice,,Ice Body,Weak Armor,Snow Cloak,['National Dex'],"HP
+51","Atk
+65","Def
+65","SpA
+80","SpD
+75","Spe
+59"
+Vanillite,Ice,,Ice Body,Weak Armor,Snow Cloak,['National Dex'],"HP
+36","Atk
+50","Def
+50","SpA
+65","SpD
+60","Spe
+44"
+Vanilluxe,Ice,,Ice Body,Weak Armor,Snow Warning,['National Dex'],"HP
+71","Atk
+95","Def
+85","SpA
+110","SpD
+95","Spe
+79"
+Vaporeon,Water,,Water Absorb,Hydration,,['NU'],"HP
+130","Atk
+65","Def
+60","SpA
+110","SpD
+95","Spe
+65"
+Varoom,"Steel
+Poison",,Overcoat,Slow Start,,['LC'],"HP
+45","Atk
+70","Def
+63","SpA
+30","SpD
+45","Spe
+47"
+Veluza,"Water
+Psychic",,Mold Breaker,Sharpness,,['ZU'],"HP
+90","Atk
+102","Def
+73","SpA
+78","SpD
+65","Spe
+70"
+Venipede,"Bug
+Poison",,Poison Point,Speed Boost,Swarm,['National Dex'],"HP
+30","Atk
+45","Def
+59","SpA
+30","SpD
+39","Spe
+57"
+Venomicon,"Poison
+Flying",,Stamina,Power of Alchemy,,['CAP'],"HP
+85","Atk
+50","Def
+113","SpA
+118","SpD
+90","Spe
+64"
+Venomicon-Epilogue,"Poison
+Flying",,Tinted Lens,,,['CAP'],"HP
+85","Atk
+102","Def
+85","SpA
+62","SpD
+85","Spe
+101"
+Venomoth,"Bug
+Poison",,Shield Dust,Wonder Skin,Tinted Lens,['ZU'],"HP
+70","Atk
+65","Def
+60","SpA
+90","SpD
+75","Spe
+90"
+Venonat,"Bug
+Poison",,Compound Eyes,Run Away,Tinted Lens,['LC'],"HP
+60","Atk
+55","Def
+50","SpA
+40","SpD
+55","Spe
+45"
+Venusaur,"Grass
+Poison",,Overgrow,Chlorophyll,,['PU'],"HP
+80","Atk
+82","Def
+83","SpA
+100","SpD
+100","Spe
+80"
+Venusaur-Gmax,"Grass
+Poison",,Overgrow,Chlorophyll,,['National Dex'],"HP
+80","Atk
+82","Def
+83","SpA
+100","SpD
+100","Spe
+80"
+Venusaur-Mega,"Grass
+Poison",,Thick Fat,,,['National Dex'],"HP
+80","Atk
+100","Def
+123","SpA
+122","SpD
+120","Spe
+80"
+Vespiquen,"Bug
+Flying",,Pressure,Unnerve,,['ZU'],"HP
+70","Atk
+80","Def
+102","SpA
+80","SpD
+102","Spe
+40"
+Vibrava,"Ground
+Dragon",,Levitate,,,['NFE'],"HP
+50","Atk
+70","Def
+50","SpA
+50","SpD
+50","Spe
+70"
+Victini,"Psychic
+Fire",,Victory Star,,,['National Dex'],"HP
+100","Atk
+100","Def
+100","SpA
+100","SpD
+100","Spe
+100"
+Victreebel,"Grass
+Poison",,Chlorophyll,Gluttony,,['ZU'],"HP
+80","Atk
+105","Def
+65","SpA
+100","SpD
+70","Spe
+70"
+Vigoroth,Normal,,Vital Spirit,,,['NFE'],"HP
+80","Atk
+80","Def
+80","SpA
+55","SpD
+55","Spe
+90"
+Vikavolt,"Bug
+Electric",,Levitate,,,['ZU'],"HP
+77","Atk
+70","Def
+90","SpA
+145","SpD
+75","Spe
+43"
+Vikavolt-Totem,"Bug
+Electric",,Levitate,,,['National Dex'],"HP
+77","Atk
+70","Def
+90","SpA
+145","SpD
+75","Spe
+43"
+Vileplume,"Grass
+Poison",,Chlorophyll,Effect Spore,,['NU'],"HP
+75","Atk
+80","Def
+85","SpA
+110","SpD
+90","Spe
+50"
+Virizion,"Grass
+Fighting",,Justified,,,['ZU'],"HP
+91","Atk
+90","Def
+72","SpA
+90","SpD
+129","Spe
+108"
+Vivillon,"Bug
+Flying",,Shield Dust,Friend Guard,Compound Eyes,['ZU'],"HP
+80","Atk
+52","Def
+50","SpA
+90","SpD
+50","Spe
+89"
+Vivillon-Fancy,"Bug
+Flying",,Shield Dust,Friend Guard,Compound Eyes,['ZU'],"HP
+80","Atk
+52","Def
+50","SpA
+90","SpD
+50","Spe
+89"
+Vivillon-Pokeball,"Bug
+Flying",,Shield Dust,Friend Guard,Compound Eyes,['ZU'],"HP
+80","Atk
+52","Def
+50","SpA
+90","SpD
+50","Spe
+89"
+Volbeat,Bug,,Illuminate,Prankster,Swarm,['ZU'],"HP
+65","Atk
+73","Def
+75","SpA
+47","SpD
+85","Spe
+85"
+Volcanion,"Fire
+Water",,Water Absorb,,,['RU'],"HP
+80","Atk
+110","Def
+120","SpA
+130","SpD
+90","Spe
+70"
+Volcarona,"Bug
+Fire",,Flame Body,Swarm,,['Uber'],"HP
+85","Atk
+60","Def
+65","SpA
+135","SpD
+105","Spe
+100"
+Volkraken,"Water
+Fire",,Analytic,Pressure,Infiltrator,['CAP'],"HP
+100","Atk
+45","Def
+80","SpA
+135","SpD
+100","Spe
+95"
+Volkritter,"Water
+Fire",,Anticipation,Unnerve,Infiltrator,[],"HP
+60","Atk
+30","Def
+50","SpA
+80","SpD
+60","Spe
+70"
+Voltorb,Electric,,Soundproof,Aftermath,Static,['LC'],"HP
+40","Atk
+30","Def
+50","SpA
+55","SpD
+55","Spe
+100"
+Voltorb-Hisui,"Electric
+Grass",,Soundproof,Aftermath,Static,['NFE'],"HP
+40","Atk
+30","Def
+50","SpA
+55","SpD
+55","Spe
+100"
+Voodoll,"Normal
+Dark",,Volt Absorb,Cursed Body,Lightning Rod,[],"HP
+55","Atk
+40","Def
+55","SpA
+75","SpD
+50","Spe
+70"
+Voodoom,"Fighting
+Dark",,Volt Absorb,Cursed Body,Lightning Rod,['CAP'],"HP
+90","Atk
+85","Def
+80","SpA
+130","SpD
+80","Spe
+110"
+Vullaby,"Dark
+Flying",,Big Pecks,Weak Armor,Overcoat,['LC'],"HP
+70","Atk
+55","Def
+75","SpA
+45","SpD
+65","Spe
+60"
+Vulpix,Fire,,Flash Fire,Drought,,['NFE'],"HP
+38","Atk
+41","Def
+40","SpA
+50","SpD
+65","Spe
+65"
+Vulpix-Alola,Ice,,Snow Cloak,Snow Warning,,['NFE'],"HP
+38","Atk
+41","Def
+40","SpA
+50","SpD
+65","Spe
+65"
+Wailmer,Water,,Water Veil,Pressure,Oblivious,['National Dex'],"HP
+130","Atk
+70","Def
+35","SpA
+70","SpD
+35","Spe
+60"
+Wailord,Water,,Water Veil,Pressure,Oblivious,['National Dex'],"HP
+170","Atk
+90","Def
+45","SpA
+90","SpD
+45","Spe
+60"
+Walking Wake,"Water
+Dragon",,Protosynthesis,,,['OU'],"HP
+99","Atk
+83","Def
+91","SpA
+125","SpD
+83","Spe
+109"
+Walrein,"Ice
+Water",,Thick Fat,Oblivious,Ice Body,['National Dex'],"HP
+110","Atk
+80","Def
+90","SpA
+95","SpD
+90","Spe
+65"
+Wartortle,Water,,Torrent,Rain Dish,,['NFE'],"HP
+59","Atk
+63","Def
+80","SpA
+65","SpD
+80","Spe
+58"
+Watchog,Normal,,Illuminate,Analytic,Keen Eye,['National Dex'],"HP
+60","Atk
+85","Def
+69","SpA
+60","SpD
+69","Spe
+77"
+Wattrel,"Electric
+Flying",,Wind Power,Competitive,Volt Absorb,['LC'],"HP
+40","Atk
+40","Def
+35","SpA
+55","SpD
+40","Spe
+70"
+Weavile,"Dark
+Ice",,Pressure,Pickpocket,,['UU'],"HP
+70","Atk
+120","Def
+65","SpA
+45","SpD
+85","Spe
+125"
+Weedle,"Bug
+Poison",,Shield Dust,Run Away,,['National Dex'],"HP
+40","Atk
+35","Def
+30","SpA
+20","SpD
+20","Spe
+50"
+Weepinbell,"Grass
+Poison",,Chlorophyll,Gluttony,,['NFE'],"HP
+65","Atk
+90","Def
+50","SpA
+85","SpD
+45","Spe
+55"
+Weezing,Poison,,Levitate,Stench,Neutralizing Gas,['ZU'],"HP
+65","Atk
+90","Def
+120","SpA
+85","SpD
+70","Spe
+60"
+Weezing-Galar,"Poison
+Fairy",,Levitate,Misty Surge,Neutralizing Gas,['RU'],"HP
+65","Atk
+90","Def
+120","SpA
+85","SpD
+70","Spe
+60"
+Whimsicott,"Grass
+Fairy",,Prankster,Chlorophyll,Infiltrator,['ZU'],"HP
+60","Atk
+67","Def
+85","SpA
+77","SpD
+75","Spe
+116"
+Whirlipede,"Bug
+Poison",,Poison Point,Speed Boost,Swarm,['National Dex'],"HP
+40","Atk
+55","Def
+99","SpA
+40","SpD
+79","Spe
+47"
+Whiscash,"Water
+Ground",,Oblivious,Hydration,Anticipation,['ZU'],"HP
+110","Atk
+78","Def
+73","SpA
+76","SpD
+71","Spe
+60"
+Whismur,Normal,,Soundproof,Rattled,,['National Dex'],"HP
+64","Atk
+51","Def
+23","SpA
+51","SpD
+23","Spe
+28"
+Wigglytuff,"Normal
+Fairy",,Cute Charm,Frisk,Competitive,['ZU'],"HP
+140","Atk
+70","Def
+45","SpA
+85","SpD
+50","Spe
+45"
+Wiglett,Water,,Gooey,Sand Veil,Rattled,['LC'],"HP
+10","Atk
+55","Def
+25","SpA
+35","SpD
+25","Spe
+95"
+Wimpod,"Bug
+Water",,Wimp Out,,,['National Dex'],"HP
+25","Atk
+35","Def
+40","SpA
+20","SpD
+30","Spe
+80"
+Wingull,"Water
+Flying",,Keen Eye,Rain Dish,Hydration,['LC'],"HP
+40","Atk
+30","Def
+30","SpA
+55","SpD
+30","Spe
+85"
+Wishiwashi,Water,,Schooling,,,['National Dex'],"HP
+45","Atk
+20","Def
+20","SpA
+25","SpD
+25","Spe
+40"
+Wishiwashi-School,Water,,Schooling,,,['National Dex'],"HP
+45","Atk
+140","Def
+130","SpA
+140","SpD
+135","Spe
+30"
+Wo-Chien,"Dark
+Grass",,Tablets of Ruin,,,['PU'],"HP
+85","Atk
+85","Def
+100","SpA
+95","SpD
+135","Spe
+70"
+Wobbuffet,Psychic,,Shadow Tag,Telepathy,,['National Dex'],"HP
+190","Atk
+33","Def
+58","SpA
+33","SpD
+58","Spe
+33"
+Woobat,"Psychic
+Flying",,Unaware,Simple,Klutz,['National Dex'],"HP
+65","Atk
+45","Def
+43","SpA
+55","SpD
+43","Spe
+72"
+Wooloo,Normal,,Fluffy,Bulletproof,Run Away,['National Dex'],"HP
+42","Atk
+40","Def
+55","SpA
+40","SpD
+45","Spe
+48"
+Wooper,"Water
+Ground",,Damp,Unaware,Water Absorb,['LC'],"HP
+55","Atk
+45","Def
+45","SpA
+25","SpD
+25","Spe
+15"
+Wooper-Paldea,"Poison
+Ground",,Poison Point,Unaware,Water Absorb,['LC'],"HP
+55","Atk
+45","Def
+45","SpA
+25","SpD
+25","Spe
+15"
+Wormadam,"Bug
+Grass",,Anticipation,Overcoat,,['National Dex'],"HP
+60","Atk
+59","Def
+85","SpA
+79","SpD
+105","Spe
+36"
+Wormadam-Sandy,"Bug
+Ground",,Anticipation,Overcoat,,['National Dex'],"HP
+60","Atk
+79","Def
+105","SpA
+59","SpD
+85","Spe
+36"
+Wormadam-Trash,"Bug
+Steel",,Anticipation,Overcoat,,['National Dex'],"HP
+60","Atk
+69","Def
+95","SpA
+69","SpD
+95","Spe
+36"
+Wugtrio,Water,,Gooey,Sand Veil,Rattled,['ZU'],"HP
+35","Atk
+100","Def
+50","SpA
+50","SpD
+70","Spe
+120"
+Wurmple,Bug,,Shield Dust,Run Away,,['National Dex'],"HP
+45","Atk
+45","Def
+35","SpA
+20","SpD
+30","Spe
+20"
+Wynaut,Psychic,,Shadow Tag,Telepathy,,['National Dex'],"HP
+95","Atk
+23","Def
+48","SpA
+23","SpD
+48","Spe
+23"
+Wyrdeer,"Normal
+Psychic",,Intimidate,Sap Sipper,Frisk,['ZU'],"HP
+103","Atk
+105","Def
+72","SpA
+105","SpD
+75","Spe
+65"
+Xatu,"Psychic
+Flying",,Synchronize,Magic Bounce,Early Bird,['National Dex'],"HP
+65","Atk
+75","Def
+70","SpA
+95","SpD
+70","Spe
+95"
+Xerneas,Fairy,,Fairy Aura,,,['National Dex'],"HP
+126","Atk
+131","Def
+95","SpA
+131","SpD
+98","Spe
+99"
+Xurkitree,Electric,,Beast Boost,,,['National Dex'],"HP
+83","Atk
+89","Def
+71","SpA
+173","SpD
+71","Spe
+83"
+Yamask,Ghost,,Mummy,,,['National Dex'],"HP
+38","Atk
+30","Def
+85","SpA
+55","SpD
+65","Spe
+30"
+Yamask-Galar,"Ground
+Ghost",,Wandering Spirit,,,['National Dex'],"HP
+38","Atk
+55","Def
+85","SpA
+30","SpD
+65","Spe
+30"
+Yamper,Electric,,Ball Fetch,Rattled,,['National Dex'],"HP
+59","Atk
+45","Def
+50","SpA
+40","SpD
+50","Spe
+26"
+Yanma,"Bug
+Flying",,Speed Boost,Frisk,Compound Eyes,['NFE'],"HP
+65","Atk
+65","Def
+45","SpA
+75","SpD
+45","Spe
+95"
+Yanmega,"Bug
+Flying",,Speed Boost,Frisk,Tinted Lens,['RU'],"HP
+86","Atk
+76","Def
+86","SpA
+116","SpD
+56","Spe
+95"
+Yungoos,Normal,,Stakeout,Adaptability,Strong Jaw,['LC'],"HP
+48","Atk
+70","Def
+30","SpA
+30","SpD
+30","Spe
+45"
+Yveltal,"Dark
+Flying",,Dark Aura,,,['National Dex'],"HP
+126","Atk
+131","Def
+95","SpA
+131","SpD
+98","Spe
+99"
+Zacian,Fairy,,Intrepid Sword,,,['Uber'],"HP
+92","Atk
+120","Def
+115","SpA
+80","SpD
+115","Spe
+138"
+Zacian-Crowned,"Fairy
+Steel",,Intrepid Sword,,,['Uber'],"HP
+92","Atk
+150","Def
+115","SpA
+80","SpD
+115","Spe
+148"
+Zamazenta,Fighting,,Dauntless Shield,,,['OU'],"HP
+92","Atk
+120","Def
+115","SpA
+80","SpD
+115","Spe
+138"
+Zamazenta-Crowned,"Fighting
+Steel",,Dauntless Shield,,,['Uber'],"HP
+92","Atk
+120","Def
+140","SpA
+80","SpD
+140","Spe
+128"
+Zangoose,Normal,,Immunity,Toxic Boost,,['ZU'],"HP
+73","Atk
+115","Def
+60","SpA
+60","SpD
+60","Spe
+90"
+Zapdos,"Electric
+Flying",,Pressure,Static,,['OU'],"HP
+90","Atk
+90","Def
+85","SpA
+125","SpD
+90","Spe
+100"
+Zapdos-Galar,"Fighting
+Flying",,Defiant,,,['RU'],"HP
+90","Atk
+125","Def
+90","SpA
+85","SpD
+90","Spe
+100"
+Zarude,"Dark
+Grass",,Leaf Guard,,,['RUBL'],"HP
+105","Atk
+120","Def
+105","SpA
+70","SpD
+95","Spe
+105"
+Zarude-Dada,"Dark
+Grass",,Leaf Guard,,,['RUBL'],"HP
+105","Atk
+120","Def
+105","SpA
+70","SpD
+95","Spe
+105"
+Zebstrika,Electric,,Lightning Rod,Sap Sipper,Motor Drive,['ZU'],"HP
+75","Atk
+100","Def
+63","SpA
+80","SpD
+63","Spe
+116"
+Zekrom,"Dragon
+Electric",,Teravolt,,,['Uber'],"HP
+100","Atk
+150","Def
+120","SpA
+120","SpD
+100","Spe
+90"
+Zeraora,Electric,,Volt Absorb,,,['National Dex'],"HP
+88","Atk
+112","Def
+75","SpA
+102","SpD
+80","Spe
+143"
+Zigzagoon,Normal,,Pickup,Quick Feet,Gluttony,['National Dex'],"HP
+38","Atk
+30","Def
+41","SpA
+30","SpD
+41","Spe
+60"
+Zigzagoon-Galar,"Dark
+Normal",,Pickup,Quick Feet,Gluttony,['National Dex'],"HP
+38","Atk
+30","Def
+41","SpA
+30","SpD
+41","Spe
+60"
+Zoroark,Dark,,Illusion,,,['PU'],"HP
+60","Atk
+105","Def
+60","SpA
+120","SpD
+60","Spe
+105"
+Zoroark-Hisui,"Normal
+Ghost",,Illusion,,,['RU'],"HP
+55","Atk
+100","Def
+60","SpA
+125","SpD
+60","Spe
+110"
+Zorua,Dark,,Illusion,,,['LC'],"HP
+40","Atk
+65","Def
+40","SpA
+80","SpD
+40","Spe
+65"
+Zorua-Hisui,"Normal
+Ghost",,Illusion,,,['LC'],"HP
+35","Atk
+60","Def
+40","SpA
+85","SpD
+40","Spe
+70"
+Zubat,"Poison
+Flying",,Inner Focus,Infiltrator,,['National Dex'],"HP
+40","Atk
+45","Def
+35","SpA
+30","SpD
+40","Spe
+55"
+Zweilous,"Dark
+Dragon",,Hustle,,,['NFE'],"HP
+72","Atk
+85","Def
+70","SpA
+65","SpD
+70","Spe
+58"
+Zygarde,"Dragon
+Ground",,Aura Break,Power Construct,,['National Dex'],"HP
+108","Atk
+100","Def
+121","SpA
+81","SpD
+95","Spe
+95"
+Zygarde-10%,"Dragon
+Ground",,Aura Break,Power Construct,,['National Dex'],"HP
+54","Atk
+100","Def
+71","SpA
+61","SpD
+85","Spe
+115"
+Zygarde-Complete,"Dragon
+Ground",,Power Construct,,,['National Dex'],"HP
+216","Atk
+100","Def
+121","SpA
+91","SpD
+95","Spe
+85"

@@ -1,0 +1,937 @@
+name,type,power,accuracy,pp,description
+"10,000,000 Volt Thunderbolt",Electric,195,—,1,Very high critical hit ratio.
+Absorb,Grass,20,100%,25,User recovers 50% of the damage dealt.
+Accelerock,Rock,40,100%,20,Usually goes first.
+Acid,Poison,40,100%,30,10% chance to lower the foe(s) Sp. Def by 1.
+Acid Armor,Poison,—,—,20,Raises the user's Defense by 2.
+Acid Downpour,Poison,1,—,1,Power is equal to the base move's Z-Power.
+Acid Spray,Poison,40,100%,20,100% chance to lower the target's Sp. Def by 2.
+Acrobatics,Flying,55,100%,15,Power doubles if the user has no held item.
+Acupressure,Normal,—,—,30,Raises a random stat of the user or an ally by 2.
+Aerial Ace,Flying,60,—,20,This move does not check accuracy.
+Aeroblast,Flying,100,95%,5,High critical hit ratio.
+After You,Normal,—,—,15,The target makes its move right after the user.
+Agility,Psychic,—,—,30,Raises the user's Speed by 2.
+Air Cutter,Flying,60,95%,25,High critical hit ratio. Hits adjacent foes.
+Air Slash,Flying,75,95%,15,30% chance to make the target flinch.
+All-Out Pummeling,Fighting,1,—,1,Power is equal to the base move's Z-Power.
+Alluring Voice,Fairy,80,100%,10,100% confuse target that had a stat rise this turn.
+Ally Switch,Psychic,—,—,15,User and ally swap positions; using again can fail.
+Amnesia,Psychic,—,—,20,Raises the user's Sp. Def by 2.
+Anchor Shot,Steel,80,100%,20,Prevents the target from switching out.
+Ancient Power,Rock,60,100%,5,10% chance to raise all stats by 1 (not acc/eva).
+Apple Acid,Grass,80,100%,10,100% chance to lower the target's Sp. Def by 1.
+Aqua Cutter,Water,70,100%,20,High critical hit ratio.
+Aqua Jet,Water,40,100%,20,Usually goes first.
+Aqua Ring,Water,—,—,20,User recovers 1/16 max HP per turn.
+Aqua Step,Water,80,100%,10,100% chance to raise the user's Speed by 1.
+Aqua Tail,Water,90,90%,10,No additional effect.
+Arm Thrust,Fighting,15,100%,20,Hits 2-5 times in one turn.
+Armor Cannon,Fire,120,100%,5,Lowers the user's Defense and Sp. Def by 1.
+Aromatherapy,Grass,—,—,5,Cures the user's party of all status conditions.
+Aromatic Mist,Fairy,—,—,20,Raises an ally's Sp. Def by 1.
+Assist,Normal,—,—,20,Uses a random move known by a team member.
+Assurance,Dark,60,100%,10,Power doubles if target was damaged this turn.
+Astonish,Ghost,30,100%,15,30% chance to make the target flinch.
+Astral Barrage,Ghost,120,100%,5,No additional effect. Hits adjacent foes.
+Attack Order,Bug,90,100%,15,High critical hit ratio.
+Attract,Normal,—,100%,15,A target of the opposite gender gets infatuated.
+Aura Sphere,Fighting,80,—,20,This move does not check accuracy.
+Aura Wheel,Electric,110,100%,10,Morpeko: Electric; Hangry: Dark; 100% +1 Spe.
+Aurora Beam,Ice,65,100%,20,10% chance to lower the target's Attack by 1.
+Aurora Veil,Ice,—,—,20,"For 5 turns, damage to allies halved. Snow only."
+Autotomize,Steel,—,—,15,Raises the user's Speed by 2; user loses 100 kg.
+Avalanche,Ice,60,100%,10,Power doubles if user is damaged by the target.
+Axe Kick,Fighting,120,90%,10,30% confusion. User loses 50% max HP if miss.
+Baby-Doll Eyes,Fairy,—,100%,30,Lowers the target's Attack by 1.
+Baddy Bad,Dark,90,100%,15,Summons Reflect.
+Baneful Bunker,Poison,—,—,10,Protects from moves. Contact: poison.
+Barb Barrage,Poison,60,100%,10,50% psn. 2x power if target already poisoned.
+Barrage,Normal,15,85%,20,Hits 2-5 times in one turn.
+Barrier,Psychic,—,—,20,Raises the user's Defense by 2.
+Baton Pass,Normal,—,—,40,"User switches, passing stat changes and more."
+Beak Blast,Flying,100,100%,15,Burns on contact with the user before it moves.
+Beat Up,Dark,—,100%,10,All healthy allies aid in damaging the target.
+Behemoth Bash,Steel,100,100%,5,No additional effect.
+Behemoth Blade,Steel,100,100%,5,No additional effect.
+Belch,Poison,120,90%,10,Cannot be selected until the user eats a Berry.
+Belly Drum,Normal,—,—,10,User loses 50% max HP. Maximizes Attack.
+Bestow,Normal,—,—,15,User passes its held item to the target.
+Bide,Normal,—,—,10,Waits 2 turns; deals double the damage taken.
+Bind,Normal,15,85%,20,Traps and damages the target for 4-5 turns.
+Bite,Dark,60,100%,25,30% chance to make the target flinch.
+Bitter Blade,Fire,90,100%,10,User recovers 50% of the damage dealt.
+Bitter Malice,Ghost,75,100%,10,100% chance to lower the target's Attack by 1.
+Black Hole Eclipse,Dark,1,—,1,Power is equal to the base move's Z-Power.
+Blast Burn,Fire,150,90%,5,User cannot move next turn.
+Blaze Kick,Fire,85,90%,10,High critical hit ratio. 10% chance to burn.
+Blazing Torque,Fire,80,100%,10,30% chance to burn the target.
+Bleakwind Storm,Flying,100,80%,10,30% to lower foe(s) Speed by 1. Rain: can't miss.
+Blizzard,Ice,110,70%,5,10% chance to freeze foe(s). Can't miss in Snow.
+Block,Normal,—,—,5,Prevents the target from switching out.
+Blood Moon,Normal,140,100%,5,Cannot be selected the turn after it's used.
+Bloom Doom,Grass,1,—,1,Power is equal to the base move's Z-Power.
+Blue Flare,Fire,130,85%,5,20% chance to burn the target.
+Body Press,Fighting,80,100%,10,Uses user's Def stat as Atk in damage calculation.
+Body Slam,Normal,85,100%,15,30% chance to paralyze the target.
+Bolt Beak,Electric,85,100%,10,Power doubles if user moves before the target.
+Bolt Strike,Electric,130,85%,5,20% chance to paralyze the target.
+Bone Club,Ground,65,85%,20,10% chance to make the target flinch.
+Bone Rush,Ground,25,90%,10,Hits 2-5 times in one turn.
+Bonemerang,Ground,50,90%,10,Hits 2 times in one turn.
+Boomburst,Normal,140,100%,10,No additional effect. Hits adjacent Pokemon.
+Bounce,Flying,85,85%,5,Bounces turn 1. Hits turn 2. 30% paralyze.
+Bouncy Bubble,Water,90,100%,15,User recovers 50% of the damage dealt.
+Branch Poke,Grass,40,100%,40,No additional effect.
+Brave Bird,Flying,120,100%,15,Has 33% recoil.
+Breaking Swipe,Dragon,60,100%,15,100% chance to lower the foe(s) Attack by 1.
+Breakneck Blitz,Normal,1,—,1,Power is equal to the base move's Z-Power.
+Brick Break,Fighting,75,100%,15,"Destroys screens, unless the target is immune."
+Brine,Water,65,100%,10,Power doubles if the target's HP is 50% or less.
+Brutal Swing,Dark,60,100%,20,No additional effect. Hits adjacent Pokemon.
+Bubble,Water,40,100%,30,10% chance to lower the foe(s) Speed by 1.
+Bubble Beam,Water,65,100%,20,10% chance to lower the target's Speed by 1.
+Bug Bite,Bug,60,100%,20,User steals and eats the target's Berry.
+Bug Buzz,Bug,90,100%,10,10% chance to lower the target's Sp. Def by 1.
+Bulk Up,Fighting,—,—,20,Raises the user's Attack and Defense by 1.
+Bulldoze,Ground,60,100%,20,100% chance lower adjacent Pkmn Speed by 1.
+Bullet Punch,Steel,40,100%,30,Usually goes first.
+Bullet Seed,Grass,25,100%,30,Hits 2-5 times in one turn.
+Burn Up,Fire,130,100%,5,User's Fire type becomes typeless; must be Fire.
+Burning Bulwark,Fire,—,—,10,Protects from damaging attacks. Contact: burn.
+Burning Jealousy,Fire,70,100%,5,100% burns a target that had a stat rise this turn.
+Buzzy Buzz,Electric,90,100%,15,100% chance to paralyze the foe.
+Calm Mind,Psychic,—,—,20,Raises the user's Sp. Atk and Sp. Def by 1.
+Camouflage,Normal,—,—,20,Changes user's type by terrain (default Normal).
+Captivate,Normal,—,100%,20,Lowers the foe(s) Sp. Atk by 2 if opposite gender.
+Catastropika,Electric,210,—,1,No additional effect.
+Ceaseless Edge,Dark,65,90%,15,Sets a layer of Spikes on the opposing side.
+Celebrate,Normal,—,—,40,No competitive use.
+Charge,Electric,—,—,20,"+1 SpD, user's next Electric move 2x power."
+Charge Beam,Electric,50,90%,10,70% chance to raise the user's Sp. Atk by 1.
+Charm,Fairy,—,100%,20,Lowers the target's Attack by 2.
+Chatter,Flying,65,100%,20,100% chance to confuse the target.
+Chilling Water,Water,50,100%,20,100% chance to lower the target's Attack by 1.
+Chilly Reception,Ice,—,—,10,Starts Snow. User switches out.
+Chip Away,Normal,70,100%,20,Ignores the target's stat stage changes.
+Chloroblast,Grass,150,95%,5,User loses 50% max HP.
+Circle Throw,Fighting,60,90%,10,Forces the target to switch to a random ally.
+Clamp,Water,35,85%,15,Traps and damages the target for 4-5 turns.
+Clanging Scales,Dragon,110,100%,5,Lowers the user's Defense by 1.
+Clangorous Soul,Dragon,—,100%,5,User loses 33% of its max HP. +1 to all stats.
+Clangorous Soulblaze,Dragon,185,—,1,Raises the user's Atk/Def/SpAtk/SpDef/Spe by 1.
+Clear Smog,Poison,50,—,15,Resets all of the target's stat stages to 0.
+Close Combat,Fighting,120,100%,5,Lowers the user's Defense and Sp. Def by 1.
+Coaching,Fighting,—,—,10,Raises an ally's Attack and Defense by 1.
+Coil,Poison,—,—,20,"Raises user's Attack, Defense, accuracy by 1."
+Collision Course,Fighting,100,100%,5,Deals 1.3333x damage with supereffective hits.
+Combat Torque,Fighting,100,100%,10,30% chance to paralyze the target.
+Comet Punch,Normal,18,85%,15,Hits 2-5 times in one turn.
+Comeuppance,Dark,—,100%,10,"If hit by an attack, returns 1.5x damage."
+Confide,Normal,—,—,20,Lowers the target's Sp. Atk by 1.
+Confuse Ray,Ghost,—,100%,10,Confuses the target.
+Confusion,Psychic,50,100%,25,10% chance to confuse the target.
+Constrict,Normal,10,100%,35,10% chance to lower the target's Speed by 1.
+Continental Crush,Rock,1,—,1,Power is equal to the base move's Z-Power.
+Conversion,Normal,—,—,30,Changes user's type to match its first move.
+Conversion 2,Normal,—,—,30,Changes user's type to resist target's last move.
+Copycat,Normal,—,—,20,Uses the last move used in the battle.
+Core Enforcer,Dragon,100,100%,10,Nullifies the foe(s) Ability if the foe(s) move first.
+Corkscrew Crash,Steel,1,—,1,Power is equal to the base move's Z-Power.
+Corrosive Gas,Poison,—,100%,40,Removes adjacent Pokemon's held items.
+Cosmic Power,Psychic,—,—,20,Raises the user's Defense and Sp. Def by 1.
+Cotton Guard,Grass,—,—,10,Raises the user's Defense by 3.
+Cotton Spore,Grass,—,100%,40,Lowers the target's Speed by 2.
+Counter,Fighting,—,100%,20,"If hit by physical attack, returns double damage."
+Court Change,Normal,—,100%,10,Swaps user's field effects with the opposing side.
+Covet,Normal,60,100%,25,"If the user has no item, it steals the target's."
+Crabhammer,Water,100,90%,10,High critical hit ratio.
+Crafty Shield,Fairy,—,—,10,Protects allies from Status moves this turn.
+Cross Chop,Fighting,100,80%,5,High critical hit ratio.
+Cross Poison,Poison,70,100%,20,High critical hit ratio. 10% chance to poison.
+Crunch,Dark,80,100%,15,20% chance to lower the target's Defense by 1.
+Crush Claw,Normal,75,95%,10,50% chance to lower the target's Defense by 1.
+Crush Grip,Normal,—,100%,5,More power the more HP the target has left.
+Curse,Ghost,—,—,10,"Curses if Ghost, else -1 Spe, +1 Atk, +1 Def."
+Cut,Normal,50,95%,30,No additional effect.
+Dark Pulse,Dark,80,100%,15,20% chance to make the target flinch.
+Dark Void,Dark,—,50%,10,Darkrai: Causes the foe(s) to fall asleep.
+Darkest Lariat,Dark,85,100%,10,Ignores the target's stat stage changes.
+Dazzling Gleam,Fairy,80,100%,10,No additional effect. Hits adjacent foes.
+Decorate,Fairy,—,—,15,Raises the target's Attack and Sp. Atk by 2.
+Defend Order,Bug,—,—,10,Raises the user's Defense and Sp. Def by 1.
+Defense Curl,Normal,—,—,40,Raises the user's Defense by 1.
+Defog,Flying,—,—,15,-1 evasion; clears terrain and hazards on both sides.
+Destiny Bond,Ghost,—,—,5,"If an opponent knocks out the user, it also faints."
+Detect,Fighting,—,—,5,Prevents moves from affecting the user this turn.
+Devastating Drake,Dragon,1,—,1,Power is equal to the base move's Z-Power.
+Diamond Storm,Rock,100,95%,5,50% chance to raise user's Defense by 2.
+Dig,Ground,80,100%,10,"Digs underground turn 1, strikes turn 2."
+Dire Claw,Poison,80,100%,15,"50% chance to sleep, poison, or paralyze target."
+Disable,Normal,—,100%,20,"For 4 turns, disables the target's last move used."
+Disarming Voice,Fairy,40,—,15,This move does not check accuracy. Hits foes.
+Discharge,Electric,80,100%,15,30% chance to paralyze adjacent Pokemon.
+Dive,Water,80,100%,10,"Dives underwater turn 1, strikes turn 2."
+Dizzy Punch,Normal,70,100%,10,20% chance to confuse the target.
+Doodle,Normal,—,100%,10,User and ally's Abilities become target's Ability.
+Doom Desire,Steel,140,100%,5,Hits two turns after being used.
+Double Hit,Normal,35,90%,10,Hits 2 times in one turn.
+Double Iron Bash,Steel,60,100%,5,Hits twice. 30% chance to make the target flinch.
+Double Kick,Fighting,30,100%,30,Hits 2 times in one turn.
+Double Shock,Electric,120,100%,5,User's Electric type: typeless; must be Electric.
+Double Slap,Normal,15,85%,10,Hits 2-5 times in one turn.
+Double Team,Normal,—,—,15,Raises the user's evasiveness by 1.
+Double-Edge,Normal,120,100%,15,Has 33% recoil.
+Draco Meteor,Dragon,130,90%,5,Lowers the user's Sp. Atk by 2.
+Dragon Ascent,Flying,120,100%,5,Lowers the user's Defense and Sp. Def by 1.
+Dragon Breath,Dragon,60,100%,20,30% chance to paralyze the target.
+Dragon Cheer,Dragon,—,—,15,"Ally: Crit ratio +1, or +2 if ally is Dragon type."
+Dragon Claw,Dragon,80,100%,15,No additional effect.
+Dragon Dance,Dragon,—,—,20,Raises the user's Attack and Speed by 1.
+Dragon Darts,Dragon,50,100%,10,Hits twice. Doubles: Tries to hit each foe once.
+Dragon Energy,Dragon,150,100%,5,Less power as user's HP decreases. Hits foe(s).
+Dragon Hammer,Dragon,90,100%,15,No additional effect.
+Dragon Pulse,Dragon,85,100%,10,No additional effect.
+Dragon Rage,Dragon,—,100%,10,Deals 40 HP of damage to the target.
+Dragon Rush,Dragon,100,75%,10,20% chance to make the target flinch.
+Dragon Tail,Dragon,60,90%,10,Forces the target to switch to a random ally.
+Drain Punch,Fighting,75,100%,10,User recovers 50% of the damage dealt.
+Draining Kiss,Fairy,50,100%,10,User recovers 75% of the damage dealt.
+Dream Eater,Psychic,100,100%,15,User gains 1/2 HP inflicted. Sleeping target only.
+Drill Peck,Flying,80,100%,20,No additional effect.
+Drill Run,Ground,80,95%,10,High critical hit ratio.
+Drum Beating,Grass,80,100%,10,100% chance to lower the target's Speed by 1.
+Dual Chop,Dragon,40,90%,15,Hits 2 times in one turn.
+Dual Wingbeat,Flying,40,90%,10,Hits 2 times in one turn.
+Dynamax Cannon,Dragon,100,100%,5,No additional effect.
+Dynamic Punch,Fighting,100,50%,5,100% chance to confuse the target.
+Earth Power,Ground,90,100%,10,10% chance to lower the target's Sp. Def by 1.
+Earthquake,Ground,100,100%,10,Hits adjacent Pokemon. Double damage on Dig.
+Echoed Voice,Normal,40,100%,15,Power increases when used on consecutive turns.
+Eerie Impulse,Electric,—,100%,15,Lowers the target's Sp. Atk by 2.
+Eerie Spell,Psychic,80,100%,5,Removes 3 PP from the target's last move.
+Egg Bomb,Normal,100,75%,10,No additional effect.
+Electric Terrain,Electric,—,—,10,"5 turns. Grounded: +Electric power, can't sleep."
+Electrify,Electric,—,—,20,Changes the target's move to Electric this turn.
+Electro Ball,Electric,—,100%,10,More power the faster the user is than the target.
+Electro Drift,Electric,100,100%,5,Deals 1.3333x damage with supereffective hits.
+Electro Shot,Electric,130,100%,10,"Raises Sp. Atk by 1, hits turn 2. Rain: no charge."
+Electroweb,Electric,55,95%,15,100% chance to lower the foe(s) Speed by 1.
+Embargo,Dark,—,100%,15,"For 5 turns, the target's item has no effect."
+Ember,Fire,40,100%,25,10% chance to burn the target.
+Encore,Normal,—,100%,5,Target repeats its last move for its next 3 turns.
+Endeavor,Normal,—,100%,5,Lowers the target's HP to the user's HP.
+Endure,Normal,—,—,10,User survives attacks this turn with at least 1 HP.
+Energy Ball,Grass,90,100%,10,10% chance to lower the target's Sp. Def by 1.
+Entrainment,Normal,—,100%,15,The target's Ability changes to match the user's.
+Eruption,Fire,150,100%,5,Less power as user's HP decreases. Hits foe(s).
+Esper Wing,Psychic,80,100%,10,100% chance to raise user Speed by 1. High crit.
+Eternabeam,Dragon,160,90%,5,User cannot move next turn.
+Expanding Force,Psychic,80,100%,10,"User on Psychic Terrain: 1.5x power, hits foes."
+Explosion,Normal,250,100%,5,Hits adjacent Pokemon. The user faints.
+Extrasensory,Psychic,80,100%,20,10% chance to make the target flinch.
+Extreme Evoboost,Normal,—,—,1,"Raises user's Atk, Def, SpA, SpD, and Spe by 2."
+Extreme Speed,Normal,80,100%,5,Nearly always goes first.
+Facade,Normal,70,100%,20,Power doubles if user is burn/poison/paralyzed.
+Fairy Lock,Fairy,—,—,10,Prevents all Pokemon from switching next turn.
+Fairy Wind,Fairy,40,100%,30,No additional effect.
+Fake Out,Normal,40,100%,10,Hits first. First turn out only. 100% flinch chance.
+Fake Tears,Dark,—,100%,20,Lowers the target's Sp. Def by 2.
+False Surrender,Dark,80,—,10,This move does not check accuracy.
+False Swipe,Normal,40,100%,40,Always leaves the target with at least 1 HP.
+Feather Dance,Flying,—,100%,15,Lowers the target's Attack by 2.
+Feint,Normal,30,100%,10,"Nullifies Detect, Protect, and Quick/Wide Guard."
+Feint Attack,Dark,60,—,20,This move does not check accuracy.
+Fell Stinger,Bug,50,100%,25,Raises user's Attack by 3 if this KOes the target.
+Fickle Beam,Dragon,80,100%,5,Has a 30% chance this move's power is doubled.
+Fiery Dance,Fire,80,100%,10,50% chance to raise the user's Sp. Atk by 1.
+Fiery Wrath,Dark,90,100%,10,20% chance to make the foe(s) flinch.
+Fillet Away,Normal,—,—,10,"+2 Attack, Sp. Atk, Speed for 1/2 user's max HP."
+Final Gambit,Fighting,—,100%,5,Does damage equal to the user's HP. User faints.
+Fire Blast,Fire,110,85%,5,10% chance to burn the target.
+Fire Fang,Fire,65,95%,15,10% chance to burn. 10% chance to flinch.
+Fire Lash,Fire,80,100%,15,100% chance to lower the target's Defense by 1.
+Fire Pledge,Fire,80,100%,10,Use with Grass or Water Pledge for added effect.
+Fire Punch,Fire,75,100%,15,10% chance to burn the target.
+Fire Spin,Fire,35,85%,15,Traps and damages the target for 4-5 turns.
+First Impression,Bug,90,100%,10,Hits first. First turn out only.
+Fishious Rend,Water,85,100%,10,Power doubles if user moves before the target.
+Fissure,Ground,—,30%,5,OHKOs the target. Fails if user is a lower level.
+Flail,Normal,—,100%,15,More power the less HP the user has left.
+Flame Burst,Fire,70,100%,15,Damages Pokemon next to the target as well.
+Flame Charge,Fire,50,100%,20,100% chance to raise the user's Speed by 1.
+Flame Wheel,Fire,60,100%,25,10% chance to burn the target. Thaws user.
+Flamethrower,Fire,90,100%,15,10% chance to burn the target.
+Flare Blitz,Fire,120,100%,15,Has 33% recoil. 10% chance to burn. Thaws user.
+Flash,Normal,—,100%,20,Lowers the target's accuracy by 1.
+Flash Cannon,Steel,80,100%,10,10% chance to lower the target's Sp. Def by 1.
+Flatter,Dark,—,100%,15,Raises the target's Sp. Atk by 1 and confuses it.
+Fleur Cannon,Fairy,130,90%,5,Lowers the user's Sp. Atk by 2.
+Fling,Dark,—,100%,10,Flings the user's item at the target. Power varies.
+Flip Turn,Water,60,100%,20,User switches out after damaging the target.
+Floaty Fall,Flying,90,95%,15,30% chance to make the target flinch.
+Floral Healing,Fairy,—,—,10,Heals the target by 50% of its max HP.
+Flower Shield,Fairy,—,—,10,Raises Defense by 1 of all active Grass types.
+Flower Trick,Grass,70,—,10,Always results in a critical hit; no accuracy check.
+Fly,Flying,90,95%,15,"Flies up on first turn, then strikes the next turn."
+Flying Press,Fighting,100,95%,10,Combines Flying in its type effectiveness.
+Focus Blast,Fighting,120,70%,5,10% chance to lower the target's Sp. Def by 1.
+Focus Energy,Normal,—,—,30,Raises the user's critical hit ratio by 2.
+Focus Punch,Fighting,150,100%,20,Fails if the user takes damage before it hits.
+Follow Me,Normal,—,—,20,The foes' moves target the user on the turn used.
+Force Palm,Fighting,60,100%,10,30% chance to paralyze the target.
+Foresight,Normal,—,—,40,"Fighting, Normal hit Ghost. Evasiveness ignored."
+Forest's Curse,Grass,—,100%,20,Adds Grass to the target's type(s).
+Foul Play,Dark,95,100%,15,Uses target's Attack stat in damage calculation.
+Freeze Shock,Ice,140,90%,5,Charges turn 1. Hits turn 2. 30% paralyze.
+Freeze-Dry,Ice,70,100%,20,10% chance to freeze. Super effective on Water.
+Freezing Glare,Psychic,90,100%,10,10% chance to freeze the target.
+Freezy Frost,Ice,90,100%,15,Eliminates all stat changes.
+Frenzy Plant,Grass,150,90%,5,User cannot move next turn.
+Frost Breath,Ice,60,90%,10,Always results in a critical hit.
+Frustration,Normal,—,100%,20,Max 102 power at minimum Happiness.
+Fury Attack,Normal,15,85%,20,Hits 2-5 times in one turn.
+Fury Cutter,Bug,40,95%,20,"Power doubles with each hit, up to 160."
+Fury Swipes,Normal,18,80%,15,Hits 2-5 times in one turn.
+Fusion Bolt,Electric,100,100%,5,Power doubles if used after Fusion Flare this turn.
+Fusion Flare,Fire,100,100%,5,Power doubles if used after Fusion Bolt this turn.
+Future Sight,Psychic,120,100%,10,Hits two turns after being used.
+G-Max Befuddle,Bug,10,—,5,Base move affects power. Foes: slp or psn or par.
+G-Max Cannonade,Water,10,—,10,"Base move affects power. Foes: -1/6 HP, 4 turns."
+G-Max Centiferno,Fire,10,—,5,Base move affects power. Foes: bound 4-5 turns.
+G-Max Chi Strike,Fighting,10,—,5,Base move affects power. Allies: Crit Ratio +1.
+G-Max Cuddle,Normal,10,—,5,Base move affects power. Foes: infatuated.
+G-Max Depletion,Dragon,10,—,5,Base move affects power. Foes: last move -2 PP.
+G-Max Drum Solo,Grass,160,—,5,Always 160 power. Ignores Abilities.
+G-Max Finale,Fairy,10,—,5,Base move affects power. Allies: +1/6 max HP.
+G-Max Fire Ball,Fire,160,—,5,Always 160 power. Ignores Abilities.
+G-Max Foam Burst,Water,10,—,5,Base move affects power. Foes: -2 Speed.
+G-Max Gold Rush,Normal,10,—,5,Base move affects power. Foes: confused.
+G-Max Gravitas,Psychic,10,—,5,Base move affects power. Starts Gravity.
+G-Max Hydrosnipe,Water,160,—,5,Always 160 power. Ignores Abilities.
+G-Max Malodor,Poison,10,—,5,Base move affects power. Foes: poisoned.
+G-Max Meltdown,Steel,10,—,5,Base move affects power. Foes: Tormented.
+G-Max One Blow,Dark,10,—,5,Base move affects power. Bypasses Max Guard.
+G-Max Rapid Flow,Water,10,—,5,Base move affects power. Bypasses Max Guard.
+G-Max Replenish,Normal,10,—,5,Base move affects power. 50% restores Berries.
+G-Max Resonance,Ice,10,—,5,Base move affects power. Allies: Aurora Veil.
+G-Max Sandblast,Ground,10,—,5,Base move affects power. Foes: bound 4-5 turns.
+G-Max Smite,Fairy,10,—,5,Base move affects power. Foes: confused.
+G-Max Snooze,Dark,10,—,5,Base move affects power. Target: 50% Yawn.
+G-Max Steelsurge,Steel,10,—,5,Base move affects power. Foes: Steel hazard.
+G-Max Stonesurge,Water,10,—,5,Base move affects power. Foes: Stealth Rock.
+G-Max Stun Shock,Electric,10,—,10,Base move affects power. Foes: psn or par.
+G-Max Sweetness,Grass,10,—,10,Base move affects power. Allies: status cured.
+G-Max Tartness,Grass,10,—,10,Base move affects power. Foes: -1 evasiveness.
+G-Max Terror,Ghost,10,—,10,Base move affects power. Foes: trapped.
+G-Max Vine Lash,Grass,10,—,10,"Base move affects power. Foes: -1/6 HP, 4 turns."
+G-Max Volcalith,Rock,10,—,10,"Base move affects power. Foes: -1/6 HP, 4 turns."
+G-Max Volt Crash,Electric,10,—,10,Base move affects power. Foes: paralyzed.
+G-Max Wildfire,Fire,10,—,10,"Base move affects power. Foes: -1/6 HP, 4 turns."
+G-Max Wind Rage,Flying,10,—,10,"Base move affects power. Ends Terrain, hazards."
+Gastro Acid,Poison,—,100%,10,Nullifies the target's Ability.
+Gear Grind,Steel,50,85%,15,Hits 2 times in one turn.
+Gear Up,Steel,—,—,20,"Raises Atk, Sp. Atk of allies with Plus/Minus by 1."
+Genesis Supernova,Psychic,185,—,1,Summons Psychic Terrain.
+Geomancy,Fairy,—,—,10,"Charges, then raises SpA, SpD, Spe by 2 turn 2."
+Giga Drain,Grass,75,100%,10,User recovers 50% of the damage dealt.
+Giga Impact,Normal,150,90%,5,User cannot move next turn.
+Gigaton Hammer,Steel,160,100%,5,Cannot be selected the turn after it's used.
+Gigavolt Havoc,Electric,1,—,1,Power is equal to the base move's Z-Power.
+Glacial Lance,Ice,120,100%,5,No additional effect. Hits adjacent foes.
+Glaciate,Ice,65,95%,10,100% chance to lower the foe(s) Speed by 1.
+Glaive Rush,Dragon,120,100%,5,User takes sure-hit 2x damage until its next turn.
+Glare,Normal,—,100%,30,Paralyzes the target.
+Glitzy Glow,Psychic,90,100%,15,Summons Light Screen.
+Grass Knot,Grass,—,100%,20,More power the heavier the target.
+Grass Pledge,Grass,80,100%,10,Use with Fire or Water Pledge for added effect.
+Grass Whistle,Grass,—,55%,15,Causes the target to fall asleep.
+Grassy Glide,Grass,55,100%,20,User on Grassy Terrain: +1 priority.
+Grassy Terrain,Grass,—,—,10,"5 turns. Grounded: +Grass power, +1/16 max HP."
+Grav Apple,Grass,80,100%,10,Target: 100% -1 Def. During Gravity: 1.5x power.
+Gravity,Psychic,—,—,5,"5 turns: no Ground immunities, 1.67x accuracy."
+Growl,Normal,—,100%,40,Lowers the foe(s) Attack by 1.
+Growth,Normal,—,—,20,Raises user's Attack and Sp. Atk by 1; 2 in Sun.
+Grudge,Ghost,—,—,5,"If the user faints, the attack used loses all its PP."
+Guard Split,Psychic,—,—,10,Averages Defense and Sp. Def stats with target.
+Guard Swap,Psychic,—,—,10,Swaps Defense and Sp. Def changes with target.
+Guardian of Alola,Fairy,—,—,1,Does damage equal to 3/4 target's current HP.
+Guillotine,Normal,—,30%,5,OHKOs the target. Fails if user is a lower level.
+Gunk Shot,Poison,120,80%,5,30% chance to poison the target.
+Gust,Flying,40,100%,35,"Power doubles during Bounce, Fly, and Sky Drop."
+Gyro Ball,Steel,—,100%,5,More power the slower the user than the target.
+Hail,Ice,—,—,10,"For 5 turns, hail crashes down."
+Hammer Arm,Fighting,100,90%,10,Lowers the user's Speed by 1.
+Happy Hour,Normal,—,—,30,No competitive use.
+Hard Press,Steel,—,100%,10,More power the more HP the target has left.
+Harden,Normal,—,—,30,Raises the user's Defense by 1.
+Haze,Ice,—,—,30,Eliminates all stat changes.
+Head Charge,Normal,120,100%,15,Has 1/4 recoil.
+Head Smash,Rock,150,80%,5,Has 1/2 recoil.
+Headbutt,Normal,70,100%,15,30% chance to make the target flinch.
+Headlong Rush,Ground,120,100%,5,Lowers the user's Defense and Sp. Def by 1.
+Heal Bell,Normal,—,—,5,Cures the user's party of all status conditions.
+Heal Block,Psychic,—,100%,15,"For 5 turns, the foe(s) is prevented from healing."
+Heal Order,Bug,—,—,10,Heals the user by 50% of its max HP.
+Heal Pulse,Psychic,—,—,10,Heals the target by 50% of its max HP.
+Healing Wish,Psychic,—,—,10,User faints. Next hurt Pokemon is fully healed.
+Heart Stamp,Psychic,60,100%,25,30% chance to make the target flinch.
+Heart Swap,Psychic,—,—,10,Swaps all stat changes with target.
+Heat Crash,Fire,—,100%,10,More power the heavier the user than the target.
+Heat Wave,Fire,95,90%,10,10% chance to burn the foe(s).
+Heavy Slam,Steel,—,100%,10,More power the heavier the user than the target.
+Helping Hand,Normal,—,—,20,One adjacent ally's move power is 1.5x this turn.
+Hex,Ghost,65,100%,10,Power doubles if the target has a status ailment.
+Hidden Power,Normal,60,100%,15,Varies in type based on the user's IVs.
+High Horsepower,Ground,95,95%,10,No additional effect.
+High Jump Kick,Fighting,130,90%,10,User is hurt by 50% of its max HP if it misses.
+Hold Back,Normal,40,100%,40,Always leaves the target with at least 1 HP.
+Hold Hands,Normal,—,—,40,No competitive use.
+Hone Claws,Dark,—,—,15,Raises the user's Attack and accuracy by 1.
+Horn Attack,Normal,65,100%,25,No additional effect.
+Horn Drill,Normal,—,30%,5,OHKOs the target. Fails if user is a lower level.
+Horn Leech,Grass,75,100%,10,User recovers 50% of the damage dealt.
+Howl,Normal,—,—,40,Raises the user's and ally's Attack by 1.
+Hurricane,Flying,110,70%,10,30% chance to confuse target. Can't miss in rain.
+Hydro Cannon,Water,150,90%,5,User cannot move next turn.
+Hydro Pump,Water,110,80%,5,No additional effect.
+Hydro Steam,Water,80,100%,15,During Sunny Day: 1.5x damage instead of half.
+Hydro Vortex,Water,1,—,1,Power is equal to the base move's Z-Power.
+Hyper Beam,Normal,150,90%,5,User cannot move next turn.
+Hyper Drill,Normal,100,100%,5,Bypasses protection without breaking it.
+Hyper Fang,Normal,80,90%,15,10% chance to make the target flinch.
+Hyper Voice,Normal,90,100%,10,No additional effect. Hits adjacent foes.
+Hyperspace Fury,Dark,100,—,5,Hoopa-U: Lowers user's Def by 1; breaks protect.
+Hyperspace Hole,Psychic,80,—,5,Breaks the target's protection for this turn.
+Hypnosis,Psychic,—,60%,20,Causes the target to fall asleep.
+Ice Ball,Ice,30,90%,20,Power doubles with each hit. Repeats for 5 turns.
+Ice Beam,Ice,90,100%,10,10% chance to freeze the target.
+Ice Burn,Ice,140,90%,5,Charges turn 1. Hits turn 2. 30% burn.
+Ice Fang,Ice,65,95%,15,10% chance to freeze. 10% chance to flinch.
+Ice Hammer,Ice,100,90%,10,Lowers the user's Speed by 1.
+Ice Punch,Ice,75,100%,15,10% chance to freeze the target.
+Ice Shard,Ice,40,100%,30,Usually goes first.
+Ice Spinner,Ice,80,100%,15,Ends the effects of terrain.
+Icicle Crash,Ice,85,90%,10,30% chance to make the target flinch.
+Icicle Spear,Ice,25,100%,30,Hits 2-5 times in one turn.
+Icy Wind,Ice,55,95%,15,100% chance to lower the foe(s) Speed by 1.
+Imprison,Psychic,—,—,10,No foe can use any move known by the user.
+Incinerate,Fire,60,100%,15,Destroys the foe(s) Berry/Gem.
+Infernal Parade,Ghost,60,100%,15,30% burn. 2x power if target is already statused.
+Inferno,Fire,100,50%,5,100% chance to burn the target.
+Inferno Overdrive,Fire,1,—,1,Power is equal to the base move's Z-Power.
+Infestation,Bug,20,100%,20,Traps and damages the target for 4-5 turns.
+Ingrain,Grass,—,—,20,Traps/grounds user; heals 1/16 max HP per turn.
+Instruct,Psychic,—,—,15,The target immediately uses its last used move.
+Ion Deluge,Electric,—,—,25,Normal moves become Electric type this turn.
+Iron Defense,Steel,—,—,15,Raises the user's Defense by 2.
+Iron Head,Steel,80,100%,15,30% chance to make the target flinch.
+Iron Tail,Steel,100,75%,15,30% chance to lower the target's Defense by 1.
+Ivy Cudgel,Grass,100,100%,10,High critical hit ratio. Type depends on user's form.
+Jaw Lock,Dark,80,100%,10,Prevents both user and target from switching out.
+Jet Punch,Water,60,100%,15,Usually goes first.
+Judgment,Normal,100,100%,10,Type varies based on the held Plate.
+Jump Kick,Fighting,100,95%,10,User is hurt by 50% of its max HP if it misses.
+Jungle Healing,Grass,—,—,10,"User and allies: healed 1/4 max HP, status cured."
+Karate Chop,Fighting,50,100%,25,High critical hit ratio.
+Kinesis,Psychic,—,80%,15,Lowers the target's accuracy by 1.
+King's Shield,Steel,—,—,10,Protects from damaging attacks. Contact: -1 Atk.
+Knock Off,Dark,65,100%,20,1.5x damage if foe holds an item. Removes item.
+Kowtow Cleave,Dark,85,—,10,This move does not check accuracy.
+Land's Wrath,Ground,90,100%,10,No additional effect. Hits adjacent foes.
+Laser Focus,Normal,—,—,30,"Until the end of the next turn, user's moves crit."
+Lash Out,Dark,75,100%,5,2x power if the user had a stat lowered this turn.
+Last Resort,Normal,140,100%,5,Fails unless each known move has been used.
+Last Respects,Ghost,50,100%,10,+50 power for each time a party member fainted.
+Lava Plume,Fire,80,100%,15,30% chance to burn adjacent Pokemon.
+Leaf Blade,Grass,90,100%,15,High critical hit ratio.
+Leaf Storm,Grass,130,90%,5,Lowers the user's Sp. Atk by 2.
+Leaf Tornado,Grass,65,90%,10,50% chance to lower the target's accuracy by 1.
+Leafage,Grass,40,100%,40,No additional effect.
+Leech Life,Bug,80,100%,10,User recovers 50% of the damage dealt.
+Leech Seed,Grass,—,90%,10,1/8 of target's HP is restored to user every turn.
+Leer,Normal,—,100%,30,Lowers the foe(s) Defense by 1.
+Let's Snuggle Forever,Fairy,190,—,1,No additional effect.
+Lick,Ghost,30,100%,30,30% chance to paralyze the target.
+Life Dew,Water,—,—,10,Heals the user and its allies by 1/4 their max HP.
+Light Screen,Psychic,—,—,30,"For 5 turns, special damage to allies is halved."
+Light That Burns the Sky,Psychic,200,—,1,Physical if user's Atk > Sp. Atk. Ignores Abilities.
+Light of Ruin,Fairy,140,90%,5,Has 1/2 recoil.
+Liquidation,Water,85,100%,10,20% chance to lower the target's Defense by 1.
+Lock-On,Normal,—,—,5,User's next move will not miss the target.
+Lovely Kiss,Normal,—,75%,10,Causes the target to fall asleep.
+Low Kick,Fighting,—,100%,20,More power the heavier the target.
+Low Sweep,Fighting,65,100%,20,100% chance to lower the target's Speed by 1.
+Lucky Chant,Normal,—,—,30,"For 5 turns, shields user's party from critical hits."
+Lumina Crash,Psychic,80,100%,10,100% chance to lower the target's Sp. Def by 2.
+Lunar Blessing,Psychic,—,—,5,"User and allies: healed 1/4 max HP, status cured."
+Lunar Dance,Psychic,—,—,10,"User faints. Next hurt Pkmn is cured, max HP/PP."
+Lunge,Bug,80,100%,15,100% chance to lower the target's Attack by 1.
+Luster Purge,Psychic,95,100%,5,50% chance to lower the target's Sp. Def by 1.
+Mach Punch,Fighting,40,100%,30,Usually goes first.
+Magic Coat,Psychic,—,—,15,Bounces back certain non-damaging moves.
+Magic Powder,Psychic,—,100%,20,Changes the target's type to Psychic.
+Magic Room,Psychic,—,—,10,"For 5 turns, all held items have no effect."
+Magical Leaf,Grass,60,—,20,This move does not check accuracy.
+Magical Torque,Fairy,100,100%,10,30% chance to confuse the target.
+Magma Storm,Fire,100,75%,5,Traps and damages the target for 4-5 turns.
+Magnet Bomb,Steel,60,—,20,This move does not check accuracy.
+Magnet Rise,Electric,—,—,10,"For 5 turns, the user has immunity to Ground."
+Magnetic Flux,Electric,—,—,20,"Raises Def, Sp. Def of allies with Plus/Minus by 1."
+Magnitude,Ground,—,100%,30,Hits adjacent Pokemon. Power varies; 2x on Dig.
+Make It Rain,Steel,120,100%,5,Lowers the user's Sp. Atk by 1. Hits foe(s).
+Malicious Moonsault,Dark,180,—,1,Damage doubles if the target used Minimize.
+Malignant Chain,Poison,100,100%,5,50% chance to badly poison the target.
+Mat Block,Fighting,—,—,10,Protects allies from damaging attacks. Turn 1 only.
+Matcha Gotcha,Grass,80,90%,15,20% burn. Recovers 50% dmg dealt. Thaws foe(s).
+Max Airstream,Flying,10,—,10,Base move affects power. Allies: +1 Speed.
+Max Darkness,Dark,10,—,10,Base move affects power. Foes: -1 Sp. Def.
+Max Flare,Fire,100,—,10,Base move affects power. Starts Sunny Day.
+Max Flutterby,Bug,10,—,10,Base move affects power. Foes: -1 Sp. Atk.
+Max Geyser,Water,10,—,10,Base move affects power. Starts Rain Dance.
+Max Guard,Normal,—,—,10,Protects user from moves & Max Moves this turn.
+Max Hailstorm,Ice,10,—,10,Base move affects power. Starts Hail.
+Max Knuckle,Fighting,10,—,10,Base move affects power. Allies: +1 Attack.
+Max Lightning,Electric,10,—,10,Base move affects power. Starts Electric Terrain.
+Max Mindstorm,Psychic,10,—,10,Base move affects power. Starts Psychic Terrain.
+Max Ooze,Poison,10,—,10,Base move affects power. Allies: +1 Sp. Atk.
+Max Overgrowth,Grass,10,—,10,Base move affects power. Starts Grassy Terrain.
+Max Phantasm,Ghost,10,—,10,Base move affects power. Foes: -1 Defense.
+Max Quake,Ground,10,—,10,Base move affects power. Allies: +1 Sp. Def.
+Max Rockfall,Rock,10,—,10,Base move affects power. Starts Sandstorm.
+Max Starfall,Fairy,10,—,10,Base move affects power. Starts Misty Terrain.
+Max Steelspike,Steel,10,—,10,Base move affects power. Allies: +1 Defense.
+Max Strike,Normal,10,—,10,Base move affects power. Foes: -1 Speed.
+Max Wyrmwind,Dragon,10,—,10,Base move affects power. Foes: -1 Attack.
+Me First,Normal,—,—,20,Copies a foe at 1.5x power. User must be faster.
+Mean Look,Normal,—,—,5,Prevents the target from switching out.
+Meditate,Psychic,—,—,40,Raises the user's Attack by 1.
+Mega Drain,Grass,40,100%,15,User recovers 50% of the damage dealt.
+Mega Kick,Normal,120,75%,5,No additional effect.
+Mega Punch,Normal,80,85%,20,No additional effect.
+Megahorn,Bug,120,85%,10,No additional effect.
+Memento,Dark,—,100%,10,"Lowers target's Attack, Sp. Atk by 2. User faints."
+Menacing Moonraze Maelstrom,Ghost,200,—,1,Ignores the Abilities of other Pokemon.
+Metal Burst,Steel,—,100%,10,"If hit by an attack, returns 1.5x damage."
+Metal Claw,Steel,50,95%,35,10% chance to raise the user's Attack by 1.
+Metal Sound,Steel,—,85%,40,Lowers the target's Sp. Def by 2.
+Meteor Assault,Fighting,150,100%,5,User cannot move next turn.
+Meteor Beam,Rock,120,90%,10,Raises user's Sp. Atk by 1 on turn 1. Hits turn 2.
+Meteor Mash,Steel,90,90%,10,20% chance to raise the user's Attack by 1.
+Metronome,Normal,—,—,10,Picks a random move.
+Mighty Cleave,Rock,95,100%,5,Bypasses protection without breaking it.
+Milk Drink,Normal,—,—,5,Heals the user by 50% of its max HP.
+Mimic,Normal,—,—,10,The last move the target used replaces this one.
+Mind Blown,Fire,150,100%,5,User loses 50% max HP. Hits adjacent Pokemon.
+Mind Reader,Normal,—,—,5,User's next move will not miss the target.
+Minimize,Normal,—,—,10,Raises the user's evasiveness by 2.
+Miracle Eye,Psychic,—,—,40,Psychic hits Dark. Evasiveness ignored.
+Mirror Coat,Psychic,—,100%,20,"If hit by special attack, returns double damage."
+Mirror Move,Flying,—,—,20,User uses the target's last used move against it.
+Mirror Shot,Steel,65,85%,10,30% chance to lower the target's accuracy by 1.
+Mist,Ice,—,—,30,"For 5 turns, protects user's party from stat drops."
+Mist Ball,Psychic,95,100%,5,50% chance to lower the target's Sp. Atk by 1.
+Misty Explosion,Fairy,100,100%,5,User faints. User on Misty Terrain: 1.5x power.
+Misty Terrain,Fairy,—,—,10,"5 turns. Can't status,-Dragon power vs grounded."
+Moonblast,Fairy,95,100%,15,30% chance to lower the target's Sp. Atk by 1.
+Moongeist Beam,Ghost,100,100%,5,Ignores the Abilities of other Pokemon.
+Moonlight,Fairy,—,—,5,Heals the user by a weather-dependent amount.
+Morning Sun,Normal,—,—,5,Heals the user by a weather-dependent amount.
+Mortal Spin,Poison,30,100%,15,"Poisons foes, frees user from hazards/bind/leech."
+Mountain Gale,Ice,100,85%,10,30% chance to make the target flinch.
+Mud Bomb,Ground,65,85%,10,30% chance to lower the target's accuracy by 1.
+Mud Shot,Ground,55,95%,15,100% chance to lower the target's Speed by 1.
+Mud Sport,Ground,—,—,15,"For 5 turns, Electric-type attacks have 1/3 power."
+Mud-Slap,Ground,20,100%,10,100% chance to lower the target's accuracy by 1.
+Muddy Water,Water,90,85%,10,30% chance to lower the foe(s) accuracy by 1.
+Multi-Attack,Normal,120,100%,10,Type varies based on the held Memory.
+Mystical Fire,Fire,75,100%,10,100% chance to lower the target's Sp. Atk by 1.
+Mystical Power,Psychic,70,90%,10,100% chance to raise the user's Sp. Atk by 1.
+Nasty Plot,Dark,—,—,20,Raises the user's Sp. Atk by 2.
+Natural Gift,Normal,—,100%,15,Power and type depends on the user's Berry.
+Nature Power,Normal,—,—,20,Attack depends on terrain (default Tri Attack).
+Nature's Madness,Fairy,—,90%,10,Does damage equal to 1/2 target's current HP.
+Needle Arm,Grass,60,100%,15,30% chance to make the target flinch.
+Never-Ending Nightmare,Ghost,1,—,1,Power is equal to the base move's Z-Power.
+Night Daze,Dark,85,95%,10,40% chance to lower the target's accuracy by 1.
+Night Shade,Ghost,—,100%,15,Does damage equal to the user's level.
+Night Slash,Dark,70,100%,15,High critical hit ratio.
+Nightmare,Ghost,—,100%,15,A sleeping target is hurt by 1/4 max HP per turn.
+No Retreat,Fighting,—,—,5,Raises all stats by 1 (not acc/eva). Traps user.
+Noble Roar,Normal,—,100%,30,Lowers the target's Attack and Sp. Atk by 1.
+Noxious Torque,Poison,100,100%,10,30% chance to poison the target.
+Nuzzle,Electric,20,100%,20,100% chance to paralyze the target.
+Oblivion Wing,Flying,80,100%,10,User recovers 75% of the damage dealt.
+Obstruct,Dark,—,100%,10,Protects from damaging attacks. Contact: -2 Def.
+Oceanic Operetta,Water,195,—,1,No additional effect.
+Octazooka,Water,65,85%,10,50% chance to lower the target's accuracy by 1.
+Octolock,Fighting,—,100%,15,"Traps target, lowers Def and SpD by 1 each turn."
+Odor Sleuth,Normal,—,—,40,"Fighting, Normal hit Ghost. Evasiveness ignored."
+Ominous Wind,Ghost,60,100%,5,10% chance to raise all stats by 1 (not acc/eva).
+Order Up,Dragon,80,100%,10,Curly|Droopy|Stretchy eaten: +1 Atk|Def|Spe.
+Origin Pulse,Water,110,85%,10,No additional effect. Hits adjacent foes.
+Outrage,Dragon,120,100%,10,Lasts 2-3 turns. Confuses the user afterwards.
+Overdrive,Electric,80,100%,10,No additional effect. Hits foe(s).
+Overheat,Fire,130,90%,5,Lowers the user's Sp. Atk by 2.
+Pain Split,Normal,—,—,20,Shares HP of user and target equally.
+Paleo Wave,Rock,85,100%,15,20% chance to lower the target's Attack by 1.
+Parabolic Charge,Electric,65,100%,20,User recovers 50% of the damage dealt.
+Parting Shot,Dark,—,100%,20,"Lowers target's Atk, Sp. Atk by 1. User switches."
+Pay Day,Normal,40,100%,20,Scatters coins.
+Payback,Dark,50,100%,10,Power doubles if the user moves after the target.
+Peck,Flying,35,100%,35,No additional effect.
+Perish Song,Normal,—,—,5,All active Pokemon will faint in 3 turns.
+Petal Blizzard,Grass,90,100%,15,No additional effect. Hits adjacent Pokemon.
+Petal Dance,Grass,120,100%,10,Lasts 2-3 turns. Confuses the user afterwards.
+Phantom Force,Ghost,90,100%,10,Disappears turn 1. Hits turn 2. Breaks protection.
+Photon Geyser,Psychic,100,100%,5,Physical if user's Atk > Sp. Atk. Ignores Abilities.
+Pika Papow,Electric,—,—,20,Max happiness: 102 power. Can't miss.
+Pin Missile,Bug,25,95%,20,Hits 2-5 times in one turn.
+Plasma Fists,Electric,100,100%,15,Normal moves become Electric type this turn.
+Play Nice,Normal,—,—,20,Lowers the target's Attack by 1.
+Play Rough,Fairy,90,90%,10,10% chance to lower the target's Attack by 1.
+Pluck,Flying,60,100%,20,User steals and eats the target's Berry.
+Poison Fang,Poison,50,100%,15,50% chance to badly poison the target.
+Poison Gas,Poison,—,90%,40,Poisons the foe(s).
+Poison Jab,Poison,80,100%,20,30% chance to poison the target.
+Poison Powder,Poison,—,75%,35,Poisons the target.
+Poison Sting,Poison,15,100%,35,30% chance to poison the target.
+Poison Tail,Poison,50,100%,25,High critical hit ratio. 10% chance to poison.
+Pollen Puff,Bug,90,100%,15,"If the target is an ally, heals 50% of its max HP."
+Poltergeist,Ghost,110,90%,5,Fails if the target has no held item.
+Population Bomb,Normal,20,90%,10,Hits 10 times. Each hit can miss.
+Pounce,Bug,50,100%,20,100% chance to lower the target's Speed by 1.
+Pound,Normal,40,100%,35,No additional effect.
+Powder,Bug,—,100%,20,"If using a Fire move, target loses 1/4 max HP."
+Powder Snow,Ice,40,100%,25,10% chance to freeze the foe(s).
+Power Gem,Rock,80,100%,20,No additional effect.
+Power Shift,Normal,—,—,10,Switches user's Attack and Defense stats.
+Power Split,Psychic,—,—,10,Averages Attack and Sp. Atk stats with target.
+Power Swap,Psychic,—,—,10,Swaps Attack and Sp. Atk stat stages with target.
+Power Trick,Psychic,—,—,10,Switches user's Attack and Defense stats.
+Power Trip,Dark,20,100%,10,+ 20 power for each of the user's stat boosts.
+Power Whip,Grass,120,85%,10,No additional effect.
+Power-Up Punch,Fighting,40,100%,20,100% chance to raise the user's Attack by 1.
+Precipice Blades,Ground,120,85%,10,No additional effect. Hits adjacent foes.
+Present,Normal,—,90%,15,"40, 80, 120 power, or heals target 1/4 max HP."
+Prismatic Laser,Psychic,160,100%,10,User cannot move next turn.
+Protect,Normal,—,—,10,Prevents moves from affecting the user this turn.
+Psybeam,Psychic,65,100%,20,10% chance to confuse the target.
+Psyblade,Psychic,80,100%,15,During Electric Terrain: 1.5x power.
+Psych Up,Normal,—,—,10,Copies the target's current stat stages.
+Psychic,Psychic,90,100%,10,10% chance to lower the target's Sp. Def by 1.
+Psychic Fangs,Psychic,85,100%,10,"Destroys screens, unless the target is immune."
+Psychic Noise,Psychic,75,100%,10,"For 2 turns, the target is prevented from healing."
+Psychic Terrain,Psychic,—,—,10,"5 turns. Grounded: +Psychic power, priority-safe."
+Psycho Boost,Psychic,140,90%,5,Lowers the user's Sp. Atk by 2.
+Psycho Cut,Psychic,70,100%,20,High critical hit ratio.
+Psycho Shift,Psychic,—,100%,10,Transfers the user's status ailment to the target.
+Psyshield Bash,Psychic,70,90%,10,100% chance to raise the user's Defense by 1.
+Psyshock,Psychic,80,100%,10,"Damages target based on Defense, not Sp. Def."
+Psystrike,Psychic,100,100%,10,"Damages target based on Defense, not Sp. Def."
+Psywave,Psychic,—,100%,15,Random damage equal to 0.5x-1.5x user's level.
+Pulverizing Pancake,Normal,210,—,1,No additional effect.
+Punishment,Dark,—,100%,5,60 power +20 for each of the target's stat boosts.
+Purify,Poison,—,—,20,Cures target's status; heals user 1/2 max HP if so.
+Pursuit,Dark,40,100%,20,"If a foe is switching out, hits it at 2x power."
+Pyro Ball,Fire,120,90%,5,10% chance to burn the target. Thaws user.
+Quash,Dark,—,100%,15,Forces the target to move last this turn.
+Quick Attack,Normal,40,100%,30,Usually goes first.
+Quick Guard,Fighting,—,—,15,Protects allies from priority attacks this turn.
+Quiver Dance,Bug,—,—,20,"Raises the user's Sp. Atk, Sp. Def, Speed by 1."
+Rage,Normal,20,100%,20,Raises the user's Attack by 1 if hit during use.
+Rage Fist,Ghost,50,100%,10,+50 power for each time user was hit. Max 6 hits.
+Rage Powder,Bug,—,—,20,The foes' moves target the user on the turn used.
+Raging Bull,Normal,90,100%,10,Destroys screens. Type depends on user's form.
+Raging Fury,Fire,120,100%,10,Lasts 2-3 turns. Confuses the user afterwards.
+Rain Dance,Water,—,—,5,"For 5 turns, heavy rain powers Water moves."
+Rapid Spin,Normal,50,100%,40,Free user from hazards/bind/Leech Seed; +1 Spe.
+Razor Leaf,Grass,55,95%,25,High critical hit ratio. Hits adjacent foes.
+Razor Shell,Water,75,95%,10,50% chance to lower the target's Defense by 1.
+Razor Wind,Normal,80,100%,10,"Charges, then hits foe(s) turn 2. High crit ratio."
+Recover,Normal,—,—,5,Heals the user by 50% of its max HP.
+Recycle,Normal,—,—,10,Restores the item the user last used.
+Reflect,Psychic,—,—,20,"For 5 turns, physical damage to allies is halved."
+Reflect Type,Normal,—,—,15,User becomes the same type as the target.
+Refresh,Normal,—,—,20,"User cures its burn, poison, or paralysis."
+Relic Song,Normal,75,100%,10,10% chance to sleep foe(s). Meloetta transforms.
+Rest,Psychic,—,—,5,User sleeps 2 turns and restores HP and status.
+Retaliate,Normal,70,100%,5,Power doubles if an ally fainted last turn.
+Return,Normal,—,100%,20,Max 102 power at maximum Happiness.
+Revelation Dance,Normal,90,100%,15,Type varies based on the user's primary type.
+Revenge,Fighting,60,100%,10,Power doubles if user is damaged by the target.
+Reversal,Fighting,—,100%,15,More power the less HP the user has left.
+Revival Blessing,Normal,—,—,1,Revives a fainted Pokemon to 50% HP.
+Rising Voltage,Electric,70,100%,20,2x power if target is grounded in Electric Terrain.
+Roar,Normal,—,—,20,Forces the target to switch to a random ally.
+Roar of Time,Dragon,150,90%,5,User cannot move next turn.
+Rock Blast,Rock,25,90%,10,Hits 2-5 times in one turn.
+Rock Climb,Normal,90,85%,20,20% chance to confuse the target.
+Rock Polish,Rock,—,—,20,Raises the user's Speed by 2.
+Rock Slide,Rock,75,90%,10,30% chance to make the foe(s) flinch.
+Rock Smash,Fighting,40,100%,15,50% chance to lower the target's Defense by 1.
+Rock Throw,Rock,50,90%,15,No additional effect.
+Rock Tomb,Rock,60,95%,15,100% chance to lower the target's Speed by 1.
+Rock Wrecker,Rock,150,90%,5,User cannot move next turn.
+Role Play,Psychic,—,—,10,User replaces its Ability with the target's.
+Rolling Kick,Fighting,60,85%,15,30% chance to make the target flinch.
+Rollout,Rock,30,90%,20,Power doubles with each hit. Repeats for 5 turns.
+Roost,Flying,—,—,5,Heals 50% HP. Flying-type removed 'til turn ends.
+Rototiller,Ground,—,—,10,Raises Atk/Sp. Atk of grounded Grass types by 1.
+Round,Normal,60,100%,15,Power doubles if others used Round this turn.
+Ruination,Dark,—,90%,10,Does damage equal to 1/2 target's current HP.
+Sacred Fire,Fire,100,95%,5,50% chance to burn the target. Thaws user.
+Sacred Sword,Fighting,90,100%,15,Ignores the target's stat stage changes.
+Safeguard,Normal,—,—,25,"For 5 turns, protects user's party from status."
+Salt Cure,Rock,40,100%,15,"Deals 1/8 max HP each turn; 1/4 on Steel, Water."
+Sand Attack,Ground,—,100%,15,Lowers the target's accuracy by 1.
+Sand Tomb,Ground,35,85%,15,Traps and damages the target for 4-5 turns.
+Sandsear Storm,Ground,100,80%,10,20% chance to burn foe(s). Can't miss in rain.
+Sandstorm,Rock,—,—,10,"For 5 turns, a sandstorm rages. Rock: 1.5x SpD."
+Sappy Seed,Grass,90,100%,15,Summons Leech Seed.
+Savage Spin-Out,Bug,1,—,1,Power is equal to the base move's Z-Power.
+Scald,Water,80,100%,15,30% chance to burn the target. Thaws target.
+Scale Shot,Dragon,25,90%,20,"Hits 2-5 times. User: -1 Def, +1 Spe after last hit."
+Scary Face,Normal,—,100%,10,Lowers the target's Speed by 2.
+Scorching Sands,Ground,70,100%,10,30% chance to burn the target. Thaws target.
+Scratch,Normal,40,100%,35,No additional effect.
+Screech,Normal,—,85%,40,Lowers the target's Defense by 2.
+Searing Shot,Fire,100,100%,5,30% chance to burn adjacent Pokemon.
+Searing Sunraze Smash,Steel,200,—,1,Ignores the Abilities of other Pokemon.
+Secret Power,Normal,70,100%,20,Effect varies with terrain. (30% paralysis chance)
+Secret Sword,Fighting,85,100%,10,"Damages target based on Defense, not Sp. Def."
+Seed Bomb,Grass,80,100%,15,No additional effect.
+Seed Flare,Grass,120,85%,5,40% chance to lower the target's Sp. Def by 2.
+Seismic Toss,Fighting,—,100%,20,Does damage equal to the user's level.
+Self-Destruct,Normal,200,100%,5,Hits adjacent Pokemon. The user faints.
+Shadow Ball,Ghost,80,100%,15,20% chance to lower the target's Sp. Def by 1.
+Shadow Bone,Ghost,85,100%,10,20% chance to lower the target's Defense by 1.
+Shadow Claw,Ghost,70,100%,15,High critical hit ratio.
+Shadow Force,Ghost,120,100%,5,Disappears turn 1. Hits turn 2. Breaks protection.
+Shadow Punch,Ghost,60,—,20,This move does not check accuracy.
+Shadow Sneak,Ghost,40,100%,30,Usually goes first.
+Shadow Strike,Ghost,80,95%,10,50% chance to lower the target's Defense by 1.
+Sharpen,Normal,—,—,30,Raises the user's Attack by 1.
+Shattered Psyche,Psychic,1,—,1,Power is equal to the base move's Z-Power.
+Shed Tail,Normal,—,—,10,User takes 1/2 its max HP to pass a substitute.
+Sheer Cold,Ice,—,30%,5,OHKOs non-Ice targets. Fails if user's lower level.
+Shell Side Arm,Poison,90,100%,10,20% psn. Physical+contact if it would be stronger.
+Shell Smash,Normal,—,—,15,"Lowers Def, SpD by 1; raises Atk, SpA, Spe by 2."
+Shell Trap,Fire,150,100%,5,User must take physical damage before moving.
+Shelter,Steel,—,—,10,Raises the user's Defense by 2.
+Shift Gear,Steel,—,—,10,Raises the user's Speed by 2 and Attack by 1.
+Shock Wave,Electric,60,—,20,This move does not check accuracy.
+Shore Up,Ground,—,—,5,User restores 1/2 its max HP; 2/3 in Sandstorm.
+Signal Beam,Bug,75,100%,15,10% chance to confuse the target.
+Silk Trap,Bug,—,—,10,Protects from damaging attacks. Contact: -1 Spe.
+Silver Wind,Bug,60,100%,5,10% chance to raise all stats by 1 (not acc/eva).
+Simple Beam,Normal,—,100%,15,The target's Ability becomes Simple.
+Sing,Normal,—,55%,15,Causes the target to fall asleep.
+Sinister Arrow Raid,Ghost,180,—,1,No additional effect.
+Sizzly Slide,Fire,90,100%,15,100% chance to burn the foe.
+Sketch,Normal,—,—,1,Permanently copies the last move target used.
+Skill Swap,Psychic,—,—,10,The user and the target trade Abilities.
+Skitter Smack,Bug,70,90%,10,100% chance to lower target's Sp. Atk by 1.
+Skull Bash,Normal,130,100%,10,Raises user's Defense by 1 on turn 1. Hits turn 2.
+Sky Attack,Flying,140,90%,5,"Charges, then hits turn 2. 30% flinch. High crit."
+Sky Drop,Flying,60,100%,10,User and foe fly up turn 1. Damages on turn 2.
+Sky Uppercut,Fighting,85,90%,15,"Can hit Pokemon using Bounce, Fly, or Sky Drop."
+Slack Off,Normal,—,—,5,Heals the user by 50% of its max HP.
+Slam,Normal,80,75%,20,No additional effect.
+Slash,Normal,70,100%,20,High critical hit ratio.
+Sleep Powder,Grass,—,75%,15,Causes the target to fall asleep.
+Sleep Talk,Normal,—,—,10,User must be asleep. Uses another known move.
+Sludge,Poison,65,100%,20,30% chance to poison the target.
+Sludge Bomb,Poison,90,100%,10,30% chance to poison the target.
+Sludge Wave,Poison,95,100%,10,10% chance to poison adjacent Pokemon.
+Smack Down,Rock,50,100%,15,Removes the target's Ground immunity.
+Smart Strike,Steel,70,—,10,This move does not check accuracy.
+Smelling Salts,Normal,70,100%,10,"Power doubles if target is paralyzed, and cures it."
+Smog,Poison,30,70%,20,40% chance to poison the target.
+Smokescreen,Normal,—,100%,20,Lowers the target's accuracy by 1.
+Snap Trap,Grass,35,100%,15,Traps and damages the target for 4-5 turns.
+Snarl,Dark,55,95%,15,100% chance to lower the foe(s) Sp. Atk by 1.
+Snatch,Dark,—,—,10,User steals certain support moves to use itself.
+Snipe Shot,Water,80,100%,15,High critical hit ratio. Cannot be redirected.
+Snore,Normal,50,100%,15,User must be asleep. 30% chance to flinch target.
+Snowscape,Ice,—,—,10,"For 5 turns, snow falls. Ice: 1.5x Def."
+Soak,Water,—,100%,20,Changes the target's type to Water.
+Soft-Boiled,Normal,—,—,5,Heals the user by 50% of its max HP.
+Solar Beam,Grass,120,100%,10,Charges turn 1. Hits turn 2. No charge in sunlight.
+Solar Blade,Grass,125,100%,10,Charges turn 1. Hits turn 2. No charge in sunlight.
+Sonic Boom,Normal,—,90%,20,Always does 20 HP of damage.
+Soul-Stealing 7-Star Strike,Ghost,195,—,1,No additional effect.
+Spacial Rend,Dragon,100,95%,5,High critical hit ratio.
+Spark,Electric,65,100%,20,30% chance to paralyze the target.
+Sparkling Aria,Water,90,100%,10,The target is cured of its burn.
+Sparkly Swirl,Fairy,90,100%,15,Cures the user's party of all status conditions.
+Spectral Thief,Ghost,90,100%,10,Steals target's boosts before dealing damage.
+Speed Swap,Psychic,—,—,10,Swaps Speed stat with target.
+Spicy Extract,Grass,—,—,15,Raises target's Atk by 2 and lowers its Def by 2.
+Spider Web,Bug,—,—,10,Prevents the target from switching out.
+Spike Cannon,Normal,20,100%,15,Hits 2-5 times in one turn.
+Spikes,Ground,—,—,20,Hurts grounded foes on switch-in. Max 3 layers.
+Spiky Shield,Grass,—,—,10,Protects from moves. Contact: loses 1/8 max HP.
+Spin Out,Steel,100,100%,5,Lowers the user's Speed by 2.
+Spirit Break,Fairy,75,100%,15,100% chance to lower the target's Sp. Atk by 1.
+Spirit Shackle,Ghost,80,100%,10,Prevents the target from switching out.
+Spit Up,Normal,—,100%,10,More power with more uses of Stockpile.
+Spite,Ghost,—,100%,10,Lowers the PP of the target's last move by 4.
+Splash,Normal,—,—,40,No competitive use.
+Splintered Stormshards,Rock,190,—,1,Ends the effects of terrain.
+Splishy Splash,Water,90,100%,15,30% chance to paralyze the target.
+Spore,Grass,—,100%,15,Causes the target to fall asleep.
+Spotlight,Normal,—,—,15,Target's foes' moves are redirected to it this turn.
+Springtide Storm,Fairy,100,80%,5,30% chance to lower the foe(s) Attack by 1.
+Stealth Rock,Rock,—,—,20,Hurts foes on switch-in. Factors Rock weakness.
+Steam Eruption,Water,110,95%,5,30% chance to burn the target. Thaws target.
+Steamroller,Bug,65,100%,20,30% chance to make the target flinch.
+Steel Beam,Steel,140,95%,5,User loses 50% max HP.
+Steel Roller,Steel,130,100%,5,Fails if there is no terrain active. Ends the terrain.
+Steel Wing,Steel,70,90%,25,10% chance to raise the user's Defense by 1.
+Sticky Web,Bug,—,—,20,Lowers Speed of grounded foes by 1 on switch-in.
+Stockpile,Normal,—,—,20,"Raises user's Defense, Sp. Def by 1. Max 3 uses."
+Stoked Sparksurfer,Electric,175,—,1,100% chance to paralyze the target.
+Stomp,Normal,65,100%,20,30% chance to make the target flinch.
+Stomping Tantrum,Ground,75,100%,10,Power doubles if the user's last move failed.
+Stone Axe,Rock,65,90%,15,Sets Stealth Rock on the target's side.
+Stone Edge,Rock,100,80%,5,High critical hit ratio.
+Stored Power,Psychic,20,100%,10,+ 20 power for each of the user's stat boosts.
+Storm Throw,Fighting,60,100%,10,Always results in a critical hit.
+Strange Steam,Fairy,90,95%,10,20% chance to confuse the target.
+Strength,Normal,80,100%,15,No additional effect.
+Strength Sap,Grass,—,100%,10,User heals HP=target's Atk stat. Lowers Atk by 1.
+String Shot,Bug,—,95%,40,Lowers the foe(s) Speed by 2.
+Struggle,Normal,50,—,1,User loses 1/4 of its max HP.
+Struggle Bug,Bug,50,100%,20,100% chance to lower the foe(s) Sp. Atk by 1.
+Stuff Cheeks,Normal,—,—,10,"Must hold Berry to use. User eats Berry, Def +2."
+Stun Spore,Grass,—,75%,30,Paralyzes the target.
+Submission,Fighting,80,80%,20,Has 1/4 recoil.
+Substitute,Normal,—,—,10,User takes 1/4 its max HP to put in a substitute.
+Subzero Slammer,Ice,1,—,1,Power is equal to the base move's Z-Power.
+Sucker Punch,Dark,70,100%,5,Usually goes first. Fails if target is not attacking.
+Sunny Day,Fire,—,—,5,"For 5 turns, intense sunlight powers Fire moves."
+Sunsteel Strike,Steel,100,100%,5,Ignores the Abilities of other Pokemon.
+Super Fang,Normal,—,90%,10,Does damage equal to 1/2 target's current HP.
+Supercell Slam,Electric,100,95%,15,User is hurt by 50% of its max HP if it misses.
+Superpower,Fighting,120,100%,5,Lowers the user's Attack and Defense by 1.
+Supersonic,Normal,—,55%,20,Causes the target to become confused.
+Supersonic Skystrike,Flying,1,—,1,Power is equal to the base move's Z-Power.
+Surf,Water,90,100%,15,Hits adjacent Pokemon. Double damage on Dive.
+Surging Strikes,Water,25,100%,5,Always results in a critical hit. Hits 3 times.
+Swagger,Normal,—,85%,15,Raises the target's Attack by 2 and confuses it.
+Swallow,Normal,—,—,10,Heals the user based on uses of Stockpile.
+Sweet Kiss,Fairy,—,75%,10,Causes the target to become confused.
+Sweet Scent,Normal,—,100%,20,Lowers the foe(s) evasiveness by 2.
+Swift,Normal,60,—,20,This move does not check accuracy. Hits foes.
+Switcheroo,Dark,—,100%,10,User switches its held item with the target's.
+Swords Dance,Normal,—,—,20,Raises the user's Attack by 2.
+Synchronoise,Psychic,120,100%,10,Hits adjacent Pokemon sharing the user's type.
+Synthesis,Grass,—,—,5,Heals the user by a weather-dependent amount.
+Syrup Bomb,Grass,60,85%,10,Target's Speed is lowered by 1 stage for 3 turns.
+Tachyon Cutter,Steel,50,—,10,Hits twice. This move does not check accuracy.
+Tackle,Normal,40,100%,35,No additional effect.
+Tail Glow,Bug,—,—,20,Raises the user's Sp. Atk by 3.
+Tail Slap,Normal,25,85%,10,Hits 2-5 times in one turn.
+Tail Whip,Normal,—,100%,30,Lowers the foe(s) Defense by 1.
+Tailwind,Flying,—,—,15,"For 4 turns, allies' Speed is doubled."
+Take Down,Normal,90,85%,20,Has 1/4 recoil.
+Take Heart,Psychic,—,—,15,"Cures user's status, raises Sp. Atk, Sp. Def by 1."
+Tar Shot,Rock,—,100%,15,Target gets -1 Spe and becomes weaker to Fire.
+Taunt,Dark,—,100%,20,Target can't use status moves its next 3 turns.
+Tearful Look,Normal,—,—,20,Lowers the target's Attack and Sp. Atk by 1.
+Teatime,Normal,—,—,10,All active Pokemon consume held Berries.
+Techno Blast,Normal,120,100%,5,Type varies based on the held Drive.
+Tectonic Rage,Ground,1,—,1,Power is equal to the base move's Z-Power.
+Teeter Dance,Normal,—,100%,20,Confuses adjacent Pokemon.
+Telekinesis,Psychic,—,—,15,"For 3 turns, target floats but moves can't miss it."
+Teleport,Psychic,—,—,20,User switches out.
+Temper Flare,Fire,75,100%,10,Power doubles if the user's last move failed.
+Tera Blast,Normal,80,100%,10,"If Terastallized: Phys. if Atk > SpA, type = Tera."
+Tera Starstorm,Normal,120,100%,5,"Terapagos-Stellar: Stellar type, hits both foes."
+Terrain Pulse,Normal,50,100%,10,"User on terrain: power doubles, type varies."
+Thief,Dark,60,100%,25,"If the user has no item, it steals the target's."
+Thousand Arrows,Ground,90,100%,10,Grounds adjacent foes. First hit neutral on Flying.
+Thousand Waves,Ground,90,100%,10,Hits adjacent foes. Prevents them from switching.
+Thrash,Normal,120,100%,10,Lasts 2-3 turns. Confuses the user afterwards.
+Throat Chop,Dark,80,100%,15,"For 2 turns, the target cannot use sound moves."
+Thunder,Electric,110,70%,10,30% chance to paralyze. Can't miss in rain.
+Thunder Cage,Electric,80,90%,15,Traps and damages the target for 4-5 turns.
+Thunder Fang,Electric,65,95%,15,10% chance to paralyze. 10% chance to flinch.
+Thunder Punch,Electric,75,100%,15,10% chance to paralyze the target.
+Thunder Shock,Electric,40,100%,30,10% chance to paralyze the target.
+Thunder Wave,Electric,—,90%,20,Paralyzes the target.
+Thunderbolt,Electric,90,100%,15,10% chance to paralyze the target.
+Thunderclap,Electric,70,100%,5,Usually goes first. Fails if target is not attacking.
+Thunderous Kick,Fighting,90,100%,10,100% chance to lower the target's Defense by 1.
+Tickle,Normal,—,100%,20,Lowers the target's Attack and Defense by 1.
+Tidy Up,Normal,—,—,10,"User +1 Atk, Spe. Clears all substitutes/hazards."
+Topsy-Turvy,Dark,—,—,20,Inverts the target's stat stages.
+Torch Song,Fire,80,100%,10,100% chance to raise the user's Sp. Atk by 1.
+Torment,Dark,—,100%,15,Target can't select the same move twice in a row.
+Toxic,Poison,—,90%,10,Badly poisons the target. Poison types can't miss.
+Toxic Spikes,Poison,—,—,20,Poisons grounded foes on switch-in. Max 2 layers.
+Toxic Thread,Poison,—,100%,20,Lowers the target's Speed by 1 and poisons it.
+Trailblaze,Grass,50,100%,20,100% chance to raise the user's Speed by 1.
+Transform,Normal,—,—,10,"Copies target's stats, moves, types, and Ability."
+Tri Attack,Normal,80,100%,10,20% chance to paralyze or burn or freeze target.
+Trick,Psychic,—,100%,10,User switches its held item with the target's.
+Trick Room,Psychic,—,—,5,"Goes last. For 5 turns, turn order is reversed."
+Trick-or-Treat,Ghost,—,100%,20,Adds Ghost to the target's type(s).
+Triple Arrows,Fighting,90,100%,10,"High crit. Target: 50% -1 Defense, 30% flinch."
+Triple Axel,Ice,20,90%,10,"Hits 3 times. Each hit can miss, but power rises."
+Triple Dive,Water,30,95%,10,Hits 3 times.
+Triple Kick,Fighting,10,90%,10,"Hits 3 times. Each hit can miss, but power rises."
+Trop Kick,Grass,70,100%,15,100% chance to lower the target's Attack by 1.
+Trump Card,Normal,—,—,5,More power the fewer PP this move has left.
+Twin Beam,Psychic,40,100%,10,Hits 2 times in one turn.
+Twineedle,Bug,25,100%,20,Hits 2 times. Each hit has 20% chance to poison.
+Twinkle Tackle,Fairy,1,—,1,Power is equal to the base move's Z-Power.
+Twister,Dragon,40,100%,20,20% chance to make the foe(s) flinch.
+U-turn,Bug,70,100%,20,User switches out after damaging the target.
+Upper Hand,Fighting,65,100%,15,100% flinch. Fails unless target using priority.
+Uproar,Normal,90,100%,10,Lasts 3 turns. Active Pokemon cannot fall asleep.
+V-create,Fire,180,95%,5,"Lowers the user's Defense, Sp. Def, Speed by 1."
+Vacuum Wave,Fighting,40,100%,30,Usually goes first.
+Veevee Volley,Normal,—,—,20,Max happiness: 102 power. Can't miss.
+Venom Drench,Poison,—,100%,20,Lowers Atk/Sp. Atk/Speed of poisoned foes by 1.
+Venoshock,Poison,65,100%,10,Power doubles if the target is poisoned.
+Vice Grip,Normal,55,100%,30,No additional effect.
+Victory Dance,Fighting,—,—,10,"Raises the user's Attack, Defense, Speed by 1."
+Vine Whip,Grass,45,100%,25,No additional effect.
+Vital Throw,Fighting,70,—,10,This move does not check accuracy. Goes last.
+Volt Switch,Electric,70,100%,20,User switches out after damaging the target.
+Volt Tackle,Electric,120,100%,15,Has 33% recoil. 10% chance to paralyze target.
+Wake-Up Slap,Fighting,70,100%,10,"Power doubles if target is asleep, and wakes it."
+Water Gun,Water,40,100%,25,No additional effect.
+Water Pledge,Water,80,100%,10,Use with Grass or Fire Pledge for added effect.
+Water Pulse,Water,60,100%,20,20% chance to confuse the target.
+Water Shuriken,Water,15,100%,20,Usually goes first. Hits 2-5 times in one turn.
+Water Sport,Water,—,—,15,"For 5 turns, Fire-type attacks have 1/3 power."
+Water Spout,Water,150,100%,5,Less power as user's HP decreases. Hits foe(s).
+Waterfall,Water,80,100%,15,20% chance to make the target flinch.
+Wave Crash,Water,120,100%,10,Has 33% recoil.
+Weather Ball,Normal,50,100%,10,Power doubles and type varies in each weather.
+Whirlpool,Water,35,85%,15,Traps and damages the target for 4-5 turns.
+Whirlwind,Normal,—,—,20,Forces the target to switch to a random ally.
+Wicked Blow,Dark,75,100%,5,Always results in a critical hit.
+Wicked Torque,Dark,80,100%,10,10% chance to cause the target to fall asleep.
+Wide Guard,Rock,—,—,10,Protects allies from multi-target moves this turn.
+Wild Charge,Electric,90,100%,15,Has 1/4 recoil.
+Wildbolt Storm,Electric,100,80%,10,20% chance to paralyze foe(s). Rain: can't miss.
+Will-O-Wisp,Fire,—,85%,15,Burns the target.
+Wing Attack,Flying,60,100%,35,No additional effect.
+Wish,Normal,—,—,10,"Next turn, 50% of the user's max HP is restored."
+Withdraw,Water,—,—,40,Raises the user's Defense by 1.
+Wonder Room,Psychic,—,—,10,"For 5 turns, all Defense and Sp. Def stats switch."
+Wood Hammer,Grass,120,100%,15,Has 33% recoil.
+Work Up,Normal,—,—,30,Raises the user's Attack and Sp. Atk by 1.
+Worry Seed,Grass,—,100%,10,The target's Ability becomes Insomnia.
+Wrap,Normal,15,90%,20,Traps and damages the target for 4-5 turns.
+Wring Out,Normal,—,100%,5,More power the more HP the target has left.
+X-Scissor,Bug,80,100%,15,No additional effect.
+Yawn,Normal,—,—,10,Puts the target to sleep after 1 turn.
+Zap Cannon,Electric,120,50%,5,100% chance to paralyze the target.
+Zen Headbutt,Psychic,80,90%,15,20% chance to make the target flinch.
+Zing Zap,Electric,80,100%,10,30% chance to make the target flinch.
+Zippy Zap,Electric,50,100%,15,Nearly always goes first. Always crits.
